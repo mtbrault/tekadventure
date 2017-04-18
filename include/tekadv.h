@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 13:34:05 2017 Capitaine CASSE
-** Last update Sun Apr 16 18:04:27 2017 Capitaine CASSE
+** Last update Tue Apr 18 16:14:22 2017 LAABID Zakaria
 */
 
 #ifndef TEKADV_H
@@ -23,10 +23,8 @@
 
 #define HELP		"USAGE:\t./tekadventure [file]\n\tfile : map config file.\n"
 
-#define STMENU_TITLE	"./ressources/menus/start/title.png"
-#define STMENU_PLAY	"./ressources/menus/start/play.png"
-#define STMENU_OPT	"./ressources/menus/start/options.png"
-#define STMENU_QUIT	"./ressources/menus/start/quit.png"
+#define STMENU_MAIN	"./ressources/menus/guimainmenu.png"
+#define STMENU_CHARACTER "./ressources/menus/guicharacter.png"
 
 typedef struct		s_game
 {

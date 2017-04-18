@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 13:30:34 2017 Capitaine CASSE
-** Last update Tue Apr 18 15:50:40 2017 Capitaine CASSE
+** Last update Tue Apr 18 16:03:12 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -31,7 +31,6 @@ int		main(int ac, char **av)
     }
   if ((game = get_file(av[1])) == NULL)
     return (84);
-  
   /* DEBUG */
   while (game->map[i] != NULL)
     {
