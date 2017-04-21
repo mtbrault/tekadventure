@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Fri Apr 21 04:12:09 2017 LAABID Zakaria
-** Last update Fri Apr 21 23:56:46 2017 LAABID Zakaria
+** Last update Sat Apr 22 00:09:22 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -35,8 +35,7 @@ void		music_change(int index, t_menu **menu)
   sfMusic_play(menu[index]->music);
   sfMusic_setLoop(menu[index]->music, sfTrue);
 }
-
-void	        set_position(t_menu **menu)
+void	        set_position_button(t_menu **menu)
 {
   sfVector2f	play;
   sfVector2f	play_hover;
@@ -56,15 +55,29 @@ void	        set_position(t_menu **menu)
   sfSprite_setPosition(menu[4]->sprite_h, close_hover);
 }
 
+/* void	        set_position_panles(t_menu **menu) */
+/* { */
+/*   sfVector2f    option; */
+/*   sfVector2f	option_hover; */
+/*   sfVector2f    shop; */
+/*   sfVector2f    shop_hover; */
+/*   sfVector2f    news; */
+/*   sfVector2f    news_hover; */
+
+/*    = ((sfVector2f) {515.0, 250.0}); */
+/*   play_hover = ((sfVector2f) {515 - (53 / 2), 250.0 - (57 / 2)}); */
+/*   sfSprite_setPosition(menu[PLAY]->sprite, play); */
+/*   sfSprite_setPosition(menu[MULTI]->sprite, multi); */
+/* } */
+
 void		sprite_change(sfRenderWindow *window, int index, t_menu **menu)
 {
-  set_position(menu);
+  set_position_button(menu);
+  //  set_position_panels(menu);
   sfRenderWindow_drawSprite(window, menu[index]->sprite, NULL);
-  sfRenderWindow_drawSprite(window, menu[2]->sprite, NULL);
-  sfRenderWindow_drawSprite(window, menu[2]->sprite_h, NULL);
-  sfRenderWindow_drawSprite(window, menu[3]->sprite, NULL);
-  sfRenderWindow_drawSprite(window, menu[4]->sprite, NULL);
-  sfRenderWindow_drawSprite(window, menu[4]->sprite_h, NULL);
+  sfRenderWindow_drawSprite(window, menu[PLAY]->sprite, NULL);
+  sfRenderWindow_drawSprite(window, menu[MULTI]->sprite, NULL);
+  sfRenderWindow_drawSprite(window, menu[CLOSE]->sprite, NULL);
 }
 
 t_menu		**gen_texture_space(t_menu **menu)

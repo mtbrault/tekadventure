@@ -4,8 +4,8 @@
 ** Made by LAABID Zakaria
 ** Login   <BlackBIrdz@epitech.net>
 ** 
-** Started on  Fri Apr 21 03:27:45 2017 LAABID Zakaria
-** Last update Fri Apr 21 23:59:54 2017 Matthieu BRAULT
+** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
+** Last update Sat Apr 22 00:10:23 2017 LAABID Zakaria
 */
 
 #ifndef TEKADV_H
@@ -35,6 +35,20 @@
 # define SCR_W	        (1280)
 # define SCR_H		(663)
 # define STMENU_S	(4)
+
+# define MENU		(0)
+# define CHARAC		(1)
+# define PLAY		(2)
+# define MULTI		(3)
+# define CLOSE		(4)
+# define START		(5)
+# define NEWS		(6)
+# define OPTION		(7)
+# define SHOP		(8)
+# define FECA		(9)
+# define IOP		(10)
+# define ECA		(11)
+# define OSA		(12)
 
 # define INV_SPECS	"Error : Invalid specifications.\n"
 # define INV_MAP		"Error : Invalid map.\n"
