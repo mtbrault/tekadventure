@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Fri Apr 21 04:12:09 2017 LAABID Zakaria
-** Last update Fri Apr 21 04:29:17 2017 LAABID Zakaria
+** Last update Fri Apr 21 04:57:01 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -34,13 +34,9 @@ t_menu		**gen_texture_space(t_menu **menu)
 
 t_menu		**texture_init(t_menu **menu)
 {
-  //  char		**tab;
   int		i;
 
   i = 0;
-  /* tab = malloc(sizeof(char *) * 3); */
-  /* tab[0] = my_strdup(STMENU_MAIN); */
-  /* tab[1] = my_strdup(STMENU_CHARAC); */
   while (i < MENU_PIC)
     {
       menu[i]->tex = sfTexture_createFromFile(menu_conf[i].tex_path, NULL);
