@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Fri Apr 21 03:27:45 2017 LAABID Zakaria
-** Last update Fri Apr 21 23:19:48 2017 LAABID Zakaria
+** Last update Fri Apr 21 23:59:54 2017 Matthieu BRAULT
 */
 
 #ifndef TEKADV_H
@@ -143,7 +143,7 @@ int			free_map(int ***);
 */
 void			music_change(int, t_menu **);
 void			sprite_change(sfRenderWindow *, int, t_menu **);
-int			start_menu(t_game *);
+int			start_menu(t_game *, t_player *);
 sfRenderWindow		*create_window(void);
 t_menu			**disp_startmenu(void);
 

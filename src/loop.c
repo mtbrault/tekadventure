@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Fri Apr 21 23:24:58 2017 Matthieu BRAULT
+** Last update Sat Apr 22 00:05:05 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -13,7 +13,17 @@
 #include <stdlib.h>
 #include "tekadv.h"
 
-int		my_check_click(sfRenderWindow *window)
+int	my_check_exit(sfRenderWindow *window, sfVector2i mouse_pos)
+{
+  if (mouse_pos.x >= 573 && mouse_pos.x <= 767 &&
+	   mouse_pos.y >= 356 && mouse_pos.y <= 390)
+    {
+      exit(0);
+      return (1);
+    }
+}
+
+int		my_check_click(sfRenderWindow *window, int x)
 {
   sfVector2i	mouse_pos;
 
@@ -21,11 +31,16 @@ int		my_check_click(sfRenderWindow *window)
   if (mouse_pos.x >= 573 && mouse_pos.x <= 767 &&
       mouse_pos.y >= 248 && mouse_pos.y <= 279)
     return (1);
+  if (x == 0)
+    {
+      if (my_check_exit(window, mouse_pos) == 1)
+	return (1);
+    }
   else
     return (0);
 }
 
-void	display_window(sfRenderWindow *window, t_menu **menu)
+void	display_window(sfRenderWindow *window, t_menu **menu, t_player *player)
 {
   int		index;
   sfEvent	event;
@@ -42,12 +57,15 @@ void	display_window(sfRenderWindow *window, t_menu **menu)
 	  if (index == 0)
 	    {
 	      if (sfMouse_isButtonPressed(sfMouseLeft))
-		if (my_check_click(window) == 1)
+		if (my_check_click(window, 0) == 1)
 		  index = 1;
 	    }
-	  if (sfMouse_isButtonPressed(sfMouseLeft))
-	    if (my_check_class(window) == 1)
-	      index = 2;
+	  if (index == 1)
+	    {
+	      if (sfMouse_isButtonPressed(sfMouseLeft))
+		if (my_check_class(window, player) == 1)
+		  index = 2;
+	    }
 	}
       sfRenderWindow_clear(window, sfBlack);
       sprite_change(window, index, menu);
@@ -55,7 +73,7 @@ void	display_window(sfRenderWindow *window, t_menu **menu)
     }
 }
 
-int			start_menu(t_game *game)
+int			start_menu(t_game *game, t_player *player)
 {
   t_menu		**menu;
   sfRenderWindow        *window;
@@ -67,7 +85,7 @@ int			start_menu(t_game *game)
     return (-1);
   if ((menu = disp_startmenu()) == NULL)
     return (-1);
-  display_window(window, menu);
+  display_window(window, menu, player);
   sfRenderWindow_close(window);
   return (0);
 }

@@ -5,25 +5,27 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Fri Apr 21 23:32:41 2017 Matthieu BRAULT
-** Last update Fri Apr 21 23:33:23 2017 Matthieu BRAULT
+** Last update Sat Apr 22 00:00:11 2017 Matthieu BRAULT
 */
 
-void	get_iop()
+#include "tekadv.h"
+
+void	get_iop(t_player *player)
 {
   my_putstr("iop");
 }
 
-void	get_feca()
+void	get_feca(t_player *player)
 {
   my_putstr("feca");
 }
 
-void	get_ecaflip()
+void	get_ecaflip(t_player *player)
 {
   my_putstr("ecaflip");
 }
 
-void	get_osa()
+void	get_osa(t_player *player)
 {
   my_putstr("osa");
 }
