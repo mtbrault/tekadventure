@@ -5,59 +5,36 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Tue Apr 18 16:14:58 2017 LAABID Zakaria
+** Last update Fri Apr 21 04:10:37 2017 LAABID Zakaria
 */
+
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include "tekadv.h"
 
-int			gametrack(t_game *game, sfRenderWindow *window)
-{
-  game = game;
-  window = window;
-  return (0);
-}
-
-int			loop(t_game *game, sfRenderWindow *window)
-{
-  sfEvent		event;
-
-  while (sfRenderWindow_isOpen(window))
-    {
-      sfRenderWindow_clear(window, sfBlack);
-      while (sfRenderWindow_pollEvent(window, &event))
-	{
-	  if ((event.type == sfEvtClosed) ||
-	      (sfKeyboard_isKeyPressed(sfKeyEscape)))
-	    sfRenderWindow_close(window);
-	}
-      if (gametrack(game, window))
-	return (1);
-    }
-  return (0);
-}
-
 int			start_menu(t_game *game)
 {
+  t_menu		**menu;
   sfRenderWindow        *window;
   sfEvent               event;
-  int			a;
 
+  game = game;
+  menu = malloc(sizeof(t_menu));
   if ((window = create_window()) == NULL)
     return (-1);
+  menu = disp_startmenu();
   while (sfRenderWindow_isOpen(window))
     {
-      sfRenderWindow_clear(window, sfBlack);
       while (sfRenderWindow_pollEvent(window, &event))
 	{
 	  if ((event.type == sfEvtClosed) ||
 	      (sfKeyboard_isKeyPressed(sfKeyEscape)))
 	    sfRenderWindow_close(window);
 	}
-      if ((a = disp_startmenu(window)) == 1)
-	loop(game, window);
-      if (a == -1)
-	break ;
       sfRenderWindow_clear(window, sfBlack);
+      sfRenderWindow_drawSprite(window, menu[1]->sprite, NULL);
       sfRenderWindow_display(window);
     }
   sfRenderWindow_close(window);
