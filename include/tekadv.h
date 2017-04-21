@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Fri Apr 21 03:27:45 2017 LAABID Zakaria
-** Last update Fri Apr 21 22:15:21 2017 Matthieu BRAULT
+** Last update Fri Apr 21 22:29:06 2017 Capitaine CASSE
 */
 
 #ifndef TEKADV_H
@@ -31,6 +31,7 @@
 # define FAIL		(-1)
 # define ERROR		(84)
 # define EOB		(-42)
+# define S_TILE         (32)
 # define SCR_W	        (1280)
 # define SCR_H		(663)
 # define STMENU_S	(4)
@@ -45,6 +46,8 @@
 # define STMENU_CHARAC	"./ressources/menus/guicharacter.png"
 # define MUSIC_MAIN	"./ressources/music/dofas_menu.ogg"
 # define MUSIC_CHARAC	"./ressources/music/dofas_character.ogg"
+
+# define GRID_PATH      "./ressources/misc/tile.png"
 
 /*
 ** ***************************************************
