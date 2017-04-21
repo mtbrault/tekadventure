@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Fri Apr 21 03:27:45 2017 LAABID Zakaria
-** Last update Fri Apr 21 04:11:38 2017 LAABID Zakaria
+** Last update Fri Apr 21 04:28:21 2017 LAABID Zakaria
 */
 
 #ifndef TEKADV_H
@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SFML/Graphics.h>
+#include <SFML/Audio.h>
 
 #define EOB		-42
 #define SCR_W	        1280
@@ -29,6 +30,14 @@
 #define MENU_PIC	(2)
 #define STMENU_MAIN	"./ressources/menus/guimainmenu.png"
 #define STMENU_CHARAC	"./ressources/menus/guicharacter.png"
+#define MUSIC_MAIN	"./ressources/music/dofas_menu.ogg"
+#define MUSIC_CHARAC	"./ressources/music/dofas_character.ogg"
+
+typedef struct		s_menu_conf
+{
+  char	*tex_path;
+  char	*music_path;
+}			t_menu_conf;
 
 typedef struct		s_game
 {
@@ -66,6 +75,7 @@ typedef struct		s_menu
   int			hover;
   sfVector2f		pos;
   sfVector2u		size;
+  sfMusic		*music;
 }			t_menu;
 
 int			my_puterr(char *);
