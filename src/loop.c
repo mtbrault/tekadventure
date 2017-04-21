@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Fri Apr 21 20:09:19 2017 Matthieu BRAULT
+** Last update Fri Apr 21 20:13:37 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -13,21 +13,12 @@
 #include <stdlib.h>
 #include "tekadv.h"
 
-int			start_menu(t_game *game)
+void	display_window(sfRenderWindow *window, t_menu **menu)
 {
-  int			index;
-  t_menu		**menu;
-  sfRenderWindow        *window;
-  sfEvent               event;
+  int		index;
+  sfEvent	event;
 
   index = 1;
-  game = game;
-  if ((menu = malloc(sizeof(t_menu))) == NULL)
-    return (-1);
-  if ((window = create_window()) == NULL)
-    return (-1);
-  if ((menu = disp_startmenu()) == NULL)
-    return (-1);
   music_change(index, menu);
   while (sfRenderWindow_isOpen(window))
     {
@@ -41,6 +32,21 @@ int			start_menu(t_game *game)
       sprite_change(window, index, menu);
       sfRenderWindow_display(window);
     }
+}
+
+int			start_menu(t_game *game)
+{
+  t_menu		**menu;
+  sfRenderWindow        *window;
+
+  game = game;
+  if ((menu = malloc(sizeof(t_menu))) == NULL)
+    return (-1);
+  if ((window = create_window()) == NULL)
+    return (-1);
+  if ((menu = disp_startmenu()) == NULL)
+    return (-1);
+  display_window(window, menu);
   sfRenderWindow_close(window);
   return (0);
 }
