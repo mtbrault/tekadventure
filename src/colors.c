@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Fri Apr 21 04:12:09 2017 LAABID Zakaria
-** Last update Fri Apr 21 04:57:01 2017 LAABID Zakaria
+** Last update Fri Apr 21 17:11:55 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -18,6 +18,17 @@ t_menu_conf	menu_conf[MENU_PIC]=
     {STMENU_MAIN, MUSIC_MAIN},
     {STMENU_CHARAC, MUSIC_CHARAC}
   };
+
+void		music_change(int index, t_menu **menu)
+{
+  sfMusic_play(menu[index]->music);
+  sfMusic_setLoop(menu[index]->music, sfTrue);
+}
+
+void		sprite_change(sfRenderWindow *window, int index, t_menu **menu)
+{
+  sfRenderWindow_drawSprite(window, menu[index]->sprite, NULL);
+}
 
 t_menu		**gen_texture_space(t_menu **menu)
 {
