@@ -5,13 +5,12 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Fri Apr 21 17:11:33 2017 LAABID Zakaria
+** Last update Fri Apr 21 20:09:19 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "tekadv.h"
 
 int			start_menu(t_game *game)
@@ -23,10 +22,12 @@ int			start_menu(t_game *game)
 
   index = 1;
   game = game;
-  menu = malloc(sizeof(t_menu));
+  if ((menu = malloc(sizeof(t_menu))) == NULL)
+    return (-1);
   if ((window = create_window()) == NULL)
     return (-1);
-  menu = disp_startmenu();
+  if ((menu = disp_startmenu()) == NULL)
+    return (-1);
   music_change(index, menu);
   while (sfRenderWindow_isOpen(window))
     {

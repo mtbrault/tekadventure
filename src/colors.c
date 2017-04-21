@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Fri Apr 21 04:12:09 2017 LAABID Zakaria
-** Last update Fri Apr 21 17:11:55 2017 LAABID Zakaria
+** Last update Fri Apr 21 19:58:41 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -66,8 +66,10 @@ t_menu		**disp_startmenu(void)
 {
   t_menu	**menu;
 
-  menu = malloc(sizeof(t_menu));
-  menu = gen_texture_space(menu);
+  if ((menu = malloc(sizeof(t_menu))) == NULL)
+    return (NULL);
+  if ((menu = gen_texture_space(menu)) == NULL)
+    return (NULL);
   menu = texture_init(menu);
   return (menu);
 }

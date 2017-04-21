@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Fri Apr 21 03:27:45 2017 LAABID Zakaria
-** Last update Fri Apr 21 17:10:51 2017 LAABID Zakaria
+** Last update Fri Apr 21 19:24:30 2017 Matthieu BRAULT
 */
 
 #ifndef TEKADV_H
@@ -27,24 +27,24 @@
 **                     - MACRO -
 ** ***************************************************
 */
-#define NORMAL		(0)
-#define FAIL		(-1)
-#define ERROR		(84)
-#define EOB		(-42)
-#define SCR_W	        (1280)
-#define SCR_H		(663)
-#define STMENU_S	(4)
+# define NORMAL		(0)
+# define FAIL		(-1)
+# define ERROR		(84)
+# define EOB		(-42)
+# define SCR_W	        (1280)
+# define SCR_H		(663)
+# define STMENU_S	(4)
 
-#define INV_SPECS	"Error : Invalid specifications.\n"
-#define INV_MAP		"Error : Invalid map.\n"
+# define INV_SPECS	"Error : Invalid specifications.\n"
+# define INV_MAP		"Error : Invalid map.\n"
 
-#define HELP		"USAGE:\t./tekadventure [file]\n\tfile : map config file.\n"
+# define HELP		"USAGE:\t./tekadventure [file]\n\tfile : map config file.\n"
 
-#define MENU_PIC	(2)
-#define STMENU_MAIN	"./ressources/menus/guimainmenu.png"
-#define STMENU_CHARAC	"./ressources/menus/guicharacter.png"
-#define MUSIC_MAIN	"./ressources/music/dofas_menu.ogg"
-#define MUSIC_CHARAC	"./ressources/music/dofas_character.ogg"
+# define MENU_PIC	(2)
+# define STMENU_MAIN	"./ressources/menus/guimainmenu.png"
+# define STMENU_CHARAC	"./ressources/menus/guicharacter.png"
+# define MUSIC_MAIN	"./ressources/music/dofas_menu.ogg"
+# define MUSIC_CHARAC	"./ressources/music/dofas_character.ogg"
 
 /*
 ** ***************************************************
@@ -134,4 +134,4 @@ char			*get_next_line(int);
 int			my_putstr(char *);
 char			*my_strdup(char *);
 
-#endif /* TEKADV_H */
+#endif /* !TEKADV_H */
