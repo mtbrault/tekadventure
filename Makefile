@@ -5,7 +5,7 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Fri Apr 21 02:33:08 2017 LAABID Zakaria
+## Last update Fri Apr 21 22:13:43 2017 Matthieu BRAULT
 ##
 
 CC	=	gcc -g3
@@ -16,7 +16,8 @@ SRC	=	src/main.c			\
 		src/get_file.c			\
 		src/tools.c			\
 		src/colors.c			\
-		src/frees.c
+		src/frees.c			\
+		src/mouse.c
 
 OBJ	=	$(SRC:.c=.o)
 

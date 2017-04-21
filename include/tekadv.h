@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Fri Apr 21 03:27:45 2017 LAABID Zakaria
-** Last update Fri Apr 21 19:24:30 2017 Matthieu BRAULT
+** Last update Fri Apr 21 22:15:21 2017 Matthieu BRAULT
 */
 
 #ifndef TEKADV_H
@@ -122,6 +122,7 @@ t_menu			**disp_startmenu(void);
 ** ***************************************************
 */
 void			debug(t_game *);
+sfVector2i		get_mouse_pos(sfRenderWindow *);
 
 /*
 ** ***************************************************
