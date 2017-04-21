@@ -5,7 +5,7 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Fri Apr 21 22:28:08 2017 Capitaine CASSE
+## Last update Fri Apr 21 23:33:53 2017 Matthieu BRAULT
 ##
 
 CC	=	gcc -g3
@@ -18,7 +18,9 @@ SRC	=	src/main.c			\
 		src/grid.c			\
 		src/colors.c			\
 		src/frees.c			\
-		src/mouse.c
+		src/mouse.c			\
+		src/check_class.c		\
+		src/fill_player.c		\
 
 OBJ	=	$(SRC:.c=.o)
 

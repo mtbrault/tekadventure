@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Fri Apr 21 22:21:38 2017 Matthieu BRAULT
+** Last update Fri Apr 21 23:24:58 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -39,9 +39,15 @@ void	display_window(sfRenderWindow *window, t_menu **menu)
 	  if ((event.type == sfEvtClosed) ||
 	      (sfKeyboard_isKeyPressed(sfKeyEscape)))
 	    sfRenderWindow_close(window);
+	  if (index == 0)
+	    {
+	      if (sfMouse_isButtonPressed(sfMouseLeft))
+		if (my_check_click(window) == 1)
+		  index = 1;
+	    }
 	  if (sfMouse_isButtonPressed(sfMouseLeft))
-	    if (my_check_click(window) == 1)
-	      index = 1;
+	    if (my_check_class(window) == 1)
+	      index = 2;
 	}
       sfRenderWindow_clear(window, sfBlack);
       sprite_change(window, index, menu);
