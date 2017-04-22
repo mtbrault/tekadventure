@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Fri Apr 21 04:12:09 2017 LAABID Zakaria
-** Last update Sat Apr 22 00:09:22 2017 LAABID Zakaria
+** Last update Sat Apr 22 00:19:38 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -75,7 +75,10 @@ void		sprite_change(sfRenderWindow *window, int index, t_menu **menu)
   set_position_button(menu);
   //  set_position_panels(menu);
   sfRenderWindow_drawSprite(window, menu[index]->sprite, NULL);
-  sfRenderWindow_drawSprite(window, menu[PLAY]->sprite, NULL);
+  if (my_check_click(window, 1) == 1)
+    sfRenderWindow_drawSprite(window, menu[2]->sprite_h, NULL);
+  else
+    sfRenderWindow_drawSprite(window, menu[2]->sprite, NULL);
   sfRenderWindow_drawSprite(window, menu[MULTI]->sprite, NULL);
   sfRenderWindow_drawSprite(window, menu[CLOSE]->sprite, NULL);
 }
