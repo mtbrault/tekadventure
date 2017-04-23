@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Fri Apr 21 19:45:30 2017 Capitaine CASSE
-** Last update Sun Apr 23 15:21:40 2017 Capitaine CASSE
+** Last update Sun Apr 23 15:59:58 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -15,7 +15,7 @@ sfVector2i	resize_tile(sfVector2i dim, sfSprite *sprite)
   sfVector2i	size;
   sfVector2f	scale;
 
-  if (dim.x > dim.y)
+  if (dim.x < dim.y)
     {
       size.y = SCR_H / dim.y;
       size.x = size.y * 2;
@@ -76,12 +76,14 @@ int		draw_grid(int **map, sfVector2i *dim,
   return (0);
 }
 
-int		show_grid(int **map, sfRenderWindow *window, t_game *game)
+int		show_grid(sfRenderWindow *window, t_game *game)
 {
+  int		**map;
   sfTexture	*tex;
   sfSprite	*sprite;
   sfVector2i	dims[2];
 
+  map = game->map[0];
   if ((tex = sfTexture_createFromFile(GRID_PATH, NULL)) == NULL)
     return (1);
   if ((sprite = sfSprite_create()) == NULL)
