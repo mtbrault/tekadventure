@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun Apr 23 16:43:37 2017 LAABID Zakaria
+** Last update Sun Apr 23 18:51:28 2017 Matthieu BRAULT
 */
 
 #ifndef TEKADV_H
@@ -32,8 +32,8 @@
 # define ERROR		(84)
 # define EOB		(-42)
 # define S_TILE         (32)
-# define SCR_H	        (760)
-# define SCR_W		(1080)
+# define SCR_H	        (663)
+# define SCR_W		(1280)
 # define STMENU_S	(4)
 
 # define MENU		(0)

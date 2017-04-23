@@ -5,14 +5,14 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Fri Apr 21 23:25:04 2017 Matthieu BRAULT
-** Last update Sun Apr 23 16:31:12 2017 Matthieu BRAULT
+** Last update Sun Apr 23 19:03:46 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
 
-int	check_class_pos(int x, int y, sfVector2i mouse)
+int	check_class_pos(sfVector2i x, sfVector2i y, sfVector2i mouse)
 {
-  if (mouse.x >= x && mouse.x <= y && mouse.y >= 535 && mouse.y <= 561)
+  if (mouse.x >= x.x && mouse.x <= x.y && mouse.y >= y.x && mouse.y <= y.y)
     return (1);
   else
     return (0);
@@ -21,15 +21,17 @@ int	check_class_pos(int x, int y, sfVector2i mouse)
 int		my_check_class(sfRenderWindow *window, t_player *player)
 {
   sfVector2i	mouse_pos;
+  sfVector2i	y;
 
   mouse_pos = get_mouse_pos(window);
-  if (check_class_pos(306, 448, mouse_pos) == 1)
+  y = ((sfVector2i) {535, 561});
+  if (check_class_pos(((sfVector2i) {306, 448}), y, mouse_pos) == 1)
     get_iop(player);
-  else if (check_class_pos(495, 637, mouse_pos) == 1)
+  else if (check_class_pos(((sfVector2i) {495, 637}), y, mouse_pos) == 1)
     get_feca(player);
-  else if (check_class_pos(680, 826, mouse_pos) == 1)
+  else if (check_class_pos(((sfVector2i) {680, 826}), y, mouse_pos) == 1)
     get_ecaflip(player);
-  else if (check_class_pos(859, 1006, mouse_pos) == 1)
+  else if (check_class_pos(((sfVector2i) {859, 1006}), y, mouse_pos) == 1)
     get_osa(player);
   else
     return (0);

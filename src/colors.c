@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 21:50:42 2017 LAABID Zakaria
-** Last update Sun Apr 23 16:41:42 2017 LAABID Zakaria
+** Last update Sun Apr 23 19:01:59 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -43,7 +43,7 @@ void		sprite_change(sfRenderWindow *window, int index, t_menu **menu)
   sfVector2i	y_p;
 
   x_b = ((sfVector2i) {573, 767});
-  y_p = ((sfVector2i) {451, 532});
+  y_p = ((sfVector2i) {501, 582});
   mouse_pos = get_mouse_pos(window);
   set_position_button(menu);
   set_position_panels(menu);
@@ -51,7 +51,7 @@ void		sprite_change(sfRenderWindow *window, int index, t_menu **menu)
   if (index == MENU)
     {
       if (check_class_pos(x_b, ((sfVector2i) {248, 279}), mouse_pos) == 1)
-	sfRenderWindow_drawSprite(window, menu[PLAY]->sprite_h, NULL);
+	  sfRenderWindow_drawSprite(window, menu[PLAY]->sprite_h, NULL);
       else
 	sfRenderWindow_drawSprite(window, menu[PLAY]->sprite, NULL);
       if (check_class_pos(x_b, ((sfVector2i) {356, 390}), mouse_pos) == 1)
