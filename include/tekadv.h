@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sat Apr 22 00:10:23 2017 LAABID Zakaria
+** Last update Sat Apr 22 21:50:07 2017 Capitaine CASSE
 */
 
 #ifndef TEKADV_H
@@ -32,8 +32,8 @@
 # define ERROR		(84)
 # define EOB		(-42)
 # define S_TILE         (32)
-# define SCR_W	        (1280)
-# define SCR_H		(663)
+# define SCR_H	        (760)
+# define SCR_W		(1080)
 # define STMENU_S	(4)
 
 # define MENU		(0)
@@ -103,6 +103,7 @@ typedef struct		s_game
 {
   int			***map;
   char			**enemies;
+  sfVector2i		tile;
 }			t_game;
 
 typedef struct		s_stat
@@ -122,7 +123,6 @@ typedef struct		s_player
   int			pm;
   int			po;
   int			level;
-  int			map;
   sfVector2i		pos;
   t_stat		*stat;
 }			t_player;
@@ -168,6 +168,7 @@ t_menu			**disp_startmenu(void);
 */
 void			debug(t_game *);
 sfVector2i		get_mouse_pos(sfRenderWindow *);
+int			show_grid(int **, sfRenderWindow *, t_game *);
 
 /*
 ** ***************************************************

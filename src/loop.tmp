@@ -53,6 +53,7 @@ void	display_window(sfRenderWindow *window, t_menu **menu, t_player *player)
 	{
 	  if ((event.type == sfEvtClosed) ||
 	      (sfKeyboard_isKeyPressed(sfKeyEscape)))
+	    sfRenderWindow_close(window);
 	  if (index == 0)
 	    {
 	      if (sfMouse_isButtonPressed(sfMouseLeft))

@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sat Apr 22 00:19:39 2017 Matthieu BRAULT
+** Last update Sun Apr 23 15:22:03 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -40,7 +40,8 @@ int		my_check_click(sfRenderWindow *window, int x)
     return (0);
 }
 
-void	display_window(sfRenderWindow *window, t_menu **menu, t_player *player)
+void	display_window(sfRenderWindow *window, t_menu **menu,
+		       t_player *player, t_game *game)
 {
   int		index;
   sfEvent	event;
@@ -57,19 +58,19 @@ void	display_window(sfRenderWindow *window, t_menu **menu, t_player *player)
 	  if (index == 0)
 	    {
 	      if (sfMouse_isButtonPressed(sfMouseLeft))
-		if (my_check_click(window, 0) == 1)
-		  index = 1;
+	  	if (my_check_click(window, 0) == 1)
+	  	  index = 1;
 	    }
 	  if (index == 1)
 	    {
 	      if (sfMouse_isButtonPressed(sfMouseLeft))
-		if (my_check_class(window, player) == 1)
-		  index = 2;
+	  	if (my_check_class(window, player) == 1)
+	  	  index = 2;
 	    }
 	}
-      sfRenderWindow_clear(window, sfBlack);
-      sfRenderWindow_drawSprite(window, menu[2]->sprite, NULL);
-      sprite_change(window, index, menu);
+      sfRenderWindow_clear(window, sfWhite);
+      //sprite_change(window, index, menu);
+      show_grid(game->map[0], window, game);
       sfRenderWindow_display(window);
     }
 }
@@ -79,14 +80,14 @@ int			start_menu(t_game *game, t_player *player)
   t_menu		**menu;
   sfRenderWindow        *window;
 
-  game = game;
   if ((menu = malloc(sizeof(t_menu))) == NULL)
     return (-1);
   if ((window = create_window()) == NULL)
     return (-1);
   if ((menu = disp_startmenu()) == NULL)
     return (-1);
-  display_window(window, menu, player);
+  display_window(window, menu, player, game);
   sfRenderWindow_close(window);
+  sfRenderWindow_destroy(window);
   return (0);
 }

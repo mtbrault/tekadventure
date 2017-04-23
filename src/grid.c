@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Fri Apr 21 19:45:30 2017 Capitaine CASSE
-** Last update Fri Apr 21 22:13:42 2017 Capitaine CASSE
+** Last update Sun Apr 23 15:21:40 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -15,12 +15,18 @@ sfVector2i	resize_tile(sfVector2i dim, sfSprite *sprite)
   sfVector2i	size;
   sfVector2f	scale;
 
-  size.y = SCR_H / dim.y;
-  size.x = size.y * 2;
-  printf("PUTE %d %d %d\n", dim.x, dim.y, S_TILE);
-  scale.x = (dim.x / (float)(2 * S_TILE));
-  scale.y = (dim.y / (float)S_TILE);
-  printf("SCALE %f %f\n", scale.x, scale.y);
+  if (dim.x > dim.y)
+    {
+      size.y = SCR_H / dim.y;
+      size.x = size.y * 2;
+    }
+  else
+    {
+      size.x = SCR_W / dim.x;
+      size.y = size.x / 2;
+    }
+  scale.x = (size.x / (float)(2 * S_TILE));
+  scale.y = (size.y / (float)S_TILE);
   sfSprite_setScale(sprite, scale);
   return (size);
 }
@@ -43,34 +49,34 @@ sfVector2i	get_dim(int **map)
 int		draw_grid(int **map, sfVector2i *dim,
 			  sfRenderWindow *window, sfSprite *sprite)
 {
-  sfVector2i    cur;
+  sfVector2i	cur;
   sfVector2f	pos;
 
   cur.y = 0;
-  pos.y = 0;
+  pos.y = 0.0;
+  pos.x = (float)SCR_W / 2 - dim[1].x / 2;
   while (map[cur.y] != NULL)
     {
-      pos.x = dim[1].x / 2;
       cur.x = 0;
       while (map[cur.y][cur.x] != EOB)
 	{
 	  if (map[cur.y][cur.x])
 	    {
 	      sfSprite_setPosition(sprite, pos);
-	      printf("drzwn %.2f %.2f\n", pos.x, pos.y);
 	      sfRenderWindow_drawSprite(window, sprite, NULL);
 	    }
-	  pos.x += dim[1].x;
+	  pos.x += (float)(dim[1].x / 2);
+	  pos.y += (float)(dim[1].y / 2);
 	  cur.x += 1;
 	}
-      pos.y += dim[1].y;
+      pos.y = (float)((cur.y + 1) * dim[1].y / 2);
+      pos.x = (float)(SCR_W / 2 - dim[1].x / 2) - ((cur.y + 1) * dim[1].x / 2);
       cur.y += 1;
     }
-  printf("STOP\n");
   return (0);
 }
 
-int		show_grid(int **map, sfRenderWindow *window)
+int		show_grid(int **map, sfRenderWindow *window, t_game *game)
 {
   sfTexture	*tex;
   sfSprite	*sprite;
@@ -78,11 +84,14 @@ int		show_grid(int **map, sfRenderWindow *window)
 
   if ((tex = sfTexture_createFromFile(GRID_PATH, NULL)) == NULL)
     return (1);
-  sprite = sfSprite_create();
+  if ((sprite = sfSprite_create()) == NULL)
+    return (1);
   sfSprite_setTexture(sprite, tex, sfTrue);
   dims[0] = get_dim(map);
   dims[1] = resize_tile(dims[0], sprite);
+  game->tile = dims[1];
   draw_grid(map, dims, window, sprite);
-  //  sfRenderWindow_drawSprite(window, sprite, NULL);
+  sfSprite_destroy(sprite);
+  sfTexture_destroy(tex);
   return (0);
 }
