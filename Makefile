@@ -5,7 +5,7 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Sun Apr 23 16:42:57 2017 LAABID Zakaria
+## Last update Sun Apr 23 19:19:10 2017 Capitaine CASSE
 ##
 
 CC	=	gcc -g3
@@ -18,6 +18,7 @@ SRC	=	src/main.c			\
 		src/grid.c			\
 		src/colors.c			\
 		src/frees.c			\
+		src/actions.c			\
 		src/mouse.c			\
 		src/check_class.c		\
 		src/fill_player.c		\
