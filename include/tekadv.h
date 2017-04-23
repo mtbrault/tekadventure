@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun Apr 23 16:01:04 2017 Matthieu BRAULT
+** Last update Sun Apr 23 16:12:11 2017 Matthieu BRAULT
 */
 
 #ifndef TEKADV_H
@@ -175,7 +175,7 @@ int			show_grid(sfRenderWindow *, t_game *);
 **                   - LIB FUNC UTILS -
 ** ***************************************************
 */
-int			my_puterr(char *);
+int			my_puterr(char *, int);
 int			my_atoi(char *);
 char			*get_next_line(int);
 int			my_putstr(char *);

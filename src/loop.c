@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sun Apr 23 16:02:22 2017 Matthieu BRAULT
+** Last update Sun Apr 23 16:20:38 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -68,8 +68,11 @@ void	display_window(sfRenderWindow *window, t_menu **menu,
 	  	  index = 2;
 	    }
 	}
-      sfRenderWindow_clear(window, sfWhite);
-      sprite_change(window, index, menu);
+      if (index == 0 || index == 1)
+	{
+	  sfRenderWindow_clear(window, sfWhite);
+	  sprite_change(window, index, menu);
+	}
       sfRenderWindow_display(window);
     }
 }

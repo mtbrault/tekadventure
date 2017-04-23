@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 13:30:34 2017 Capitaine CASSE
-** Last update Sat Apr 22 21:33:24 2017 Capitaine CASSE
+** Last update Sun Apr 23 16:12:01 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -22,11 +22,10 @@ int		main(int ac, char **av)
   if (show_help(ac, av))
     return (0);
   if (ac != 2)
-    {
-      my_puterr("Invalid use.\nTry ./tekadventure -h.\n");
-      return (84);
-    }
+    return (my_puterr("Invalid use.\nTry ./tekadventure -h.\n", 84));
   if ((player = malloc(sizeof(t_player))) == NULL)
+    return (84);
+  if ((player->stat = malloc(sizeof(t_stat))) == NULL)
     return (84);
   if ((game = get_file(av[1])) == NULL)
     return (84);

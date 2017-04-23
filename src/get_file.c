@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 13:41:02 2017 Capitaine CASSE
-** Last update Sun Apr 16 16:02:41 2017 Capitaine CASSE
+** Last update Sun Apr 23 16:13:33 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -19,12 +19,12 @@ static int	get_specs(char *line, int *specs)
 
   i = 0;
   if ((specs[0] = my_atoi(line)) <= 0)
-    return (my_puterr(INV_SPECS) + 1);
+    return (my_puterr(INV_SPECS, 1));
   while (line[i] >= '0' && line[i] <= '9')
     i += 1;
   line += 1;
   if ((specs[1] = my_atoi(line + i)) <= 0)
-    return (my_puterr(INV_SPECS) + 1);
+    return (my_puterr(INV_SPECS, 1));
   return (0);
 }
 
@@ -49,7 +49,7 @@ static int	*get_line(char *tmp, int size)
     }
   if (tmp[i] || j < size)
     {
-      my_puterr(INV_MAP);
+      my_puterr(INV_MAP, 0);
       return (NULL);
     }
   res[j] = EOB;
@@ -80,7 +80,7 @@ static int	get_map(t_game *game, int fd)
       free(tmp);
     }
   if (l < size[0])
-    return (my_puterr(INV_MAP) + 1);
+    return (my_puterr(INV_MAP, 1));
   lvl += 1;
   return (0);
 }
