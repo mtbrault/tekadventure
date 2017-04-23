@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun Apr 23 23:11:22 2017 LAABID Zakaria
+** Last update Sun Apr 23 23:12:54 2017 LAABID Zakaria
 */
 
 #ifndef TEKADV_H
@@ -158,7 +158,7 @@ int			free_map(int ***);
 **                   - MOUSE EVENT -
 ** ***************************************************
 */
-int			my_check_class(sfRenderWindow *, t_player *); 
+int			my_check_class(sfRenderWindow *, t_player *);
 int			check_class_pos(sfVector2i, sfVector2i, sfVector2i);
 
 /*
