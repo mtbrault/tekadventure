@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun Apr 23 23:01:00 2017 LAABID Zakaria
+** Last update Sun Apr 23 23:11:22 2017 LAABID Zakaria
 */
 
 #ifndef TEKADV_H
@@ -194,7 +194,8 @@ sfRenderWindow		*create_window(void);
 t_menu			**disp_startmenu(void);
 void			set_position_panels(t_menu **);
 void			set_position_button(t_menu **);
-
+void			set_position_start(t_menu **);
+void			set_position_character(t_menu **);
 /*
 ** ***************************************************
 **                    - SOME FUNC.. -
