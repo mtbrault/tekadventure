@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 21:50:42 2017 LAABID Zakaria
-** Last update Sun Apr 23 19:01:59 2017 Matthieu BRAULT
+** Last update Sun Apr 23 21:54:23 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -34,44 +34,6 @@ void		music_change(int index, t_menu **menu)
 {
   sfMusic_play(menu[index]->music);
   sfMusic_setLoop(menu[index]->music, sfTrue);
-}
-
-void		sprite_change(sfRenderWindow *window, int index, t_menu **menu)
-{
-  sfVector2i	mouse_pos;
-  sfVector2i	x_b;
-  sfVector2i	y_p;
-
-  x_b = ((sfVector2i) {573, 767});
-  y_p = ((sfVector2i) {501, 582});
-  mouse_pos = get_mouse_pos(window);
-  set_position_button(menu);
-  set_position_panels(menu);
-  sfRenderWindow_drawSprite(window, menu[index]->sprite, NULL);
-  if (index == MENU)
-    {
-      if (check_class_pos(x_b, ((sfVector2i) {248, 279}), mouse_pos) == 1)
-	  sfRenderWindow_drawSprite(window, menu[PLAY]->sprite_h, NULL);
-      else
-	sfRenderWindow_drawSprite(window, menu[PLAY]->sprite, NULL);
-      if (check_class_pos(x_b, ((sfVector2i) {356, 390}), mouse_pos) == 1)
-	sfRenderWindow_drawSprite(window, menu[CLOSE]->sprite_h, NULL);
-      else
-	sfRenderWindow_drawSprite(window, menu[CLOSE]->sprite, NULL);
-      sfRenderWindow_drawSprite(window, menu[MULTI]->sprite, NULL);
-      if (check_class_pos(((sfVector2i) {451, 532}), y_p, mouse_pos) == 1)
-	sfRenderWindow_drawSprite(window, menu[OPTION]->sprite_h, NULL);
-      else
-	sfRenderWindow_drawSprite(window, menu[OPTION]->sprite, NULL);
-      if (check_class_pos(((sfVector2i) {605, 705}), y_p, mouse_pos) == 1)
-	sfRenderWindow_drawSprite(window, menu[SHOP]->sprite_h, NULL);
-      else
-	sfRenderWindow_drawSprite(window, menu[SHOP]->sprite, NULL);
-      if (check_class_pos(((sfVector2i) {785, 880}), y_p, mouse_pos) == 1)
-	sfRenderWindow_drawSprite(window, menu[NEWS]->sprite_h, NULL);
-      else
-	sfRenderWindow_drawSprite(window, menu[NEWS]->sprite, NULL);
-    }
 }
 
 t_menu		**gen_texture_space(t_menu **menu)

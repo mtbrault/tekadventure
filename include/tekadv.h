@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun Apr 23 18:51:28 2017 Matthieu BRAULT
+** Last update Sun Apr 23 22:03:53 2017 LAABID Zakaria
 */
 
 #ifndef TEKADV_H
@@ -149,6 +149,31 @@ typedef struct		s_menu
 int			show_help(int, char **);
 t_game			*get_file(char *);
 int			free_map(int ***);
+
+/*
+** ***************************************************
+**                   - MOUSE EVENT -
+** ***************************************************
+*/
+int			my_check_class(sfRenderWindow *, t_player *); 
+int			check_class_pos(sfVector2i, sfVector2i, sfVector2i);
+
+/*
+** ***************************************************
+**                   - GAME MANAGER -
+** ***************************************************
+*/
+void			get_osa(t_player *);
+void			get_ecaflip(t_player *);
+void			get_iop(t_player *);
+void			get_feca(t_player *);
+
+/*
+** ***************************************************
+**                   - MAP MANAGER -
+** ***************************************************
+*/
+int			raw_click(t_game *, sfRenderWindow *);
 
 /*
 ** ***************************************************
