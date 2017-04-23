@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sun Apr 23 16:20:38 2017 Matthieu BRAULT
+** Last update Sun Apr 23 16:34:54 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -40,6 +40,24 @@ int		my_check_click(sfRenderWindow *window, int x)
     return (0);
 }
 
+void	loop2(t_player *player, sfRenderWindow *window, t_game *game)
+{
+  sfEvent	event;
+
+  while (sfRenderWindow_isOpen(window))
+    {
+      while (sfRenderWindow_pollEvent(window, &event))
+	{
+	  if ((event.type == sfEvtClosed) ||
+	      (sfKeyboard_isKeyPressed(sfKeyEscape)))
+	    sfRenderWindow_close(window);
+	}
+      sfRenderWindow_clear(window, sfWhite);
+      show_grid(window, game);
+      sfRenderWindow_display(window);
+    }
+}
+
 void	display_window(sfRenderWindow *window, t_menu **menu,
 		       t_player *player, t_game *game)
 {
@@ -64,17 +82,20 @@ void	display_window(sfRenderWindow *window, t_menu **menu,
 	  if (index == 1)
 	    {
 	      if (sfMouse_isButtonPressed(sfMouseLeft))
-	  	if (my_check_class(window, player, game) == 1)
-	  	  index = 2;
+	  	if (my_check_class(window, player) == 1)
+		  {
+		    index = 2;
+		    break ;
+		  }
 	    }
 	}
-      if (index == 0 || index == 1)
-	{
-	  sfRenderWindow_clear(window, sfWhite);
-	  sprite_change(window, index, menu);
-	}
+      if (index == 2)
+	break;
+      sfRenderWindow_clear(window, sfWhite);
+      sprite_change(window, index, menu);
       sfRenderWindow_display(window);
     }
+  loop2(player, window, game);
 }
 
 int			start_menu(t_game *game, t_player *player)
