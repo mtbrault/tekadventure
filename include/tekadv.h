@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sat Apr 22 21:50:07 2017 Capitaine CASSE
+** Last update Sun Apr 23 16:01:04 2017 Matthieu BRAULT
 */
 
 #ifndef TEKADV_H
@@ -120,8 +120,8 @@ typedef struct		s_stat
 typedef struct		s_player
 {
   int			pv;
+  int			pa;
   int			pm;
-  int			po;
   int			level;
   sfVector2i		pos;
   t_stat		*stat;
@@ -168,7 +168,7 @@ t_menu			**disp_startmenu(void);
 */
 void			debug(t_game *);
 sfVector2i		get_mouse_pos(sfRenderWindow *);
-int			show_grid(int **, sfRenderWindow *, t_game *);
+int			show_grid(sfRenderWindow *, t_game *);
 
 /*
 ** ***************************************************
