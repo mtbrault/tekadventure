@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 21:50:42 2017 LAABID Zakaria
-** Last update Sun Apr 23 21:54:23 2017 LAABID Zakaria
+** Last update Sun Apr 23 23:05:47 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -28,6 +28,9 @@ t_menu_conf	menu_conf[MENU_PIC]=
     {CHARAC_IOP, MUSIC_CHARAC, CHARAC_IOP_H},
     {CHARAC_ECA, MUSIC_CHARAC, CHARAC_ECA_H},
     {CHARAC_OSA, MUSIC_CHARAC, CHARAC_OSA_H},
+    {STMENU_START, MUSIC_CHARAC, STMENU_START_H},
+    {STMENU_START, MUSIC_CHARAC, STMENU_START_H},
+    {STMENU_START, MUSIC_CHARAC, STMENU_START_H}
   };
 
 void		music_change(int index, t_menu **menu)

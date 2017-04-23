@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun Apr 23 22:03:53 2017 LAABID Zakaria
+** Last update Sun Apr 23 23:01:00 2017 LAABID Zakaria
 */
 
 #ifndef TEKADV_H
@@ -49,13 +49,16 @@
 # define IOP		(10)
 # define ECA		(11)
 # define OSA		(12)
+# define S_FECA		(13)
+# define S_ECA		(14)
+# define S_OSA		(15)
 
 # define INV_SPECS	"Error : Invalid specifications.\n"
 # define INV_MAP		"Error : Invalid map.\n"
 
 # define HELP		"USAGE:\t./tekadventure [file]\n\tfile : map config file.\n"
 
-# define MENU_PIC	(13)
+# define MENU_PIC	(16)
 # define STMENU_MAIN	"./ressources/menus/guimainmenu.png"
 # define STMENU_CHARAC	"./ressources/menus/guicharacter.png"
 
@@ -180,6 +183,10 @@ int			raw_click(t_game *, sfRenderWindow *);
 **                   - MENU MANAGER -
 ** ***************************************************
 */
+void			hover_button(sfRenderWindow *, sfVector2i, t_menu **);
+void			hover_panels(sfRenderWindow *, sfVector2i, t_menu **);
+void			hover_character(sfRenderWindow *, sfVector2i, t_menu **);
+void			hover_play(sfRenderWindow *, sfVector2i, t_menu **);
 void			music_change(int, t_menu **);
 void			sprite_change(sfRenderWindow *, int, t_menu **);
 int			start_menu(t_game *, t_player *);
