@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun Apr 23 16:12:11 2017 Matthieu BRAULT
+** Last update Sun Apr 23 16:43:37 2017 LAABID Zakaria
 */
 
 #ifndef TEKADV_H
@@ -160,6 +160,8 @@ void			sprite_change(sfRenderWindow *, int, t_menu **);
 int			start_menu(t_game *, t_player *);
 sfRenderWindow		*create_window(void);
 t_menu			**disp_startmenu(void);
+void			set_position_panels(t_menu **);
+void			set_position_button(t_menu **);
 
 /*
 ** ***************************************************

@@ -1,11 +1,11 @@
 /*
-** colors.c for $ in /home/BlackBIrdz/tekadventure/src
+** colors.c for  in /home/BlackBIrdz/tekadventure/src
 ** 
 ** Made by LAABID Zakaria
 ** Login   <BlackBIrdz@epitech.net>
 ** 
-** Started on  Fri Apr 21 04:12:09 2017 LAABID Zakaria
-** Last update Sat Apr 22 00:19:38 2017 Matthieu BRAULT
+** Started on  Sat Apr 22 21:50:42 2017 LAABID Zakaria
+** Last update Sun Apr 23 16:41:42 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -35,52 +35,43 @@ void		music_change(int index, t_menu **menu)
   sfMusic_play(menu[index]->music);
   sfMusic_setLoop(menu[index]->music, sfTrue);
 }
-void	        set_position_button(t_menu **menu)
-{
-  sfVector2f	play;
-  sfVector2f	play_hover;
-  sfVector2f	multi;
-  sfVector2f	close;
-  sfVector2f    close_hover;
-
-  play = ((sfVector2f) {515.0, 250.0});
-  play_hover = ((sfVector2f) {515 - (53 / 2), 250.0 - (57 / 2)});
-  multi = ((sfVector2f) {515.0, 305.0});
-  close = ((sfVector2f) {515.0, 360.0});
-  close_hover = ((sfVector2f) {515 - (53 / 2), 360.0 - (57 / 2)});
-  sfSprite_setPosition(menu[2]->sprite, play);
-  sfSprite_setPosition(menu[3]->sprite, multi);
-  sfSprite_setPosition(menu[4]->sprite, close);
-  sfSprite_setPosition(menu[2]->sprite_h, play_hover);
-  sfSprite_setPosition(menu[4]->sprite_h, close_hover);
-}
-
-/* void	        set_position_panles(t_menu **menu) */
-/* { */
-/*   sfVector2f    option; */
-/*   sfVector2f	option_hover; */
-/*   sfVector2f    shop; */
-/*   sfVector2f    shop_hover; */
-/*   sfVector2f    news; */
-/*   sfVector2f    news_hover; */
-
-/*    = ((sfVector2f) {515.0, 250.0}); */
-/*   play_hover = ((sfVector2f) {515 - (53 / 2), 250.0 - (57 / 2)}); */
-/*   sfSprite_setPosition(menu[PLAY]->sprite, play); */
-/*   sfSprite_setPosition(menu[MULTI]->sprite, multi); */
-/* } */
 
 void		sprite_change(sfRenderWindow *window, int index, t_menu **menu)
 {
+  sfVector2i	mouse_pos;
+  sfVector2i	x_b;
+  sfVector2i	y_p;
+
+  x_b = ((sfVector2i) {573, 767});
+  y_p = ((sfVector2i) {451, 532});
+  mouse_pos = get_mouse_pos(window);
   set_position_button(menu);
-  //  set_position_panels(menu);
+  set_position_panels(menu);
   sfRenderWindow_drawSprite(window, menu[index]->sprite, NULL);
-  if (my_check_click(window, 1) == 1)
-    sfRenderWindow_drawSprite(window, menu[2]->sprite_h, NULL);
-  else
-    sfRenderWindow_drawSprite(window, menu[2]->sprite, NULL);
-  sfRenderWindow_drawSprite(window, menu[MULTI]->sprite, NULL);
-  sfRenderWindow_drawSprite(window, menu[CLOSE]->sprite, NULL);
+  if (index == MENU)
+    {
+      if (check_class_pos(x_b, ((sfVector2i) {248, 279}), mouse_pos) == 1)
+	sfRenderWindow_drawSprite(window, menu[PLAY]->sprite_h, NULL);
+      else
+	sfRenderWindow_drawSprite(window, menu[PLAY]->sprite, NULL);
+      if (check_class_pos(x_b, ((sfVector2i) {356, 390}), mouse_pos) == 1)
+	sfRenderWindow_drawSprite(window, menu[CLOSE]->sprite_h, NULL);
+      else
+	sfRenderWindow_drawSprite(window, menu[CLOSE]->sprite, NULL);
+      sfRenderWindow_drawSprite(window, menu[MULTI]->sprite, NULL);
+      if (check_class_pos(((sfVector2i) {451, 532}), y_p, mouse_pos) == 1)
+	sfRenderWindow_drawSprite(window, menu[OPTION]->sprite_h, NULL);
+      else
+	sfRenderWindow_drawSprite(window, menu[OPTION]->sprite, NULL);
+      if (check_class_pos(((sfVector2i) {605, 705}), y_p, mouse_pos) == 1)
+	sfRenderWindow_drawSprite(window, menu[SHOP]->sprite_h, NULL);
+      else
+	sfRenderWindow_drawSprite(window, menu[SHOP]->sprite, NULL);
+      if (check_class_pos(((sfVector2i) {785, 880}), y_p, mouse_pos) == 1)
+	sfRenderWindow_drawSprite(window, menu[NEWS]->sprite_h, NULL);
+      else
+	sfRenderWindow_drawSprite(window, menu[NEWS]->sprite, NULL);
+    }
 }
 
 t_menu		**gen_texture_space(t_menu **menu)
