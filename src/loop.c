@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Mon Apr 24 23:26:16 2017 LAABID Zakaria
+** Last update Mon Apr 24 23:45:12 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -13,11 +13,13 @@
 #include <stdlib.h>
 #include "tekadv.h"
 
-void	loop2(t_player *player, sfRenderWindow *window, t_game *game)
+void	loop2(t_player *player, sfRenderWindow *window, t_game *game, t_menu **menu)
 {
   sfEvent	event;
+  int		i;
 
   player = player;
+  i = 0;
   while (sfRenderWindow_isOpen(window))
     {
       while (sfRenderWindow_pollEvent(window, &event))
@@ -27,6 +29,13 @@ void	loop2(t_player *player, sfRenderWindow *window, t_game *game)
 	    sfRenderWindow_close(window);
 	}
       sfRenderWindow_clear(window, sfWhite);
+      if (i == 0)
+	{
+	  sfRenderWindow_drawSprite(window, menu[LOADING]->sprite, NULL);
+	  sfRenderWindow_display(window);
+	  sleep(3);
+	  i = 1;
+	}
       show_grid(window, game);
       sfRenderWindow_display(window);
     }
@@ -55,7 +64,7 @@ void	display_window(sfRenderWindow *window, t_menu **menu,
       sprite_change(window, index, menu);
       sfRenderWindow_display(window);
     }
-  loop2(player, window, game);
+  loop2(player, window, game, menu);
 }
 
 int			start_menu(t_game *game, t_player *player)
