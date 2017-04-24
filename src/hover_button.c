@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun Apr 23 22:16:56 2017 LAABID Zakaria
-** Last update Sun Apr 23 23:05:00 2017 LAABID Zakaria
+** Last update Mon Apr 24 03:33:28 2017 LAABID Zakaria
 */
 
 #include "tekadv.h"
@@ -25,30 +25,6 @@ void		hover_button(sfRenderWindow *window,
   else
     sfRenderWindow_drawSprite(window, menu[CLOSE]->sprite, NULL);
   sfRenderWindow_drawSprite(window, menu[MULTI]->sprite, NULL);
-}
-
-void		hover_play(sfRenderWindow *window,
-			   sfVector2i mouse, t_menu **menu)
-{
-  sfVector2i	y_s;
-
-  y_s = ((sfVector2i) {529, 562});
-  if (check_class_pos(((sfVector2i) {306, 448}), y_s, mouse) == 1)
-    sfRenderWindow_drawSprite(window, menu[START]->sprite_h, NULL);
-  else
-    sfRenderWindow_drawSprite(window, menu[START]->sprite, NULL);
-  if (check_class_pos(((sfVector2i) {495, 637}), y_s, mouse) == 1)
-    sfRenderWindow_drawSprite(window, menu[S_FECA]->sprite_h, NULL);
-  else
-    sfRenderWindow_drawSprite(window, menu[S_FECA]->sprite, NULL);
-  if (check_class_pos(((sfVector2i) {680, 826}), y_s, mouse) == 1)
-    sfRenderWindow_drawSprite(window, menu[S_ECA]->sprite_h, NULL);
-  else
-    sfRenderWindow_drawSprite(window, menu[S_ECA]->sprite, NULL);
-  if (check_class_pos(((sfVector2i) {859, 1006}), y_s, mouse) == 1)
-    sfRenderWindow_drawSprite(window, menu[S_OSA]->sprite_h, NULL);
-  else
-    sfRenderWindow_drawSprite(window, menu[S_OSA]->sprite, NULL);
 }
 
 void		hover_character(sfRenderWindow *window,

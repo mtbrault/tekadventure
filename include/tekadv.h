@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun Apr 23 23:12:54 2017 LAABID Zakaria
+** Last update Mon Apr 24 04:07:57 2017 LAABID Zakaria
 */
 
 #ifndef TEKADV_H
@@ -52,20 +52,38 @@
 # define S_FECA		(13)
 # define S_ECA		(14)
 # define S_OSA		(15)
+# define CONFIG		(16)
+# define BT_OFF		(17)
+# define BT_SAVE	(18)
+# define BT_BACK	(19)
+# define BT_ON_V       	(20)
+# define BT_ON_B       	(21)
+# define BT_ON_D       	(22)
+# define BT_OF_V       	(23)
+# define BT_OF_B       	(24)
+# define BT_OF_D       	(25)
 
 # define INV_SPECS	"Error : Invalid specifications.\n"
 # define INV_MAP		"Error : Invalid map.\n"
 
 # define HELP		"USAGE:\t./tekadventure [file]\n\tfile : map config file.\n"
 
-# define MENU_PIC	(16)
+# define MENU_PIC	(26)
 # define STMENU_MAIN	"./ressources/menus/guimainmenu.png"
 # define STMENU_CHARAC	"./ressources/menus/guicharacter.png"
+# define STMENU_OPTION	"./ressources/menus/guiconfiguration.png"
 
 # define MENU_NEWS	"./ressources/elements/nouveaute.png"
 # define MENU_NEWS_H	"./ressources/elements/nouveaute_hover.png"
 # define MENU_OPTION	"./ressources/elements/configuration.png"
 # define MENU_OPTION_H	"./ressources/elements/configuration_hover.png"
+# define BUTTON_BACK	"./ressources/elements/button_back.png"
+# define BUTTON_BACK_H	"./ressources/elements/button_back_hover.png"
+# define BUTTON_ON	"./ressources/elements/button_on.png"
+# define BUTTON_ONH	"./ressources/elements/button_on_hover.png"
+# define BUTTON_OFF	"./ressources/elements/button_off.png"
+# define BUTTON_SAVE	"./ressources/elements/button_save.png"
+# define BUTTON_SAVE_H	"./ressources/elements/button_save_hover.png"
 # define MENU_SHOP	"./ressources/elements/sprite.png"
 # define MENU_SHOP_H	"./ressources/elements/sprite_hover.png"
 # define CHARAC_FECA	"./ressources/elements/feca.png"
@@ -101,6 +119,13 @@ typedef struct		s_menu_conf
   char	*music_path;
   char	*hover_path;
 }			t_menu_conf;
+
+typedef struct		s_game_conf
+{
+  int	vol;
+  int	border;
+  int	debug;
+}			t_game_conf;
 
 typedef struct		s_game
 {
@@ -160,6 +185,10 @@ int			free_map(int ***);
 */
 int			my_check_class(sfRenderWindow *, t_player *);
 int			check_class_pos(sfVector2i, sfVector2i, sfVector2i);
+int			my_check_click(sfRenderWindow *, int);
+int			my_check_config(sfVector2i);
+int			mouse_func(sfRenderWindow *, int, t_player *);
+int			my_check_exit(sfVector2i);
 
 /*
 ** ***************************************************
@@ -187,6 +216,7 @@ void			hover_button(sfRenderWindow *, sfVector2i, t_menu **);
 void			hover_panels(sfRenderWindow *, sfVector2i, t_menu **);
 void			hover_character(sfRenderWindow *, sfVector2i, t_menu **);
 void			hover_play(sfRenderWindow *, sfVector2i, t_menu **);
+void			hover_config(sfRenderWindow *, sfVector2i, t_menu **);
 void			music_change(int, t_menu **);
 void			sprite_change(sfRenderWindow *, int, t_menu **);
 int			start_menu(t_game *, t_player *);
@@ -196,6 +226,8 @@ void			set_position_panels(t_menu **);
 void			set_position_button(t_menu **);
 void			set_position_start(t_menu **);
 void			set_position_character(t_menu **);
+void			set_position_config(t_menu **);
+
 /*
 ** ***************************************************
 **                    - SOME FUNC.. -

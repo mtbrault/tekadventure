@@ -5,42 +5,13 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sun Apr 23 22:12:27 2017 LAABID Zakaria
+** Last update Mon Apr 24 04:06:27 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "tekadv.h"
-
-int	my_check_exit(sfVector2i mouse_pos)
-{
-  if (mouse_pos.x >= 573 && mouse_pos.x <= 767 &&
-	   mouse_pos.y >= 356 && mouse_pos.y <= 390)
-    {
-      exit(0);
-      return (1);
-    }
-  return (0);
-}
-
-int		my_check_click(sfRenderWindow *window, int x)
-{
-  sfVector2i	mouse_pos;
-
-  mouse_pos = get_mouse_pos(window);
-  if (mouse_pos.x >= 573 && mouse_pos.x <= 767 &&
-      mouse_pos.y >= 248 && mouse_pos.y <= 279)
-    return (1);
-  if (x == 0)
-    {
-      if (my_check_exit(mouse_pos) == 1)
-	return (1);
-    }
-  else
-    return (0);
-  return (0);
-}
 
 void	loop2(t_player *player, sfRenderWindow *window, t_game *game)
 {
@@ -76,20 +47,10 @@ void	display_window(sfRenderWindow *window, t_menu **menu,
 	  if ((event.type == sfEvtClosed) ||
 	      (sfKeyboard_isKeyPressed(sfKeyEscape)))
 	    sfRenderWindow_close(window);
-	  if (index == 0)
-	    if (sfMouse_isButtonPressed(sfMouseLeft))
-	      if (my_check_click(window, 0) == 1)
-		index = 1;
-	  if (index == 1)
-	    if (sfMouse_isButtonPressed(sfMouseLeft))
-	      if (my_check_class(window, player) == 1)
-		{
-		  index = 2;
-		  break ;
-		}
+	  index = mouse_func(window, index, player);
 	}
       if (index == 2)
-	break;
+        break;
       sfRenderWindow_clear(window, sfWhite);
       sprite_change(window, index, menu);
       sfRenderWindow_display(window);

@@ -5,10 +5,26 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 20:40:56 2017 LAABID Zakaria
-** Last update Sun Apr 23 23:07:00 2017 LAABID Zakaria
+** Last update Mon Apr 24 03:24:08 2017 LAABID Zakaria
 */
 
 #include "tekadv.h"
+
+void	        set_position_config(t_menu **menu)
+{
+  menu[BT_SAVE]->pos = ((sfVector2f) {580.0, 525.0});
+  menu[BT_ON_V]->pos = ((sfVector2f) {735.0, 287.0});
+  menu[BT_ON_B]->pos = ((sfVector2f) {735.0, 344.0});
+  menu[BT_ON_D]->pos = ((sfVector2f) {655.0, 410.0});
+  sfSprite_setPosition(menu[BT_SAVE]->sprite, menu[BT_SAVE]->pos);
+  sfSprite_setPosition(menu[BT_SAVE]->sprite_h, menu[BT_SAVE]->pos);
+  sfSprite_setPosition(menu[BT_ON_V]->sprite, menu[BT_ON_V]->pos);
+  sfSprite_setPosition(menu[BT_ON_V]->sprite_h, menu[BT_ON_V]->pos);
+  sfSprite_setPosition(menu[BT_ON_B]->sprite, menu[BT_ON_B]->pos);
+  sfSprite_setPosition(menu[BT_ON_B]->sprite_h, menu[BT_ON_B]->pos);
+  sfSprite_setPosition(menu[BT_ON_D]->sprite, menu[BT_ON_D]->pos);
+  sfSprite_setPosition(menu[BT_ON_D]->sprite_h, menu[BT_ON_D]->pos);
+}
 
 void	        set_position_start(t_menu **menu)
 {
@@ -21,6 +37,7 @@ void	        set_position_start(t_menu **menu)
   start_feca = ((sfVector2f) {490.0, 530.0});
   start_eca = ((sfVector2f) {675.0, 530.0});
   start_osa = ((sfVector2f) {855.0, 530.0});
+  menu[BT_BACK]->pos = ((sfVector2f) {275.0, 182.0});
   sfSprite_setPosition(menu[START]->sprite, start_iop);
   sfSprite_setPosition(menu[START]->sprite_h, start_iop);
   sfSprite_setPosition(menu[S_FECA]->sprite, start_feca);
@@ -29,6 +46,8 @@ void	        set_position_start(t_menu **menu)
   sfSprite_setPosition(menu[S_ECA]->sprite_h, start_eca);
   sfSprite_setPosition(menu[S_OSA]->sprite, start_osa);
   sfSprite_setPosition(menu[S_OSA]->sprite_h, start_osa);
+  sfSprite_setPosition(menu[BT_BACK]->sprite, menu[BT_BACK]->pos);
+  sfSprite_setPosition(menu[BT_BACK]->sprite_h, menu[BT_BACK]->pos);
 }
 
 void	        set_position_character(t_menu **menu)
