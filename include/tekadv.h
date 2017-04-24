@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Mon Apr 24 04:07:57 2017 LAABID Zakaria
+** Last update Mon Apr 24 19:46:26 2017 LAABID Zakaria
 */
 
 #ifndef TEKADV_H
@@ -227,6 +227,7 @@ void			set_position_button(t_menu **);
 void			set_position_start(t_menu **);
 void			set_position_character(t_menu **);
 void			set_position_config(t_menu **);
+void			set_position_config_s(t_menu **);
 
 /*
 ** ***************************************************

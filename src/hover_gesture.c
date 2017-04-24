@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun Apr 23 22:28:32 2017 LAABID Zakaria
-** Last update Mon Apr 24 04:20:21 2017 LAABID Zakaria
+** Last update Mon Apr 24 19:46:56 2017 LAABID Zakaria
 */
 
 #include "tekadv.h"
@@ -20,6 +20,7 @@ void		sprite_change(sfRenderWindow *window, int index, t_menu **menu)
   set_position_start(menu);
   set_position_character(menu);
   set_position_config(menu);
+  set_position_config_s(menu);
   sfRenderWindow_drawSprite(window, menu[index]->sprite, NULL);
   if (index == MENU)
     {
