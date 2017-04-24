@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon Apr 24 04:06:54 2017 LAABID Zakaria
-** Last update Mon Apr 24 04:07:10 2017 LAABID Zakaria
+** Last update Mon Apr 24 21:09:09 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -19,6 +19,40 @@ int	my_check_exit(sfVector2i mouse_pos)
       return (1);
     }
   return (NORMAL);
+}
+
+int	my_config(sfRenderWindow *window, int index, t_menu **menu)
+{
+  sfVector2i	x_b;
+  sfVector2i	mouse_pos;
+
+  mouse_pos = get_mouse_pos(window);
+  x_b = ((sfVector2i) {730, 848});
+  if (my_check_config(mouse_pos) == 2)
+    index = MENU;
+  else if (check_class_pos(x_b, ((sfVector2i) {289, 313}), mouse_pos))
+    {
+      if (menu[BT_ON_V]->hover == 0)
+	menu[BT_ON_V]->hover = 1;
+      else
+	menu[BT_ON_V]->hover = 0;
+    }
+  else if (check_class_pos(x_b, ((sfVector2i) {353, 372}), mouse_pos))
+    {
+      if (menu[BT_ON_B]->hover == 0)
+	menu[BT_ON_B]->hover = 1;
+      else
+	menu[BT_ON_B]->hover = 0;
+    }
+  else if (check_class_pos(((sfVector2i) {655, 745})
+			   , ((sfVector2i) {411, 438}), mouse_pos))
+    {
+      if (menu[BT_ON_D]->hover == 0)
+	menu[BT_ON_D]->hover = 1;
+      else
+	menu[BT_ON_D]->hover = 0;
+    }
+  return (index);
 }
 
 int	my_check_config(sfVector2i mouse_pos)

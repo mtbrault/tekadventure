@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Mon Apr 24 19:46:26 2017 LAABID Zakaria
+** Last update Mon Apr 24 20:53:41 2017 Matthieu BRAULT
 */
 
 #ifndef TEKADV_H
@@ -187,7 +187,7 @@ int			my_check_class(sfRenderWindow *, t_player *);
 int			check_class_pos(sfVector2i, sfVector2i, sfVector2i);
 int			my_check_click(sfRenderWindow *, int);
 int			my_check_config(sfVector2i);
-int			mouse_func(sfRenderWindow *, int, t_player *);
+int			mouse_func(sfRenderWindow *, int, t_player *, t_menu **);
 int			my_check_exit(sfVector2i);
 
 /*

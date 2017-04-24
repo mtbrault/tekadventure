@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Mon Apr 24 04:06:27 2017 LAABID Zakaria
+** Last update Mon Apr 24 20:58:36 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -47,7 +47,7 @@ void	display_window(sfRenderWindow *window, t_menu **menu,
 	  if ((event.type == sfEvtClosed) ||
 	      (sfKeyboard_isKeyPressed(sfKeyEscape)))
 	    sfRenderWindow_close(window);
-	  index = mouse_func(window, index, player);
+	  index = mouse_func(window, index, player, menu);
 	}
       if (index == 2)
         break;

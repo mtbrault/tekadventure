@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 21:50:42 2017 LAABID Zakaria
-** Last update Mon Apr 24 03:37:38 2017 LAABID Zakaria
+** Last update Mon Apr 24 20:58:38 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -102,6 +102,9 @@ t_menu		**disp_startmenu(void)
     return (NULL);
   if ((menu = gen_texture_space(menu)) == NULL)
     return (NULL);
+  menu[BT_ON_D]->hover = 0;
+  menu[BT_ON_B]->hover = 0;
+  menu[BT_ON_V]->hover = 0;
   menu = texture_init(menu);
   return (menu);
 }

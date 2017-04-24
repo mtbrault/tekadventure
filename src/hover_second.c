@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon Apr 24 03:33:03 2017 LAABID Zakaria
-** Last update Mon Apr 24 19:47:50 2017 LAABID Zakaria
+** Last update Mon Apr 24 20:55:10 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -16,19 +16,50 @@ void		hover_config_second(sfRenderWindow *window,
   sfVector2i	x_b;
 
   x_b = ((sfVector2i) {730, 848});
-  if (check_class_pos(x_b, ((sfVector2i) {289, 313}), mouse) == 1)
-    sfRenderWindow_drawSprite(window, menu[BT_OF_V]->sprite_h, NULL);
+  if (menu[BT_ON_V]->hover == 1)
+    {
+      if (check_class_pos(x_b, ((sfVector2i) {289, 313}), mouse) == 1)
+	sfRenderWindow_drawSprite(window, menu[BT_ON_V]->sprite_h, NULL);
+      else
+	sfRenderWindow_drawSprite(window, menu[BT_ON_V]->sprite, NULL);
+    }
   else
-    sfRenderWindow_drawSprite(window, menu[BT_OF_V]->sprite, NULL);
-  if (check_class_pos(x_b, ((sfVector2i) {353, 372}), mouse) == 1)
-    sfRenderWindow_drawSprite(window, menu[BT_ON_B]->sprite_h, NULL);
+    {
+      if (check_class_pos(x_b, ((sfVector2i) {289, 313}), mouse) == 1)
+	sfRenderWindow_drawSprite(window, menu[BT_OF_V]->sprite_h, NULL);
+      else
+	sfRenderWindow_drawSprite(window, menu[BT_OF_V]->sprite, NULL);
+    }
+  if (menu[BT_ON_B]->hover == 1)
+    {
+      if (check_class_pos(x_b, ((sfVector2i) {353, 372}), mouse) == 1)
+	sfRenderWindow_drawSprite(window, menu[BT_ON_B]->sprite_h, NULL);
+      else
+	sfRenderWindow_drawSprite(window, menu[BT_ON_B]->sprite, NULL);
+    }
   else
-    sfRenderWindow_drawSprite(window, menu[BT_ON_B]->sprite, NULL);
-  if (check_class_pos(((sfVector2i) {655, 745})
-		      , ((sfVector2i) {411, 438}), mouse) == 1)
-    sfRenderWindow_drawSprite(window, menu[BT_ON_D]->sprite_h, NULL);
+    {
+      if (check_class_pos(x_b, ((sfVector2i) {353, 372}), mouse) == 1)
+	sfRenderWindow_drawSprite(window, menu[BT_OF_B]->sprite_h, NULL);
+      else
+	sfRenderWindow_drawSprite(window, menu[BT_OF_B]->sprite, NULL);
+    }
+  if (menu[BT_ON_D]->hover == 1)
+    {
+      if (check_class_pos(((sfVector2i) {655, 745})
+			  , ((sfVector2i) {411, 438}), mouse) == 1)
+	sfRenderWindow_drawSprite(window, menu[BT_ON_D]->sprite_h, NULL);
+      else
+	sfRenderWindow_drawSprite(window, menu[BT_ON_D]->sprite, NULL);
+    }
   else
-    sfRenderWindow_drawSprite(window, menu[BT_ON_D]->sprite, NULL);
+    {
+      if (check_class_pos(((sfVector2i) {655, 745})
+			  , ((sfVector2i) {411, 438}), mouse) == 1)
+	sfRenderWindow_drawSprite(window, menu[BT_OF_D]->sprite_h, NULL);
+      else
+	sfRenderWindow_drawSprite(window, menu[BT_OF_D]->sprite, NULL);
+    }
 }
 
 void		hover_config(sfRenderWindow *window,
