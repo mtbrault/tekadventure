@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun Apr 23 22:16:56 2017 LAABID Zakaria
-** Last update Mon Apr 24 03:33:28 2017 LAABID Zakaria
+** Last update Mon Apr 24 04:21:22 2017 LAABID Zakaria
 */
 
 #include "tekadv.h"
@@ -66,7 +66,10 @@ void		hover_panels(sfRenderWindow *window,
   else
     sfRenderWindow_drawSprite(window, menu[SHOP]->sprite, NULL);
   if (check_class_pos(((sfVector2i) {785, 880}), y_p, mouse) == 1)
-    sfRenderWindow_drawSprite(window, menu[NEWS]->sprite_h, NULL);
+    {
+      sfRenderWindow_drawSprite(window, menu[NEWS]->sprite_h, NULL);
+      sfRenderWindow_drawSprite(window, menu[NEWS]->sprite , NULL);
+    }
   else
     sfRenderWindow_drawSprite(window, menu[NEWS]->sprite, NULL);
 }

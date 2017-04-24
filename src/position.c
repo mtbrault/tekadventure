@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 20:40:56 2017 LAABID Zakaria
-** Last update Mon Apr 24 03:24:08 2017 LAABID Zakaria
+** Last update Mon Apr 24 04:19:54 2017 LAABID Zakaria
 */
 
 #include "tekadv.h"
@@ -79,10 +79,10 @@ void	        set_position_button(t_menu **menu)
   sfVector2f    close_hover;
 
   play = ((sfVector2f) {515.0, 250.0});
-  play_hover = ((sfVector2f) {515 - (53 / 2), 250.0 - (57 / 2)});
+  play_hover = ((sfVector2f) {515 - (50 / 2), 250.0 - (57 / 2)});
   multi = ((sfVector2f) {515.0, 305.0});
   close = ((sfVector2f) {515.0, 360.0});
-  close_hover = ((sfVector2f) {515 - (53 / 2), 360.0 - (57 / 2)});
+  close_hover = ((sfVector2f) {515 - (50 / 2), 360.0 - (57 / 2)});
   sfSprite_setPosition(menu[PLAY]->sprite, play);
   sfSprite_setPosition(menu[PLAY]->sprite_h, play_hover);
   sfSprite_setPosition(menu[MULTI]->sprite, multi);
@@ -100,11 +100,11 @@ void	        set_position_panels(t_menu **menu)
   sfVector2f    news_hover;
 
   option = ((sfVector2f) {455.0, 513.0});
-  option_hover = ((sfVector2f) {455.0 - (51 / 2), 513.0 - (53 / 2)});
+  option_hover = ((sfVector2f) {455.0 - (51 / 2), 513.0 - (54 / 2)});
   shop = ((sfVector2f) {630.0, 513.0});
-  shop_hover = ((sfVector2f) {630.0 - (52 / 2), 513.0 - (53 / 2)});
+  shop_hover = ((sfVector2f) {630.0 - (54 / 2), 513.0 - (54 / 2)});
   news = ((sfVector2f) {795.0, 513.0});
-  news_hover = ((sfVector2f) {800 - (58 / 2), 513.0 - (53 / 2)});
+  news_hover = ((sfVector2f) {800 - (60 / 2), 513.0 - (52 / 2)});
   sfSprite_setPosition(menu[OPTION]->sprite, option);
   sfSprite_setPosition(menu[SHOP]->sprite, shop);
   sfSprite_setPosition(menu[NEWS]->sprite, news);

@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun Apr 23 22:28:32 2017 LAABID Zakaria
-** Last update Mon Apr 24 03:40:23 2017 LAABID Zakaria
+** Last update Mon Apr 24 04:20:21 2017 LAABID Zakaria
 */
 
 #include "tekadv.h"
@@ -32,7 +32,5 @@ void		sprite_change(sfRenderWindow *window, int index, t_menu **menu)
       hover_play(window, mouse_pos, menu);
     }
   if (index == CONFIG)
-    {
-      hover_config(window, mouse_pos, menu);
-    }
+    hover_config(window, mouse_pos, menu);
 }
