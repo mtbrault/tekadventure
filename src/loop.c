@@ -5,13 +5,38 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Tue Apr 25 00:42:31 2017 LAABID Zakaria
+** Last update Tue Apr 25 15:23:48 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "tekadv.h"
+
+int	load_screen(sfRenderWindow *window, t_menu **menu)
+{
+  int	s;
+
+  s = 0;
+  sfMusic_stop(menu[MENU]->music);
+  music_change(LOAD_ONE, menu);
+  while (s <= 9)
+    {
+      sfRenderWindow_clear(window, sfWhite);
+      if (s == 0 || s == 3 || s == 6 || s == 9)
+	sfRenderWindow_drawSprite(window, menu[LOAD_THREE]->sprite, NULL);
+      else if (s == 1 || s == 4 || s == 7)
+	sfRenderWindow_drawSprite(window, menu[LOAD_TWO]->sprite, NULL);
+      else if (s == 2 || s == 5 || s == 8)
+	sfRenderWindow_drawSprite(window, menu[LOAD_ONE]->sprite, NULL);
+      sfRenderWindow_display(window);
+      sleep(1);
+      s = s + 1;
+    }
+  sfMusic_stop(menu[LOAD_ONE]->music);
+  music_change(0, menu);
+  return (1);
+}
 
 void	loop2(t_player *player, sfRenderWindow *window, t_game *game, t_menu **menu)
 {
@@ -30,16 +55,7 @@ void	loop2(t_player *player, sfRenderWindow *window, t_game *game, t_menu **menu
 	}
       sfRenderWindow_clear(window, sfWhite);
       if (i == 0)
-	{
-	  sfMusic_stop(menu[MENU]->music);
-	  music_change(LOAD_ONE, menu);
-	  sfRenderWindow_drawSprite(window, menu[LOAD_ONE]->sprite, NULL);
-	  sfRenderWindow_display(window);
-	  sleep(15);
-	  i = 1;
-	  sfMusic_stop(menu[LOAD_ONE]->music);
-	  music_change(0, menu);
-	}
+	i = load_screen(window, menu);
       show_grid(window, game);
       sfRenderWindow_display(window);
     }
