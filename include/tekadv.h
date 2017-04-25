@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Mon Apr 24 23:24:54 2017 LAABID Zakaria
+** Last update Tue Apr 25 00:36:54 2017 LAABID Zakaria
 */
 
 #ifndef TEKADV_H
@@ -62,18 +62,22 @@
 # define BT_OF_V       	(23)
 # define BT_OF_B       	(24)
 # define BT_OF_D       	(25)
-# define LOADING	(26)
+# define LOAD_ONE	(26)
+# define LOAD_TWO	(27)
+# define LOAD_THREE	(28)
 
 # define INV_SPECS	"Error : Invalid specifications.\n"
 # define INV_MAP		"Error : Invalid map.\n"
 
 # define HELP		"USAGE:\t./tekadventure [file]\n\tfile : map config file.\n"
 
-# define MENU_PIC	(27)
+# define MENU_PIC	(29)
 # define STMENU_MAIN	"./ressources/menus/guimainmenu.png"
 # define STMENU_CHARAC	"./ressources/menus/guicharacter.png"
 # define STMENU_OPTION	"./ressources/menus/guiconfiguration.png"
-# define STMENU_LOADING	"./ressources/menus/chargement.png"
+# define MLOAD_ONE	"./ressources/menus/chargement_1.png"
+# define MLOAD_TWO	"./ressources/menus/chargement_2.png"
+# define MLOAD_THREE	"./ressources/menus/chargement_3.png"
 
 # define MENU_NEWS	"./ressources/elements/nouveaute.png"
 # define MENU_NEWS_H	"./ressources/elements/nouveaute_hover.png"

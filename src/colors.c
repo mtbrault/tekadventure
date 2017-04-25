@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 21:50:42 2017 LAABID Zakaria
-** Last update Mon Apr 24 23:24:42 2017 LAABID Zakaria
+** Last update Tue Apr 25 00:36:24 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -41,7 +41,9 @@ t_menu_conf	menu_conf[MENU_PIC]=
     {BUTTON_OFF, MUSIC_CHARAC, BUTTON_ONH},
     {BUTTON_OFF, MUSIC_CHARAC, BUTTON_ONH},
     {BUTTON_OFF, MUSIC_CHARAC, BUTTON_ONH},
-    {STMENU_LOADING, MUSIC_LOADING, NULL}
+    {MLOAD_ONE, MUSIC_LOADING, NULL},
+    {MLOAD_TWO, MUSIC_LOADING, NULL},
+    {MLOAD_THREE, MUSIC_LOADING, NULL}
   };
 
 void		music_change(int index, t_menu **menu)

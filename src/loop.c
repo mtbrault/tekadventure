@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Tue Apr 25 00:09:06 2017 LAABID Zakaria
+** Last update Tue Apr 25 00:42:31 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -32,12 +32,12 @@ void	loop2(t_player *player, sfRenderWindow *window, t_game *game, t_menu **menu
       if (i == 0)
 	{
 	  sfMusic_stop(menu[MENU]->music);
-	  music_change(LOADING, menu);
-	  sfRenderWindow_drawSprite(window, menu[LOADING]->sprite, NULL);
+	  music_change(LOAD_ONE, menu);
+	  sfRenderWindow_drawSprite(window, menu[LOAD_ONE]->sprite, NULL);
 	  sfRenderWindow_display(window);
 	  sleep(15);
 	  i = 1;
-	  sfMusic_stop(menu[LOADING]->music);
+	  sfMusic_stop(menu[LOAD_ONE]->music);
 	  music_change(0, menu);
 	}
       show_grid(window, game);
