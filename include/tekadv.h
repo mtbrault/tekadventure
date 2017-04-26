@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Tue Apr 25 00:36:54 2017 LAABID Zakaria
+** Last update Wed Apr 26 20:20:04 2017 Capitaine CASSE
 */
 
 #ifndef TEKADV_H
@@ -113,6 +113,8 @@
 # define MUSIC_CHARAC	"./ressources/music/dofas_character.ogg"
 # define MUSIC_LOADING	"./ressources/music/dofas_loading.ogg"
 
+# define TEXPLY		"./ressources/spritesheet/.png"
+
 # define GRID_PATH      "./ressources/misc/tile.png"
 
 /*
@@ -159,6 +161,7 @@ typedef struct		s_player
   int			pm;
   int			level;
   sfVector2i		pos;
+  int			status;
   t_stat		*stat;
 }			t_player;
 
