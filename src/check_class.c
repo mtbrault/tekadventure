@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Fri Apr 21 23:25:04 2017 Matthieu BRAULT
-** Last update Sun Apr 23 19:03:46 2017 Matthieu BRAULT
+** Last update Tue May  2 15:00:37 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -35,5 +35,6 @@ int		my_check_class(sfRenderWindow *window, t_player *player)
     get_osa(player);
   else
     return (0);
+  player->classe_texture = sfTexture_createFromFile(CLASSE_BOARD, NULL);
   return (1);
 }

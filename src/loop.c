@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Tue Apr 25 15:23:48 2017 Matthieu BRAULT
+** Last update Tue May  2 14:56:16 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -30,7 +30,7 @@ int	load_screen(sfRenderWindow *window, t_menu **menu)
       else if (s == 2 || s == 5 || s == 8)
 	sfRenderWindow_drawSprite(window, menu[LOAD_ONE]->sprite, NULL);
       sfRenderWindow_display(window);
-      sleep(1);
+      sleep(0.5);
       s = s + 1;
     }
   sfMusic_stop(menu[LOAD_ONE]->music);
@@ -56,7 +56,7 @@ void	loop2(t_player *player, sfRenderWindow *window, t_game *game, t_menu **menu
       sfRenderWindow_clear(window, sfWhite);
       if (i == 0)
 	i = load_screen(window, menu);
-      show_grid(window, game);
+      show_grid(window, game, player);
       sfRenderWindow_display(window);
     }
 }

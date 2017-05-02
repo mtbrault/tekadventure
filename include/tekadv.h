@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Wed Apr 26 20:20:04 2017 Capitaine CASSE
+** Last update Tue May  2 15:11:42 2017 Matthieu BRAULT
 */
 
 #ifndef TEKADV_H
@@ -117,6 +117,9 @@
 
 # define GRID_PATH      "./ressources/misc/tile.png"
 
+# define OSA_BOARD	"./ressources/spriteboard/osa.jpg"
+# define CLASSE_BOARD	"./ressources/spriteboard/classe.png"
+
 /*
 ** ***************************************************
 **                     - STRUCTURE -
@@ -156,6 +159,11 @@ typedef struct		s_stat
 
 typedef struct		s_player
 {
+  sfTexture		*classe_texture;
+  sfSprite		*classe;
+  sfTexture		*texture;
+  sfSprite		*spriteboard;
+  int			class;
   int			pv;
   int			pa;
   int			pm;
@@ -205,10 +213,10 @@ int			my_check_exit(sfVector2i);
 **                   - GAME MANAGER -
 ** ***************************************************
 */
-void			get_osa(t_player *);
-void			get_ecaflip(t_player *);
-void			get_iop(t_player *);
-void			get_feca(t_player *);
+int			get_osa(t_player *);
+int			get_ecaflip(t_player *);
+int			get_iop(t_player *);
+int			get_feca(t_player *);
 
 /*
 ** ***************************************************
@@ -246,7 +254,7 @@ void			set_position_config_s(t_menu **);
 */
 void			debug(t_game *);
 sfVector2i		get_mouse_pos(sfRenderWindow *);
-int			show_grid(sfRenderWindow *, t_game *);
+int			show_grid(sfRenderWindow *, t_game *, t_player *);
 
 /*
 ** ***************************************************
@@ -258,5 +266,12 @@ int			my_atoi(char *);
 char			*get_next_line(int);
 int			my_putstr(char *);
 char			*my_strdup(char *);
+
+/*
+** **************************************************
+**                    -AFF PERSO
+** **************************************************
+*/
+sfSprite		*get_static_char(sfTexture *, sfVector2i, sfVector2f);
 
 #endif /* !TEKADV_H */
