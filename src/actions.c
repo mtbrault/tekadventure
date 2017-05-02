@@ -5,10 +5,30 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat Apr 22 19:50:07 2017 Capitaine CASSE
-** Last update Mon Apr 24 14:08:22 2017 Capitaine CASSE
+** Last update Tue May  2 22:19:02 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
+
+sfVector2f	get_mult_size(sfVector2i size, sfVector2i tile)
+{
+  sfVector2f	res;
+
+  res.y = (float)(tile.y * 2 / size.x);
+  res.x = res.y;
+  return (res);
+}
+
+sfVector2i	convert_pos(sfVector2i pos, sfVector2i tile)
+{
+  sfVector2i	res;
+
+  res.x = SCR_W / 2;
+  res.y = 0;
+  res.x += pos.x * tile.x / 2 - pos.y * tile.y / 2;
+  res.y += pos.x * tile.x / 2 + (pos.y + 1) * tile.y / 2;
+  return (res);
+}
 
 int		raw_click(t_game *game, sfRenderWindow *window)
 {
