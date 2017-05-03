@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Wed May  3 18:25:13 2017 Matthieu BRAULT
+** Last update Wed May  3 20:09:56 2017 Matthieu BRAULT
 */
 
 #ifndef TEKADV_H
@@ -162,6 +162,7 @@ typedef struct		s_player
   int			pm;
   int			level;
   sfVector2i		pos;
+  sfVector2f		pos2;
   int			status;
   t_stat		*stat;
 }			t_player;
@@ -275,5 +276,7 @@ char			*my_strdup(char *);
 ** **************************************************
 */
 sfSprite		*get_static_char(sfTexture *, sfVector2i, sfVector2f, sfVector2i);
+int			move_perso(sfVector2f, t_player *, sfRenderWindow *);
+sfVector2f		convert_pos(sfVector2i, sfVector2i);
 
 #endif /* !TEKADV_H */

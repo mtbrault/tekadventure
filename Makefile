@@ -5,7 +5,7 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Wed May  3 16:35:31 2017 Matthieu BRAULT
+## Last update Wed May  3 22:00:02 2017 Matthieu BRAULT
 ##
 
 CC	=	gcc -g3
@@ -28,13 +28,14 @@ SRC	=	src/main.c			\
 		src/hover_second.c		\
 		src/mouse_check.c		\
 	   	src/get_texture.c		\
-		src/anim.c
+		src/anim.c			\
+		src/pathfind.c
 
 OBJ	=	$(SRC:.c=.o)
 
 NAME	=	tekadventure
 
-CFLAGS	+=	-Wextra -Wall -I./include
+CFLAGS	+=	-Wextra -Wall -I./include -lm
 
 LDFLAGS	+=	-L./lib/ -lkaas
 
