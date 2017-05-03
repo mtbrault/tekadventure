@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Fri Apr 21 23:32:41 2017 Matthieu BRAULT
-** Last update Tue May  2 14:55:40 2017 Matthieu BRAULT
+** Last update Wed May  3 17:10:07 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics/Rect.h>
@@ -60,9 +60,7 @@ int	get_osa(t_player *player)
   player->stat->class = 4;
   player->stat->strengh = 150;
   player->stat->luck = 0.1;
-  player->spriteboard = sfSprite_create();
-  if ((player->texture = sfTexture_createFromFile(OSA_BOARD, NULL)) == NULL)
+  if ((player->spriteboard = sfTexture_createFromFile(OSA_BOARD, NULL)) == NULL)
     return (1);
-  sfSprite_setTexture(player->spriteboard, player->texture, sfTrue);
   return (0);
 }

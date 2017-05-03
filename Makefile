@@ -5,7 +5,7 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Tue May  2 15:04:18 2017 Matthieu BRAULT
+## Last update Wed May  3 16:35:31 2017 Matthieu BRAULT
 ##
 
 CC	=	gcc -g3
@@ -27,7 +27,8 @@ SRC	=	src/main.c			\
 		src/hover_button.c		\
 		src/hover_second.c		\
 		src/mouse_check.c		\
-	   	src/get_texture.c
+	   	src/get_texture.c		\
+		src/anim.c
 
 OBJ	=	$(SRC:.c=.o)
 

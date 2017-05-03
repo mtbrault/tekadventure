@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Fri Apr 21 19:45:30 2017 Capitaine CASSE
-** Last update Tue May  2 15:07:36 2017 Matthieu BRAULT
+** Last update Wed May  3 16:49:44 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -95,7 +95,9 @@ int		show_grid(sfRenderWindow *window, t_game *game, t_player *player)
   game->tile = dims[1];
   raw_click(game, window);
   draw_grid(map, dims, window, sprite);
-  sfRenderWindow_drawSprite(window, get_static_char(player->classe_texture, ((sfVector2i) {3, player->class}), ((sfVector2f) {500, 200})), NULL);
+  sfRenderWindow_drawSprite(window, get_static_char(player->classe_texture, ((sfVector2i) {2, player->class}), ((sfVector2f) {500, 200}), ((sfVector2i) {8, 4})), NULL);
+  moove_perso(((sfVector2f) {500, 200}), ((sfVector2f) {800, 200}), player->spriteboard, window);
+  sleep(1);
   sfSprite_destroy(sprite);
   sfTexture_destroy(tex);
   return (0);

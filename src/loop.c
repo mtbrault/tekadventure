@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Tue May  2 14:56:16 2017 Matthieu BRAULT
+** Last update Wed May  3 15:41:19 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -30,7 +30,7 @@ int	load_screen(sfRenderWindow *window, t_menu **menu)
       else if (s == 2 || s == 5 || s == 8)
 	sfRenderWindow_drawSprite(window, menu[LOAD_ONE]->sprite, NULL);
       sfRenderWindow_display(window);
-      sleep(0.5);
+      usleep(500000);
       s = s + 1;
     }
   sfMusic_stop(menu[LOAD_ONE]->music);

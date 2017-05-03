@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Wed May  3 13:12:07 2017 Capitaine CASSE
+** Last update Wed May  3 17:12:43 2017 Matthieu BRAULT
 */
 
 #ifndef TEKADV_H
@@ -117,7 +117,7 @@
 
 # define GRID_PATH      "./ressources/misc/tile.png"
 
-# define OSA_BOARD	"./ressources/spriteboard/osa.jpg"
+# define OSA_BOARD	"./ressources/spriteboard/osa.png"
 # define CLASSE_BOARD	"./ressources/spriteboard/classe.png"
 
 /*
@@ -154,8 +154,7 @@ typedef struct		s_player
 {
   sfTexture		*classe_texture;
   sfSprite		*classe;
-  sfTexture		*texture;
-  sfSprite		*spriteboard;
+  sfTexture		*spriteboard;
   int			class;
   int			pv;
   int			pa;
@@ -246,6 +245,7 @@ void			set_position_start(t_menu **);
 void			set_position_character(t_menu **);
 void			set_position_config(t_menu **);
 void			set_position_config_s(t_menu **);
+int			my_config(sfRenderWindow *, int, t_menu **);
 
 /*
 ** ***************************************************
@@ -273,6 +273,6 @@ char			*my_strdup(char *);
 **                    -AFF PERSO
 ** **************************************************
 */
-sfSprite		*get_static_char(sfTexture *, sfVector2i, sfVector2f);
+sfSprite		*get_static_char(sfTexture *, sfVector2i, sfVector2f, sfVector2i);
 
 #endif /* !TEKADV_H */
