@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Wed May  3 16:03:43 2017 Matthieu BRAULT
-** Last update Wed May  3 19:18:31 2017 Matthieu BRAULT
+** Last update Wed May  3 19:41:36 2017 Matthieu BRAULT
 */
 
 #include <math.h>
@@ -63,6 +63,8 @@ void		move_perso(sfVector2f vector, t_player *p, sfRenderWindow *window)
       axe.y = vector.y / sqrt(pow(vector.x, 2) + pow(vector.y, 2));
       i.x = sqrt(pow(vector.x, 2) + pow(vector.y, 2)) / vector.x;
     }
+  if (loop.y == 6)
+    loop.y = 0;
   move = ((sfVector2f) {move.x + axe.x, move.y + axe.y});
   sprite = get_static_char(p->spriteboard, ((sfVector2i)
     {loop.y, p->dir}), p->pos + move, ((sfVector2i) {6, 8}));
