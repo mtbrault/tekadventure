@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Wed May  3 16:03:43 2017 Matthieu BRAULT
-** Last update Wed May  3 19:41:36 2017 Matthieu BRAULT
+** Last update Wed May  3 19:43:08 2017 Matthieu BRAULT
 */
 
 #include <math.h>
@@ -42,7 +42,7 @@
 /*     } */
 /* } */
 
-void		move_perso(sfVector2f vector, t_player *p, sfRenderWindow *window)
+int		move_perso(sfVector2f vector, t_player *p, sfRenderWindow *window)
 {
   static sfVector2f	move = ((sfVector2f) {0, 0});
   static sfVector2f	axe;
@@ -77,5 +77,7 @@ void		move_perso(sfVector2f vector, t_player *p, sfRenderWindow *window)
       i = ((sfVector2i) {0, 0});
       loop = ((sfVector2i) {0, 0});
       move = ((sfVector2f) {0, 0});
+      return (1);
     }
+  return (0);
 }
