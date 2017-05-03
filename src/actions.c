@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat Apr 22 19:50:07 2017 Capitaine CASSE
-** Last update Tue May  2 22:19:02 2017 Capitaine CASSE
+** Last update Wed May  3 11:52:04 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -30,7 +30,7 @@ sfVector2i	convert_pos(sfVector2i pos, sfVector2i tile)
   return (res);
 }
 
-int		raw_click(t_game *game, sfRenderWindow *window)
+sfVector2i	raw_click(t_game *game, sfRenderWindow *window)
 {
   sfVector2i	pos;
   sfVector2i	grid;
@@ -41,6 +41,5 @@ int		raw_click(t_game *game, sfRenderWindow *window)
   pos.x -= SCR_W / 2;
   grid.x = (int)(pos.x / ((float)tile.x / 2) + pos.y / ((float)tile.y / 2)) / 2;
   grid.y = (int)(pos.y / ((float)tile.y / 2) - pos.x / ((float)tile.x / 2)) / 2;
-  printf("ROH CLIK %d %d\n", grid.x, grid.y);
-  return (0);
+  return (grid);
 }

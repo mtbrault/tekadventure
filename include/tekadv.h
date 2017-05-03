@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Tue May  2 15:11:42 2017 Matthieu BRAULT
+** Last update Wed May  3 13:12:07 2017 Capitaine CASSE
 */
 
 #ifndef TEKADV_H
@@ -139,13 +139,6 @@ typedef struct		s_game_conf
   int	debug;
 }			t_game_conf;
 
-typedef struct		s_game
-{
-  int			***map;
-  char			**enemies;
-  sfVector2i		tile;
-}			t_game;
-
 typedef struct		s_stat
 {
   int			class;
@@ -172,6 +165,14 @@ typedef struct		s_player
   int			status;
   t_stat		*stat;
 }			t_player;
+
+typedef struct          s_game
+{
+  int                   ***map;
+  char                  **enemies;
+  sfVector2i            tile;
+  t_player		*player;
+}			t_game;
 
 typedef struct		s_menu
 {
@@ -223,7 +224,6 @@ int			get_feca(t_player *);
 **                   - MAP MANAGER -
 ** ***************************************************
 */
-int			raw_click(t_game *, sfRenderWindow *);
 
 /*
 ** ***************************************************
@@ -255,6 +255,7 @@ void			set_position_config_s(t_menu **);
 void			debug(t_game *);
 sfVector2i		get_mouse_pos(sfRenderWindow *);
 int			show_grid(sfRenderWindow *, t_game *, t_player *);
+sfVector2i		raw_click(t_game *, sfRenderWindow *);
 
 /*
 ** ***************************************************
