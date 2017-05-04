@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Wed May  3 23:10:32 2017 Matthieu BRAULT
+** Last update Thu May  4 11:58:07 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -53,6 +53,7 @@ void	my_moove(sfRenderWindow *window, t_player *player, sfVector2f vector, sfVec
   int		tmp;
   int		s;
   sfSprite	*sprite;
+  sfVector2i	mouse;
 
   norme = sqrt(pow(vector.x, 2) + pow(vector.y, 2));
   axe.x = thales(sqrt(pow(vector.x, 2) + pow(vector.y, 2)), 2000, click.x - player->pos2.x);
@@ -64,6 +65,12 @@ void	my_moove(sfRenderWindow *window, t_player *player, sfVector2f vector, sfVec
   loop = (click.x - player->pos2.x) / axe.x;
   while (i <= loop)
     {
+      if (sfMouse_isButtonPressed(sfMouseLeft))
+	{
+	  mouse = get_mouse_pos(window);
+	  my_moove(window, player, get_vector(mouse, player->pos2, player), ((sfVector2f) {(float)mouse.x, (float)mouse.y}));
+	  return ;
+	}
       sfRenderWindow_clear(window, sfWhite);
       if (tmp == 6)
 	tmp = 0;
