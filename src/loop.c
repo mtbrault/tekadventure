@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Thu May  4 11:58:07 2017 Matthieu BRAULT
+** Last update Thu May  4 16:30:13 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -125,7 +125,7 @@ void	test(sfRenderWindow *window, t_player *player)
   else
     {
       static_pos = get_static_char(player->classe_texture, ((sfVector2i)
-	{1, player->class}), player->pos2, ((sfVector2i) {8, 4}));
+	{player->dir, player->class}), player->pos2, ((sfVector2i) {8, 4}));
       sfRenderWindow_drawSprite(window, static_pos, NULL);
     }
 }
