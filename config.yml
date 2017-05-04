@@ -1,0 +1,38 @@
+#DAFOS - CONFIGFILE
+#TO KNOW EVERYTHING ABOUT THE YAML CONFIG OF DAFOS
+#GO TO THIS WEBSITE : 51.51.51.51/dafos-api/
+MAP1:
+    map:
+        map-coord: "010101010101010101010
+    011010101010101010101
+    011101010101010101010
+    010101010101010010101
+    101010101010101010101
+    010101010101010101010"
+        map-bg: "src/"
+    teleporter:
+    	tp1:
+      	coords: 5,7
+      	tp-name: "NIVEAU2"
+    mobs:
+    	monster-1:
+      	name: "Eythan Le Youpin"
+      	texture: "src/texture/mobs"
+        life: 100
+        damage: 5.0
+        pm: 10
+        pa: 6
+        coords: 5,9
+      monster-2:
+      	name: "Youssef le bg"
+      	texture: "src/texture/mobs"
+        life: 100
+        damage: 5.0
+        pm: 10
+        pa: 6
+        coords: 5,7
+    event:
+      items-1:
+      	name: "Chest"
+        texture: "src/texture/items"
+        coords: 10,2r

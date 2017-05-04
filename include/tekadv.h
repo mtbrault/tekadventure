@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Thu May  4 11:28:56 2017 Matthieu BRAULT
+** Last update Thu May  4 19:07:51 2017 LAABID Zakaria
 */
 
 #ifndef TEKADV_H
@@ -118,6 +118,9 @@
 # define GRID_PATH      "./ressources/misc/tile.png"
 
 # define OSA_BOARD	"./ressources/spriteboard/osa.png"
+# define FECA_BOARD	"./ressources/spriteboard/feca.png"
+# define ECA_BOARD	"./ressources/spriteboard/eca.png"
+# define IOP_BOARD	"./ressources/spriteboard/iop.png"
 # define CLASSE_BOARD	"./ressources/spriteboard/classe.png"
 
 /*

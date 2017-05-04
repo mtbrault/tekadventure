@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Thu May  4 16:30:13 2017 Matthieu BRAULT
+** Last update Thu May  4 19:14:48 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -93,21 +93,21 @@ sfVector2f	get_vector(sfVector2i mouse, sfVector2f player_moove, t_player *playe
 
   vector.x = (float)mouse.x - player_moove.x;
   vector.y = (float)mouse.y - player_moove.y;
-  if (vector.x > 0 && (vector.y >= 0 && vector.y <= 60))
-    player->dir = 0;
-  else if (vector.x > 60 && vector.y > 60)
+  if (vector.x > -45 && (vector.y >= -45 && vector.y <= 45))
+    player->dir = -45;
+  else if (vector.x > 45 && vector.y > 45)
     player->dir = 1;
-  else if ((vector.x >= 0 && vector.x <= 60) && vector.y > 60)
+  else if ((vector.x >= -45 && vector.x <= 45) && vector.y > 45)
     player->dir = 2;
-  else if (vector.x < 0 && vector.y > 60)
+  else if (vector.x < -45 && vector.y > 45)
     player->dir = 3;
-  else if (vector.x < 0 && (vector.y >= 0 && vector.y <= 60))
+  else if (vector.x < -45 && (vector.y >= -45 && vector.y <= 45))
     player->dir = 4;
-  else if (vector.x < 0 && vector.y < 0)
+  else if (vector.x < -45 && vector.y < -45)
     player->dir = 5;
-  else if ((vector.x >= 0 && vector.x <= 60) && vector.y < 0)
+  else if ((vector.x >= -45 && vector.x <= 45) && vector.y < -45)
     player->dir = 6;
-  else if (vector.x > 60 && vector.y < 0)
+  else if (vector.x > 45 && vector.y < -45)
     player->dir = 7;
   return (vector);
 }
