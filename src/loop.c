@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Fri May  5 11:25:17 2017 Matthieu BRAULT
+** Last update Fri May  5 11:32:01 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -53,24 +53,19 @@ int	my_moove(sfRenderWindow *window, t_player *player, sfVector2f vector, t_moov
       moove->axe.y = thales(moove->norme, 1000, moove->click.y - player->pos2.y);
       moove->tmp = 0;
       moove->i = 0;
-      moove->x = 0;
       moove->loop = (moove->click.x - player->pos2.x) / moove->axe.x;
     }
   if (moove->tmp == 6)
     moove->tmp = 0;
   if (moove->s % 80 == 0)
     moove->tmp = moove->tmp + 1;
-  if (moove->x > moove->axe.x)
-    {
-      moove->x = moove->x + 1;
-      moove->i = moove->i + 1;
-    }
+  if (moove->s > moove->axe.x * (moove->i + 1))
+    moove->i = moove->i + 1;
   moove->sprite = get_static_char(player->spriteboard, ((sfVector2i)
     {moove->tmp, player->dir}), player->pos2, ((sfVector2i) {6, 8}));
   sfRenderWindow_drawSprite(window, moove->sprite, NULL);
   player->pos2 = ((sfVector2f) {player->pos2.x + moove->axe.x, player->pos2.y + moove->axe.y});
   moove->s = moove->s + 1;
-  moove->x = moove->x + 1;
   if (moove->i > moove->loop)
     return (moove->s = 0);
   return (1);

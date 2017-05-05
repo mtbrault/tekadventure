@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Fri May  5 11:25:01 2017 Matthieu BRAULT
+** Last update Fri May  5 11:32:11 2017 Matthieu BRAULT
 */
 
 #ifndef TEKADV_H
@@ -201,7 +201,6 @@ typedef struct		s_moove
   int			i;
   int			tmp;
   int			s;
-  int			x;
   sfSprite		*sprite;
 }			t_moove;
 
