@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Thu May  4 19:14:48 2017 LAABID Zakaria
+** Last update Fri May  5 10:07:28 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -44,47 +44,45 @@ float	thales(float norme, int prop, float axe)
   return (((norme / prop) * axe) / norme);
 }
 
-void	my_moove(sfRenderWindow *window, t_player *player, sfVector2f vector, sfVector2f click)
+int	my_moove(sfRenderWindow *window, t_player *player, sfVector2f vector, sfVector2f click)
 {
-  sfVector2f	axe;
-  int		norme;
-  int		loop;
-  int		i;
-  int		tmp;
-  int		s;
-  sfSprite	*sprite;
-  sfVector2i	mouse;
+  static sfVector2f	axe;
+  static int		norme;
+  static int		loop;
+  static int		i;
+  static int		tmp;
+  static int		s = 0;;
+  static int		x;
+  sfSprite		*sprite;
 
-  norme = sqrt(pow(vector.x, 2) + pow(vector.y, 2));
-  axe.x = thales(sqrt(pow(vector.x, 2) + pow(vector.y, 2)), 2000, click.x - player->pos2.x);
-  axe.y = thales(sqrt(pow(vector.x, 2) + pow(vector.y, 2)), 2000, click.y - player->pos2.y);
-  axe = ((sfVector2f) {axe.x, axe.y});
-  i = 0;
-  tmp = 0;
-  s = 0;
-  loop = (click.x - player->pos2.x) / axe.x;
-  while (i <= loop)
+  if (s == 0)
     {
-      if (sfMouse_isButtonPressed(sfMouseLeft))
-	{
-	  mouse = get_mouse_pos(window);
-	  my_moove(window, player, get_vector(mouse, player->pos2, player), ((sfVector2f) {(float)mouse.x, (float)mouse.y}));
-	  return ;
-	}
-      sfRenderWindow_clear(window, sfWhite);
-      if (tmp == 6)
-	tmp = 0;
-      if (s % 100 == 0)
-	tmp = tmp + 1;
-      if (s % 2000)
-	i = i + 1;
-      sprite = get_static_char(player->spriteboard, ((sfVector2i)
-	{tmp, player->dir}), player->pos2, ((sfVector2i) {6, 8}));
-      sfRenderWindow_drawSprite(window, sprite, NULL);
-      sfRenderWindow_display(window);
-      player->pos2 = ((sfVector2f) {player->pos2.x + axe.x, player->pos2.y + axe.y});
-      s = s + 1;
+      norme = sqrt(pow(vector.x, 2) + pow(vector.y, 2));
+      axe.x = thales(sqrt(pow(vector.x, 2) + pow(vector.y, 2)), 1000, click.x - player->pos2.x);
+      axe.y = thales(sqrt(pow(vector.x, 2) + pow(vector.y, 2)), 1000, click.y - player->pos2.y);
+      tmp = 0;
+      i = 0;
+      x = 0;
+      loop = (click.x - player->pos2.x) / axe.x;
     }
+  if (tmp == 6)
+    tmp = 0;
+  if (s % 80 == 0)
+    tmp = tmp + 1;
+  if (x > axe.x)
+    {
+      x = x + 1;
+      i = i + 1;
+    }
+  sprite = get_static_char(player->spriteboard, ((sfVector2i)
+    {tmp, player->dir}), player->pos2, ((sfVector2i) {6, 8}));
+  sfRenderWindow_drawSprite(window, sprite, NULL);
+  player->pos2 = ((sfVector2f) {player->pos2.x + axe.x, player->pos2.y + axe.y});
+  s = s + 1;
+  x = x + 1;
+  if (i > loop)
+    return (s = 0);
+  return (1);
 }
 
 sfVector2f	get_vector(sfVector2i mouse, sfVector2f player_moove, t_player *player)
@@ -94,7 +92,7 @@ sfVector2f	get_vector(sfVector2i mouse, sfVector2f player_moove, t_player *playe
   vector.x = (float)mouse.x - player_moove.x;
   vector.y = (float)mouse.y - player_moove.y;
   if (vector.x > -45 && (vector.y >= -45 && vector.y <= 45))
-    player->dir = -45;
+    player->dir = 0;
   else if (vector.x > 45 && vector.y > 45)
     player->dir = 1;
   else if ((vector.x >= -45 && vector.x <= 45) && vector.y > 45)
@@ -112,22 +110,31 @@ sfVector2f	get_vector(sfVector2i mouse, sfVector2f player_moove, t_player *playe
   return (vector);
 }
 
-void	test(sfRenderWindow *window, t_player *player)
+int			test(sfRenderWindow *window, t_player *player)
 {
-  sfVector2i	mouse;
-  sfSprite	*static_pos;
-  
-  if (sfMouse_isButtonPressed(sfMouseLeft))
+  static sfVector2i	mouse = {-1, -1};
+  static sfVector2f	vector;
+  sfSprite		*static_pos;
+  static int		i = 0;
+
+  if (sfMouse_isButtonPressed(sfMouseLeft) && !i)
     {
       mouse = get_mouse_pos(window);
-      my_moove(window, player, get_vector(mouse, player->pos2, player), ((sfVector2f) {(float)mouse.x, (float)mouse.y}));
+      vector = get_vector(mouse, player->pos2, player);
+      i = 1;
     }
-  else
+  if (mouse.x == -1 && mouse.y == -1)
     {
-      static_pos = get_static_char(player->classe_texture, ((sfVector2i)
-	{player->dir, player->class}), player->pos2, ((sfVector2i) {8, 4}));
-      sfRenderWindow_drawSprite(window, static_pos, NULL);
+      static_pos = get_static_char(player->classe_texture, ((sfVector2i) {player->dir, player->class}), player->pos2, ((sfVector2i) {8, 4}));
+      sfRenderWindow_drawSprite(window, static_pos, NULL); 
     }
+  else if (my_moove(window, player, vector, ((sfVector2f) {(float)mouse.x, (float)mouse.y})) == 0)
+    {
+      i = 0;
+      mouse.x = -1;
+      mouse.y = -1;
+    }
+  return (i);
 }
 
 void	loop2(t_player *player, sfRenderWindow *window, t_game *game, t_menu **menu)
@@ -146,9 +153,9 @@ void	loop2(t_player *player, sfRenderWindow *window, t_game *game, t_menu **menu
 	    sfRenderWindow_close(window);
 	}
       sfRenderWindow_clear(window, sfWhite);
-      /* if (i == 0) */
-      /* 	i = load_screen(window, menu); */
-      //show_grid(window, game, player);
+      if (i == 0)
+      	i = load_screen(window, menu);
+      show_grid(window, game, player);
       test(window, player);
       sfRenderWindow_display(window);
     }

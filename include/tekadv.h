@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Thu May  4 19:07:51 2017 LAABID Zakaria
+** Last update Thu May  4 22:18:25 2017 Matthieu BRAULT
 */
 
 #ifndef TEKADV_H
@@ -282,5 +282,6 @@ sfSprite		*get_static_char(sfTexture *, sfVector2i, sfVector2f, sfVector2i);
 int			move_perso(sfVector2f, t_player *, sfRenderWindow *);
 sfVector2f		convert_pos(sfVector2i, sfVector2i);
 sfVector2f		get_vector(sfVector2i, sfVector2f, t_player *);
+sfVector2f		get_mult_size(sfVector2i, sfVector2i);
 
 #endif /* !TEKADV_H */
