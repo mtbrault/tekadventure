@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 20:40:56 2017 LAABID Zakaria
-** Last update Mon Apr 24 19:47:14 2017 LAABID Zakaria
+** Last update Fri May  5 17:15:06 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -14,7 +14,7 @@ void	        set_position_config_s(t_menu **menu)
 {
   menu[BT_OF_V]->pos = ((sfVector2f) {735.0, 287.0});
   menu[BT_OF_B]->pos = ((sfVector2f) {735.0, 344.0});
-  menu[BT_OF_D]->pos = ((sfVector2f) {655.0, 410.0});
+  menu[BT_OF_D]->pos = ((sfVector2f) {735.0, 410.0});
   sfSprite_setPosition(menu[BT_OF_V]->sprite, menu[BT_OF_V]->pos);
   sfSprite_setPosition(menu[BT_OF_V]->sprite_h, menu[BT_OF_V]->pos);
   sfSprite_setPosition(menu[BT_OF_B]->sprite, menu[BT_OF_B]->pos);
@@ -28,7 +28,7 @@ void	        set_position_config(t_menu **menu)
   menu[BT_SAVE]->pos = ((sfVector2f) {580.0, 525.0});
   menu[BT_ON_V]->pos = ((sfVector2f) {735.0, 287.0});
   menu[BT_ON_B]->pos = ((sfVector2f) {735.0, 344.0});
-  menu[BT_ON_D]->pos = ((sfVector2f) {655.0, 410.0});
+  menu[BT_ON_D]->pos = ((sfVector2f) {735.0, 410.0});
   sfSprite_setPosition(menu[BT_SAVE]->sprite, menu[BT_SAVE]->pos);
   sfSprite_setPosition(menu[BT_SAVE]->sprite_h, menu[BT_SAVE]->pos);
   sfSprite_setPosition(menu[BT_ON_V]->sprite, menu[BT_ON_V]->pos);

@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon Apr 24 03:33:03 2017 LAABID Zakaria
-** Last update Mon Apr 24 20:55:10 2017 Matthieu BRAULT
+** Last update Fri May  5 17:17:54 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -46,16 +46,14 @@ void		hover_config_second(sfRenderWindow *window,
     }
   if (menu[BT_ON_D]->hover == 1)
     {
-      if (check_class_pos(((sfVector2i) {655, 745})
-			  , ((sfVector2i) {411, 438}), mouse) == 1)
+      if (check_class_pos(x_b, ((sfVector2i) {411, 438}), mouse) == 1)
 	sfRenderWindow_drawSprite(window, menu[BT_ON_D]->sprite_h, NULL);
       else
 	sfRenderWindow_drawSprite(window, menu[BT_ON_D]->sprite, NULL);
     }
   else
     {
-      if (check_class_pos(((sfVector2i) {655, 745})
-			  , ((sfVector2i) {411, 438}), mouse) == 1)
+      if (check_class_pos(x_b, ((sfVector2i) {411, 438}), mouse) == 1)
 	sfRenderWindow_drawSprite(window, menu[BT_OF_D]->sprite_h, NULL);
       else
 	sfRenderWindow_drawSprite(window, menu[BT_OF_D]->sprite, NULL);

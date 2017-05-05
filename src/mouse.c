@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Fri Apr 21 20:55:12 2017 Matthieu BRAULT
-** Last update Mon Apr 24 21:05:39 2017 Matthieu BRAULT
+** Last update Fri May  5 17:07:00 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -13,11 +13,15 @@
 int	        mouse_func(sfRenderWindow *window, int index,
 			   t_player *player, t_menu **menu)
 {
+  int	i;
+
   if (index == MENU)
     if (sfMouse_isButtonPressed(sfMouseLeft))
       {
-	if (my_check_click(window, CLOSE) == 1)
+	if ((i = my_check_click(window, CLOSE)) == 1)
 	  index = CHARAC;
+	else if (i == 2)
+	  return (-1);
 	if (my_check_config(get_mouse_pos(window)) == 1)
 	  index = CONFIG;
       }
@@ -45,7 +49,7 @@ int		my_check_click(sfRenderWindow *window, int x)
     return (1);
   if (x == CLOSE)
     if (my_check_exit(mouse_pos) == 1)
-      return (1);
+      return (2);
   return (NORMAL);
 }
 

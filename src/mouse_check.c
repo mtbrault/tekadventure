@@ -5,12 +5,12 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon Apr 24 04:06:54 2017 LAABID Zakaria
-** Last update Fri May  5 17:07:24 2017 Capitaine CASSE
+** Last update Fri May  5 17:14:38 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
 
-t_tabmouse	tabmouse[3] =
+t_tabmouse	tabmouse[TABMOUSE_S] =
 {
   {(sfVector2i) {289, 313}, BT_ON_V},
   {(sfVector2i) {353, 372}, BT_ON_B},
@@ -21,10 +21,7 @@ int	my_check_exit(sfVector2i mouse_pos)
 {
   if (mouse_pos.x >= 573 && mouse_pos.x <= 767 &&
 	   mouse_pos.y >= 356 && mouse_pos.y <= 390)
-    {
-      exit(0);
-      return (1);
-    }
+    return (1);
   return (NORMAL);
 }
 
