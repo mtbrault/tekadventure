@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Wed May  3 16:03:43 2017 Matthieu BRAULT
-** Last update Fri May  5 14:23:39 2017 Matthieu BRAULT
+** Last update Fri May  5 16:21:23 2017 Matthieu BRAULT
 */
 
 #include <math.h>
@@ -17,16 +17,16 @@ float	thales(float norme, int prop, float axe)
   return (((norme / prop) * axe) / norme);
 }
 
-int	my_moove(sfRenderWindow *window, t_player *p, sfVector2f vector, t_moove *move, t_game *game)
+int	my_moove(sfRenderWindow *window, sfVector2f vector, t_moove *move, t_game *game)
 {
   if (move->s == 0)
     {
       move->norme = sqrt(pow(vector.x, 2) + pow(vector.y, 2));
-      move->axe.x = thales(move->norme, 1000, move->click.x - p->pos2.x);
-      move->axe.y = thales(move->norme, 1000, move->click.y - p->pos2.y);
+      move->axe.x = thales(move->norme, 1000, move->click.x - game->player->pos2.x);
+      move->axe.y = thales(move->norme, 1000, move->click.y - game->player->pos2.y);
       move->tmp = 0;
       move->i = 0;
-      move->loop = (move->click.x - p->pos2.x) / move->axe.x;
+      move->loop = (move->click.x - game->player->pos2.x) / move->axe.x;
     }
   if (move->tmp == 6)
     move->tmp = 0;
@@ -34,11 +34,11 @@ int	my_moove(sfRenderWindow *window, t_player *p, sfVector2f vector, t_moove *mo
     move->tmp = move->tmp + 1;
   if (move->s > move->axe.x * (move->i + 1))
     move->i = move->i + 1;
-  move->sprite = get_static_char(p->spriteboard, ((sfVector2i)
-    {move->tmp, p->dir}), game, ((sfVector2i) {6, 8}));
-  sfSprite_setPosition(move->sprite, p->pos2);
+  move->sprite = get_static_char(game->player->spriteboard, ((sfVector2i)
+    {move->tmp, game->player->dir}), game, ((sfVector2i) {6, 8}));
+  sfSprite_setPosition(move->sprite, game->player->pos2);
   sfRenderWindow_drawSprite(window, move->sprite, NULL);
-  p->pos2 = ((sfVector2f) {p->pos2.x + move->axe.x, p->pos2.y + move->axe.y});
+  game->player->pos2 = ((sfVector2f) {game->player->pos2.x + move->axe.x, game->player->pos2.y + move->axe.y});
   move->s = move->s + 1;
   if (move->i > move->loop)
     return (move->s = 0);
