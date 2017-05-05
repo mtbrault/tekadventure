@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Fri May  5 11:34:07 2017 Matthieu BRAULT
+** Last update Fri May  5 14:13:11 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -39,16 +39,11 @@ int	load_screen(sfRenderWindow *window, t_menu **menu)
   return (1);
 }
 
-float	thales(float norme, int prop, float axe)
-{
-  return (((norme / prop) * axe) / norme);
-}
-
-int			test(sfRenderWindow *window, t_player *player, t_moove *moove)
+int			test(sfRenderWindow *window, t_player *player, t_moove *moove, t_game *game)
 {
   static sfVector2i	mouse = {-1, -1};
   static sfVector2f	vector;
-  sfSprite		*static_pos;
+  sfSprite		*sprite;
   static int		i = 0;
 
   if (sfMouse_isButtonPressed(sfMouseLeft) && !i)
@@ -61,10 +56,11 @@ int			test(sfRenderWindow *window, t_player *player, t_moove *moove)
     }
   if (mouse.x == -1 && mouse.y == -1)
     {
-      static_pos = get_static_char(player->classe_texture, ((sfVector2i) {player->dir, player->class}), player->pos2, ((sfVector2i) {8, 4}));
-      sfRenderWindow_drawSprite(window, static_pos, NULL); 
-    }
-  else if (my_moove(window, player, vector, moove) == 0)
+      sprite = get_static_char(player->classe_texture, ((sfVector2i) {player->dir, player->class}), game, ((sfVector2i) {8, 4}));
+      sfSprite_setPosition(sprite, player->pos2);
+      sfRenderWindow_drawSprite(window, sprite, NULL);
+}
+  else if (my_moove(window, player, vector, moove, game) == 0)
     {
       i = 0;
       mouse.x = -1;
@@ -92,10 +88,10 @@ void	loop2(t_player *player, sfRenderWindow *window, t_game *game, t_menu **menu
 	    sfRenderWindow_close(window);
 	}
       sfRenderWindow_clear(window, sfWhite);
-      if (i == 0)
-      	i = load_screen(window, menu);
+      /* if (i == 0) */
+      /* 	i = load_screen(window, menu); */
       show_grid(window, game, player);
-      test(window, player, moove);
+      test(window, player, moove, game);
       sfRenderWindow_display(window);
     }
 }

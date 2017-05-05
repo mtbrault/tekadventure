@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat Apr 22 19:50:07 2017 Capitaine CASSE
-** Last update Wed May  3 18:57:00 2017 Capitaine CASSE
+** Last update Fri May  5 14:18:19 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -14,8 +14,8 @@ sfVector2f	get_mult_size(sfVector2i size, sfVector2i tile)
 {
   sfVector2f	res;
 
-  res.y = (float)(tile.y * 2 / size.x);
-  res.x = res.y;
+  res.y = (float)((float)tile.y * 3 / (float)size.y);
+  res.x = (float)res.y;
   return (res);
 }
 
