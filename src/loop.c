@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Fri May  5 10:07:28 2017 Matthieu BRAULT
+** Last update Fri May  5 11:25:17 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -44,44 +44,35 @@ float	thales(float norme, int prop, float axe)
   return (((norme / prop) * axe) / norme);
 }
 
-int	my_moove(sfRenderWindow *window, t_player *player, sfVector2f vector, sfVector2f click)
+int	my_moove(sfRenderWindow *window, t_player *player, sfVector2f vector, t_moove *moove)
 {
-  static sfVector2f	axe;
-  static int		norme;
-  static int		loop;
-  static int		i;
-  static int		tmp;
-  static int		s = 0;;
-  static int		x;
-  sfSprite		*sprite;
-
-  if (s == 0)
+  if (moove->s == 0)
     {
-      norme = sqrt(pow(vector.x, 2) + pow(vector.y, 2));
-      axe.x = thales(sqrt(pow(vector.x, 2) + pow(vector.y, 2)), 1000, click.x - player->pos2.x);
-      axe.y = thales(sqrt(pow(vector.x, 2) + pow(vector.y, 2)), 1000, click.y - player->pos2.y);
-      tmp = 0;
-      i = 0;
-      x = 0;
-      loop = (click.x - player->pos2.x) / axe.x;
+      moove->norme = sqrt(pow(vector.x, 2) + pow(vector.y, 2));
+      moove->axe.x = thales(moove->norme, 1000, moove->click.x - player->pos2.x);
+      moove->axe.y = thales(moove->norme, 1000, moove->click.y - player->pos2.y);
+      moove->tmp = 0;
+      moove->i = 0;
+      moove->x = 0;
+      moove->loop = (moove->click.x - player->pos2.x) / moove->axe.x;
     }
-  if (tmp == 6)
-    tmp = 0;
-  if (s % 80 == 0)
-    tmp = tmp + 1;
-  if (x > axe.x)
+  if (moove->tmp == 6)
+    moove->tmp = 0;
+  if (moove->s % 80 == 0)
+    moove->tmp = moove->tmp + 1;
+  if (moove->x > moove->axe.x)
     {
-      x = x + 1;
-      i = i + 1;
+      moove->x = moove->x + 1;
+      moove->i = moove->i + 1;
     }
-  sprite = get_static_char(player->spriteboard, ((sfVector2i)
-    {tmp, player->dir}), player->pos2, ((sfVector2i) {6, 8}));
-  sfRenderWindow_drawSprite(window, sprite, NULL);
-  player->pos2 = ((sfVector2f) {player->pos2.x + axe.x, player->pos2.y + axe.y});
-  s = s + 1;
-  x = x + 1;
-  if (i > loop)
-    return (s = 0);
+  moove->sprite = get_static_char(player->spriteboard, ((sfVector2i)
+    {moove->tmp, player->dir}), player->pos2, ((sfVector2i) {6, 8}));
+  sfRenderWindow_drawSprite(window, moove->sprite, NULL);
+  player->pos2 = ((sfVector2f) {player->pos2.x + moove->axe.x, player->pos2.y + moove->axe.y});
+  moove->s = moove->s + 1;
+  moove->x = moove->x + 1;
+  if (moove->i > moove->loop)
+    return (moove->s = 0);
   return (1);
 }
 
@@ -110,7 +101,7 @@ sfVector2f	get_vector(sfVector2i mouse, sfVector2f player_moove, t_player *playe
   return (vector);
 }
 
-int			test(sfRenderWindow *window, t_player *player)
+int			test(sfRenderWindow *window, t_player *player, t_moove *moove)
 {
   static sfVector2i	mouse = {-1, -1};
   static sfVector2f	vector;
@@ -119,7 +110,9 @@ int			test(sfRenderWindow *window, t_player *player)
 
   if (sfMouse_isButtonPressed(sfMouseLeft) && !i)
     {
+      moove->s = 0;
       mouse = get_mouse_pos(window);
+      moove->click = ((sfVector2f) {(float)mouse.x, (float)mouse.y});
       vector = get_vector(mouse, player->pos2, player);
       i = 1;
     }
@@ -128,7 +121,7 @@ int			test(sfRenderWindow *window, t_player *player)
       static_pos = get_static_char(player->classe_texture, ((sfVector2i) {player->dir, player->class}), player->pos2, ((sfVector2i) {8, 4}));
       sfRenderWindow_drawSprite(window, static_pos, NULL); 
     }
-  else if (my_moove(window, player, vector, ((sfVector2f) {(float)mouse.x, (float)mouse.y})) == 0)
+  else if (my_moove(window, player, vector, moove) == 0)
     {
       i = 0;
       mouse.x = -1;
@@ -140,10 +133,13 @@ int			test(sfRenderWindow *window, t_player *player)
 void	loop2(t_player *player, sfRenderWindow *window, t_game *game, t_menu **menu)
 {
   sfEvent	event;
+  t_moove	*moove;
   int		i;
 
   player = player;
   i = 0;
+  if ((moove = malloc(sizeof(t_moove))) == NULL)
+    return ;
   while (sfRenderWindow_isOpen(window))
     {
       while (sfRenderWindow_pollEvent(window, &event))
@@ -156,7 +152,7 @@ void	loop2(t_player *player, sfRenderWindow *window, t_game *game, t_menu **menu
       if (i == 0)
       	i = load_screen(window, menu);
       show_grid(window, game, player);
-      test(window, player);
+      test(window, player, moove);
       sfRenderWindow_display(window);
     }
 }

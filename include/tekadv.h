@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Thu May  4 22:18:25 2017 Matthieu BRAULT
+** Last update Fri May  5 11:25:01 2017 Matthieu BRAULT
 */
 
 #ifndef TEKADV_H
@@ -191,6 +191,19 @@ typedef struct		s_menu
   sfVector2u		size_h;
   sfMusic		*music;
 }			t_menu;
+
+typedef struct		s_moove
+{
+  sfVector2f		axe;
+  sfVector2f		click;
+  int			norme;
+  int			loop;
+  int			i;
+  int			tmp;
+  int			s;
+  int			x;
+  sfSprite		*sprite;
+}			t_moove;
 
 /*
 ** ***************************************************
