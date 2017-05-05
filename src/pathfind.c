@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Tue May  2 22:22:39 2017 Capitaine CASSE
-** Last update Wed May  3 19:59:57 2017 Capitaine CASSE
+** Last update Fri May  5 11:36:05 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -55,7 +55,7 @@ int	find_pos(t_player *ply, t_game *game, sfRenderWindow *window)
   dest = convert_pos(dir, game->tile);
   res.x = dest.x - (float)ply->pos.x;
   res.y = dest.y - (float)ply->pos.y;
-  if (move_perso(res, ply, window))
-    state = 0;
+  /* if (move_perso(res, ply, window)) */
+  /*   state = 0 */;
   return (0);
 }
