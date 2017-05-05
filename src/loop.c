@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Fri May  5 16:28:35 2017 Matthieu BRAULT
+** Last update Fri May  5 16:47:25 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -39,7 +39,8 @@ int	load_screen(sfRenderWindow *window, t_menu **menu)
   return (1);
 }
 
-int			test(sfRenderWindow *window, t_player *player, t_moove *moove, t_game *game)
+int			test(sfRenderWindow *window, t_player *player,
+			     t_moove *moove, t_game *game)
 {
   static sfVector2i	mouse = {-1, -1};
   static sfVector2f	vector;
@@ -55,7 +56,8 @@ int			test(sfRenderWindow *window, t_player *player, t_moove *moove, t_game *gam
     }
   else if (mouse.x == -1 && mouse.y == -1)
     {
-      sprite = get_static_char(player->classe_texture, ((sfVector2i) {player->dir, player->class}), game, ((sfVector2i) {8, 4}));
+      sprite = get_static_char(player->classe_texture, ((sfVector2i)
+	{player->dir, player->class}), game, ((sfVector2i) {8, 4}));
       sfSprite_setPosition(sprite, player->pos2);
       sfRenderWindow_drawSprite(window, sprite, NULL);
     }
@@ -64,33 +66,8 @@ int			test(sfRenderWindow *window, t_player *player, t_moove *moove, t_game *gam
   return (0);
 }
 
-/* int			test(sfRenderWindow *window, t_player *player, t_moove *moove, t_game *game) */
-/* { */
-/*   static sfVector2i	mouse = {-1, -1}; */
-/*   static sfVector2f	vector; */
-/*   sfSprite		*sprite; */
-/*   static int		i = 0; */
-
-/*   if (sfMouse_isButtonPressed(sfMouseLeft) && !i) */
-/*     { */
-/*       moove->s = 0; */
-/*       mouse = get_mouse_pos(window); */
-/*       moove->click = ((sfVector2f) {(float)mouse.x, (float)mouse.y}); */
-/*       vector = get_vector(mouse, player->pos2, player); */
-/*       i = 1; */
-/*     } */
-/*   if (mouse.x == -1 && mouse.y == -1) */
-/*     { */
-/*       sprite = get_static_char(player->classe_texture, ((sfVector2i) {player->dir, player->class}), game, ((sfVector2i) {8, 4})); */
-/*       sfSprite_setPosition(sprite, player->pos2); */
-/*       sfRenderWindow_drawSprite(window, sprite, NULL); */
-/*     } */
-/*   else if ((i = my_moove(window, vector, moove, game)) == 0) */
-/*     mouse = ((sfVector2i) {-1, -1}); */
-/*   return (i); */
-/* } */
-
-void	loop2(t_player *player, sfRenderWindow *window, t_game *game, t_menu **menu)
+void	loop2(t_player *player, sfRenderWindow *window,
+	      t_game *game, t_menu **menu)
 {
   sfEvent	event;
   t_moove	*moove;
@@ -109,8 +86,8 @@ void	loop2(t_player *player, sfRenderWindow *window, t_game *game, t_menu **menu
 	    sfRenderWindow_close(window);
 	}
       sfRenderWindow_clear(window, sfWhite);
-      /* if (i == 0) */
-      /* 	i = load_screen(window, menu); */
+      if (i == 0)
+      	i = load_screen(window, menu);
       show_grid(window, game, player);
       test(window, player, moove, game);
       sfRenderWindow_display(window);
