@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Fri May  5 16:21:32 2017 Matthieu BRAULT
+** Last update Fri May  5 17:05:30 2017 Capitaine CASSE
 */
 
 #ifndef TEKADV_H
@@ -65,6 +65,7 @@
 # define LOAD_ONE	(26)
 # define LOAD_TWO	(27)
 # define LOAD_THREE	(28)
+# define TABMOUSE_S	(3)
 
 # define INV_SPECS	"Error : Invalid specifications.\n"
 # define INV_MAP		"Error : Invalid map.\n"
@@ -203,6 +204,12 @@ typedef struct		s_moove
   int			s;
   sfSprite		*sprite;
 }			t_moove;
+
+typedef struct		s_tabmouse
+{
+  sfVector2i		pos;
+  int			bt;
+}			t_tabmouse;
 
 /*
 ** ***************************************************

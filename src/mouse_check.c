@@ -5,10 +5,17 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon Apr 24 04:06:54 2017 LAABID Zakaria
-** Last update Mon Apr 24 21:09:09 2017 Matthieu BRAULT
+** Last update Fri May  5 17:07:24 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
+
+t_tabmouse	tabmouse[3] =
+{
+  {(sfVector2i) {289, 313}, BT_ON_V},
+  {(sfVector2i) {353, 372}, BT_ON_B},
+  {(sfVector2i) {411, 438}, BT_ON_D},
+};
 
 int	my_check_exit(sfVector2i mouse_pos)
 {
@@ -24,33 +31,25 @@ int	my_check_exit(sfVector2i mouse_pos)
 int	my_config(sfRenderWindow *window, int index, t_menu **menu)
 {
   sfVector2i	x_b;
+  int		i;
   sfVector2i	mouse_pos;
 
   mouse_pos = get_mouse_pos(window);
   x_b = ((sfVector2i) {730, 848});
+  i = 0;
   if (my_check_config(mouse_pos) == 2)
-    index = MENU;
-  else if (check_class_pos(x_b, ((sfVector2i) {289, 313}), mouse_pos))
+    return (index = MENU);
+  while (i < TABMOUSE_S)
     {
-      if (menu[BT_ON_V]->hover == 0)
-	menu[BT_ON_V]->hover = 1;
-      else
-	menu[BT_ON_V]->hover = 0;
-    }
-  else if (check_class_pos(x_b, ((sfVector2i) {353, 372}), mouse_pos))
-    {
-      if (menu[BT_ON_B]->hover == 0)
-	menu[BT_ON_B]->hover = 1;
-      else
-	menu[BT_ON_B]->hover = 0;
-    }
-  else if (check_class_pos(((sfVector2i) {655, 745})
-			   , ((sfVector2i) {411, 438}), mouse_pos))
-    {
-      if (menu[BT_ON_D]->hover == 0)
-	menu[BT_ON_D]->hover = 1;
-      else
-	menu[BT_ON_D]->hover = 0;
+      if (check_class_pos(x_b, tabmouse[i].pos, mouse_pos))
+	{
+	  if (menu[tabmouse[i].bt]->hover == 0)
+	    menu[tabmouse[i].bt]->hover = 1;
+	  else
+	    menu[tabmouse[i].bt]->hover = 0;
+	  return (index);
+	}
+      i += 1;
     }
   return (index);
 }
