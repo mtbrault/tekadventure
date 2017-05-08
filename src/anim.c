@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Wed May  3 16:03:43 2017 Matthieu BRAULT
-** Last update Fri May  5 16:46:24 2017 Matthieu BRAULT
+** Last update Mon May  8 15:20:03 2017 Capitaine CASSE
 */
 
 #include <math.h>
@@ -47,7 +47,7 @@ int	my_moove(sfRenderWindow *window, sfVector2f vector,
   return (1);
 }
 
-sfVector2f	get_vector(sfVector2i mouse,
+sfVector2f	get_vector(sfVector2f mouse,
 			   sfVector2f player_moove, t_player *player)
 {
   sfVector2f	vector;

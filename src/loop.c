@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Fri May  5 17:07:49 2017 Matthieu BRAULT
+** Last update Mon May  8 17:24:08 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -46,12 +46,18 @@ int			test(sfRenderWindow *window, t_player *player,
   static sfVector2f	vector;
   sfSprite		*sprite;
 
-  if (sfMouse_isButtonPressed(sfMouseLeft))
+  //  printf("Pos réele: %f %f\n", player->pos2.x, player->pos2.y);
+  if (sfMouse_isButtonPressed(sfMouseLeft) && mouse.x == -1 && mouse.y == -1)
     {
       moove->s = 0;
-      mouse = get_mouse_pos(window);
-      moove->click = ((sfVector2f) {(float)mouse.x, (float)mouse.y});
-      vector = get_vector(mouse, player->pos2, player);
+      mouse = raw_click(game, window);
+      moove->click = my_bfs(player->pos, mouse, game->map[0], game->tile);
+      if (moove->click.x == (float)-1 && moove->click.y == (float)-1)
+	{
+	  mouse = (sfVector2i) {-1, -1};
+	  return (0);
+	}
+      vector = get_vector(moove->click, player->pos2, player);
       my_moove(window, vector, moove, game);
     }
   else if (mouse.x == -1 && mouse.y == -1)
@@ -62,7 +68,16 @@ int			test(sfRenderWindow *window, t_player *player,
       sfRenderWindow_drawSprite(window, sprite, NULL);
     }
   else if (my_moove(window, vector, moove, game) == 0)
-    mouse = ((sfVector2i) {-1, -1});
+    {
+      player->pos = project_pos(moove->click, game->tile);
+      if (player->pos.x == mouse.x && player->pos.y == mouse.y)
+	{
+	  mouse = (sfVector2i) {-1, -1};
+	  return (0);
+	}
+      moove->click = my_bfs(player->pos, mouse, game->map[0], game->tile);
+      vector = get_vector(moove->click, player->pos2, player);
+    }
   return (0);
 }
 
@@ -89,6 +104,7 @@ void	loop2(t_player *player, sfRenderWindow *window,
       if (i == 0)
       	i = load_screen(window, menu);
       show_grid(window, game, player);
+      player->pos = project_pos(player->pos2, game->tile);
       test(window, player, moove, game);
       sfRenderWindow_display(window);
     }

@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat Apr 22 19:50:07 2017 Capitaine CASSE
-** Last update Fri May  5 14:18:19 2017 Matthieu BRAULT
+** Last update Mon May  8 16:58:00 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -28,6 +28,17 @@ sfVector2f	convert_pos(sfVector2i pos, sfVector2i tile)
   res.x += (float)(pos.x * tile.x / 2 - pos.y * tile.y / 2);
   res.y += (float)(pos.x * tile.x / 2 + (pos.y + 1) * tile.y / 2);
   return (res);
+}
+
+sfVector2i	project_pos(sfVector2f pos, sfVector2i tile)
+{
+  sfVector2i	grid;
+
+  pos.x -= SCR_W / 2;
+  grid.x = (int)(pos.x / ((float)tile.x / 2) + pos.y / ((float)tile.y / 2)) / 2;
+  grid.y = (int)(pos.y / ((float)tile.y / 2) - pos.x / ((float)tile.x / 2)) / 2;
+  /* printf("%d %d\n", grid.x, grid.y); */
+  return (grid);
 }
 
 sfVector2i	raw_click(t_game *game, sfRenderWindow *window)
