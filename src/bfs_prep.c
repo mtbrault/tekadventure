@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Mon Apr 17 12:00:11 2017 Capitaine CASSE
-** Last update Mon May  8 17:19:05 2017 Capitaine CASSE
+** Last update Mon May  8 17:47:59 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -102,5 +102,6 @@ sfVector2f 	my_bfs(sfVector2i origin, sfVector2i dest,
   printf("Prochain %d %d\n", final.x, final.y);
   res = convert_pos(final, tile);
   printf("Prochain réel: %f %f\n", res.x, res.y);
+  res.x /= 2;
   return (res);
 }

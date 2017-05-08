@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Mon May  8 17:24:08 2017 Capitaine CASSE
+** Last update Mon May  8 17:44:14 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -67,7 +67,7 @@ int			test(sfRenderWindow *window, t_player *player,
       sfSprite_setPosition(sprite, player->pos2);
       sfRenderWindow_drawSprite(window, sprite, NULL);
     }
-  else if (my_moove(window, vector, moove, game) == 0)
+  else if (my_moove(window, vector, moove, game) == 1)
     {
       player->pos = project_pos(moove->click, game->tile);
       if (player->pos.x == mouse.x && player->pos.y == mouse.y)
@@ -89,6 +89,7 @@ void	loop2(t_player *player, sfRenderWindow *window,
   int		i;
 
   player = player;
+  player->pos = (sfVector2i) {2, 16};
   i = 0;
   if ((moove = malloc(sizeof(t_moove))) == NULL)
     return ;
@@ -104,7 +105,7 @@ void	loop2(t_player *player, sfRenderWindow *window,
       if (i == 0)
       	i = load_screen(window, menu);
       show_grid(window, game, player);
-      player->pos = project_pos(player->pos2, game->tile);
+      //      player->pos = project_pos(player->pos2, game->tile);
       test(window, player, moove, game);
       sfRenderWindow_display(window);
     }
