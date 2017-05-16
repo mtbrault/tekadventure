@@ -5,33 +5,46 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Mon May  8 15:30:34 2017 Capitaine CASSE
+## Last update Tue May 16 14:17:12 2017 LAABID Zakaria
 ##
 
 CC	=	gcc -g3
 
-SRC	=	src/main.c			\
-		src/help.c			\
-		src/loop.c			\
-		src/get_file.c			\
-		src/tools.c			\
-		src/grid.c			\
-		src/colors.c			\
-		src/frees.c			\
-		src/actions.c			\
-		src/mouse.c			\
-		src/check_class.c		\
-		src/fill_player.c		\
-		src/position.c			\
-		src/hover_gesture.c		\
-		src/hover_button.c		\
-		src/hover_second.c		\
-		src/mouse_check.c		\
-	   	src/get_texture.c		\
-		src/bfs.c			\
-		src/bfs_prep.c			\
-		src/anim.c			\
-		src/pathfind.c
+SRC	=	src/main.c				\
+		src/help.c				\
+		src/loop.c				\
+		src/get_file.c				\
+		src/tools.c				\
+		src/grid.c				\
+		src/colors.c				\
+		src/frees.c				\
+		src/actions.c				\
+		src/mouse.c				\
+		src/check_class.c			\
+		src/fill_player.c			\
+		src/position.c				\
+		src/hover_gesture.c			\
+		src/hover_button.c			\
+		src/hover_second.c			\
+		src/mouse_check.c			\
+	   	src/get_texture.c			\
+		src/bfs.c				\
+		src/bfs_prep.c				\
+		src/anim.c				\
+		src/pathfind.c				\
+		src/config/epur_str.c			\
+		src/config/conf_manager.c		\
+		src/config/conf_fill.c			\
+		src/config/conf_gen.c			\
+		src/config/conf_utils.c			\
+		src/config/conf_map.c			\
+		src/config/conf_mobs.c			\
+		src/config/conf_mobs_utils.c		\
+		src/config/conf_teleports.c		\
+		src/config/conf_teleports_utils.c	\
+		src/config/conf_events.c		\
+		src/config/conf_events_utils.c		\
+		src/config/getconf.c
 
 OBJ	=	$(SRC:.c=.o)
 

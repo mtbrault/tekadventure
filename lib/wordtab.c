@@ -5,74 +5,90 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Mon Jan 16 10:35:40 2017 Antoine Casse
-** Last update Mon Feb 20 13:43:09 2017 Capitaine Casse
+** Last update Tue May 16 14:39:32 2017 LAABID Zakaria
 */
 
-#include "lkaas.h"
 
-int	get_word(char *str, char *tab)
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+
+static char	**size_str_tab(char *str, char **tab,
+			       const int len, const char c)
 {
+  int	i;
+  int	k;
   int	j;
-  int	l;
 
-  j = 0;
-  l = 0;
-  while ((str[j] != ' ') && (str[j]) && (str[j] != '\t'))
-    {
-      tab[l] = str[j];
-      l += 1;
-      j += 1;
-    }
-  tab[l] = 0;
-  return (j);
-}
-
-char	**get_tab(int j, char *str)
-{
-  int   i;
-  int   k;
-  int	l;
-  char  **tab;
-
-  if (!(tab = malloc(sizeof(char *) * (j + 2))))
-    return (NULL);
   i = 0;
-  k = 0;
-  while (str[i])
+  j = 0;
+  while (i < len)
     {
-      j = i;
-      while ((str[j] != ' ') && (str[j]) && (str[j] != '\t'))
-	j += 1;
-      if (!(tab[k] = malloc(j)))
+      k = 0;
+      while (str[j] != c && str[j] != '\0')
+	{
+	  j = j + 1;
+	  k = k + 1;
+	}
+      while (str[j] == c && str[j] != '\0')
+	j = j + 1;
+      if ((tab[i] = malloc(sizeof(char) * (k + 1))) == NULL)
 	return (NULL);
-      j = i;
-      l = 0;
-      i += get_word(str + i, tab[k]);
-      while ((str[i] == ' ') || (str[i] == '\t'))
-	i += 1;
-      k += 1;
+      i = i + 1;;
     }
-  tab[k] = NULL;
   return (tab);
 }
 
-char	**str_to_wordtab(char *str)
+static char	**cpy_cara_str_tab(char *str, char **tab,
+				   const int len, const char c)
 {
   int	i;
   int	j;
+  int	k;
 
-  i = 0;
   j = 0;
-  while (str[i++])
+  i = 0;
+  while (i < len)
     {
-      if ((str[i] == ' ') || (str[i] == '\t'))
+      k = 0;
+      while ((str[j] == c) && (str[j] != '\0'))
+        j = j + 1;
+      while ((str[j] != c && str[j] != '\0'))
 	{
-	  j += 1;
-	  while ((str[i] == ' ') || (str[i] == '\t'))
-	    i += 1;
-	  if (!str[i])
-	    return (get_tab(j, str));
+	  tab[i][k] = str[j];
+	  k = k + 1;
+	  j = j + 1;
 	}
+      if ((str[j] == c) && (str[j] != '\0'))
+	tab[i][k] = '\0';
+      i = i + 1;
     }
-  return (get_tab(j + 1, str));
+  while (tab[i - 1][0] == '\0')
+    i = i - 1;
+  tab[i] = NULL;
+  return (tab);
+}
+
+char	**wordtab(char *str, const char c)
+{
+  char	**tab;
+  int	i;
+  int	len;
+
+  len = 1;
+  i = 1;
+  if (str == NULL)
+    return (NULL);
+  while (str[i])
+    {
+      if (str[i] != c && str[i - 1] == c && str[i] != '\0')
+	len = len + 1;
+      i = i + 1;
+    }
+  if ((tab = malloc(sizeof(char *) * (len + 1))) == NULL)
+    return (NULL);
+  if ((tab = size_str_tab(str, tab, len, c)) == NULL)
+    return (NULL);
+  tab = cpy_cara_str_tab(str, tab, len, c);
+  return (tab);
 }

@@ -5,7 +5,7 @@
 ** Login   <AntoineC@epitech.net>
 ** 
 ** Started on  Thu Oct  6 20:59:36 2016 Antoine Casse
-** Last update Sun Apr 16 15:11:50 2017 Capitaine CASSE
+** Last update Tue May 16 14:31:29 2017 LAABID Zakaria
 */
 
 int	my_atoi(char *str)
