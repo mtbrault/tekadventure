@@ -1,13 +1,14 @@
 /*
-** epur_str.c for  in /home/Blackbirdz/PSU_2016_minishell1
-1;4402;0c** 
-** Made by Zakaria LAABID
-** Login   <Blackbirdz@epitech.net>
+** epur_str.c for  in /home/BlackBIrdz/tekadventure/src/config
 ** 
-** Started on  Thu Jan 26 02:39:54 2017 Zakaria LAABID
-** Last update Mon May 22 16:44:30 2017 LAABID Zakaria
+** Made by LAABID Zakaria
+** Login   <BlackBIrdz@epitech.net>
+** 
+** Started on  Mon May 22 17:08:11 2017 LAABID Zakaria
+** Last update Mon May 22 17:08:12 2017 LAABID Zakaria
 */
 
+#include "config.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
