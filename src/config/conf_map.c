@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Thu May  4 00:39:48 2017 LAABID Zakaria
-** Last update Mon May 22 16:51:55 2017 LAABID Zakaria
+** Last update Mon May 22 17:06:30 2017 LAABID Zakaria
 */
 
 #include <stdlib.h>
@@ -30,7 +30,7 @@ int	map_content_index(char **conf, int index)
 
 int	**map_content_fill(char **conf, int i, char *end)
 {
-  char	**content;
+  int	**content;
   int	x;
 
   while (conf[i] != NULL)

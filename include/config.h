@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Mon May 22 16:49:45 2017 LAABID Zakaria
+** Last update Mon May 22 17:06:00 2017 LAABID Zakaria
 */
 
 #ifndef CONFIG_H_
@@ -151,5 +151,6 @@ int		my_strcmp(char *s1, char *s2, int n);
 int		my_strncmp(char *s1, char *s2, int n);
 char		*epur_str(char *str);
 char		*my_strcat(char *dest, char *src);
+int		my_atoi(char *);
 
 #endif /* CONFIG_H_ */
