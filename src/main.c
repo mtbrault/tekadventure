@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 13:30:34 2017 Capitaine CASSE
-** Last update Mon May 22 17:35:32 2017 LAABID Zakaria
+** Last update Mon May 22 17:37:40 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -22,7 +22,7 @@ int		main(int ac, char **av)
   /* if (show_help(ac, av)) */
   /*   return (0); */
   if (ac != 2)
-    return (my_puterr("Invalid use.\nTry ./tekadventure -h.\n", 84));
+    return (my_puterr(ERR_ARGS, 84));
   if ((game = config_fill(av)) == NULL)
     return (84);
   if ((player = malloc(sizeof(t_player))) == NULL)

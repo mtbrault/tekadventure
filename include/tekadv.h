@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Mon May 22 17:24:13 2017 LAABID Zakaria
+** Last update Mon May 22 17:37:43 2017 LAABID Zakaria
 */
 
 #ifndef TEKADV_H
@@ -69,6 +69,7 @@
 # define LOAD_THREE	(28)
 # define TABMOUSE_S	(3)
 
+# define ERR_ARGS	"Invalid use.\nTry ./tekadventure -h.\n"
 # define INV_SPECS	"Error : Invalid specifications.\n"
 # define INV_MAP		"Error : Invalid map.\n"
 
