@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Thu May  4 00:39:48 2017 LAABID Zakaria
-** Last update Mon May 22 17:06:30 2017 LAABID Zakaria
+** Last update Mon May 22 17:11:33 2017 LAABID Zakaria
 */
 
 #include <stdlib.h>
@@ -47,9 +47,8 @@ int	**map_content_fill(char **conf, int i, char *end)
   x = 0;
   while (conf[i] != NULL)
     {
-      if ((content[x++] = my_intdup(conf[i])) == NULL)
+      if ((content[x++] = my_intdup(conf[i++])) == NULL)
 	return (NULL);
-      i++;
       if ((my_strncmp(MAP_START, conf[i], my_strlen(MAP_START))) == 0)
 	return (content);
       if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
