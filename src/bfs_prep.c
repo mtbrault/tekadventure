@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Mon Apr 17 12:00:11 2017 Capitaine CASSE
-** Last update Mon May  8 17:47:59 2017 Capitaine CASSE
+** Last update Mon May 22 11:47:12 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -98,7 +98,7 @@ sfVector2f 	my_bfs(sfVector2i origin, sfVector2i dest,
   /*   } */
   origin = (sfVector2i) {origin.x + 1, origin.y + 1};
   dest = (sfVector2i) {dest.x + 1, dest.y + 1};
-  final = bfs_find(path, origin, dest);
+  final = bfs_find(path, dest, origin);
   printf("Prochain %d %d\n", final.x, final.y);
   res = convert_pos(final, tile);
   printf("Prochain réel: %f %f\n", res.x, res.y);

@@ -1,11 +1,11 @@
 /*
-** bfs.c for tekadventure in /home/antoine.casse/Desktop/tmp/astar
+1;4402;0c** bfs.c for tekadventure in /home/antoine.casse/Desktop/tmp/astar
 ** 
 ** Made by Capitaine CASSE
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat May  6 21:18:46 2017 Capitaine CASSE
-** Last update Mon May  8 16:57:07 2017 Capitaine CASSE
+** Last update Mon May 22 11:52:03 2017 Capitaine CASSE
 */
 
 #include <SFML/Graphics.h>
@@ -74,11 +74,11 @@ static char	find_next(t_list **list, int **map, sfVector2i dest, t_list *pos)
 	  *list = add2list(pos->x + tablist[i].x, pos->y + tablist[i].y, *list, pos);
 	  map[pos->y + tablist[i].y][pos->x + tablist[i].x] =
 	    map[pos->y][pos->x] + 1;
-	  //printf("Added x%d y%d\n", pos->x + tablist[i].x - 1, pos->y + tablist[i].y - 1);
+	  //	  printf("Added x%d y%d\n", pos->x + tablist[i].x - 1, pos->y + tablist[i].y - 1);
 	  //	  printf("list x%d y%d (dest %d %d)\n", (*list)->x - 1, (*list)->y - 1, dest.x - 1, dest.y - 1);
 	  if ((*list)->x == dest.x && (*list)->y == dest.y)
 	    {
-	      //	      printf("Stop\n");
+	      //  printf("Stop\n");
 	      return (1);
 	    }
 	}
@@ -111,17 +111,16 @@ sfVector2i	bfs_find(int **map, sfVector2i pos, sfVector2i dest)
     return ((sfVector2i) {-1, -1});
   pars = list->links;
   i = 1;
-  if (list->links->links->x - 1 == pos.x - 1 && list->links->links->y - 1 == pos.y - 1)
-    {
-      //  printf("way %d %d\n", dest.x - 1, dest.y -1);
-      return ((sfVector2i) {dest.x - 1, dest.y - 1});
-    }
-  //  printf("Way -> x%d, %d\n", list->links->links->x - 1, list->links->links->y - 1);
-  /* while (pars != NULL) */
+  /* if (list->links->links->x - 1 == pos.x - 1 && list->links->links->y - 1 == pos.y - 1) */
   /*   { */
-  /*     printf("Way %d-> x%d, y%d\n", i, pars->links->x - 1, pars->links->y - 1); */
-  /*     i += 1; */
-  /*     pars = pars->next; */
+  /*     printf("way %d %d\n", dest.x - 1, dest.y -1); */
+  /*     return ((sfVector2i) {dest.x - 1, dest.y - 1}); */
   /*   } */
+  while (pars != NULL)
+    {
+      printf("Way %d-> x%d, y%d\n", i, pars->links->x - 1, pars->links->y - 1);
+      i += 1;
+      pars = pars->next;
+    }
   return ((sfVector2i) {list->links->links->x - 1, list->links->links->y - 1});
 }
