@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Mon May  8 16:18:40 2017 Capitaine CASSE
+** Last update Mon May 22 14:35:01 2017 LAABID Zakaria
 */
 
 #ifndef TEKADV_H
@@ -21,6 +21,7 @@
 #include <stdlib.h>
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
+#include "config.h"
 
 /*
 ** ***************************************************
@@ -181,8 +182,8 @@ typedef struct		s_player
 
 typedef struct          s_game
 {
-  int                   ***map;
-  char                  **enemies;
+  t_level		**level;
+  int			map_status;
   sfVector2i            tile;
   t_player		*player;
 }			t_game;
@@ -288,7 +289,7 @@ void			debug(t_game *);
 sfVector2i		get_mouse_pos(sfRenderWindow *);
 int			show_grid(sfRenderWindow *, t_game *, t_player *);
 sfVector2i		raw_click(t_game *, sfRenderWindow *);
-
+t_game	*config_fill(char **);
 /*
 ** ***************************************************
 **                   - LIB FUNC UTILS -

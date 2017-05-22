@@ -5,7 +5,7 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Tue May 16 14:17:12 2017 LAABID Zakaria
+## Last update Mon May 22 14:37:15 2017 LAABID Zakaria
 ##
 
 CC	=	gcc -g3
@@ -13,7 +13,6 @@ CC	=	gcc -g3
 SRC	=	src/main.c				\
 		src/help.c				\
 		src/loop.c				\
-		src/get_file.c				\
 		src/tools.c				\
 		src/grid.c				\
 		src/colors.c				\

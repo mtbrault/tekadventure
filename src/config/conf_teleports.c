@@ -1,11 +1,11 @@
 /*
-** conf_mobs.c for  in /home/BlackBIrdz/config
+** conf_teleports.c for  in /home/BlackBIrdz/tekadventure/src/config
 ** 
 ** Made by LAABID Zakaria
 ** Login   <BlackBIrdz@epitech.net>
 ** 
-** Started on  Thu May  4 00:42:07 2017 LAABID Zakaria
-** Last update Sat May 13 19:33:54 2017 LAABID Zakaria
+** Started on  Mon May 22 14:24:42 2017 LAABID Zakaria
+** Last update Mon May 22 14:24:42 2017 LAABID Zakaria
 */
 
 #include <stdlib.h>

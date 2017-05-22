@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Mon May 15 14:34:33 2017 LAABID Zakaria
+** Last update Mon May 22 15:55:09 2017 LAABID Zakaria
 */
 
 #ifndef CONFIG_H_
@@ -129,7 +129,6 @@ t_level		**gen_telep_space(t_level **, char **, int);
 t_level		**gen_mob_space(t_level **, char **, int);
 int		conf_counter(char **, char *);
 char		*getconf(char **, char *);
-int		config_fill(char **);
 int		find_to_zero(int);
 char		*my_str_nbr(int);
 int		getconf_index(char **, char *, int);

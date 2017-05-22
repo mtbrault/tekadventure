@@ -5,77 +5,32 @@
 ** Login   <Blackbirdz@epitech.net>
 ** 
 ** Started on  Thu Jan 26 02:39:54 2017 Zakaria LAABID
-** Last update Mon May 15 14:35:47 2017 LAABID Zakaria
+** Last update Mon May 22 15:08:23 2017 LAABID Zakaria
 */
 
 #include <stdlib.h>
 #include "config.h"
 
-static int	verif_endline(char *str, int nb)
-{
-  int		count;
-  int		get;
-
-  get = nb;
-  count = 0;
-  if (str == NULL || str[get] == '\0')
-    return (0);
-  while (str[get] != '\0' && (str[get] == ' ' ||
-			      str[get] == '\t'))
-    {
-      get = get + 1;
-      count = count + 1;
-    }
-  if (str[get] != '\0')
-    return (0);
-  return (count);
-}
-
-static char	*epur_spaces(char *str, int *nb, char *new, int *get)
-{
-  int		count;
-
-  if ((count = verif_endline(str, *nb)) == 0)
-    new[*get] = ' ';
-  else
-    {
-      *nb = *nb + count;
-      return (new);
-    }
-  while (str[*nb] != '\0' && (str[*nb] == '\t' ||
-			      str[*nb] == ' '))
-    *nb = *nb + 1;
-  *get = *get + 1;
-  return (new);
-}
-
 char	*epur_str(char *str)
 {
-  char	*new;
-  int	get;
-  int	nb;
+  char	*new_str;
+  int	i;
+  int	k;
 
-  get = 0;
-  nb = 1;
-  if (str == NULL || nb != 0 ||
-      (new = malloc(sizeof(char) * (my_strlen(str) + 1))) == NULL)
-    return (NULL);
-  while (str[nb] != '\0' && (str[nb] == ' ' || str[nb] == '\t'))
-    nb = nb + 1;
-  if (str[nb] == '\0')
-    return ("\0");
-  while (str[nb] != '\0')
+  i = 0;
+  k = 0;
+  new_str = malloc(sizeof(char *) * my_strlen(str));
+  while (str[i] == ' ' || str[i] == '\t')
+    i++;
+  while (str[i] != '\0')
     {
-      if (str[nb] == ' ' || str[nb] == '\t')
-	new = epur_spaces(str, &nb, new, &get);
-      else
-	{
-	  new[get] = str[nb];
-	  nb = nb + 1;
-	  get = get + 1;
-	}
+      if ((str[i] != ' ' || str[i + 1] != ' ') &&
+	  (str[i] != '\t' || str[i + 1] != '\t'))
+	new_str[k++] = str[i];
+      i++;
     }
-  new[get] = '\0';
-  free(str);
-  return (new);
+  new_str[k] = '\0';
+  if (new_str[k - 1] == ' ' || new_str[k - 1] == '\t')
+    new_str[k - 1] = '\0';
+  return (new_str);
 }
