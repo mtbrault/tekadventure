@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Mon May 22 14:35:01 2017 LAABID Zakaria
+** Last update Mon May 22 17:24:13 2017 LAABID Zakaria
 */
 
 #ifndef TEKADV_H
@@ -16,18 +16,19 @@
 **                     - INCLUDE -
 ** ***************************************************
 */
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <SFML/Graphics.h>
-#include <SFML/Audio.h>
-#include "config.h"
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <SFML/Graphics.h>
+# include <SFML/Audio.h>
+# include "config.h"
 
 /*
 ** ***************************************************
 **                     - MACRO -
 ** ***************************************************
 */
+# define SUCCESS	(0)
 # define NORMAL		(0)
 # define FAIL		(-1)
 # define ERROR		(84)

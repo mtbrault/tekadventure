@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Fri May  5 14:44:37 2017 LAABID Zakaria
-** Last update Mon May 22 16:42:43 2017 LAABID Zakaria
+** Last update Mon May 22 17:36:27 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -41,7 +41,16 @@ char	**conf_init(char **argv)
   int	i;
 
   i = 0;
-  fd = open(argv[1], O_RDONLY);
+  if (check_file(argv[1]) == -1)
+    {
+      my_puterr(ERRCONF_NAME, 0);
+      return (NULL);
+    }
+  if ((fd = open(argv[1], O_RDONLY)) == -1)
+    {
+      my_puterr(ERRCONF_OPEN, 0);
+      return (NULL);
+    }
   read(fd, config, 4096);
   conf = wordtab(config, '\n');
   while (conf[++i] != NULL)

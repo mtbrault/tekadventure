@@ -5,11 +5,9 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 17:51:14 2017 LAABID Zakaria
-** Last update Mon May 22 17:04:01 2017 LAABID Zakaria
+** Last update Mon May 22 17:34:45 2017 LAABID Zakaria
 */
 
-#include <stdlib.h>
-#include <unistd.h>
 #include "config.h"
 #include "tekadv.h"
 
@@ -25,6 +23,11 @@ t_game		*config_fill(char **argv)
   game->map_status = 0;
   if ((conf = conf_init(argv)) == NULL)
     return (NULL);
+  if ((conf_counter(conf, CONF_LEVEL)) == 0)
+    {
+      my_puterr(ERRCONF_CONF, 0);
+      return (NULL);
+    }
   if ((game->level = config_data(conf)) == NULL)
     return (NULL);
   while (y < conf_counter(conf, CONF_LEVEL))
@@ -32,8 +35,7 @@ t_game		*config_fill(char **argv)
       config_map_fill(game->level, conf, y);
       config_telep_fill(game->level, conf, y);
       config_mob_fill(game->level, conf, y);
-      config_event_fill(game->level, conf, y);
-      y++;
+      config_event_fill(game->level, conf, y++);
     }
   return (game);
 }
