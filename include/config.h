@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Mon May 22 15:55:09 2017 LAABID Zakaria
+** Last update Mon May 22 16:49:45 2017 LAABID Zakaria
 */
 
 #ifndef CONFIG_H_
@@ -112,7 +112,7 @@ int		config_mob_three(t_level **, char **, int, int);
 int		config_mob_four(t_level **, char **, int, int);
 int		nbrepur(char *);
 int		map_content_index(char **, int);
-char		**map_content_fill(char **, int, char *);
+int		**map_content_fill(char **, int, char *);
 t_level		**config_map_fill(t_level **, char **, int);
 int		config_mob_fill(t_level **, char **, int);
 int		config_event_fill(t_level **, char **, int);

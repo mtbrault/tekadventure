@@ -1,15 +1,16 @@
 /*
 ** epur_str.c for  in /home/Blackbirdz/PSU_2016_minishell1
-** 
+1;4402;0c** 
 ** Made by Zakaria LAABID
 ** Login   <Blackbirdz@epitech.net>
 ** 
 ** Started on  Thu Jan 26 02:39:54 2017 Zakaria LAABID
-** Last update Mon May 22 15:08:23 2017 LAABID Zakaria
+** Last update Mon May 22 16:44:30 2017 LAABID Zakaria
 */
 
+#include <stdio.h>
 #include <stdlib.h>
-#include "config.h"
+#include <unistd.h>
 
 char	*epur_str(char *str)
 {

@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Thu May  4 00:39:48 2017 LAABID Zakaria
-** Last update Mon May 22 15:54:54 2017 LAABID Zakaria
+** Last update Mon May 22 16:51:55 2017 LAABID Zakaria
 */
 
 #include <stdlib.h>
@@ -28,7 +28,7 @@ int	map_content_index(char **conf, int index)
   return (count);
 }
 
-char	**map_content_fill(char **conf, int i, char *end)
+int	**map_content_fill(char **conf, int i, char *end)
 {
   char	**content;
   int	x;
@@ -41,12 +41,14 @@ char	**map_content_fill(char **conf, int i, char *end)
 	break;
       i++;
     }
-  content = malloc(sizeof(char *) * map_content_index(conf, i));
+  if ((content = malloc(sizeof(char *) * map_content_index(conf, i))) == NULL)
+    return (NULL);
   i++;
   x = 0;
   while (conf[i] != NULL)
     {
-      content[x++] = my_strdup(conf[i]);
+      if ((content[x++] = my_intdup(conf[i])) == NULL)
+	return (NULL);
       i++;
       if ((my_strncmp(MAP_START, conf[i], my_strlen(MAP_START))) == 0)
 	return (content);

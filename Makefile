@@ -5,7 +5,7 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Mon May 22 14:37:15 2017 LAABID Zakaria
+## Last update Mon May 22 16:44:00 2017 LAABID Zakaria
 ##
 
 CC	=	gcc -g3
@@ -31,11 +31,11 @@ SRC	=	src/main.c				\
 		src/bfs_prep.c				\
 		src/anim.c				\
 		src/pathfind.c				\
-		src/config/epur_str.c			\
 		src/config/conf_manager.c		\
 		src/config/conf_fill.c			\
 		src/config/conf_gen.c			\
 		src/config/conf_utils.c			\
+		src/config/epur_str.c			\
 		src/config/conf_map.c			\
 		src/config/conf_mobs.c			\
 		src/config/conf_mobs_utils.c		\
