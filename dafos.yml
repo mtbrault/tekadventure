@@ -36,7 +36,7 @@ CONF-LEVEL-1:
         damage: 5.0
         pm: 10
         pa: 6
-        coords: 5,9
+        coords: 52,90
       monster-2:
       	name: "Youssef le bg"
       	texture: "src/texture/mobs"
