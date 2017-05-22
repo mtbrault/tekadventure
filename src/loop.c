@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Mon May  8 17:44:14 2017 Capitaine CASSE
+** Last update Mon May 22 11:58:34 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -51,7 +51,8 @@ int			test(sfRenderWindow *window, t_player *player,
     {
       moove->s = 0;
       mouse = raw_click(game, window);
-      moove->click = my_bfs(player->pos, mouse, game->map[0], game->tile);
+      moove->click = my_bfs(project_pos(player->pos2, game->tile),
+			    mouse, game->map[0], game->tile);
       if (moove->click.x == (float)-1 && moove->click.y == (float)-1)
 	{
 	  mouse = (sfVector2i) {-1, -1};
@@ -75,7 +76,8 @@ int			test(sfRenderWindow *window, t_player *player,
 	  mouse = (sfVector2i) {-1, -1};
 	  return (0);
 	}
-      moove->click = my_bfs(player->pos, mouse, game->map[0], game->tile);
+      moove->click = my_bfs(project_pos(player->pos2, game->tile),
+			    mouse, game->map[0], game->tile);
       vector = get_vector(moove->click, player->pos2, player);
     }
   return (0);
