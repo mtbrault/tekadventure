@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Wed May  3 16:03:43 2017 Matthieu BRAULT
-** Last update Tue May 23 13:47:01 2017 Matthieu BRAULT
+** Last update Tue May 23 15:46:31 2017 Matthieu BRAULT
 */
 
 #include <math.h>
@@ -20,12 +20,12 @@ float	thales(float norme, int prop, float axe)
 int	my_moove(sfRenderWindow *window, sfVector2f vector,
 		 t_moove *m, t_game *game)
 {
-  printf("case = %f,%f", m->click.x, m->click.y);
   if (m->s == 0)
     {
       m->norme = sqrt(pow(vector.x, 2) + pow(vector.y, 2));
-      m->axe.x = thales(m->norme, 1000, m->click.x - game->player->pos2.x);
-      m->axe.y = thales(m->norme, 1000, m->click.y - game->player->pos2.y);
+      m->axe.x = thales(m->norme, 500, m->click.x - game->player->pos2.x);
+      m->axe.y = thales(m->norme, 500, m->click.y - game->player->pos2.y);
+      printf("click = %f %f\n", m->click.x, m->click.y);
       m->tmp = 0;
       m->i = 0;
       m->loop = (m->click.x - game->player->pos2.x) / m->axe.x;

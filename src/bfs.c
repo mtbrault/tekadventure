@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat May  6 21:18:46 2017 Capitaine CASSE
-** Last update Mon May 22 14:18:22 2017 Capitaine CASSE
+** Last update Tue May 23 15:05:56 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -120,7 +120,7 @@ sfVector2i	bfs_find(int **map, sfVector2i pos, sfVector2i dest)
   /*   } */
   while (pars != NULL)
     {
-      printf("Way %d-> x%d, y%d\n", i, pars->links->x - 1, pars->links->y - 1);
+      //      printf("Way %d-> x%d, y%d\n", i, pars->links->x - 1, pars->links->y - 1);
       i += 1;
       pars = pars->next;
     }

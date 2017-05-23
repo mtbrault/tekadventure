@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Tue May 23 13:39:57 2017 Matthieu BRAULT
+** Last update Tue May 23 15:42:30 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -55,7 +55,7 @@ int			test(sfRenderWindow *window, t_player *player,
 			    mouse, (game->level[game->map_status])->map->content, game->tile);
       if (moove->click.x == (float)-1 && moove->click.y == (float)-1)
 	{
-	  mouse = (sfVector2i) {-1, -1};
+	  mouse = ((sfVector2i) {-1, -1});
 	  return (0);
 	}
       vector = get_vector(moove->click, player->pos2, player);
@@ -68,14 +68,15 @@ int			test(sfRenderWindow *window, t_player *player,
       sfSprite_setPosition(sprite, player->pos2);
       sfRenderWindow_drawSprite(window, sprite, NULL);
     }
-  else if (my_moove(window, vector, moove, game) == 1)
+  else if (my_moove(window, vector, moove, game) == 0)
     {
       player->pos = project_pos(moove->click, game->tile);
       if (player->pos.x == mouse.x && player->pos.y == mouse.y)
 	{
-	  mouse = (sfVector2i) {-1, -1};
+	  mouse = ((sfVector2i) {-1, -1});
 	  return (0);
 	}
+      moove->s = 0;
       moove->click = my_bfs(project_pos(player->pos2, game->tile),
 			    mouse, (game->level[game->map_status])->map->content, game->tile);
       vector = get_vector(moove->click, player->pos2, player);
