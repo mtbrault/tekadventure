@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Mon Apr 17 12:00:11 2017 Capitaine CASSE
-** Last update Mon May 22 11:47:12 2017 Capitaine CASSE
+** Last update Tue May 23 13:49:54 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -74,7 +74,7 @@ sfVector2f 	my_bfs(sfVector2i origin, sfVector2i dest,
 
   size.x = 0;
   size.y = 0;
-  printf("Pos %d %d\nObjectif %d %d\n", origin.x, origin.y, dest.x, dest.y);
+  //  printf("Pos %d %d\nObjectif %d %d\n", origin.x, origin.y, dest.x, dest.y);
   while (map[0][size.x] != EOB)
     size.x += 1;
   while (map[size.y] != NULL)
@@ -99,7 +99,7 @@ sfVector2f 	my_bfs(sfVector2i origin, sfVector2i dest,
   origin = (sfVector2i) {origin.x + 1, origin.y + 1};
   dest = (sfVector2i) {dest.x + 1, dest.y + 1};
   final = bfs_find(path, dest, origin);
-  printf("Prochain %d %d\n", final.x, final.y);
+  //  printf("Prochain %d %d\n", final.x, final.y);
   res = convert_pos(final, tile);
   printf("Prochain réel: %f %f\n", res.x, res.y);
   res.x /= 2;

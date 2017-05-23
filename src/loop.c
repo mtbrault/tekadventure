@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Mon May 22 14:36:04 2017 Capitaine CASSE
+** Last update Tue May 23 13:39:57 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -104,8 +104,8 @@ void	loop2(t_player *player, sfRenderWindow *window,
 	    sfRenderWindow_close(window);
 	}
       sfRenderWindow_clear(window, sfWhite);
-      if (i == 0)
-      	i = load_screen(window, menu);
+      /* if (i == 0) */
+      /* 	i = load_screen(window, menu); */
       show_grid(window, game, player);
       player->pos = project_pos(player->pos2, game->tile);
       test(window, player, moove, game);
