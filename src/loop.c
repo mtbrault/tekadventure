@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Tue May 23 15:42:30 2017 Matthieu BRAULT
+** Last update Wed May 24 13:35:21 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -46,7 +46,6 @@ int			test(sfRenderWindow *window, t_player *player,
   static sfVector2f	vector;
   sfSprite		*sprite;
 
-  //  printf("Pos réele: %f %f\n", player->pos2.x, player->pos2.y);
   if (sfMouse_isButtonPressed(sfMouseLeft) && mouse.x == -1 && mouse.y == -1)
     {
       moove->s = 0;
@@ -71,6 +70,7 @@ int			test(sfRenderWindow *window, t_player *player,
   else if (my_moove(window, vector, moove, game) == 0)
     {
       player->pos = project_pos(moove->click, game->tile);
+      printf("Fin déplacment : pos-> %d %d\n", player->pos.x, player->pos.y);
       if (player->pos.x == mouse.x && player->pos.y == mouse.y)
 	{
 	  mouse = ((sfVector2i) {-1, -1});

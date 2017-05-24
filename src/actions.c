@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat Apr 22 19:50:07 2017 Capitaine CASSE
-** Last update Mon May 22 12:12:27 2017 Capitaine CASSE
+** Last update Tue May 23 16:49:07 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -37,7 +37,6 @@ sfVector2i	project_pos(sfVector2f pos, sfVector2i tile)
   pos.x -= SCR_W / 2;
   grid.x = (int)(pos.x / ((float)tile.x / 2) + pos.y / ((float)tile.y / 2)) / 2;
   grid.y = (int)(pos.y / ((float)tile.y / 2) - pos.x / ((float)tile.x / 2)) / 2;
-  /* printf("%d %d\n", grid.x, grid.y); */
   return (grid);
 }
 
