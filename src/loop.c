@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Thu May 25 20:19:05 2017 LAABID Zakaria
+** Last update Thu May 25 20:20:44 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -140,15 +140,15 @@ void		display_window(sfRenderWindow *window, t_menu **menu,
 
 int			tmpdisp(t_tp **tp, t_game *game)
 {
-  /* int			i; */
+  int			i;
 
-  /* i = 0; */
-  /* while (tp[i] != NULL) */
-  /*   { */
-  /*     printf("%d %d %s\n", (tp[i])->coords[0], (tp[i])->coords[1], (tp[i])->next_map); */
-  /*     i += 1; */
-  /*   } */
-  /* printf("%s\n", (game->level[0])->map->bg); */
+  i = 0;
+  while (tp[i] != NULL)
+    {
+      printf("%d %d %s\n", (tp[i])->coords[0], (tp[i])->coords[1], (tp[i])->next_map);
+      i += 1;
+    }
+  printf("%s\n", (game->level[0])->map->bg);
   return (0);
 }
 

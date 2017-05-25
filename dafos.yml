@@ -53,4 +53,4 @@ CONF-LEVEL-1:
       items-1:
       	name: "COnfLevel1 de pd"
         texture: "src/texture/items"
-        coords: 9,2
+        coords: 9,20
