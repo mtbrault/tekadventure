@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Mon May 22 17:37:43 2017 LAABID Zakaria
+** Last update Thu May 25 15:23:15 2017 Capitaine CASSE
 */
 
 #ifndef TEKADV_H
@@ -177,8 +177,11 @@ typedef struct		s_player
   int			pm;
   int			level;
   sfVector2i		pos;
-  sfVector2f		pos2;
+  sfVector2i		dest;
+  sfVector2i		next;
   int			status;
+  int			s;
+  int			sprt;
   t_stat		*stat;
 }			t_player;
 
@@ -203,18 +206,6 @@ typedef struct		s_menu
   sfVector2u		size_h;
   sfMusic		*music;
 }			t_menu;
-
-typedef struct		s_moove
-{
-  sfVector2f		axe;
-  sfVector2f		click;
-  int			norme;
-  int			loop;
-  int			i;
-  int			tmp;
-  int			s;
-  sfSprite		*sprite;
-}			t_moove;
 
 typedef struct		s_tabmouse
 {
@@ -291,7 +282,8 @@ void			debug(t_game *);
 sfVector2i		get_mouse_pos(sfRenderWindow *);
 int			show_grid(sfRenderWindow *, t_game *, t_player *);
 sfVector2i		raw_click(t_game *, sfRenderWindow *);
-t_game	*config_fill(char **);
+t_game			*config_fill(char **);
+
 /*
 ** ***************************************************
 **                   - LIB FUNC UTILS -
@@ -309,12 +301,12 @@ char			*my_strdup(char *);
 ** **************************************************
 */
 sfSprite		*get_static_char(sfTexture *, sfVector2i, t_game *, sfVector2i);
-int			my_moove(sfRenderWindow *, sfVector2f, t_moove *, t_game *);
+int			my_moove(sfRenderWindow *, t_game *, t_player *);
 sfVector2f		convert_pos(sfVector2i, sfVector2i);
-sfVector2f		get_vector(sfVector2f, sfVector2f, t_player *);
+sfVector2f		get_vector(t_game *, t_player *);
 sfVector2f		get_mult_size(sfVector2i, sfVector2i);
 sfVector2i		bfs_find(int **, sfVector2i, sfVector2i);
-sfVector2f		my_bfs(const sfVector2i, const sfVector2i, int **, sfVector2i);
+sfVector2i		my_bfs(const sfVector2i, const sfVector2i, int **, sfVector2i);
 sfVector2i		project_pos(sfVector2f, sfVector2i);
 
 #endif /* !TEKADV_H */

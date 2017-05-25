@@ -5,56 +5,60 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Wed May  3 16:03:43 2017 Matthieu BRAULT
-** Last update Tue May 23 15:46:31 2017 Matthieu BRAULT
+** Last update Thu May 25 15:31:36 2017 Capitaine CASSE
 */
 
 #include <math.h>
 #include <stdlib.h>
 #include "tekadv.h"
 
-float	thales(float norme, int prop, float axe)
-{
-  return (((norme / prop) * axe) / norme);
-}
+static t_list	dirtab[8] = {
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+};
 
-int	my_moove(sfRenderWindow *window, sfVector2f vector,
-		 t_moove *m, t_game *game)
+int	my_move(sfRenderWindow *window, t_game *game, t_player *player)
 {
-  if (m->s == 0)
-    {
-      m->norme = sqrt(pow(vector.x, 2) + pow(vector.y, 2));
-      m->axe.x = thales(m->norme, 500, m->click.x - game->player->pos2.x);
-      m->axe.y = thales(m->norme, 500, m->click.y - game->player->pos2.y);
-      printf("click = %f %f\n", m->click.x, m->click.y);
-      m->tmp = 0;
-      m->i = 0;
-      m->loop = (m->click.x - game->player->pos2.x) / m->axe.x;
-    }
-  if (m->tmp == 6)
-    m->tmp = 0;
-  if (m->s % 40 == 0)
-    m->tmp = m->tmp + 1;
-  if (m->s > m->axe.x * (m->i + 1))
-    m->i = m->i + 1;
-  m->sprite = get_static_char(game->player->spriteboard, ((sfVector2i)
-    {m->tmp, game->player->dir}), game, ((sfVector2i) {6, 8}));
-  sfSprite_setPosition(m->sprite, game->player->pos2);
-  sfRenderWindow_drawSprite(window, m->sprite, NULL);
-  game->player->pos2 = ((sfVector2f)
-    {game->player->pos2.x + m->axe.x, game->player->pos2.y + m->axe.y});
-  m->s = m->s + 1;
-  if (m->i > m->loop)
-    return (m->s = 0);
+  sfSprite	*sprite;
+  sfVector2f	vector;
+  sfVector2f	pos;
+
+  vector = get_vector(game, player);
+  vector.x /= 100;
+  vector.y /= 100;
+  pos = convert_pos(player->pos, game->tile);
+  pos.x += (float) (player->s * vector.x);
+  pos.y += (float) (player->s * vector.y);
+  player->s += 1;
+  if (!(player->s % 50))
+    player->sprt += 1;
+  if (player->sprt > 5)
+    player->sprt = 0;
+  sprite = get_static_char(game->player->spriteboard, (sfVector2i) {player->dir,
+	player->sprt}, game, ((sfVector2i) {6, 8}));
+  sfSprite_setPosition(sprite, pos);
+  sfRenderWindow_drawSprite(window, sprite, NULL);
+  if (player->s == 100)
+    return (0);
   return (1);
 }
 
-sfVector2f	get_vector(sfVector2f mouse,
-			   sfVector2f player_moove, t_player *player)
+sfVector2f	get_vector(t_game *game, t_player *player)
 {
   sfVector2f	vector;
+  sfVector2f	sides[2];
 
-  vector.x = (float)mouse.x - player_moove.x;
-  vector.y = (float)mouse.y - player_moove.y;
+  sides[0] = convert_pos(player->pos, game->tile);
+  sides[1] = convert_pos(player->next, game->tile);
+  vector = (sfVector2f) {sides[1].x - sides[0].x, sides[1].y - sides[0].y};
+  
+  /*  */
   if (vector.x > -45 && (vector.y >= -45 && vector.y <= 45))
     player->dir = 0;
   else if (vector.x > 45 && vector.y > 0)
@@ -72,4 +76,5 @@ sfVector2f	get_vector(sfVector2f mouse,
   else if (vector.x > 45 && vector.y < 0)
     player->dir = 7;
   return (vector);
+  /*  */
 }

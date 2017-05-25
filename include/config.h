@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Mon May 22 17:36:53 2017 LAABID Zakaria
+** Last update Thu May 25 15:03:55 2017 Capitaine CASSE
 */
 
 #ifndef CONFIG_H_
@@ -63,34 +63,34 @@
 
 typedef struct	s_map
 {
-  int	**content;
-  char	*name;
-  int	debug;
-  char	*bg;
+  int		**content;
+  char		*name;
+  int		debug;
+  char		*bg;
 }		t_map;
 
 typedef struct	s_tp
 {
-  int	coords[2];
-  char	*next_map;
+  int		coords[2];
+  char		*next_map;
 }		t_tp;
 
 typedef struct	s_mob
 {
-  char	*name;
-  char	*texture;
-  int	life;
-  int	damage;
-  int	pm;
-  int	pa;
-  int	coords[2];
+  char		*name;
+  char		*texture;
+  int		life;
+  int		damage;
+  int		pm;
+  int		pa;
+  int		coords[2];
 }		t_mob;
 
-typedef struct s_event
+typedef struct	s_event
 {
-  char	*name;
-  char	*texture;
-  int	coords[2];
+  char		*name;
+  char		*texture;
+  int		coords[2];
 }		t_event;
 
 typedef struct	s_level

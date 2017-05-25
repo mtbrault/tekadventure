@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat Apr 22 19:50:07 2017 Capitaine CASSE
-** Last update Tue May 23 16:49:07 2017 Capitaine CASSE
+** Last update Thu May 25 13:12:12 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -25,8 +25,8 @@ sfVector2f	convert_pos(sfVector2i pos, sfVector2i tile)
 
   res.x = (float)SCR_W / 2;
   res.y = 0.0;
-  res.x += (float)(pos.x * tile.x / 2 - pos.y * tile.y / 2);
-  res.y += (float)(pos.x * tile.x / 2 + (pos.y + 1) * tile.y / 2);
+  res.x += (float)((pos.x - pos.y) * tile.x / 2);
+  res.y += (float)((pos.x + pos.y + 1) * tile.y / 2);
   return (res);
 }
 

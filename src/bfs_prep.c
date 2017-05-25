@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Mon Apr 17 12:00:11 2017 Capitaine CASSE
-** Last update Wed May 24 13:39:43 2017 Capitaine CASSE
+** Last update Thu May 25 15:01:53 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -61,7 +61,7 @@ static int	**build_path(int **map, const sfVector2i origin,
   return (path);
 }
 
-sfVector2f 	my_bfs(sfVector2i origin, sfVector2i dest,
+sfVector2i 	my_bfs(sfVector2i origin, sfVector2i dest,
 				 int **map, sfVector2i tile)
 {
   int		**path;
@@ -74,36 +74,18 @@ sfVector2f 	my_bfs(sfVector2i origin, sfVector2i dest,
 
   size.x = 0;
   size.y = 0;
-  printf("Pos %d %d\nObjectif %d %d\n", origin.x, origin.y, dest.x, dest.y);
   while (map[0][size.x] != EOB)
     size.x += 1;
   while (map[size.y] != NULL)
     size.y += 1;
+  if (dest.x >= size.x || dest.y >= size.y || dest.x < 0 || dest.y < 0)
+    return ((sfVector2i) {-1, -1});
+  else if (!map[dest.y][dest.x])
+    return ((sfVector2i) {-1, -1});
   if ((path = build_path(map, origin, size)) == NULL)
-    return ((sfVector2f) {-1, -1});
-  /* i = 0; */
-  /* while (i < size.y + 2) */
-  /*   { */
-  /*     j = 0; */
-  /*     while (j < size.x + 2) */
-  /* 	{ */
-  /* 	  if (path[i][j] > 0) */
-  /* 	    printf("1,"); */
-  /* 	  else */
-  /* 	    printf("0,"); */
-  /* 	  j += 1; */
-  /* 	} */
-  /*     printf("\n"); */
-  /*     i += 1; */
-  /*   } */
+    return ((sfVector2i) {-1, -1});
   origin = (sfVector2i) {origin.x + 1, origin.y + 1};
   dest = (sfVector2i) {dest.x + 1, dest.y + 1};
   final = bfs_find(path, dest, origin);
-  if (final.x == -1 && final.y == -1)
-    return ((sfVector2f) {(float)-1, (float)-1});
-  printf("Prochain %d %d\n", final.x, final.y);
-  res = convert_pos(final, tile);
-  printf("Prochain réel: %f %f\n", res.x, res.y);
-  res.x /= 2;
-  return (res);
+  return (final);
 }

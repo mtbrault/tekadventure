@@ -1,11 +1,11 @@
 /*
 ** conf_teleports_utils.c for  in /home/BlackBIrdz/config
-** 
+1;4402;0c** 
 ** Made by LAABID Zakaria
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon May  8 00:40:07 2017 LAABID Zakaria
-** Last update Mon May 22 17:04:17 2017 LAABID Zakaria
+** Last update Thu May 25 15:22:06 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -80,8 +80,8 @@ int	config_telep_two(t_level **level, char **conf, int x, int y)
 	{
 	  if (my_strncmp(TELEP_COORD, conf[i], L_COORD) == 0)
 	    {
-	      level[y]->mob[x - 1]->coords[0] = my_atoi(conf[i] + 8);
-	      level[y]->mob[x - 1]->coords[1] = my_atoi(conf[i] + 11);
+	      level[y]->tp[x - 1]->coords[0] = my_atoi(conf[i] + 8);
+	      level[y]->tp[x - 1]->coords[1] = my_atoi(conf[i] + 11);
 	    }
 	  if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
 	    break;

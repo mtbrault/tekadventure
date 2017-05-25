@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Thu May 25 15:21:42 2017 Capitaine CASSE
+** Last update Thu May 25 11:29:45 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -39,58 +39,69 @@ int	load_screen(sfRenderWindow *window, t_menu **menu)
   return (1);
 }
 
-int		test(sfRenderWindow *window, t_player *player,
-			     t_game *game)
+int			test(sfRenderWindow *window, t_player *player,
+			     t_moove *moove, t_game *game)
 {
-  sfSprite	*sprite;
+  static sfVector2i	mouse = {-1, -1};
+  static sfVector2f	vector;
+  sfSprite		*sprite;
 
-  if (sfMouse_isButtonPressed(sfMouseLeft) && player->dest.x == -1 && player->dest.y == -1)
+  if (sfMouse_isButtonPressed(sfMouseLeft) && mouse.x == -1 && mouse.y == -1)
     {
-      player->s = 0;
-      player->sprt = 0;
-      player->dest = raw_click(game, window);
-      player->next = my_bfs(player->pos, player->dest,
-			    (game->level[game->map_status])->map->content, game->tile);
-      if (player->next.x == -1 && player->next.y == -1)
+      printf("Clicked\n");
+      moove->s = 0;
+      mouse = raw_click(game, window);
+      moove->click = my_bfs(project_pos(player->pos2, game->tile),
+			    mouse, (game->level[game->map_status])->map->content, game->tile);
+      if (moove->click.x == (float)-1 && moove->click.y == (float)-1)
 	{
-	  player->dest.x = -1;
-	  player->dest.y = -1;
+	  printf("Nope\n");
+	  mouse = ((sfVector2i) {-1, -1});
 	  return (0);
 	}
-      my_move(window, game, player);
+      vector = get_vector(moove->click, player->pos2, player);
+      my_moove(window, vector, moove, game);
     }
-  else if (player->dest.x == -1 && player->dest.y == -1)
+  else if (mouse.x == -1 && mouse.y == -1)
     {
-      sprite = get_static_char(player->classe_texture, ((sfVector2i) {player->dir,
-	      player->class}), game, ((sfVector2i) {8, 4}));
-      sfSprite_setPosition(sprite, convert_pos(player->pos, game->tile));
+      printf("Static\n");
+      sprite = get_static_char(player->classe_texture, ((sfVector2i)
+	{player->dir, player->class}), game, ((sfVector2i) {8, 4}));
+      sfSprite_setPosition(sprite, player->pos2);
       sfRenderWindow_drawSprite(window, sprite, NULL);
     }
-  else if (my_move(window, game, player) == 0)
+  else if (my_moove(window, vector, moove, game) == 0)
     {
-      player->pos = player->next;
-      if (player->pos.x == player->dest.x && player->pos.y == player->dest.y)
+      player->pos2 = (sfVector2f) {moove->click.x, moove->click.y};
+      player->pos = project_pos(player->pos2, game->tile);
+      printf("Fin déplacement : pos-> %d %d\n", player->pos.x, player->pos.y);
+      printf("%d %d\n", mouse.x, mouse.y);
+      if (player->pos.x == mouse.x && player->pos.y == mouse.y)
 	{
-	  player->dest.x = -1;
-	  player->dest.y = -1;
+	  printf("END\n");
+	  mouse = ((sfVector2i) {-1, -1});
 	  return (0);
 	}
-      player->s = 0;
-      player->next = my_bfs(player->pos, player->dest,
-			    (game->level[game->map_status])->map->content, game->tile);
+      moove->s = 0;
+      moove->click = my_bfs(project_pos(player->pos2, game->tile),
+			    mouse, (game->level[game->map_status])->map->content, game->tile);
+      vector = get_vector(moove->click, player->pos2, player);
     }
   return (0);
 }
 
-void		loop2(t_player *player, sfRenderWindow *window,
-		      t_game *game, t_menu **menu)
+void	loop2(t_player *player, sfRenderWindow *window,
+	      t_game *game, t_menu **menu)
 {
   sfEvent	event;
+  t_moove	*moove;
   int		i;
 
-  player->pos = (sfVector2i) {2, 2};
-  player->dest = (sfVector2i) {-1, -1};
+  player = player;
+  player->pos = (sfVector2i) {2, 16};
   i = 0;
+  if ((moove = malloc(sizeof(t_moove))) == NULL)
+    return ;
   while (sfRenderWindow_isOpen(window))
     {
       while (sfRenderWindow_pollEvent(window, &event))
@@ -103,12 +114,13 @@ void		loop2(t_player *player, sfRenderWindow *window,
       /* if (i == 0) */
       /* 	i = load_screen(window, menu); */
       show_grid(window, game, player);
-      test(window, player, game);
+      player->pos = project_pos(player->pos2, game->tile);
+      test(window, player, moove, game);
       sfRenderWindow_display(window);
     }
 }
 
-void		display_window(sfRenderWindow *window, t_menu **menu,
+void	display_window(sfRenderWindow *window, t_menu **menu,
 		       t_player *player, t_game *game)
 {
   int		index;
@@ -128,25 +140,12 @@ void		display_window(sfRenderWindow *window, t_menu **menu,
 	    return ;
 	}
       if (index == 2)
-        break ;
+        break;
       sfRenderWindow_clear(window, sfWhite);
       sprite_change(window, index, menu);
       sfRenderWindow_display(window);
     }
   loop2(player, window, game, menu);
-}
-
-int			tmpdisp(t_tp **tp)
-{
-  int			i;
-
-  i = 0;
-  while (tp[i] != NULL)
-    {
-      printf("%d %d %s\n", (tp[i])->coords[0], (tp[i])->coords[1], (tp[i])->next_map);
-      i += 1;
-    }
-  return (0);
 }
 
 int			start_menu(t_game *game, t_player *player)
@@ -158,7 +157,6 @@ int			start_menu(t_game *game, t_player *player)
     return (-1);
   if ((window = create_window()) == NULL)
     return (-1);
-  tmpdisp((game->level[0])->tp);
   if ((menu = disp_startmenu()) == NULL)
     return (-1);
   display_window(window, menu, player, game);

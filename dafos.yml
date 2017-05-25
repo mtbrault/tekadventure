@@ -3,15 +3,17 @@
 #GO TO THIS WEBSITE : 51.51.51.51/dafos-api/
 CONF-LEVEL-1:
     map-content:
-    11111111111111
-    11111111111111
-    11111111111111
-    11111111111111
-    11111111111111
-    11111111111111
-    11111111111111
-    11111111111111
-    11111111111111
+    11111011111111
+    11111011111111
+    11111011111111
+    11111011111111
+    11111011111111
+    11111011111111
+    11111011111111
+    11111011111111
+    11111011111111
+    11111011111111
+    11111000000011
     11111111111111
     11111111111111
     11111111111111
@@ -22,12 +24,53 @@ CONF-LEVEL-1:
     teleporter:
      teleporter-nb: 2
     	tp-1:
-      	coords: 9,9
+      	coords: 2,0
       	tp-name: "tp1-LEVEL-2"
-    	tp-2:  
+    	tp-2:
       	coords: 9,8
       	tp-name: "tp2-LEVEL-2"
     mobs:
+      mobs-nb: 2
+      monster-1:
+      	name: "Eythan Fellousi"
+      	texture: "src/texture/mobs"
+        life: 100
+        damage: 5.0
+        pm: 10
+        pa: 6
+        coords: 52,90
+      monster-2:
+      	name: "Youssef le bg"
+      	texture: "src/texture/mobs"
+        life: 113
+        damage: 11.0
+        pm: 43
+        pa: 55
+        coords: 1,9
+    event:
+      event-nb: 1
+      items-1:
+      	name: "COnfLevel1 de pd"
+        texture: "src/texture/items"
+        coords: 9,2
+CONF-LEVEL-2:
+     map-content:
+     111111
+     111111
+     111111
+     111111
+     111111
+     111111
+     map:
+         map-name: "LEVEL-1"
+         map-debug: 0
+         map-bg: "src/"
+     teleporter:
+      teleporter-nb: 1
+         tp-1:
+	 coords: 0,1
+	 tp-name: "tp1-LEVEL-2"
+     mobs:
       mobs-nb: 2
       monster-1:
       	name: "Eythan Fellousi"
