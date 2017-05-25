@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 17:51:14 2017 LAABID Zakaria
-** Last update Thu May 25 20:10:27 2017 LAABID Zakaria
+** Last update Thu May 25 20:15:40 2017 LAABID Zakaria
 */
 
 #include "config.h"
@@ -68,6 +68,5 @@ t_game		*config_fill(char **argv)
 	config_event_fill(game->level, conf, y);
       y++;
     }
-  my_putstr(game->level[0]->map->music); 
   return (game);
 }

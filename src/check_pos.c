@@ -5,14 +5,14 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Thu May 25 15:43:49 2017 Capitaine CASSE
-** Last update Thu May 25 15:50:56 2017 Capitaine CASSE
+** Last update Thu May 25 19:38:03 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
 
-int	check_tp(sfVector2i pos, t_tp **tp, t_player *player, t_game *game)
+static int	check_tp(sfVector2i pos, t_tp **tp, t_player *player, t_game *game)
 {
-  int	i;
+  int		i;
 
   i = 0;
   while (tp[i] != NULL)
@@ -28,7 +28,7 @@ int	check_tp(sfVector2i pos, t_tp **tp, t_player *player, t_game *game)
   return (0);
 }
 
-int	check_pos(sfRenderWindow *window, t_player *player, t_game *game)
+int	check_pos(t_player *player, t_game *game)
 {
   check_tp(player->pos, (game->level[game->map_status])->tp, player, game);
   return (0);

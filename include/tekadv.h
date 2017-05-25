@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Thu May 25 18:31:14 2017 Capitaine CASSE
+** Last update Thu May 25 19:41:51 2017 Matthieu BRAULT
 */
 
 #ifndef TEKADV_H
@@ -281,9 +281,11 @@ int			my_config(sfRenderWindow *, int, t_menu **);
 */
 void			debug(t_game *);
 sfVector2i		get_mouse_pos(sfRenderWindow *);
-int			show_grid(sfRenderWindow *, t_game *, t_player *);
+int			show_grid(sfRenderWindow *, t_game *);
 sfVector2i		raw_click(t_game *, sfRenderWindow *);
 t_game			*config_fill(char **);
+int			check_pos(t_player *, t_game *);
+int			print_bg(t_game *);
 
 /*
 ** ***************************************************
@@ -302,12 +304,12 @@ char			*my_strdup(char *);
 ** **************************************************
 */
 sfSprite		*get_static_char(sfTexture *, sfVector2i, t_game *, sfVector2i);
-int			my_moove(sfRenderWindow *, t_game *, t_player *);
+int			my_move(sfRenderWindow *, t_game *, t_player *);
 sfVector2f		convert_pos(sfVector2i, sfVector2i);
 sfVector2f		get_vector(t_game *, t_player *);
 sfVector2f		get_mult_size(sfVector2i, sfVector2i);
 sfVector2i		bfs_find(int **, sfVector2i, sfVector2i);
-sfVector2i		my_bfs(const sfVector2i, const sfVector2i, int **, sfVector2i);
+sfVector2i		my_bfs(const sfVector2i, const sfVector2i, int **);
 sfVector2i		project_pos(sfVector2f, sfVector2i);
 
 #endif /* !TEKADV_H */
