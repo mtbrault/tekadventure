@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Mon Jan 23 15:42:26 2017 Antoine Casse
-** Last update Mon May 22 16:56:10 2017 LAABID Zakaria
+** Last update Thu May 25 16:35:30 2017 LAABID Zakaria
 */
 
 #include "lkaas.h"
@@ -16,13 +16,14 @@ char	*my_strdup(char *str)
   char	*res;
 
   i = 0;
-  if ((res = malloc(sizeof(char) * my_strlen(str))) == NULL)
+  if ((res = malloc(sizeof(char) * (my_strlen(str) + 1))) == NULL)
     return (NULL);
-  while (str[i])
+  while (str[i] != '\0')
     {
       res[i] = str[i];
-      i += 1;
+      i++;
     }
+  res[i] = '\0';
   return (res);
 }
 

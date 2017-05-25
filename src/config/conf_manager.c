@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Fri May  5 14:44:37 2017 LAABID Zakaria
-** Last update Mon May 22 17:36:27 2017 LAABID Zakaria
+** Last update Thu May 25 18:36:59 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -17,10 +17,10 @@
 #include <stdio.h>
 #include "config.h"
 
-int	conf_counter(char **conf, char *str)
+int		conf_counter(char **conf, char *str)
 {
-  int	i;
-  int	count;
+  int		i;
+  int		count;
 
   i = 0;
   count = 0;
@@ -33,12 +33,12 @@ int	conf_counter(char **conf, char *str)
   return (count);
 }
 
-char	**conf_init(char **argv)
+char		**conf_init(char **argv)
 {
-  char	config[4096];
-  char	**conf;
-  int	fd;
-  int	i;
+  char		config[4096];
+  char		**conf;
+  int		fd;
+  int		i;
 
   i = 0;
   if (check_file(argv[1]) == -1)
@@ -52,9 +52,12 @@ char	**conf_init(char **argv)
       return (NULL);
     }
   read(fd, config, 4096);
-  conf = wordtab(config, '\n');
+  if ((conf = wordtab(config, '\n')) == NULL)
+    return (NULL);
   while (conf[++i] != NULL)
     conf[i] = epur_str(conf[i]);
+  if ((conf = del_commentary(conf)) == NULL)
+    return (NULL);
   return (conf);
 }
 
@@ -70,9 +73,12 @@ t_level		**config_data(char **conf)
     return (NULL);
   while (x < conf_counter(conf, CONF_LEVEL))
     {
-      gen_mob_space(level, conf, x);
-      gen_event_space(level, conf, x);
-      gen_telep_space(level, conf, x);
+      if ((is_here(conf, "mobs:", x)) == 0)
+	gen_mob_space(level, conf, x);
+      if ((is_here(conf, "event:", x)) == 0)
+	gen_event_space(level, conf, x);
+      if ((is_here(conf, "teleporter:", x)) == 0)
+	gen_telep_space(level, conf, x);
       x++;
     }
   gen_config_space(level, conf);
@@ -89,5 +95,4 @@ void	conf_disp(char **conf)
       my_putstr(conf[i++]);
       my_putchar('\n');
     }
-  return ;
 }

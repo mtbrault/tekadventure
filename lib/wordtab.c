@@ -5,67 +5,86 @@
 ** Login   <Blackbirdz@epitech.net>
 ** 
 ** Started on  Mon Dec 12 15:24:17 2016 Zakaria LAABID
-** Last update Mon May 22 15:00:55 2017 LAABID Zakaria
+** Last update Thu May 25 17:25:28 2017 LAABID Zakaria
 */
 
-#include <unistd.h>
-#include <stdio.h>
 #include <stdlib.h>
 
-int	count_line(char *str, char param)
+char	**size_str_tab(char *str, char **tab, int len, char c)
 {
-  int   i;
-  int   c;
+  int	i;
+  int	k;
+  int	j;
 
   i = 0;
-  c = 0;
-  while (str[i] != '\0')
+  j = 0;
+  while (i < len)
     {
-      if (str[i] == param)
-	c = c + 1;
-      i = i + 1;
+      k = 0;
+      while (str[j] != c && str[j] != '\0')
+	{
+	  j = j + 1;
+	  k = k + 1;
+	}
+      while (str[j] == c && str[j] != '\0')
+	j = j + 1;
+      if ((tab[i] = malloc(sizeof(char) * k + 2)) == NULL)
+	return (NULL);
+      i = i + 1;;
     }
-  return (c);
+  return (tab);
 }
 
-int	count_char(char *str, int i, char param)
+char	**cpy_cara_str_tab(char *str, char **tab, int len, char c)
 {
-  int   a;
+  int	i;
+  int	j;
+  int	k;
 
-  a = 0;
-  while (str[i] != '\0' && str[i] != param)
+  j = 0;
+  i = 0;
+  while (i < len)
     {
+      k = 0;
+      while (str[j] == c && str[j] != '\0')
+        j = j + 1;
+      while ((str[j] != c && str[j] != '\0'))
+	{
+	  tab[i][k] = str[j];
+	  k = k + 1;
+	  j = j + 1;
+	}
+      tab[i][k] = '\0';
       i = i + 1;
-      a = a + 1;
     }
-  return (a);
+  while (tab[i - 1][0] == '\0')
+    i = i - 1;
+  tab[i] = NULL;
+  return (tab);
 }
 
-char	**wordtab(char *str, char param)
+char	**wordtab(char *str, char c)
 {
   char	**tab;
-  int   a;
-  int   b;
-  int   c;
+  int	i;
+  int	len;
 
-  a = 0;
-  b = 0;
-  c = 0;
-  tab = malloc(sizeof(char *) * (count_line(str, param) + 2));
-  while (str[c] != '\0')
+  len = 1;
+  i = 1;
+  if (str == NULL)
+    return (NULL);
+  if (str[0] == '\0')
+    return (NULL);
+  while (str[i])
     {
-      tab[a] = malloc(sizeof(char) * (count_char(str, c, param) + 1));
-      while (str[c] != '\0' && str[c] != param)
-	{
-	  tab[a][b] = str[c];
-	  c = c + 1;
-	  b = b + 1;
-	}
-      tab[a][b] = '\0';
-      c = c + 1;
-      a = a + 1;
-      b = 0;
+      if (str[i] != c && str[i - 1] == c && str[i] != '\0')
+	len = len + 1;
+      i = i + 1;
     }
-  tab[a] = NULL;
+  if ((tab = malloc(sizeof(char *) * (len + 1))) == NULL)
+    return (NULL);
+  if ((tab = size_str_tab(str, tab, len, c)) == NULL)
+    return (NULL);
+  tab = cpy_cara_str_tab(str, tab, len, c);
   return (tab);
 }

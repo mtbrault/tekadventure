@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon May 15 13:46:01 2017 LAABID Zakaria
-** Last update Mon May 22 16:40:19 2017 LAABID Zakaria
+** Last update Thu May 25 19:08:52 2017 LAABID Zakaria
 */
 
 #include <stdlib.h>
@@ -53,16 +53,16 @@ char	*unquote(char *str)
   char	*new_str;
 
   y = 0;
-  i = 0;
+  i = 1;
   str = epur_str(str);
   if ((new_str = malloc(sizeof(char) * (my_strlen(str) - 1))) == NULL)
     return (NULL);
-  while (str[i] != '\0')
+  while (str[i] != '"')
     {
       if (str[i] == '"')
 	i++;
       new_str[y++] = str[i++];
     }
-  new_str[y - 1] = '\0';
+  new_str[y] = '\0';
   return (new_str);
 }

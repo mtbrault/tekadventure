@@ -5,11 +5,38 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 17:51:14 2017 LAABID Zakaria
-** Last update Mon May 22 17:34:45 2017 LAABID Zakaria
+** Last update Thu May 25 19:19:37 2017 LAABID Zakaria
 */
 
 #include "config.h"
 #include "tekadv.h"
+
+int		is_here(char **conf, char *str, int y)
+{
+  char	*start2;
+  char	*end;
+  int	i;
+
+  i = 0;
+  y++;
+  start2 = my_strcat(CONF_LEVEL, my_str_nbr(y));
+  end = my_strcat(CONF_LEVEL, my_str_nbr(y+1));
+  while (conf[i] != NULL)
+    {
+      if (my_strncmp(start2, conf[i], my_strlen(start2)) == 0)
+	break;
+      i++;
+    }
+  while (conf[i] != NULL)
+    {
+      if ((my_strcmp(str, conf[i], my_strlen(str))) == 0)
+	return (0);
+      if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
+	return (FAIL);
+      i++;
+    }
+  return (FAIL);
+}
 
 t_game		*config_fill(char **argv)
 {
@@ -33,9 +60,13 @@ t_game		*config_fill(char **argv)
   while (y < conf_counter(conf, CONF_LEVEL))
     {
       config_map_fill(game->level, conf, y);
-      config_telep_fill(game->level, conf, y);
-      config_mob_fill(game->level, conf, y);
-      config_event_fill(game->level, conf, y++);
+      if (is_here(conf, "teleporter:", y) == 0)
+	config_telep_fill(game->level, conf, y);
+      if (is_here(conf, "mobs:", y) == 0)
+	config_mob_fill(game->level, conf, y);
+      if (is_here(conf, "event:", y) == 0)
+	config_event_fill(game->level, conf, y);
+      y++;
     }
   return (game);
 }

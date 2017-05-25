@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Thu May  4 22:14:14 2017 LAABID Zakaria
-** Last update Mon May 22 17:04:38 2017 LAABID Zakaria
+** Last update Thu May 25 18:24:26 2017 LAABID Zakaria
 */
 
 #include <stdlib.h>
@@ -31,7 +31,9 @@ int	config_mob_one(t_level **level, char **conf, int x, int y)
 	    level[y]->mob[x - 1]->texture = unquote((conf[i] + L_TEXT));
 	  if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
 	    break;
-	  else if ((my_strncmp(EVENT, conf[i], L_EVENT)) == 0)
+	  else if ((my_strncmp(EVENT, conf[i], L_EVENT)) == 0 ||
+		   ((my_strncmp(CONF_LEVEL, conf[i], L_CONF)) == 0) ||
+		   conf[i] != NULL)
 	    break;
 	  i++;
 	}
@@ -59,7 +61,9 @@ int	config_mob_two(t_level **level, char **conf, int x, int y)
 	    level[y]->mob[x - 1]->damage = nbrepur((conf[i] + L_DMG));
 	  if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
 	    break;
-	  else if ((my_strncmp(EVENT, conf[i], L_EVENT)) == 0)
+	  else if ((my_strncmp(EVENT, conf[i], L_EVENT)) == 0 ||
+		   ((my_strncmp(CONF_LEVEL, conf[i], L_CONF)) == 0) ||
+		   conf[i] != NULL)
 	    break;
 	  i++;
 	}
@@ -87,7 +91,9 @@ int	config_mob_three(t_level **level, char **conf, int x, int y)
 	    level[y]->mob[x - 1]->pa = nbrepur((conf[i] + L_PA));
 	  if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
 	    break;
-	  else if ((my_strncmp(EVENT, conf[i], L_EVENT)) == 0)
+	  else if ((my_strncmp(EVENT, conf[i], L_EVENT)) == 0 ||
+		   ((my_strncmp(CONF_LEVEL, conf[i], L_CONF)) == 0) ||
+		   conf[i] != NULL)
 	    break;
 	  i++;
 	}
@@ -116,7 +122,9 @@ int	config_mob_four(t_level **level, char **conf, int x, int y)
 	    }
 	  if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
 	    break;
-	  else if ((my_strncmp(EVENT, conf[i], L_EVENT)) == 0)
+	  else if ((my_strncmp(EVENT, conf[i], L_EVENT)) == 0 ||
+		   ((my_strncmp(CONF_LEVEL, conf[i], L_CONF)) == 0) ||
+		   conf[i] != NULL)
 	    break;
 	  i++;
 	}

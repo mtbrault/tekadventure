@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Thu May 25 15:03:55 2017 Capitaine CASSE
+** Last update Thu May 25 19:16:01 2017 LAABID Zakaria
 */
 
 #ifndef CONFIG_H_
@@ -15,6 +15,7 @@
 # define ERRCONF_NAME	"Config file must be an (.YML) file\n"
 # define ERRCONF_CONF	"Config file invalid NO CONF-LEVEL- Find\n"
 # define ERRCONF_OPEN	"Failed to open config file\n"
+# define ERRCONF_DEL	"Error while deleting commentary\n"
 
 # define CONF_LEVEL	"CONF-LEVEL-"
 # define MOBS_NB	"mobs-nb:"
@@ -137,6 +138,7 @@ char		*getconf(char **, char *);
 int		find_to_zero(int);
 char		*my_str_nbr(int);
 int		getconf_index(char **, char *, int);
+char		**del_commentary(char **);
 
 /*
 ** ***************************************************

@@ -1,11 +1,11 @@
 /*
 ** conf_teleports_utils.c for  in /home/BlackBIrdz/config
-1;4402;0c** 
+** 
 ** Made by LAABID Zakaria
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon May  8 00:40:07 2017 LAABID Zakaria
-** Last update Thu May 25 15:22:06 2017 Capitaine CASSE
+** Last update Thu May 25 19:09:15 2017 LAABID Zakaria
 */
 
 #include <stdlib.h>
@@ -53,10 +53,12 @@ int	config_telep_one(t_level **level, char **conf, int x, int y)
       while (conf[i] != NULL)
 	{
 	  if (my_strncmp(TELEP_NAME, conf[i], L_TPNAME) == 0)
-	    level[y]->tp[x - 1]->next_map = unquote((conf[i] + L_TPNAME));
+	    level[y]->tp[x - 1]->next_map = unquote((conf[i] + L_TPNAME + 2));
 	  if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
 	    break;
-	  else if ((my_strncmp(MOBS, conf[i], L_MOB)) == 0)
+	  else if ((my_strncmp(MOBS, conf[i], L_MOB)) == 0 ||
+		   (my_strncmp(CONF_LEVEL, conf[i], L_CONF) == 0)
+		   || conf[i] == NULL)
 	    break;
 	  i++;
 	}
@@ -85,7 +87,9 @@ int	config_telep_two(t_level **level, char **conf, int x, int y)
 	    }
 	  if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
 	    break;
-	  else if ((my_strncmp(MOBS, conf[i], L_MOB)) == 0)
+	  else if ((my_strncmp(MOBS, conf[i], L_MOB)) == 0 ||
+		   (my_strncmp(CONF_LEVEL, conf[i], L_CONF) == 0)
+		   || conf[i] == NULL)
 	    break;
 	  i++;
 	}
