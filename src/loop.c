@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Thu May 25 20:20:44 2017 LAABID Zakaria
+** Last update Thu May 25 22:22:11 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -102,6 +102,7 @@ static void		loop2(t_player *player, sfRenderWindow *window,
       sfRenderWindow_clear(window, sfWhite);
       /* if (i == 0) */
       /* 	i = load_screen(window, menu); */
+      //config_map(window, game, 2);
       sfRenderWindow_drawSprite(window, game->bg, NULL);
       show_grid(window, game);
       test(window, player, game);
