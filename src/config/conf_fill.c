@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 17:51:14 2017 LAABID Zakaria
-** Last update Thu May 25 19:19:37 2017 LAABID Zakaria
+** Last update Thu May 25 19:23:57 2017 LAABID Zakaria
 */
 
 #include "config.h"
@@ -13,9 +13,9 @@
 
 int		is_here(char **conf, char *str, int y)
 {
-  char	*start2;
-  char	*end;
-  int	i;
+  char		*start2;
+  char		*end;
+  int		i;
 
   i = 0;
   y++;
