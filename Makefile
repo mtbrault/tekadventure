@@ -5,7 +5,7 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Thu May 25 16:27:02 2017 Capitaine CASSE
+## Last update Thu May 25 19:20:10 2017 Matthieu BRAULT
 ##
 
 CC	=	gcc -g3
@@ -46,7 +46,8 @@ SRC	=	src/main.c				\
 		src/config/conf_events.c		\
 		src/config/conf_events_utils.c		\
 		src/config/getconf.c			\
-		src/config/check_file.c
+		src/config/check_file.c			\
+		src/config_map.c
 
 OBJ	=	$(SRC:.c=.o)
 
