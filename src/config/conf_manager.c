@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Fri May  5 14:44:37 2017 LAABID Zakaria
-** Last update Thu May 25 18:36:59 2017 LAABID Zakaria
+** Last update Thu May 25 20:09:04 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -54,10 +54,13 @@ char		**conf_init(char **argv)
   read(fd, config, 4096);
   if ((conf = wordtab(config, '\n')) == NULL)
     return (NULL);
-  while (conf[++i] != NULL)
-    conf[i] = epur_str(conf[i]);
-  if ((conf = del_commentary(conf)) == NULL)
-    return (NULL);
+  while (conf[i] != NULL)
+    {
+      conf[i] = epur_str(conf[i]);
+      i++;
+    }
+  /* if ((conf = del_commentary(conf)) == NULL) */
+  /*   return (NULL); */
   return (conf);
 }
 

@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Thu May  4 00:39:48 2017 LAABID Zakaria
-** Last update Thu May 25 16:17:04 2017 Capitaine CASSE
+** Last update Thu May 25 20:08:46 2017 LAABID Zakaria
 */
 
 #include <stdlib.h>
@@ -108,9 +108,35 @@ t_level	**config_map_fill_two(t_level **level, char **conf, int index)
   return (level);
 }
 
+t_level	**config_map_fill_three(t_level **level, char **conf, int index)
+{
+  char	*start;
+  char	*end;
+  int	i;
+  int	y;
+
+  i = 0;
+  y = index + 1;
+  start = my_strcat(CONF_LEVEL, my_str_nbr(y));
+  end = my_strcat(CONF_LEVEL, my_str_nbr(y + 1));
+  while (conf[i] != NULL)
+    if (my_strncmp(start, conf[i++], my_strlen(start)) == 0)
+      break;
+  while (conf[i] != NULL)
+    {
+      if ((my_strncmp(MAP_MUSIC, conf[i], my_strlen(MAP_MUSIC)) == 0))
+	level[index]->map->music = unquote(conf[i] + my_strlen(MAP_MUSIC));
+      if ((my_strncmp(end, conf[i], my_strlen(end)) == 0))
+	break;
+      i++;
+    }
+  return (level);
+}
+
 t_level	**config_map_fill(t_level **level, char **conf, int index)
 {
   config_map_fill_one(level, conf, index);
   config_map_fill_two(level, conf, index);
+  config_map_fill_three(level, conf, index);
   return (level);
 }

@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Mon Jan 23 15:42:26 2017 Antoine Casse
-** Last update Thu May 25 16:35:30 2017 LAABID Zakaria
+** Last update Thu May 25 20:06:38 2017 LAABID Zakaria
 */
 
 #include "lkaas.h"
@@ -35,7 +35,7 @@ int	*my_intdup(char *str)
   i = 0;
   if (str == NULL)
     return (NULL);
-  if ((res = malloc(sizeof(int) * my_strlen(str) + 1)) == NULL)
+  if ((res = malloc(sizeof(int) * (my_strlen(str) + 1))) == NULL)
     return (NULL);
   while (str[i])
     {
