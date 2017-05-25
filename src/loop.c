@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Thu May 25 15:21:42 2017 Capitaine CASSE
+** Last update Thu May 25 15:48:36 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -44,7 +44,7 @@ int		test(sfRenderWindow *window, t_player *player,
 {
   sfSprite	*sprite;
 
-  if (sfMouse_isButtonPressed(sfMouseLeft) && player->dest.x == -1 && player->dest.y == -1)
+  if (sfMouse_isButtonPressed(sfMouseLeft))
     {
       player->s = 0;
       player->sprt = 0;
@@ -104,6 +104,7 @@ void		loop2(t_player *player, sfRenderWindow *window,
       /* 	i = load_screen(window, menu); */
       show_grid(window, game, player);
       test(window, player, game);
+      check_pos(window, player, game);
       sfRenderWindow_display(window);
     }
 }

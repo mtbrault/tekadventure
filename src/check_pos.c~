@@ -1,0 +1,11 @@
+/*
+** check_pos.c for Tekadventure in /home/antoine.casse/Desktop/tekadventure/src
+** 
+** Made by Capitaine CASSE
+** Login   <antoine.casse@epitech.net>
+** 
+** Started on  Thu May 25 15:43:49 2017 Capitaine CASSE
+** Last update Thu May 25 15:43:54 2017 Capitaine CASSE
+*/
+
+#include "tekadv.h"
