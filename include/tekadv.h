@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Thu May 25 15:23:15 2017 Capitaine CASSE
+** Last update Thu May 25 18:31:14 2017 Capitaine CASSE
 */
 
 #ifndef TEKADV_H
@@ -119,7 +119,7 @@
 
 # define TEXPLY		"./ressources/spritesheet/.png"
 
-# define GRID_PATH      "./ressources/misc/tile.png"
+# define GRID_PATH      "./ressources/misc/tile2.png"
 
 # define OSA_BOARD	"./ressources/spriteboard/osa.png"
 # define FECA_BOARD	"./ressources/spriteboard/feca.png"
@@ -190,6 +190,7 @@ typedef struct          s_game
   t_level		**level;
   int			map_status;
   sfVector2i            tile;
+  sfSprite		*bg;
   t_player		*player;
 }			t_game;
 

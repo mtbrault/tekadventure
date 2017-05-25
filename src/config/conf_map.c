@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Thu May  4 00:39:48 2017 LAABID Zakaria
-** Last update Mon May 22 17:11:33 2017 LAABID Zakaria
+** Last update Thu May 25 16:17:04 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -97,8 +97,6 @@ t_level	**config_map_fill_two(t_level **level, char **conf, int index)
   y = index + 1;
   start = my_strcat(CONF_LEVEL, my_str_nbr(y));
   end = my_strcat(CONF_LEVEL, my_str_nbr(y + 1));
-  if ((level[index]->map = malloc(sizeof(t_map))) == NULL)
-    return (NULL);
   while (conf[i] != NULL)
     if (my_strncmp(start, conf[i++], my_strlen(start)) == 0)
       break;

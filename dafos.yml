@@ -3,31 +3,31 @@
 #GO TO THIS WEBSITE : 51.51.51.51/dafos-api/
 CONF-LEVEL-1:
     map-content:
-    11111011111111
-    11111011111111
-    11111011111111
-    11111011111111
-    11111011111111
-    11111011111111
-    11111011111111
-    11111011111111
-    11111011111111
-    11111011111111
-    11111000000011
     11111111111111
     11111111111111
-    11111111111111
+    11111000011001
+    11110000000001
+    11110000001111
+    11110000001111
+    11110011111111
+    11110001111111
+    11110001111111
+    11110001111111
+    11110000000111
+    00000000000111
+    00000000000111
+    00000000000111
     map:
 	map-name: "LEVEL-1"
 	map-debug: 0
-        map-bg: "src/"
+        map-bg: "ressources/backgrounds/firstmap.jpg"
     teleporter:
      teleporter-nb: 2
     	tp-1:
-      	coords: 2,0
+      	coords: 20,0
       	tp-name: "tp1-LEVEL-2"
     	tp-2:
-      	coords: 9,8
+      	coords: 10,10
       	tp-name: "tp2-LEVEL-2"
     mobs:
       mobs-nb: 2
@@ -68,7 +68,7 @@ CONF-LEVEL-2:
      teleporter:
       teleporter-nb: 1
          tp-1:
-	 coords: 0,1
+	 coords: 4,4
 	 tp-name: "tp1-LEVEL-2"
      mobs:
       mobs-nb: 2

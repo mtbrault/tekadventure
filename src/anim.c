@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Wed May  3 16:03:43 2017 Matthieu BRAULT
-** Last update Thu May 25 15:41:57 2017 Capitaine CASSE
+** Last update Thu May 25 19:05:22 2017 Capitaine CASSE
 */
 
 #include <math.h>
@@ -30,13 +30,13 @@ int	my_move(sfRenderWindow *window, t_game *game, t_player *player)
   sfVector2f	pos;
 
   vector = get_vector(game, player);
-  vector.x /= 80;
-  vector.y /= 80;
+  vector.x = vector.x / 80.0;
+  vector.y = vector.y / 80.0;
   pos = convert_pos(player->pos, game->tile);
   pos.x += (float) (player->s * vector.x);
   pos.y += (float) (player->s * vector.y);
   player->s += 1;
-  if (!(player->s % 30))
+  if (!(player->s % 42))
     player->sprt += 1;
   if (player->sprt > 5)
     player->sprt = 0;
@@ -44,7 +44,7 @@ int	my_move(sfRenderWindow *window, t_game *game, t_player *player)
 	player->dir}, game, ((sfVector2i) {6, 8}));
   sfSprite_setPosition(sprite, pos);
   sfRenderWindow_drawSprite(window, sprite, NULL);
-  if (player->s == 80)
+  if (player->s == 100)
     return (0);
   return (1);
 }
@@ -58,7 +58,6 @@ sfVector2f	get_vector(t_game *game, t_player *player)
   sides[0] = convert_pos(player->pos, game->tile);
   sides[1] = convert_pos(player->next, game->tile);
   vector = (sfVector2f) {sides[1].x - sides[0].x, sides[1].y - sides[0].y};
-  /*  */
   dec.x = player->next.x - player->pos.x;
   dec.y = player->next.y - player->pos.y;
   if (dec.x > 0 && dec.y == 0)
@@ -86,6 +85,5 @@ sfVector2f	get_vector(t_game *game, t_player *player)
   /*   player->dir = 6; */
   /* else if (vector.x > 45 && vector.y < 0) */
   /*   player->dir = 7; */
-  /* return (vector); */
-  /* /\*  *\/ */
+  return (vector);
 }

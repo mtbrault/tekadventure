@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Fri Apr 21 19:45:30 2017 Capitaine CASSE
-** Last update Mon May 22 14:33:15 2017 Capitaine CASSE
+** Last update Thu May 25 16:32:03 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -83,7 +83,7 @@ int		show_grid(sfRenderWindow *window, t_game *game, t_player *player)
   sfSprite	*sprite;
   sfVector2i	dims[2];
 
-  sfRenderWindow_clear(window, sfWhite);
+  //  sfRenderWindow_clear(window, sfWhite);
   map = (game->level[game->map_status])->map->content;
   if ((tex = sfTexture_createFromFile(GRID_PATH, NULL)) == NULL)
     return (1);

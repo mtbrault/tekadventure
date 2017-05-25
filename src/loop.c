@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Thu May 25 15:48:36 2017 Capitaine CASSE
+** Last update Thu May 25 18:34:58 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -102,6 +102,7 @@ void		loop2(t_player *player, sfRenderWindow *window,
       sfRenderWindow_clear(window, sfWhite);
       /* if (i == 0) */
       /* 	i = load_screen(window, menu); */
+      sfRenderWindow_drawSprite(window, game->bg, NULL);
       show_grid(window, game, player);
       test(window, player, game);
       check_pos(window, player, game);
@@ -137,7 +138,7 @@ void		display_window(sfRenderWindow *window, t_menu **menu,
   loop2(player, window, game, menu);
 }
 
-int			tmpdisp(t_tp **tp)
+int			tmpdisp(t_tp **tp, t_game *game)
 {
   int			i;
 
@@ -147,6 +148,7 @@ int			tmpdisp(t_tp **tp)
       printf("%d %d %s\n", (tp[i])->coords[0], (tp[i])->coords[1], (tp[i])->next_map);
       i += 1;
     }
+  printf("%s\n", (game->level[0])->map->bg);
   return (0);
 }
 
@@ -159,7 +161,8 @@ int			start_menu(t_game *game, t_player *player)
     return (-1);
   if ((window = create_window()) == NULL)
     return (-1);
-  tmpdisp((game->level[0])->tp);
+  tmpdisp((game->level[0])->tp, game);
+  print_bg(game, player);
   if ((menu = disp_startmenu()) == NULL)
     return (-1);
   display_window(window, menu, player, game);
