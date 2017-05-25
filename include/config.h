@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Thu May 25 19:16:01 2017 LAABID Zakaria
+** Last update Thu May 25 19:36:04 2017 Matthieu BRAULT
 */
 
 #ifndef CONFIG_H_
@@ -137,6 +137,7 @@ int		conf_counter(char **, char *);
 char		*getconf(char **, char *);
 int		find_to_zero(int);
 char		*my_str_nbr(int);
+int		is_here(char **, char *, int);
 int		getconf_index(char **, char *, int);
 char		**del_commentary(char **);
 

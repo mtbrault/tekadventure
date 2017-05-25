@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Fri Apr 21 19:45:30 2017 Capitaine CASSE
-** Last update Thu May 25 16:32:03 2017 Capitaine CASSE
+** Last update Thu May 25 19:40:36 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -76,7 +76,7 @@ int		draw_grid(int **map, sfVector2i *dim,
   return (0);
 }
 
-int		show_grid(sfRenderWindow *window, t_game *game, t_player *player)
+int		show_grid(sfRenderWindow *window, t_game *game)
 {
   int		**map;
   sfTexture	*tex;

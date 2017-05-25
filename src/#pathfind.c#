@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Tue May  2 22:22:39 2017 Capitaine CASSE
-** Last update Fri May  5 11:36:05 2017 Matthieu BRAULT
+** Last update Thu May 25 19:31:55 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -44,16 +44,13 @@ int	check_obstacles(sfVector2i pos, sfVector2i *dir)
 int	find_pos(t_player *ply, t_game *game, sfRenderWindow *window)
 {
   sfVector2i	dir;
-  sfVector2f	res;
   sfVector2f	dest;
   static int	state = 0;
 
-  res.x = 0.0;
   res.y = 0.0;
   if (state || check_click(&state, &dir, window, game))
     return (0);
   dest = convert_pos(dir, game->tile);
-  res.x = dest.x - (float)ply->pos.x;
   res.y = dest.y - (float)ply->pos.y;
   /* if (move_perso(res, ply, window)) */
   /*   state = 0 */;

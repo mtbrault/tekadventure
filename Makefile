@@ -5,7 +5,7 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Thu May 25 19:21:13 2017 LAABID Zakaria
+## Last update Thu May 25 19:33:10 2017 Matthieu BRAULT
 
 CC	=	gcc -g3
 
@@ -31,7 +31,6 @@ SRC	=	src/main.c				\
 		src/bfs.c				\
 		src/bfs_prep.c				\
 		src/anim.c				\
-		src/pathfind.c				\
 		src/config/conf_manager.c		\
 		src/config/conf_fill.c			\
 		src/config/conf_gen.c			\

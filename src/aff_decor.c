@@ -5,12 +5,12 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Thu May 25 16:19:39 2017 Capitaine CASSE
-** Last update Thu May 25 18:34:06 2017 Capitaine CASSE
+** Last update Thu May 25 19:37:25 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
 
-int		print_bg(t_game *game, t_player *player)
+int		print_bg(t_game *game)
 {
   sfSprite	*sprite;
   sfTexture	*texture;

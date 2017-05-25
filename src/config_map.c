@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu May 25 17:33:43 2017 Matthieu BRAULT
-** Last update Thu May 25 18:38:13 2017 Matthieu BRAULT
+** Last update Thu May 25 19:40:59 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -18,7 +18,6 @@ void		my_modif_map(int **map,
 
   i = 0;
   pos = raw_click(game, window);
-  printf("%d\n%d\n", pos.x, pos.y);
   while (map[0][i] != EOB)
     i = i + 1;
   if (i <= pos.x || pos.x < 0)
@@ -37,8 +36,6 @@ void		my_modif_map(int **map,
 int		config_map(sfRenderWindow *window, t_game *game)
 {
   int		**map;
-  sfTexture	*grid;
-  sfSprite	*sprite;
   int		i;
   
   map = (game->level[game->map_status])->map->content;
@@ -53,7 +50,8 @@ int		config_map(sfRenderWindow *window, t_game *game)
 	}
       if (!sfMouse_isButtonPressed(sfMouseLeft))
 	i = 0;
-      show_grid(window, game, game->player);
+      show_grid(window, game);
       sfRenderWindow_display(window);
     }
+  return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Thu May 25 18:34:58 2017 Capitaine CASSE
+** Last update Thu May 25 19:41:06 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -39,10 +39,10 @@ int	load_screen(sfRenderWindow *window, t_menu **menu)
   return (1);
 }
 
-int		test(sfRenderWindow *window, t_player *player,
+static int		test(sfRenderWindow *window, t_player *player,
 			     t_game *game)
 {
-  sfSprite	*sprite;
+  sfSprite		*sprite;
 
   if (sfMouse_isButtonPressed(sfMouseLeft))
     {
@@ -50,7 +50,7 @@ int		test(sfRenderWindow *window, t_player *player,
       player->sprt = 0;
       player->dest = raw_click(game, window);
       player->next = my_bfs(player->pos, player->dest,
-			    (game->level[game->map_status])->map->content, game->tile);
+			    (game->level[game->map_status])->map->content);
       if (player->next.x == -1 && player->next.y == -1)
 	{
 	  player->dest.x = -1;
@@ -77,16 +77,16 @@ int		test(sfRenderWindow *window, t_player *player,
 	}
       player->s = 0;
       player->next = my_bfs(player->pos, player->dest,
-			    (game->level[game->map_status])->map->content, game->tile);
+			    (game->level[game->map_status])->map->content);
     }
   return (0);
 }
 
-void		loop2(t_player *player, sfRenderWindow *window,
-		      t_game *game, t_menu **menu)
+static void		loop2(t_player *player, sfRenderWindow *window,
+		      t_game *game)
 {
-  sfEvent	event;
-  int		i;
+  sfEvent		event;
+  int			i;
 
   player->pos = (sfVector2i) {2, 2};
   player->dest = (sfVector2i) {-1, -1};
@@ -103,9 +103,9 @@ void		loop2(t_player *player, sfRenderWindow *window,
       /* if (i == 0) */
       /* 	i = load_screen(window, menu); */
       sfRenderWindow_drawSprite(window, game->bg, NULL);
-      show_grid(window, game, player);
+      show_grid(window, game);
       test(window, player, game);
-      check_pos(window, player, game);
+      check_pos(player, game);
       sfRenderWindow_display(window);
     }
 }
@@ -135,7 +135,7 @@ void		display_window(sfRenderWindow *window, t_menu **menu,
       sprite_change(window, index, menu);
       sfRenderWindow_display(window);
     }
-  loop2(player, window, game, menu);
+  loop2(player, window, game);
 }
 
 int			tmpdisp(t_tp **tp, t_game *game)
@@ -162,7 +162,7 @@ int			start_menu(t_game *game, t_player *player)
   if ((window = create_window()) == NULL)
     return (-1);
   tmpdisp((game->level[0])->tp, game);
-  print_bg(game, player);
+  print_bg(game);
   if ((menu = disp_startmenu()) == NULL)
     return (-1);
   display_window(window, menu, player, game);
