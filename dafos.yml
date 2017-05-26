@@ -77,11 +77,8 @@ CONF-LEVEL-2:
         map-bg: "ressources/backgrounds/firstmap.jpg"
         map-music: "src/tamùere"
     teleporter:
-     teleporter-nb: 2
+     teleporter-nb: 1
     	tp-1:
-      	coords: 20,0
-      	tp-name: "tp1-LEVEL-1"
-    	tp-2:
       	coords: 0,2
       	tp-name: "tp2-LEVEL-1"
     mobs:
