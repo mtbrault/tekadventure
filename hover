@@ -1,7 +1,0 @@
-src/colors.c:  menu[BT_ON_D]->hover = 0;
-src/hover_second.c:  if (menu[BT_ON_D]->hover == 1)
-src/hover_second.c:	sfRenderWindow_drawSprite(window, menu[BT_ON_D]->sprite_h, NULL);
-src/hover_second.c:	sfRenderWindow_drawSprite(window, menu[BT_ON_D]->sprite, NULL);
-src/position.c:  menu[BT_ON_D]->pos = ((sfVector2f) {735.0, 410.0});
-src/position.c:  sfSprite_setPosition(menu[BT_ON_D]->sprite, menu[BT_ON_D]->pos);
-src/position.c:  sfSprite_setPosition(menu[BT_ON_D]->sprite_h, menu[BT_ON_D]->pos);
