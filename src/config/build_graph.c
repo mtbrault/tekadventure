@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Fri May 26 12:20:02 2017 Capitaine CASSE
-** Last update Fri May 26 17:16:57 2017 Capitaine CASSE
+** Last update Fri May 26 17:49:09 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -40,6 +40,11 @@ t_level		*build_graph(t_level **act)
 	  while ((act[i])->tp[j] != NULL)
 	    {
 	      ((act[i])->tp[j])->room = find_link(act, ((act[i])->tp[j])->next_map);
+	      if (((act[i])->tp[j])->room != NULL)
+		{
+		  (act[i]->map->content)[((act[i])->tp[j])->coords[1]]
+		    [((act[i])->tp[j])->coords[0]] = 2;
+		}
 	      j += 1;
 	    }
 	}

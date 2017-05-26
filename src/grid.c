@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Fri Apr 21 19:45:30 2017 Capitaine CASSE
-** Last update Fri May 26 12:36:02 2017 Capitaine CASSE
+** Last update Fri May 26 18:08:52 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -47,7 +47,7 @@ sfVector2i	get_dim(int **map)
 }
 
 int		draw_grid(int **map, sfVector2i *dim,
-			  sfRenderWindow *window, sfSprite *sprite)
+			  sfRenderWindow *window, sfSprite **sprite)
 {
   sfVector2i	cur;
   sfVector2f	pos;
@@ -62,8 +62,8 @@ int		draw_grid(int **map, sfVector2i *dim,
 	{
 	  if (map[cur.y][cur.x])
 	    {
-	      sfSprite_setPosition(sprite, pos);
-	      sfRenderWindow_drawSprite(window, sprite, NULL);
+	      sfSprite_setPosition(sprite[map[cur.y][cur.x] - 1], pos);
+	      sfRenderWindow_drawSprite(window, sprite[map[cur.y][cur.x] - 1], NULL);
 	    }
 	  pos.x += (float)(dim[1].x / 2);
 	  pos.y += (float)(dim[1].y / 2);
@@ -79,25 +79,31 @@ int		draw_grid(int **map, sfVector2i *dim,
 int		show_grid(sfRenderWindow *window, t_game *game)
 {
   int		**map;
-  sfTexture	*tex;
-  sfSprite	*sprite;
+  sfTexture	**tex;
+  sfSprite	**sprite;
   sfVector2i	dims[2];
 
-  //  sfRenderWindow_clear(window, sfWhite);
+  if ((tex = malloc(sizeof(sfTexture *) * 2)) == NULL ||
+      (sprite = malloc(sizeof(sfSprite *) * 2)) == NULL)
+    return (1);
   map = game->level->map->content;
-  if ((tex = sfTexture_createFromFile(GRID_PATH, NULL)) == NULL)
+  if ((tex[0] = sfTexture_createFromFile(GRID_PATH, NULL)) == NULL ||
+      (tex[1] = sfTexture_createFromFile(GRID_PATH_TP, NULL)) == NULL)
     return (1);
-  if ((sprite = sfSprite_create()) == NULL)
+  if ((sprite[0] = sfSprite_create()) == NULL ||
+      (sprite[1] = sfSprite_create()) == NULL)
     return (1);
-  sfSprite_setTexture(sprite, tex, sfTrue);
+  sfSprite_setTexture(sprite[0], tex[0], sfTrue);
+  sfSprite_setTexture(sprite[1], tex[1], sfTrue);
   dims[0] = get_dim(map);
-  dims[1] = resize_tile(dims[0], sprite);
+  dims[1] = resize_tile(dims[0], sprite[0]);
+  resize_tile(dims[0], sprite[1]);
   game->tile = dims[1];
   raw_click(game, window);
   draw_grid(map, dims, window, sprite);
-  //find_pos(player, game, window);
-  //sleep(1);
-  sfSprite_destroy(sprite);
-  sfTexture_destroy(tex);
+  sfSprite_destroy(sprite[0]);
+  sfSprite_destroy(sprite[1]);
+  sfTexture_destroy(tex[0]);
+  sfTexture_destroy(tex[1]);
   return (0);
 }
