@@ -5,10 +5,11 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Wed May 10 14:47:39 2017 Capitaine CASSE
-** Last update Fri May 26 13:21:04 2017 Capitaine CASSE
+** Last update Fri May 26 17:16:15 2017 Capitaine CASSE
 */
 
 #include "get_next_line.h"
+#include "lkaas.h"
 
 static char	*cut_end(char *str, int *pos)
 {

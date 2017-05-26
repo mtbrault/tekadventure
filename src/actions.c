@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat Apr 22 19:50:07 2017 Capitaine CASSE
-** Last update Thu May 25 18:26:53 2017 Capitaine CASSE
+** Last update Fri May 26 17:27:02 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -51,7 +51,5 @@ sfVector2i	raw_click(t_game *game, sfRenderWindow *window)
   pos.x -= SCR_W / 2;
   grid.x = (int)(pos.x / ((float)tile.x / 2) + pos.y / ((float)tile.y / 2)) / 2;
   grid.y = (int)(pos.y / ((float)tile.y / 2) - pos.x / ((float)tile.x / 2)) / 2;
-  /* grid.x = (float)((pos.x + pos.y) / (tile.x / 2)) / 2; */
-  /* grid.y = (float)((pos.y - pos.x) / (tile.x / 2)) / 2; */
   return (grid);
 }

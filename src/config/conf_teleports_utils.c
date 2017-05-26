@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon May  8 00:40:07 2017 LAABID Zakaria
-** Last update Fri May 26 16:48:33 2017 Capitaine CASSE
+** Last update Fri May 26 17:14:58 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -55,11 +55,7 @@ int	config_telep_one(t_level **level, char **conf, int x, int y)
       while (conf[i] != NULL)
 	{
 	  if (my_strncmp(TELEP_NAME, conf[i], L_TPNAME) == 0)
-	    {
-	      level[y]->tp[x - 1]->next_map =
-		unquote(conf[i] + L_TPNAME + 2);
-	      printf("lol %s %d %d\n", level[y]->tp[x - 1]->next_map, y, x - 1);
-	    }
+	    level[y]->tp[x - 1]->next_map = unquote(conf[i] + L_TPNAME + 2);
 	  if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
 	    break;
 	  else if ((my_strncmp(MOBS, conf[i], L_MOB)) == 0 ||
@@ -95,8 +91,6 @@ int	config_telep_two(t_level **level, char **conf, int x, int y)
 	      j += 1;
 	      level[y]->tp[x - 1]->coords[0] = my_atoi(conf[i] + 8);
 	      level[y]->tp[x - 1]->coords[1] = my_atoi(conf[i] + 8 + j);
-	      printf("level %d tp %d : %d %d\n", y, x - 1,
-		     level[y]->tp[x - 1]->coords[0], level[y]->tp[x - 1]->coords[1]);
 	    }
 	  if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
 	    break;

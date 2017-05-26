@@ -1,11 +1,11 @@
 /*
-** conf_map.c for  in /home/BlackBIrdz/config
+1;4402;0c** conf_map.c for  in /home/BlackBIrdz/config
 ** 
 ** Made by LAABID Zakaria
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Thu May  4 00:39:48 2017 LAABID Zakaria
-** Last update Fri May 26 16:58:56 2017 Capitaine CASSE
+** Last update Fri May 26 17:13:52 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -49,18 +49,10 @@ int	**map_content_fill(char **conf, int i, char *end)
   if (conf[i] != NULL)
     i += 1;
   x = 0;
-  int	k;
   while (conf[i] != NULL)
     {
-      k = 0;
       if ((content[x++] = my_intdup(conf[i++])) == NULL)
 	return (NULL);
-      while (content[x - 1][k] != -42)
-	{
-	  printf("%d ", content[x - 1][k]);
-	  k += 1;
-	}
-      printf("\n");
       if ((my_strncmp(MAP_START, conf[i], my_strlen(MAP_START))) == 0)
 	return (content);
       if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
@@ -84,7 +76,6 @@ t_level	**config_map_fill_one(t_level **level, char **conf, int index)
     return (NULL);
   while (conf[i] != NULL)
     {
-      //      printf("cmp %s %s\n", start, conf[i]);
       if (my_strncmp(start, conf[i++], my_strlen(start)) == 0)
 	break;
     }
@@ -98,7 +89,6 @@ t_level	**config_map_fill_one(t_level **level, char **conf, int index)
 	break;
       i++;
     }
-  printf("%s\n", level[index]->map->name);
   return (level);
 }
 
@@ -120,7 +110,6 @@ t_level	**config_map_fill_two(t_level **level, char **conf, int index)
   while (conf[i] != NULL)
     if (my_strncmp(start, conf[i++], my_strlen(start)) == 0)
       break;
-  printf("fill %d\n", index);
   level[index]->map->content = map_content_fill(conf, i, end);
   return (level);
 }

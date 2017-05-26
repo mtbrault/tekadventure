@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Fri May 26 13:20:17 2017 Capitaine CASSE
+** Last update Fri May 26 17:16:42 2017 Capitaine CASSE
 */
 
 #ifndef CONFIG_H_
@@ -170,5 +170,6 @@ int		check_file(char *);
 int		my_puterr(char *, int);
 char		*get_next_line(const int);
 char		*my_strcat(char *, char *);
+t_level		*build_graph(t_level **);
 
 #endif /* CONFIG_H_ */
