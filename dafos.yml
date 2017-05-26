@@ -21,7 +21,7 @@ CONF-LEVEL-1:
     map:
 	map-name: "LEVEL-1"
 	map-debug: 0
-        map-bg: "ressources/backgrounds/firstmap.jpg"
+        map-bg: "ressources/backgrounds/mapstart.png"
         map-music: "src/tamùere"
     teleporter:
      teleporter-nb: 2
