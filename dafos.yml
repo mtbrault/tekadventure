@@ -25,6 +25,7 @@ CONF-LEVEL-1:
 	map-debug: 0
         map-bg: "ressources/backgrounds/mapstart2.png"
         map-music: "src/tamùere"
+	coords: 9,9
     teleporter:
      teleporter-nb: 2
     	tp-1:

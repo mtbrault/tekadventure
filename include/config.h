@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Fri May 26 17:16:42 2017 Capitaine CASSE
+** Last update Sat May 27 01:44:39 2017 LAABID Zakaria
 */
 
 #ifndef CONFIG_H_
@@ -33,6 +33,11 @@
 # define L_PA		(3)
 # define L_COORD	(7)
 # define L_EVENT	(6)
+# define L_LOAD		(8)
+# define L_TILE		(8)
+# define L_PNJ		(4)
+# define L_QUEST	(9)
+# define L_DIALOG	(6)
 
 # define MOBS		"mobs:"
 # define EVENT		"event:"
@@ -50,22 +55,29 @@
 # define TELEP_TYPE	"tp-"
 # define TELEP_COORD	"coords:"
 # define TELEP_NAME	"tp-name:"
+# define TELEP_LOAD	"tp-load:"
+# define TELEP_TILE	"tp-tile:"
 
 # define EVENT_TYPE	"items-"
 # define EVENT_NAME	"name:"
 # define EVENT_COORD	"coords:"
 # define EVENT_TEXT	"texture:"
-  
+# define EVENT_PNJ	"pnj:"
+# define EVENT_QUEST	"quest-pic:"
+# define EVENT_DIALOG	"dialog:"
+
 # define MAP_START	"map:"
 # define MAP_CONTENT	"map-content:"
 # define MAP_NAME	"map-name:"
 # define MAP_DEBUG	"map-debug:"
 # define MAP_BG		"map-bg:"
 # define MAP_MUSIC	"map-music:"
+# define MAP_PLAYER	"map-player:"
 
 typedef struct	s_map
 {
   int		**content;
+  int	        map_player[2];
   char		*name;
   char		*music;
   int		debug;
@@ -78,6 +90,8 @@ typedef struct	s_tp
 {
   int		coords[2];
   char		*next_map;
+  char		*path_tile;
+  int		load;
   t_level	*room;
 }		t_tp;
 
@@ -96,6 +110,9 @@ typedef struct	s_event
 {
   char		*name;
   char		*texture;
+  int		pnj;
+  char		*dialog;
+  char		*quest_pic;
   int		coords[2];
 }		t_event;
 
@@ -116,6 +133,7 @@ int		config_event_one(t_level **, char **, int, int);
 int		config_event_two(t_level **, char **, int, int);
 int		config_telep_one(t_level **, char **, int, int);
 int		config_telep_two(t_level **, char **, int, int);
+int		config_telep_three(t_level **, char **, int, int);
 int		config_goto(char *, char **, int);
 int		config_mob_one(t_level **, char **, int, int);
 int		config_mob_two(t_level **, char **, int, int);
