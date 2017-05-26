@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Thu May 25 22:22:11 2017 Matthieu BRAULT
+** Last update Fri May 26 17:04:10 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -50,7 +50,7 @@ static int		test(sfRenderWindow *window, t_player *player,
       player->sprt = 0;
       player->dest = raw_click(game, window);
       player->next = my_bfs(player->pos, player->dest,
-			    (game->level[game->map_status])->map->content);
+			    game->level->map->content);
       if (player->next.x == -1 && player->next.y == -1)
 	{
 	  player->dest.x = -1;
@@ -77,7 +77,7 @@ static int		test(sfRenderWindow *window, t_player *player,
 	}
       player->s = 0;
       player->next = my_bfs(player->pos, player->dest,
-			    (game->level[game->map_status])->map->content);
+			    game->level->map->content);
     }
   return (0);
 }
@@ -86,11 +86,14 @@ static void		loop2(t_player *player, sfRenderWindow *window,
 		      t_game *game)
 {
   sfEvent		event;
+  sfClock		*clock;
   int			i;
 
   player->pos = (sfVector2i) {2, 2};
   player->dest = (sfVector2i) {-1, -1};
   i = 0;
+  i = i;
+  clock = sfClock_create();
   while (sfRenderWindow_isOpen(window))
     {
       while (sfRenderWindow_pollEvent(window, &event))
@@ -99,16 +102,22 @@ static void		loop2(t_player *player, sfRenderWindow *window,
 	      (sfKeyboard_isKeyPressed(sfKeyEscape)))
 	    sfRenderWindow_close(window);
 	}
-      sfRenderWindow_clear(window, sfWhite);
-      /* if (i == 0) */
-      /* 	i = load_screen(window, menu); */
-      //config_map(window, game, 2);
-      sfRenderWindow_drawSprite(window, game->bg, NULL);
-      show_grid(window, game);
-      test(window, player, game);
-      check_pos(player, game);
-      sfRenderWindow_display(window);
+      if (sfTime_asSeconds(sfClock_getElapsedTime(clock)) > 0.005f)
+	{
+	  sfRenderWindow_clear(window, sfWhite);
+	  sfClock_restart(clock);
+	  /* if (i == 0) */
+	  /* 	i = load_screen(window, menu); */
+	  //config_map(window, game, 2);
+	  if (game->bg != NULL)
+	    sfRenderWindow_drawSprite(window, game->bg, NULL);
+	  show_grid(window, game);
+	  test(window, player, game);
+	  check_pos(player, game);
+	  sfRenderWindow_display(window);
+	}
     }
+  sfClock_destroy(clock);
 }
 
 void		display_window(sfRenderWindow *window, t_menu **menu,
@@ -144,12 +153,15 @@ int			tmpdisp(t_tp **tp, t_game *game)
   int			i;
 
   i = 0;
-  while (tp[i] != NULL)
+  if (tp != NULL)
     {
-      printf("%d %d %s\n", (tp[i])->coords[0], (tp[i])->coords[1], (tp[i])->next_map);
-      i += 1;
+      while (tp[i] != NULL)
+	{
+	  printf("%d %d %s\n", (tp[i])->coords[0], (tp[i])->coords[1], (tp[i])->next_map);
+	  i += 1;
+	}
+      printf("%s\n", game->level->map->bg);
     }
-  printf("%s\n", (game->level[0])->map->bg);
   return (0);
 }
 
@@ -162,7 +174,7 @@ int			start_menu(t_game *game, t_player *player)
     return (-1);
   if ((window = create_window()) == NULL)
     return (-1);
-  tmpdisp((game->level[0])->tp, game);
+  tmpdisp(game->level->tp, game);
   print_bg(game);
   if ((menu = disp_startmenu()) == NULL)
     return (-1);

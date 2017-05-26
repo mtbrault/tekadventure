@@ -5,12 +5,14 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Tue Jan 24 16:31:33 2017 Antoine Casse
-## Last update Mon May 22 16:42:17 2017 LAABID Zakaria
+## Last update Fri May 26 12:58:46 2017 Capitaine CASSE
 ##
 
-SRC	=	get_next_line.c	\
+SRC	=	my_strlen.c	\
+		gnl.c		\
 		my_putchar.c	\
 		my_putstr.c	\
+		my_strcat.c	\
 		my_puterr.c	\
 		my_put_nbr.c	\
 		my_getnbr.c	\

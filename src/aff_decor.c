@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Thu May 25 16:19:39 2017 Capitaine CASSE
-** Last update Thu May 25 19:37:25 2017 Matthieu BRAULT
+** Last update Fri May 26 14:00:18 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -17,7 +17,12 @@ int		print_bg(t_game *game)
   sfVector2u	size;
   sfVector2f	scale;
 
-  if ((texture = sfTexture_createFromFile((game->level[0])->map->bg, NULL)) == NULL ||
+  if (game->level->map == NULL || game->level->map->bg == NULL)
+    {
+      game->bg = NULL;
+      return (0);
+    }
+  if ((texture = sfTexture_createFromFile(game->level->map->bg, NULL)) == NULL ||
       (sprite = sfSprite_create()) == NULL)
     return (1);
   size = sfTexture_getSize(texture);

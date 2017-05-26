@@ -5,7 +5,7 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Thu May 25 19:33:10 2017 Matthieu BRAULT
+## Last update Fri May 26 12:41:00 2017 Capitaine CASSE
 
 CC	=	gcc -g3
 
@@ -45,6 +45,7 @@ SRC	=	src/main.c				\
 		src/config/conf_events_utils.c		\
 		src/config/getconf.c			\
 		src/config/check_file.c			\
+		src/config/build_graph.c		\
 		src/config/conf_verif.c			\
 		src/config_map.c
 

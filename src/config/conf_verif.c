@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Thu May 25 15:49:35 2017 LAABID Zakaria
-** Last update Thu May 25 20:05:12 2017 LAABID Zakaria
+** Last update Fri May 26 16:19:42 2017 Capitaine CASSE
 */
 
 #include <tekadv.h>
@@ -58,10 +58,8 @@ char		**del_commentary(char **conf)
     }
   while (conf[y] != NULL)
     {
-      printf("%s\n", conf[y]);
       if (conf[y][0] != '#')
 	{
-	  //	  printf("ok\n");
 	  if ((new_conf[x] = my_strdup(conf[y])) == NULL)
 	    {
 	      my_puterr(ERRCONF_DEL, 0);

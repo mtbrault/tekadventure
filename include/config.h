@@ -1,18 +1,18 @@
 /*
-** config.h for  in /home/BlackBIrdz/config
+1;4402;0c** config.h for  in /home/BlackBIrdz/config
 ** 
 ** Made by LAABID Zakaria
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Thu May 25 20:14:28 2017 LAABID Zakaria
+** Last update Fri May 26 13:20:17 2017 Capitaine CASSE
 */
 
 #ifndef CONFIG_H_
 #define CONFIG_H_
 
 # define FILECONF	".yml"
-# define ERRCONF_NAME	"Config file must be an (.YML) file\n"
+# define ERRCONF_NAME	"Config file must be an (.yml) file\n"
 # define ERRCONF_CONF	"Config file invalid NO CONF-LEVEL- Find\n"
 # define ERRCONF_OPEN	"Failed to open config file\n"
 # define ERRCONF_DEL	"Error while deleting commentary\n"
@@ -62,7 +62,7 @@
 # define MAP_DEBUG	"map-debug:"
 # define MAP_BG		"map-bg:"
 # define MAP_MUSIC	"map-music:"
-  
+
 typedef struct	s_map
 {
   int		**content;
@@ -72,10 +72,13 @@ typedef struct	s_map
   char		*bg;
 }		t_map;
 
+typedef struct	s_level t_level;
+
 typedef struct	s_tp
 {
   int		coords[2];
   char		*next_map;
+  t_level	*room;
 }		t_tp;
 
 typedef struct	s_mob
@@ -139,7 +142,7 @@ int		conf_counter(char **, char *);
 char		*getconf(char **, char *);
 int		find_to_zero(int);
 char		*my_str_nbr(int);
-int		is_here(char **, char *, int);
+int		is_here(char **, char *, const int);
 int		getconf_index(char **, char *, int);
 char		**del_commentary(char **);
 
@@ -157,13 +160,15 @@ void		my_putchar(char c);
 void		my_put_error(char *str_error);
 int		my_getnbr(char *str);
 int		my_putstr(char *str);
-int		my_strcmp(char *s1, char *s2, int n);
-int		my_strncmp(char *s1, char *s2, int n);
+int		my_strcmp(char *s1, char *s2);
+int		my_strncmp(const char *s1, const char *s2, const int n);
 char		*epur_str(char *str);
 char		*my_strcat(char *dest, char *src);
 int		my_atoi(char *);
 int		*my_intdup(char *);
 int		check_file(char *);			
 int		my_puterr(char *, int);
+char		*get_next_line(const int);
+char		*my_strcat(char *, char *);
 
 #endif /* CONFIG_H_ */

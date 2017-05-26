@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu May 25 17:33:43 2017 Matthieu BRAULT
-** Last update Thu May 25 20:59:27 2017 Matthieu BRAULT
+** Last update Fri May 26 12:40:00 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -56,7 +56,7 @@ int		config_map(sfRenderWindow *window, t_game *game, int nb_map)
   i = 0;
   while (!sfMouse_isButtonPressed(sfKeyReturn))
     {
-      map = (game->level[s])->map->content;
+      map = game->level->map->content;
       sfRenderWindow_clear(window, sfWhite);
       if (i == 0)
 	s = check_button(s, nb_map);

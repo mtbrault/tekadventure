@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Thu May 25 15:43:49 2017 Capitaine CASSE
-** Last update Thu May 25 19:38:03 2017 Matthieu BRAULT
+** Last update Fri May 26 17:10:51 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -20,7 +20,11 @@ static int	check_tp(sfVector2i pos, t_tp **tp, t_player *player, t_game *game)
       if (pos.x == (tp[i])->coords[0] && pos.y == (tp[i])->coords[1])
 	{
 	  player->pos = (sfVector2i) {0, 0};
-	  game->map_status += 1;
+	  if ((tp[i])->room != NULL)
+	    {
+	      game->level = (tp[i])->room;
+	      printf("Changed to %s\n", (tp[i])->room->map->name);
+	    }
 	  return (0);
 	}
       i += 1;
@@ -30,6 +34,6 @@ static int	check_tp(sfVector2i pos, t_tp **tp, t_player *player, t_game *game)
 
 int	check_pos(t_player *player, t_game *game)
 {
-  check_tp(player->pos, (game->level[game->map_status])->tp, player, game);
+  check_tp(player->pos, game->level->tp, player, game);
   return (0);
 }

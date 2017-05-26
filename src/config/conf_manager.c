@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Fri May  5 14:44:37 2017 LAABID Zakaria
-** Last update Thu May 25 20:09:04 2017 LAABID Zakaria
+** Last update Fri May 26 17:02:11 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -26,7 +26,7 @@ int		conf_counter(char **conf, char *str)
   count = 0;
   while (conf[i] != NULL)
     {
-      if ((my_strncmp(str, conf[i], my_strlen(str))) == 0)
+      if (my_strncmp(conf[i], str, my_strlen(str)) == 0)
 	count++;
       i++;
     }
@@ -35,10 +35,11 @@ int		conf_counter(char **conf, char *str)
 
 char		**conf_init(char **argv)
 {
-  char		config[4096];
   char		**conf;
   int		fd;
+  char		*tmp;
   int		i;
+  int		j;
 
   i = 0;
   if (check_file(argv[1]) == -1)
@@ -51,13 +52,27 @@ char		**conf_init(char **argv)
       my_puterr(ERRCONF_OPEN, 0);
       return (NULL);
     }
-  read(fd, config, 4096);
-  if ((conf = wordtab(config, '\n')) == NULL)
-    return (NULL);
-  while (conf[i] != NULL)
+  while ((tmp = get_next_line(fd)) != NULL)
     {
-      conf[i] = epur_str(conf[i]);
-      i++;
+      free(tmp);
+      i += 1;
+    }
+  close(fd);
+  if ((fd = open(argv[1], O_RDONLY)) == -1)
+    {
+      my_puterr(ERRCONF_OPEN, 0);
+      return (NULL);
+    }
+  if ((conf = malloc(sizeof(char *) * (i + 1))) == NULL)
+    return (NULL);
+  conf[i] = NULL;
+  j = 0;
+  while (j < i)
+    {
+      tmp = get_next_line(fd);
+      conf[j] = epur_str(tmp);
+      free(tmp);
+      j++;
     }
   /* if ((conf = del_commentary(conf)) == NULL) */
   /*   return (NULL); */
@@ -67,6 +82,7 @@ char		**conf_init(char **argv)
 t_level		**config_data(char **conf)
 {
   int		x;
+  int		max;
   t_level	**level;
 
   x = 0;
@@ -74,14 +90,21 @@ t_level		**config_data(char **conf)
     return (NULL);
   if ((level = gen_config_space(level, conf)) == NULL)
     return (NULL);
-  while (x < conf_counter(conf, CONF_LEVEL))
+  max = conf_counter(conf, CONF_LEVEL);
+  while (x < max)
     {
-      if ((is_here(conf, "mobs:", x)) == 0)
-	gen_mob_space(level, conf, x);
-      if ((is_here(conf, "event:", x)) == 0)
-	gen_event_space(level, conf, x);
-      if ((is_here(conf, "teleporter:", x)) == 0)
-	gen_telep_space(level, conf, x);
+      if ((is_here(conf, "mobs:", x + 1)) == 0)
+	{
+	  gen_mob_space(level, conf, x);
+	}
+      if ((is_here(conf, "event:", x + 1)) == 0)
+	{
+	  gen_event_space(level, conf, x);
+	}
+      if ((is_here(conf, "teleporter:", x + 1)) == 0)
+	{
+	  gen_telep_space(level, conf, x);
+	}
       x++;
     }
   gen_config_space(level, conf);

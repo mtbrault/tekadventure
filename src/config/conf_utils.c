@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon May 15 13:46:01 2017 LAABID Zakaria
-** Last update Thu May 25 19:08:52 2017 LAABID Zakaria
+** Last update Fri May 26 15:49:31 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -49,20 +49,16 @@ int	nbrepur(char *str)
 char	*unquote(char *str)
 {
   int	i;
-  int	y;
-  char	*new_str;
+  char	*new;
 
-  y = 0;
-  i = 1;
-  str = epur_str(str);
-  if ((new_str = malloc(sizeof(char) * (my_strlen(str) - 1))) == NULL)
+  i = 0;
+  if (*str == '"')
+    str += 1;
+  while (str[i] && str[i] != '"')
+    i += 1;
+  str[i] = 0;
+  if ((new = my_strdup(str)) == NULL)
     return (NULL);
-  while (str[i] != '"')
-    {
-      if (str[i] == '"')
-	i++;
-      new_str[y++] = str[i++];
-    }
-  new_str[y] = '\0';
-  return (new_str);
+  str[i] = '"';
+  return (new);
 }

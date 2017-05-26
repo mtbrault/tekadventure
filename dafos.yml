@@ -1,6 +1,7 @@
 #DAFOS - CONFIGFILE
 #TO KNOW EVERYTHING ABOUT THE YAML CONFIG OF DAFOS
 #GO TO THIS WEBSITE : 51.51.51.51/dafos-api/
+
 CONF-LEVEL-1:
     map-content:
     11111111111111
@@ -18,14 +19,14 @@ CONF-LEVEL-1:
     00000000000111
     00000000000111
     map:
-	map-name: "LEVEL-1"
+	map-name: "LEVEL-2"
 	map-debug: 0
         map-bg: "ressources/backgrounds/firstmap.jpg"
         map-music: "src/tamùere"
     teleporter:
      teleporter-nb: 2
     	tp-1:
-      	coords: 20,0
+      	coords: 2,0
       	tp-name: "tp1-LEVEL-2"
     	tp-2:
       	coords: 10,10
@@ -81,7 +82,7 @@ CONF-LEVEL-2:
       	coords: 20,0
       	tp-name: "tp1-LEVEL-2"
     	tp-2:
-      	coords: 10,10
+      	coords: 0,10
       	tp-name: "tp2-LEVEL-2"
     mobs:
       mobs-nb: 2

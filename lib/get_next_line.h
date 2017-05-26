@@ -5,11 +5,11 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Tue Jan 10 09:50:30 2017 Antoine Casse
-** Last update Sun Jan 15 19:52:40 2017 Antoine Casse
+** Last update Fri May 26 12:50:39 2017 Capitaine CASSE
 */
 
-# ifndef READ_SIZE
-#  define READ_SIZE (10)
+# ifndef READ_S
+#  define READ_S (100)
 # endif /* !READ_SIZE */
 
 #include <stdlib.h>

@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon May 22 17:12:48 2017 LAABID Zakaria
-** Last update Mon May 22 17:31:16 2017 LAABID Zakaria
+** Last update Fri May 26 13:22:15 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -30,9 +30,7 @@ int	check_file(char *file)
 
   if ((status = check_dotfile(file)) == FAIL)
     return (FAIL);
-  if ((my_strcmp((file + status), FILECONF, my_strlen(FILECONF))) == 0)
+  if ((my_strncmp(file + status, FILECONF, my_strlen(FILECONF))) == 0)
     return (NORMAL);
-  else
-    return (FAIL);
-  return (NORMAL);
+  return (FAIL);
 }

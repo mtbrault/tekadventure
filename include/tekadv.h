@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Thu May 25 19:41:51 2017 Matthieu BRAULT
+** Last update Fri May 26 12:31:21 2017 Capitaine CASSE
 */
 
 #ifndef TEKADV_H
@@ -187,7 +187,7 @@ typedef struct		s_player
 
 typedef struct          s_game
 {
-  t_level		**level;
+  t_level		*level;
   int			map_status;
   sfVector2i            tile;
   sfSprite		*bg;
