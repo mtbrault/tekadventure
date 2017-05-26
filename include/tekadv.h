@@ -5,7 +5,11 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
+<<<<<<< HEAD
 ** Last update Fri May 26 18:34:47 2017 Matthieu BRAULT
+=======
+** Last update Fri May 26 18:01:50 2017 Capitaine CASSE
+>>>>>>> 60e7a02f62223f78204b18174912bff094a3d925
 */
 
 #ifndef TEKADV_H
@@ -120,7 +124,11 @@
 # define TEXPLY		"./ressources/spritesheet/.png"
 
 # define GRID_PATH      "./ressources/misc/tile2.png"
+<<<<<<< HEAD
 # define GRID_CONFIG	"./ressources/misc/tile.png"
+=======
+# define GRID_PATH_TP	"./ressources/misc/tile_tp.png"
+>>>>>>> 60e7a02f62223f78204b18174912bff094a3d925
 
 # define OSA_BOARD	"./ressources/spriteboard/osa.png"
 # define FECA_BOARD	"./ressources/spriteboard/feca.png"
