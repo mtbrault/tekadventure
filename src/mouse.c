@@ -5,13 +5,13 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Fri Apr 21 20:55:12 2017 Matthieu BRAULT
-** Last update Fri May  5 17:07:00 2017 Matthieu BRAULT
+** Last update Fri May 26 18:33:49 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
 
 int	        mouse_func(sfRenderWindow *window, int index,
-			   t_player *player, t_menu **menu)
+			   t_game *game, t_menu **menu)
 {
   int	i;
 
@@ -27,11 +27,11 @@ int	        mouse_func(sfRenderWindow *window, int index,
       }
   if (index == CONFIG)
     if (sfMouse_isButtonPressed(sfMouseLeft))
-      index = my_config(window, index, menu);
+      index = my_config(window, index, menu, game);
   if (index == CHARAC)
     if (sfMouse_isButtonPressed(sfMouseLeft))
       {
-	if (my_check_class(window, player) == 1)
+	if (my_check_class(window, game->player) == 1)
 	  index = 2;
 	if (my_check_config(get_mouse_pos(window)) == 2)
 	  index = MENU;

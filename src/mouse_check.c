@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon Apr 24 04:06:54 2017 LAABID Zakaria
-** Last update Fri May  5 17:14:38 2017 Matthieu BRAULT
+** Last update Fri May 26 18:35:06 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -25,7 +25,7 @@ int	my_check_exit(sfVector2i mouse_pos)
   return (NORMAL);
 }
 
-int	my_config(sfRenderWindow *window, int index, t_menu **menu)
+int	my_config(sfRenderWindow *window, int index, t_menu **menu, t_game *game)
 {
   sfVector2i	x_b;
   int		i;
@@ -36,6 +36,9 @@ int	my_config(sfRenderWindow *window, int index, t_menu **menu)
   i = 0;
   if (my_check_config(mouse_pos) == 2)
     return (index = MENU);
+  if (check_class_pos(((sfVector2i) {505, 790}), ((sfVector2i)
+    {480, 510}), mouse_pos) == 1)
+    config_map(window, game);
   while (i < TABMOUSE_S)
     {
       if (check_class_pos(x_b, tabmouse[i].pos, mouse_pos))

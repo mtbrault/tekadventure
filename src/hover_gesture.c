@@ -5,12 +5,13 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun Apr 23 22:28:32 2017 LAABID Zakaria
-** Last update Mon Apr 24 19:46:56 2017 LAABID Zakaria
+** Last update Fri May 26 18:26:24 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
 
-void		sprite_change(sfRenderWindow *window, int index, t_menu **menu)
+void		sprite_change(sfRenderWindow *window, int index,
+			      t_menu **menu)
 {
   sfVector2i	mouse_pos;
 

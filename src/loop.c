@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Fri May 26 17:04:10 2017 Capitaine CASSE
+** Last update Fri May 26 18:34:13 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -135,7 +135,7 @@ void		display_window(sfRenderWindow *window, t_menu **menu,
 	  if ((event.type == sfEvtClosed) ||
 	      (sfKeyboard_isKeyPressed(sfKeyEscape)))
 	    sfRenderWindow_close(window);
-	  index = mouse_func(window, index, player, menu);
+	  index = mouse_func(window, index, game, menu);
 	  if (index == -1)
 	    return ;
 	}

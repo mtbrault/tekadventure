@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Fri Mar 31 20:37:29 2017 Capitaine CASSE
-** Last update Mon Apr 24 18:42:28 2017 LAABID Zakaria
+** Last update Fri May 26 18:19:39 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -19,7 +19,8 @@ sfRenderWindow		*create_window(void)
   mode.height = SCR_H;
   mode.bitsPerPixel = 32;
   window = sfRenderWindow_create(mode,
-				 "Dofas - Dofus Remake", sfResize | sfClose, 0);
+				 "Dofas - Dofus Remake",
+				 sfResize | sfClose, 0);
   if (!(window))
     return (NULL);
   return (window);

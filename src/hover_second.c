@@ -5,15 +5,15 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon Apr 24 03:33:03 2017 LAABID Zakaria
-** Last update Fri May  5 17:17:54 2017 Matthieu BRAULT
+** Last update Fri May 26 18:28:19 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
 
-void		hover_config_second(sfRenderWindow *window,
-				    sfVector2i mouse, t_menu **menu)
+static void		hover_config_second(sfRenderWindow *window, sfVector2i mouse,
+					    t_menu **menu)
 {
-  sfVector2i	x_b;
+  sfVector2i		x_b;
 
   x_b = ((sfVector2i) {730, 848});
   if (menu[BT_ON_V]->hover == 1)
@@ -60,8 +60,8 @@ void		hover_config_second(sfRenderWindow *window,
     }
 }
 
-void		hover_config(sfRenderWindow *window,
-			     sfVector2i mouse, t_menu **menu)
+void		hover_config(sfRenderWindow *window, sfVector2i mouse,
+			     t_menu **menu)
 {
   hover_config_second(window, mouse, menu);
   if (check_class_pos(((sfVector2i) {597, 700})
@@ -76,10 +76,10 @@ void		hover_config(sfRenderWindow *window,
     sfRenderWindow_drawSprite(window, menu[BT_BACK]->sprite, NULL);
 }
 
-void		hover_play_second(sfRenderWindow *window,
-				  sfVector2i mouse, t_menu **menu)
+static void		hover_play_second(sfRenderWindow *window,
+					  sfVector2i mouse, t_menu **menu)
 {
-  sfVector2i	y_s;
+  sfVector2i		y_s;
 
   y_s = ((sfVector2i) {529, 562});
   if (check_class_pos(((sfVector2i) {495, 637}), y_s, mouse) == 1)
@@ -96,8 +96,8 @@ void		hover_play_second(sfRenderWindow *window,
     sfRenderWindow_drawSprite(window, menu[S_OSA]->sprite, NULL);
 }
 
-void		hover_play(sfRenderWindow *window,
-			   sfVector2i mouse, t_menu **menu)
+void		hover_play(sfRenderWindow *window, sfVector2i mouse,
+			   t_menu **menu)
 {
   sfVector2i	y_s;
 
