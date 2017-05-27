@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Thu May  4 00:39:48 2017 LAABID Zakaria
-** Last update Sat May 27 01:45:52 2017 LAABID Zakaria
+** Last update Sat May 27 17:16:44 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -119,6 +119,7 @@ t_level	**config_map_fill_three(t_level **level, char **conf, int index)
   char	*start;
   char	*end;
   int	i;
+  int	j;
   int	y;
 
   i = 0;
@@ -128,15 +129,20 @@ t_level	**config_map_fill_three(t_level **level, char **conf, int index)
   while (conf[i] != NULL)
     if (my_strncmp(start, conf[i++], my_strlen(start)) == 0)
       break;
+  printf("Hello\n");
   while (conf[i] != NULL)
     {
+      j = 0;
       if ((my_strncmp(MAP_MUSIC, conf[i], my_strlen(MAP_MUSIC)) == 0))
 	level[index]->map->music = unquote(conf[i] + my_strlen(MAP_MUSIC) + 1);
       if ((my_strncmp(MAP_PLAYER, conf[i], my_strlen(MAP_PLAYER)) == 0))
 	{
-	  level[index]->map->map_player[0] = my_atoi(conf[i] + 10);
-	  level[index]->map->map_player[1] = my_atoi(conf[i] + 13);
-	    }
+	  level[index]->map->map_player[0] = my_atoi(conf[i] + 12);
+	  while (conf[i][12 + j] != ',' && conf[i][12 + j])
+	    j += 1;
+	  j += 1;
+	  level[index]->map->map_player[1] = my_atoi(conf[i] + 12 + j);
+	}
       if ((my_strncmp(end, conf[i], my_strlen(end)) == 0))
 	break;
       i++;

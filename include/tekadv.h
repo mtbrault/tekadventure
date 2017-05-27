@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sat May 27 13:04:13 2017 Capitaine CASSE
+** Last update Sat May 27 17:25:29 2017 Capitaine CASSE
 */
 
 #ifndef TEKADV_H
@@ -194,7 +194,12 @@ typedef struct          s_game
   t_level		*level;
   int			map_status;
   sfVector2i            tile;
+  int			actions;
+  int			stop[2];
   sfSprite		*bg;
+  sfSprite		**pnj;
+  sfSprite		*quest;
+  sfFont		*font;
   t_player		*player;
   char			**conf;
 }			t_game;
@@ -253,6 +258,7 @@ int			hud_placing(sfRenderWindow *, t_game *);
 int			quest_manager(t_game *);
 int			show_player(sfRenderWindow *, t_player *, t_game *);
 int			sound_manager(sfRenderWindow *, t_game *);
+int			show_events(sfRenderWindow *, t_game *);
 
 /*
 ** ***************************************************
