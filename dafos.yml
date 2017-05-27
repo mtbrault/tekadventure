@@ -84,5 +84,14 @@ CONF-LEVEL-2:
     teleporter:
      teleporter-nb: 1
     	tp-1:
-      	coords: 6,13
+      	coords:  6,13
       	tp-name: "tp1-LEVEL-1"
+    event:
+     event-nb: 1
+     items-1
+       name "Eythan"
+       texture: "ressources/quest/character/eythan_lavare.png"
+       coords: 6,3
+       pnj: 1
+       dialog: "ressources/dialog/eythan.txt"
+       quest-pic: "ressources/quest/quest_pic/quest_eythan_debut.png"

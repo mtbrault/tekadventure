@@ -1,11 +1,11 @@
 /*
-** conf_teleports_utils.c for  in /home/BlackBIrdz/config
+1;4402;0c** conf_teleports_utils.c for  in /home/BlackBIrdz/config
 ** 
 ** Made by LAABID Zakaria
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon May  8 00:40:07 2017 LAABID Zakaria
-** Last update Sat May 27 01:21:43 2017 LAABID Zakaria
+** Last update Sat May 27 18:10:46 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -85,12 +85,12 @@ int	config_telep_two(t_level **level, char **conf, int x, int y)
 	{
 	  if (my_strncmp(TELEP_COORD, conf[i], L_COORD) == 0)
 	    {
-	      j = 0;
-	      while (conf[i][8 + j] != ',')
+	      j = 8;
+	      while (conf[i][j] != ',')
 		j += 1;
 	      j += 1;
 	      level[y]->tp[x - 1]->coords[0] = my_atoi(conf[i] + 8);
-	      level[y]->tp[x - 1]->coords[1] = my_atoi(conf[i] + 8 + j);
+	      level[y]->tp[x - 1]->coords[1] = my_atoi(conf[i] + j);
 	    }
 	  if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
 	    break;

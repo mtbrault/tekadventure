@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat May 27 12:39:42 2017 Capitaine CASSE
-** Last update Sat May 27 17:47:05 2017 Capitaine CASSE
+** Last update Sat May 27 18:05:12 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -55,6 +55,7 @@ static int      show_dialog(sfRenderWindow *window, char *dialogfile, t_game *ga
   sfRenderWindow_drawSprite(window, game->quest, NULL);
   sfRenderWindow_drawText(window, text, NULL);
   sfText_destroy(text);
+  sfSprite_destroy(game->quest);
   free(dialog);
   return (0);
 }
@@ -71,7 +72,10 @@ int		show_events(sfRenderWindow *window, t_game *game)
   if (game->pnj == NULL)
     return (1);
   while (game->pnj[i] != NULL)
-    sfRenderWindow_drawSprite(window, game->pnj[i++], NULL);
+    {
+      sfRenderWindow_drawSprite(window, game->pnj[i], NULL);
+      sfSprite_destroy(game->pnj[i++]);
+    }
   if (!(game->stop[0]) && sfMouse_isButtonPressed(sfMouseRight))
     {
       pos = raw_click(game, window);
