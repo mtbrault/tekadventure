@@ -5,13 +5,13 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat May 27 03:23:28 2017 LAABID Zakaria
-** Last update Sat May 27 18:23:51 2017 Matthieu BRAULT
+** Last update Sat May 27 18:33:04 2017 Matthieu BRAULT
 */
 
 #include "config.h"
 #include "tekadv.h"
 
-static int	set_font(t_game *game, t_event *event)
+static int	set_font(t_game *game)
 {
   sfFont	*font;
 
@@ -76,7 +76,7 @@ int		quest_manager(t_game *game)
   event = game->level->event;
   if (event == NULL)
     return (1);
-  set_font(game, event[0]);
+  set_font(game);
   while (event[x] != NULL)
     x += 1;
   if ((game->pnj = malloc(sizeof(sfSprite *) * (x + 1))) == NULL)
@@ -85,12 +85,12 @@ int		quest_manager(t_game *game)
   x = 0;
   while (event[x] != NULL)
     {
-      set_font(game, event[x]);
+      set_font(game);
       if ((set_character(game, event[x], x)) == 1)
 	return (FAIL);
       x += 1;
     }
-  set_font(game, event[0]);
+  set_font(game);
   set_quest_disp(event[0]->quest_pic, game);
   return (0);
 }
