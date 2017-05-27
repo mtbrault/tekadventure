@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat May 27 03:23:28 2017 LAABID Zakaria
-** Last update Sat May 27 17:43:00 2017 Capitaine CASSE
+** Last update Sat May 27 18:23:51 2017 Matthieu BRAULT
 */
 
 #include "config.h"
@@ -80,7 +80,7 @@ int		quest_manager(t_game *game)
   while (event[x] != NULL)
     x += 1;
   if ((game->pnj = malloc(sizeof(sfSprite *) * (x + 1))) == NULL)
-    return (NULL);
+    return (1);
   game->pnj[x] = NULL;
   x = 0;
   while (event[x] != NULL)

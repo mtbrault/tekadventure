@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon Apr 24 04:06:54 2017 LAABID Zakaria
-** Last update Fri May 26 18:35:06 2017 Matthieu BRAULT
+** Last update Fri May 26 19:51:53 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -38,7 +38,7 @@ int	my_config(sfRenderWindow *window, int index, t_menu **menu, t_game *game)
     return (index = MENU);
   if (check_class_pos(((sfVector2i) {505, 790}), ((sfVector2i)
     {480, 510}), mouse_pos) == 1)
-    config_map(window, game);
+    config_map(window, game, 2);
   while (i < TABMOUSE_S)
     {
       if (check_class_pos(x_b, tabmouse[i].pos, mouse_pos))

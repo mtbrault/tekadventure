@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat May  6 21:18:46 2017 Capitaine CASSE
-** Last update Fri May 26 17:26:34 2017 Capitaine CASSE
+** Last update Sat May 27 18:27:19 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -85,7 +85,6 @@ sfVector2i	bfs_find(int **map, sfVector2i pos, sfVector2i dest)
 {
   t_list	*list;
   t_list	*pars;
-  int		i;
 
   if (pos.x == dest.x && pos.y == dest.y)
     return ((sfVector2i) {pos.x - 1, pos.y - 1});

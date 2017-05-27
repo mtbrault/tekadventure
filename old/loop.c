@@ -1,11 +1,11 @@
 /*
-1;4402;0c** loop.c for Tekadventure in /home/antoine.casse/Desktop/tekadv
+** loop.c for Tekadventure in /home/antoine.casse/Desktop/tekadv
 ** 
 ** Made by Capitaine CASSE
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sat May 27 18:30:45 2017 Matthieu BRAULT
+** Last update Sat May 27 17:10:02 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -45,14 +45,16 @@ static void		loop2(t_player *player, sfRenderWindow *window,
   sfEvent		event;
   sfClock		*clock;
   int			i;
+  int			idx;
+  int			x;
 
-  printf("%d %d\n", game->level->map->map_player[0], game->level->map->map_player[1]);
-  player->pos = (sfVector2i) {game->level->map->map_player[0],
-			      game->level->map->map_player[1]};
+  player->pos = (sfVector2i) {4, 10};
   player->dest = (sfVector2i) {-1, -1};
   i = 0;
-  i = i;
+  idx = 1;
+  x = 0;
   clock = sfClock_create();
+  quest_manager(game);
   while (sfRenderWindow_isOpen(window))
     {
       while (sfRenderWindow_pollEvent(window, &event))
@@ -67,16 +69,24 @@ static void		loop2(t_player *player, sfRenderWindow *window,
 	  sfClock_restart(clock);
 	  /* if (i == 0) */
 	  /* 	i = load_screen(window, menu); */
-	  /* sfMusic_stop(menu[0]->music); */
+	  sfMusic_stop(menu[0]->music);
 	  if (game->bg != NULL)
 	    sfRenderWindow_drawSprite(window, game->bg, NULL);
-	  show_grid(window, game);
+	  if (idx == 1)
+	    show_grid(window, game);
 	  show_player(window, player, game);
+	  check_pos(player, game);
 	  hud_placing(window, game);
-	  quest_manager(game);
+	  if (x == 0)
+	    {
+	      if (idx != (idx = check_hud_click(window, idx)))
+		break ;
+	    }
+	  if (!sfMouse_isButtonPressed(sfMouseLeft))
+	    x = 0;
 	  show_events(window, game);
 	  if (i == 0)
-	    i = sound_manager(game);
+	    i = sound_manager(window, game);
 	  sfRenderWindow_display(window);
 	}
     }
@@ -138,13 +148,7 @@ int			start_menu(t_game *game, t_player *player)
   if ((window = create_window()) == NULL)
     return (-1);
   tmpdisp(game->level->tp, game);
-  game->pnj = NULL;
-  game->quest = NULL;
-  game->stop[0] = 0;
-  game->stop[1] = 0;
-  game->actions = 0;
   print_bg(game);
-  quest_manager(game);
   if ((menu = disp_startmenu()) == NULL)
     return (-1);
   display_window(window, menu, player, game);

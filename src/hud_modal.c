@@ -5,13 +5,13 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat May 27 02:12:23 2017 LAABID Zakaria
-** Last update Sat May 27 03:30:17 2017 LAABID Zakaria
+** Last update Sat May 27 16:22:41 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
 
 static sfSprite	*get_static_head(sfTexture *class, sfVector2i coord,
-				 t_game *game, sfVector2i div)
+				 sfVector2i div)
 {
   sfIntRect	rect;
   sfVector2u	size;
@@ -23,9 +23,7 @@ static sfSprite	*get_static_head(sfTexture *class, sfVector2i coord,
   rect = (sfIntRect) {(size.x / div.x) * coord.x, (size.y / div.y) * coord.y,
 		      size.x / div.x, size.y / div.y};
   sfSprite_setTextureRect(sprite, rect);
-  sfSprite_setOrigin(sprite, ((sfVector2f)
-    {(size.x / div.x) / 2, (size.y / div.y) / 6 * 5}));
-  game = game;
+  sfSprite_setPosition(sprite, ((sfVector2f) {800, 580}));
   return (sprite);
 }
 
@@ -45,8 +43,8 @@ int	        hud_placing(sfRenderWindow *window, t_game *game)
   sfSprite_setTexture(sprite, tex, sfTrue);
   sfSprite_setPosition(sprite, (sfVector2f) {SCR_W - 490, SCR_H - 89});
   sfRenderWindow_drawSprite(window, sprite, NULL);
-  head = get_static_head(head_tex, (sfVector2i)
-			 {0, 1}, game, (sfVector2i) {1, 4});
+  head = get_static_head(head_tex, (sfVector2i) {game->player->class, 0},
+			 (sfVector2i) {4, 1});
   sfRenderWindow_drawSprite(window, head, NULL);
   sfSprite_destroy(sprite);
   sfTexture_destroy(tex);
