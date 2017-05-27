@@ -5,12 +5,12 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat May 27 05:38:32 2017 LAABID Zakaria
-** Last update Sat May 27 06:02:24 2017 LAABID Zakaria
+** Last update Sat May 27 18:24:12 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
 
-int		sound_manager(sfRenderWindow *window, t_game *game)
+int		sound_manager(t_game *game)
 {
   sfMusic	*music;
 

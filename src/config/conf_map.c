@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Thu May  4 00:39:48 2017 LAABID Zakaria
-** Last update Sat May 27 17:16:44 2017 Capitaine CASSE
+** Last update Sat May 27 18:25:11 2017 Matthieu BRAULT
 */
 
 #include <stdlib.h>
@@ -129,7 +129,6 @@ t_level	**config_map_fill_three(t_level **level, char **conf, int index)
   while (conf[i] != NULL)
     if (my_strncmp(start, conf[i++], my_strlen(start)) == 0)
       break;
-  printf("Hello\n");
   while (conf[i] != NULL)
     {
       j = 0;

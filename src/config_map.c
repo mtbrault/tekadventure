@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu May 25 17:33:43 2017 Matthieu BRAULT
-** Last update Fri May 26 17:30:47 2017 Matthieu BRAULT
+** Last update Fri May 26 19:51:30 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -46,29 +46,6 @@ static int		check_button(int s, int nb_map)
   return (s);
 }
 
-int		grid_config(sfRenderWindow *window, t_game *game)
-{
-  int		**map;
-  sfTexture	*tex;
-  sfSprite	*sprite;
-  sfVector2i	dims[2];
-
-  map = game->level->map->content;
-  if ((tex = sfTexture_createFromFile(GRID_CONFIG, NULL)) == NULL)
-    return (1);
-  if ((sprite = sfSprite_create()) == NULL)
-    return (1);
-  sfSprite_setTexture(sprite, tex, sfTrue);
-  dims[0] = get_dim(map);
-  dims[1] = resize_tile(dims[0], sprite);
-  game->tile = dims[1];
-  raw_click(game, window);
-  draw_grid(map, dims, window, sprite);
-  sfSprite_destroy(sprite);
-  sfTexture_destroy(tex);
-  return (0);
-}
-
 int		config_map(sfRenderWindow *window, t_game *game, int nb_map)
 {
   int		**map;
@@ -100,7 +77,9 @@ int		config_map(sfRenderWindow *window, t_game *game, int nb_map)
 	  i = 0;
 	  x = 0;
 	}
-      grid_config(window, game);
+      if (game->bg != NULL)
+	sfRenderWindow_drawSprite(window, game->bg, NULL);
+      show_grid(window, game);
       sfRenderWindow_display(window);
     }
   return (0);

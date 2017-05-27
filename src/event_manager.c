@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat May 27 12:39:42 2017 Capitaine CASSE
-** Last update Sat May 27 18:05:12 2017 Capitaine CASSE
+** Last update Sat May 27 18:28:24 2017 Matthieu BRAULT
 */
 
 #include <stdlib.h>
@@ -65,7 +65,6 @@ int		show_events(sfRenderWindow *window, t_game *game)
   int		i;
   t_event	**event;
   sfVector2i	pos;
-  sfTexture	*tex;
 
   i = 0;
   event = game->level->event;
