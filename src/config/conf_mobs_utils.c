@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Thu May  4 22:14:14 2017 LAABID Zakaria
-** Last update Thu May 25 18:24:26 2017 LAABID Zakaria
+** Last update Sat May 27 04:03:46 2017 LAABID Zakaria
 */
 
 #include <stdlib.h>
@@ -33,7 +33,7 @@ int	config_mob_one(t_level **level, char **conf, int x, int y)
 	    break;
 	  else if ((my_strncmp(EVENT, conf[i], L_EVENT)) == 0 ||
 		   ((my_strncmp(CONF_LEVEL, conf[i], L_CONF)) == 0) ||
-		   conf[i] != NULL)
+		   conf[i] == NULL)
 	    break;
 	  i++;
 	}
@@ -63,7 +63,7 @@ int	config_mob_two(t_level **level, char **conf, int x, int y)
 	    break;
 	  else if ((my_strncmp(EVENT, conf[i], L_EVENT)) == 0 ||
 		   ((my_strncmp(CONF_LEVEL, conf[i], L_CONF)) == 0) ||
-		   conf[i] != NULL)
+		   conf[i] == NULL)
 	    break;
 	  i++;
 	}
@@ -93,7 +93,7 @@ int	config_mob_three(t_level **level, char **conf, int x, int y)
 	    break;
 	  else if ((my_strncmp(EVENT, conf[i], L_EVENT)) == 0 ||
 		   ((my_strncmp(CONF_LEVEL, conf[i], L_CONF)) == 0) ||
-		   conf[i] != NULL)
+		   conf[i] == NULL)
 	    break;
 	  i++;
 	}
@@ -124,7 +124,7 @@ int	config_mob_four(t_level **level, char **conf, int x, int y)
 	    break;
 	  else if ((my_strncmp(EVENT, conf[i], L_EVENT)) == 0 ||
 		   ((my_strncmp(CONF_LEVEL, conf[i], L_CONF)) == 0) ||
-		   conf[i] != NULL)
+		   conf[i] == NULL)
 	    break;
 	  i++;
 	}

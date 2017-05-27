@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Fri May 26 18:59:10 2017 Capitaine CASSE
+** Last update Sat May 27 05:53:20 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -83,7 +83,7 @@ static int		test(sfRenderWindow *window, t_player *player,
 }
 
 static void		loop2(t_player *player, sfRenderWindow *window,
-		      t_game *game)
+			      t_game *game, t_menu **menu)
 {
   sfEvent		event;
   sfClock		*clock;
@@ -109,11 +109,16 @@ static void		loop2(t_player *player, sfRenderWindow *window,
 	  /* if (i == 0) */
 	  /* 	i = load_screen(window, menu); */
 	  //config_map(window, game, 2);
+	  sfMusic_stop(menu[0]->music);
 	  if (game->bg != NULL)
 	    sfRenderWindow_drawSprite(window, game->bg, NULL);
 	  show_grid(window, game);
 	  test(window, player, game);
 	  check_pos(player, game);
+	  hud_placing(window, game);
+	  quest_manager(window, game);
+	  if (i == 0)
+	    i = sound_manager(window, game);
 	  sfRenderWindow_display(window);
 	}
     }
@@ -145,7 +150,7 @@ void		display_window(sfRenderWindow *window, t_menu **menu,
       sprite_change(window, index, menu);
       sfRenderWindow_display(window);
     }
-  loop2(player, window, game);
+  loop2(player, window, game, menu);
 }
 
 int			tmpdisp(t_tp **tp, t_game *game)

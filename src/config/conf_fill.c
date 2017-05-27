@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 17:51:14 2017 LAABID Zakaria
-** Last update Sat May 27 01:14:40 2017 LAABID Zakaria
+** Last update Sat May 27 04:51:09 2017 LAABID Zakaria
 */
 
 #include "config.h"
@@ -123,11 +123,12 @@ t_game		*config_fill(char **argv)
       if (is_here(conf, "mobs:", y + 1) == 0)
       	config_mob_fill(level, conf, y);
       if (is_here(conf, "event:", y + 1) == 0)
-      	config_event_fill(level, conf, y);
+	config_event_fill(level, conf, y);
       y++;
     }
   //  check_conf(level);
   game->level = build_graph(level);
+  
   free_conf(conf);
   return (game);
 }
