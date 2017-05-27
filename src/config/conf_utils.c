@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon May 15 13:46:01 2017 LAABID Zakaria
-** Last update Fri May 26 15:49:31 2017 Capitaine CASSE
+** Last update Fri May 26 22:47:55 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -52,9 +52,9 @@ char	*unquote(char *str)
   char	*new;
 
   i = 0;
-  if (*str == '"')
+  while (*str == '\"' || *str == ' ')
     str += 1;
-  while (str[i] && str[i] != '"')
+  while (str[i] && str[i] != '\"')
     i += 1;
   str[i] = 0;
   if ((new = my_strdup(str)) == NULL)

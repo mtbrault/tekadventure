@@ -5,11 +5,13 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Sat May 27 01:44:39 2017 LAABID Zakaria
+** Last update Sat May 27 13:12:02 2017 Capitaine CASSE
 */
 
 #ifndef CONFIG_H_
 #define CONFIG_H_
+
+#include <SFML/Graphics.h>
 
 # define FILECONF	".yml"
 # define ERRCONF_NAME	"Config file must be an (.yml) file\n"
@@ -110,10 +112,13 @@ typedef struct	s_event
 {
   char		*name;
   char		*texture;
+  sfSprite	*sprite;
   int		pnj;
   char		*dialog;
   char		*quest_pic;
+  sfSprite	*quest_sprite;
   int		coords[2];
+  int		active;
 }		t_event;
 
 typedef struct	s_level

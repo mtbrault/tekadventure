@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Fri Apr 21 19:45:30 2017 Capitaine CASSE
-** Last update Fri May 26 18:08:52 2017 Capitaine CASSE
+** Last update Fri May 26 23:15:06 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -63,7 +63,8 @@ int		draw_grid(int **map, sfVector2i *dim,
 	  if (map[cur.y][cur.x])
 	    {
 	      sfSprite_setPosition(sprite[map[cur.y][cur.x] - 1], pos);
-	      sfRenderWindow_drawSprite(window, sprite[map[cur.y][cur.x] - 1], NULL);
+	      sfRenderWindow_drawSprite(window, sprite[map[cur.y][cur.x] - 1]
+					, NULL);
 	    }
 	  pos.x += (float)(dim[1].x / 2);
 	  pos.y += (float)(dim[1].y / 2);

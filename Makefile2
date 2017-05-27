@@ -5,7 +5,7 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Sat May 27 13:14:16 2017 Capitaine CASSE
+## Last update Fri May 26 23:02:56 2017 Capitaine CASSE
 
 CC	=	gcc -g3
 
@@ -16,17 +16,17 @@ SRC	=	src/main.c				\
 		src/grid.c				\
 		src/colors.c				\
 		src/frees.c				\
+		src/mobs.c				\
 		src/actions.c				\
 		src/mouse.c				\
 		src/check_pos.c				\
 		src/check_class.c			\
-		src/show_player.c			\
 		src/fill_player.c			\
 		src/position.c				\
 		src/hover_gesture.c			\
 		src/aff_decor.c				\
-		src/event_manager.c			\
 		src/hover_button.c			\
+		src/show_player.c			\
 		src/hover_second.c			\
 		src/mouse_check.c			\
 	   	src/get_texture.c			\
@@ -49,10 +49,7 @@ SRC	=	src/main.c				\
 		src/config/check_file.c			\
 		src/config/build_graph.c		\
 		src/config/conf_verif.c			\
-		src/config_map.c			\
-		src/hud_modal.c				\
-		src/quest_character.c			\
-		src/game_sound.c
+		src/config_map.c
 
 OBJ	=	$(SRC:.c=.o)
 

@@ -52,28 +52,14 @@ CONF-LEVEL-1:
         pa: 55
         coords: 1,9
     event:
-      event-nb: 3
+      event-nb: 1
       items-1:
       	name: "Avalon"
         texture: "ressources/quest/character/avalon.png"
         coords: 1,10
         pnj: 1
-        dialog: "Bonjour, jeune apprenti je t'attendais ! Qu'attendais tu depuis tout ce temps !"
+        dialog: "ressources/dialog/avalon.txt"
         quest-pic: "ressources/quest/quest_pic/quest_debut.png"
-      items-2:
-        name: "Oto Mustam - Guard 1"
-        texture: "ressources/quest/character/oto_mustam_charac.png"
-        coords: 2,10
-        pnj: 1
-        dialog: "Dégagez d'ici !"
-        quest-pic: "ressources/quest/quest_pic/oto_mustam.png"
-      items-3:
-        name: "Oto Mustam - Guard 2"
-        texture: "ressources/quest/character/oto_mustam_charac.png"
-        coords: 3,4
-        pnj: 1
-        dialog: "Dégagez d'ici !"
-        quest-pic: "ressources/quest/quest_pic/oto_mustam.png"
 CONF-LEVEL-2:
     map-content:
     11111111111111
@@ -126,7 +112,7 @@ CONF-LEVEL-2:
         coords: 9,20
 	pnj: 1
 	quest-pic: "src/ressources/quest/"
-	dialog: "Bonjour, jeune voyageur comment va tu"
+	dialog: "src/dialogs/avalon.txt"
       items-2:
       	name: "Avalon"
         texture: "src/texture/items"

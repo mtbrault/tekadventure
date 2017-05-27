@@ -1,0 +1,101 @@
+conf_gen.c:  if ((level[index]->event = malloc(sizeof(t_event) * (size_event + 1))) == NULL)
+conf_gen.c:      if ((level[index]->event[i] = malloc(sizeof(t_event))) == NULL)
+conf_gen.c:  level[index]->event[size_event] = NULL;
+conf_gen.c:  if ((level[index]->tp = malloc(sizeof(t_tp) * (size_tp + 1))) == NULL)
+conf_gen.c:      if ((level[index]->tp[i] = malloc(sizeof(t_tp))) == NULL)
+conf_gen.c:  level[index]->tp[size_tp] = NULL;
+conf_gen.c:  if ((level[index]->mob = malloc(sizeof(t_mob) * (size_mob + 1))) == NULL)
+conf_gen.c:      if ((level[index]->mob[i] = malloc(sizeof(t_mob))) == NULL)
+conf_gen.c:  level[index]->mob[size_mob] = NULL;
+dafos.yml:#DAFOS - CONFIGFILE
+dafos.yml:#GO TO THIS WEBSITE : 51.51.51.51/dafos-api/
+dafos.yml:CONF-LEVEL-1:
+dafos.yml:    map-content:
+dafos.yml:	map-name: "LEVEL-1"
+dafos.yml:	map-debug: 0
+dafos.yml:        map-bg: "src/"
+dafos.yml:     teleporter-nb: 2
+dafos.yml:    	tp-1:
+dafos.yml:      	tp-name: "tp1-LEVEL-2"
+dafos.yml:    	tp-2:  
+dafos.yml:      	tp-name: "tp2-LEVEL-2"
+dafos.yml:      mobs-nb: 2
+dafos.yml:      monster-1:
+dafos.yml:      monster-2:
+dafos.yml:      event-nb: 1
+dafos.yml:      items-1:
+dafos.yml:CONF-LEVEL-2: 
+dafos.yml:    map-content:
+dafos.yml:  map-name: "LEVEL-2"
+dafos.yml:  map-debug: 0
+dafos.yml:        map-bg: "src/"
+dafos.yml:     teleporter-nb: 1
+dafos.yml:      tp-1:
+dafos.yml:        tp-name: "LEVEL-3"
+dafos.yml:      mobs-nb: 2
+dafos.yml:      monster-1:
+dafos.yml:      monster-2:
+dafos.yml:      event-nb: 1
+dafos.yml:      items-1:
+dafos.yml:CONF-LEVEL-3:
+dafos.yml:    map-content:
+dafos.yml:  map-name: "LEVEL-3"
+dafos.yml:  map-debug: 0
+dafos.yml:        map-bg: "src/"
+dafos.yml:     teleporter-nb: 1
+dafos.yml:      tp-1:
+dafos.yml:        tp-name: "LEVEL-4"
+dafos.yml:      mobs-nb: 2
+dafos.yml:      monster-1:
+dafos.yml:      monster-2:
+dafos.yml:      event-nb: 1
+dafos.yml:      items-1:
+Binary file fileconf matches
+test:START: items-1, I: 43
+test:----- DEBUG - EVENT CONFIG -----
+test:coords-x: 9
+test:coords-y: 2
+test:----- END - EVENT CONFIG -----
+test:----- DEBUG - EVENT CONFIG -----
+Binary file wordtab.o matches
+conf_events_utils.c:	    level[y]->event[x - 1]->name = unquote((conf[i] + L_NAME));
+conf_events_utils.c:	    level[y]->event[x - 1]->texture = unquote((conf[i] + L_TEXT));
+conf_events_utils.c:	      level[y]->event[x - 1]->coords[0] = my_atoi(conf[i] + 8);
+conf_events_utils.c:	      level[y]->event[x - 1]->coords[1] = my_atoi(conf[i] + 11);
+conf_mobs_utils.c:	  printf("x : %d %d\n%s\n%s\n\n", x - 1, y,conf[i], conf[i + 2] + L_TEXT);
+conf_mobs_utils.c:	    level[y]->mob[x - 1]->name = unquote(conf[i + 1] + L_NAME);
+conf_mobs_utils.c:	    level[y]->mob[x - 1]->texture = unquote(conf[i + 2] + L_TEXT);
+conf_mobs_utils.c:	    level[y]->mob[x - 1]->life = nbrepur((conf[i] + L_LIFE));
+conf_mobs_utils.c:	    level[y]->mob[x - 1]->damage = nbrepur((conf[i] + L_DMG));
+conf_mobs_utils.c:	    level[y]->mob[x - 1]->pm = nbrepur((conf[i] + L_PM));
+conf_mobs_utils.c:	    level[y]->mob[x - 1]->pa = nbrepur((conf[i] + L_PA));
+conf_mobs_utils.c:	      level[y]->mob[x - 1]->coords[0] = my_atoi(conf[i] + 8);
+conf_mobs_utils.c:	      level[y]->mob[x - 1]->coords[1] = my_atoi(conf[i] + 11);
+conf_teleports_utils.c:    return (-1);
+conf_teleports_utils.c:	    level[y]->tp[x - 1]->next_map = unquote(conf[i] + L_TPNAME + 2);
+conf_teleports_utils.c:	      level[y]->tp[x - 1]->coords[0] = my_atoi(conf[i] + 8);
+conf_teleports_utils.c:	      level[y]->tp[x - 1]->coords[1] = my_atoi(conf[i] + 8 + j);
+conf_fill.c:/*       if ((maptmp = (lvl[i])->map) == NULL || maptmp->name == NULL) */
+conf_fill.c:/*   	printf("name %s %s %s\n", maptmp->name, maptmp->bg, maptmp->music); */
+conf_fill.c:/*       if ((tptmp = (lvl[i])->tp) != NULL) */
+conf_fill.c:/*   	      printf("tp %s %d %d\n", (*tptmp)->next_map, (*tptmp)->coords[0], (*tptmp)->coords[1]); */
+conf_fill.c:/*       map = lvl[i]->map->content; */
+conf_fill.c:/* 	  while (map[k][l] != -42) */
+conf_fill.c:  game->map_status = 0;
+conf_fill.c:  game->level = build_graph(level);
+conf_manager.c:  if (check_file(argv[1]) == -1)
+conf_manager.c:  if ((fd = open(argv[1], O_RDONLY)) == -1)
+conf_manager.c:  if ((fd = open(argv[1], O_RDONLY)) == -1)
+conf_map.c:  if ((level[index]->map = malloc(sizeof(t_map))) == NULL)
+conf_map.c:	level[index]->map->name = unquote(conf[i] + my_strlen(MAP_NAME) + 1);
+conf_map.c:	level[index]->map->bg = unquote(conf[i] + my_strlen(MAP_BG) + 1);
+conf_map.c:  level[index]->map->content = map_content_fill(conf, i, end);
+conf_map.c:	level[index]->map->music = unquote(conf[i] + my_strlen(MAP_MUSIC) + 1);
+build_graph.c:  while (*name && *name != '-')
+build_graph.c:  while (act[i] != NULL && my_strcmp((act[i])->map->name, name + 1))
+build_graph.c:      if ((act[i])->tp != NULL)
+build_graph.c:	  while ((act[i])->tp[j] != NULL)
+build_graph.c:	      ((act[i])->tp[j])->room = find_link(act, ((act[i])->tp[j])->next_map);
+build_graph.c:	      if (((act[i])->tp[j])->room != NULL)
+build_graph.c:		  (act[i]->map->content)[((act[i])->tp[j])->coords[1]]
+build_graph.c:		    [((act[i])->tp[j])->coords[0]] = 2;
