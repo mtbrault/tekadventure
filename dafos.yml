@@ -24,7 +24,7 @@ CONF-LEVEL-1:
 	map-debug: 0
         map-bg: "ressources/backgrounds/mapstart2.png"
         map-music: "ressources/music/dofas_debut.ogg"
-	map-decor: "ressources/decor/map1.txt"
+	map-decor: "ressources/decor/map/decor_map01.png"
 	map-player: 8,15
 	coords: 9,9
     teleporter:
@@ -40,4 +40,4 @@ CONF-LEVEL-1:
         coords: 4,9
         pnj: 1
         dialog: "ressources/dialog/avalon.txt"
-        quest-pic: "ressources/quest/quest_pic/quest_debut.png"1;4402;0c
+        quest-pic: "ressources/quest/quest_pic/quest_debut.png"

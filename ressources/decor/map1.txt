@@ -1,2 +1,0 @@
-ressources/quest/character/avalon.png
-ressources/decor/map1/decor_02.pngc
