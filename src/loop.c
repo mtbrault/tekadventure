@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sat May 27 17:25:48 2017 Capitaine CASSE
+** Last update Sat May 27 18:11:50 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -72,8 +72,7 @@ static void		loop2(t_player *player, sfRenderWindow *window,
 	    sfRenderWindow_drawSprite(window, game->bg, NULL);
 	  show_grid(window, game);
 	  show_player(window, player, game);
-	  //	  check_pos(player, game);
-	  //hud_placing(window, game);
+	  hud_placing(window, game);
 	  quest_manager(game);
 	  show_events(window, game);
 	  if (i == 0)
