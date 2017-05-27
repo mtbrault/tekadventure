@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sat May 27 18:30:45 2017 Matthieu BRAULT
+** Last update Sat May 27 20:27:29 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -75,6 +75,7 @@ static void		loop2(t_player *player, sfRenderWindow *window,
 	  hud_placing(window, game);
 	  quest_manager(game);
 	  show_events(window, game);
+	  decor_manager(window, game);
 	  if (i == 0)
 	    i = sound_manager(game);
 	  sfRenderWindow_display(window);

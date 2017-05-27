@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Sat May 27 18:26:43 2017 Matthieu BRAULT
+** Last update Sat May 27 20:24:59 2017 LAABID Zakaria
 */
 
 #ifndef CONFIG_H_
@@ -75,6 +75,7 @@
 # define MAP_BG		"map-bg:"
 # define MAP_MUSIC	"map-music:"
 # define MAP_PLAYER	"map-player:"
+# define MAP_DECOR	"map-decor:"
 
 typedef struct	s_map
 {
@@ -84,6 +85,7 @@ typedef struct	s_map
   char		*music;
   int		debug;
   char		*bg;
+  char		*decor;
 }		t_map;
 
 typedef struct	s_level t_level;

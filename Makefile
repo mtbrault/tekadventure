@@ -5,7 +5,7 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Sat May 27 13:14:16 2017 Capitaine CASSE
+## Last update Sat May 27 20:13:09 2017 LAABID Zakaria
 
 CC	=	gcc -g3
 
@@ -52,7 +52,8 @@ SRC	=	src/main.c				\
 		src/config_map.c			\
 		src/hud_modal.c				\
 		src/quest_character.c			\
-		src/game_sound.c
+		src/game_sound.c			\
+		src/decor_manager.c
 
 OBJ	=	$(SRC:.c=.o)
 

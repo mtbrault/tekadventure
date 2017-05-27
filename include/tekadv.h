@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sat May 27 18:28:06 2017 Matthieu BRAULT
+** Last update Sat May 27 20:12:49 2017 LAABID Zakaria
 */
 
 #ifndef TEKADV_H
@@ -259,6 +259,7 @@ int			quest_manager(t_game *);
 int			show_player(sfRenderWindow *, t_player *, t_game *);
 int			sound_manager(t_game *);
 int			show_events(sfRenderWindow *, t_game *);
+int			decor_manager(sfRenderWindow *, t_game *);
 
 /*
 ** ***************************************************

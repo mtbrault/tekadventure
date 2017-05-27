@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 17:51:14 2017 LAABID Zakaria
-** Last update Sat May 27 04:51:09 2017 LAABID Zakaria
+** Last update Sat May 27 20:21:06 2017 LAABID Zakaria
 */
 
 #include "config.h"
@@ -128,7 +128,6 @@ t_game		*config_fill(char **argv)
     }
   //  check_conf(level);
   game->level = build_graph(level);
-  
   free_conf(conf);
   return (game);
 }

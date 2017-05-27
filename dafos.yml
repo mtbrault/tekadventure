@@ -24,6 +24,7 @@ CONF-LEVEL-1:
 	map-debug: 0
         map-bg: "ressources/backgrounds/mapstart2.png"
         map-music: "ressources/music/dofas_debut.ogg"
+	map-decor: "ressources/decor/map1.txt"
 	map-player: 8,15
 	coords: 9,9
     teleporter:
@@ -39,54 +40,4 @@ CONF-LEVEL-1:
         coords: 4,9
         pnj: 1
         dialog: "ressources/dialog/avalon.txt"
-        quest-pic: "ressources/quest/quest_pic/quest_debut.png"
-CONF-LEVEL-2:
-    map-content:
-    00000111111111
-    00000111111111
-    00000111111111
-    00000111111111
-    00000111111111
-    00000111111111
-    00000111111111
-    00000111111111
-    00000111111111
-    00000111111111
-    00000111111111
-    00000111111111
-    00000111111111
-    00000111111111
-    map:
-	map-name: "LEVEL-2"
-	map-debug: 0
-        map-bg: "ressources/backgrounds/corridor.png"
-        map-music: "ressources/music/dofas_spawn.ogg"
-	map-player: 7,12
-    teleporter:
-     teleporter-nb: 1
-    	tp-1:
-      	coords:  5,5
-      	tp-name: "tp1-LEVEL-1"
-    event:
-     event-nb: 1
-     items-1
-       name "Eythan"
-       texture: "ressources/quest/character/eythan_lavare.png"
-       coords: 6,3
-       pnj: 1
-       dialog: "ressources/dialog/eythan.txt"
-       quest-pic: "ressources/quest/quest_pic/quest_eythan_debut.png"
-CONF-LEVEL-3:
-    map-content:
-    111111111
-    111111111
-    111111111
-    111111111
-    111111111
-    111111111
-    map:
-      map-name: "LEVEL3"
-      map-debug: 0
-      map-bg: "ressources/backgrounds/map.png"
-      map-player: 0,0
-   teleporter:
+        quest-pic: "ressources/quest/quest_pic/quest_debut.png"1;4402;0c
