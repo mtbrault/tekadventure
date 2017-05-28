@@ -108,7 +108,7 @@ CONF-LEVEL-3:
        map-debug: 0
        map-bg: "ressources/backgrounds/map_03.png"
        map-player: 7,12
-       map-music: "tekadventure/ressources/music/dofas_debut.ogg"
+       map-music: "tekadventure/ressources/music/dofas_end.ogg"
        map-tile: "ressources/misc/tile_tp.png"
        map-decor: "ressources/decor/decor_map03.png"
      teleporter:
@@ -138,7 +138,7 @@ CONF-LEVEL-4:
         map-debug: 0
         map-bg: "ressources/backgrounds/map_04.png"
         map-player: 5,9
-        map-music: "tekadventure/ressources/music/dofas_debut.ogg"
+        map-music: "tekadventure/ressources/music/dofas_end.ogg"
         map-tile: "ressources/misc/tile_tp.png"
         map-decor: "ressources/misc/blank.png"
       teleporter:
@@ -172,7 +172,7 @@ CONF-LEVEL-5:
          map-debug: 0
          map-bg: "ressources/backgrounds/map_05.png"
          map-player: 0,8
-         map-music: "tekadventure/ressources/music/dofas_debut.ogg"
+         map-music: "tekadventure/ressources/music/dofas_end.ogg"
          map-tile: "ressources/misc/tile_tp.png"
          map-decor: "ressources/decor/decor_map05.png"
        teleporter:
@@ -204,7 +204,7 @@ CONF-LEVEL-6:
           map-debug: 0
           map-bg: "ressources/backgrounds/map_06.png"
           map-player: 13,10
-          map-music: "tekadventure/ressources/music/dofas_debut.ogg"
+          map-music: "tekadventure/ressources/music/dofas_donjon.ogg"
           map-tile: "ressources/misc/tile_tp.png"
           map-decor: "ressources/decor/decor_map06.png"
         teleporter:
@@ -231,26 +231,26 @@ CONF-LEVEL-6:
            quest-pic: "ressources/quest/quest_pic/momo_character.png"
  CONF-LEVEL-7:
         map-content:
-	01111111111111                                                                  
-	00000000000000                                                                  
-	00111111111110                                                                  
-	00011121111110                                                                  
-	00011111111110                                                                  
-	00011111111110                                                                  
-	00011111111110                                                                  
-	00011111111110                                                                  
-	00011111111110                                                                  
-	00011111111110                                                                  
-	00001111111110                                                                  
-	00000011111110                                                                  
-	00000000111110                                                                  
-	00000000011110
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
          map:
            map-name: "LEVEL-7"
            map-debug: 0
            map-bg: "ressources/backgrounds/map_07.png"
-           map-player: 6,2
-           map-music: "tekadventure/ressources/music/dofas_debut.ogg"
+           map-player: 6,1
+           map-music: "tekadventure/ressources/music/dofas_donjon.ogg"
            map-tile: "ressources/misc/tile_tp.png"
            map-decor: "ressources/decor/decor_map07.png"
          teleporter:
@@ -270,20 +270,20 @@ CONF-LEVEL-6:
            quest-pic: "ressources/quest/quest_pic/youssef_character.png"
 CONF-LEVEL-8:
         map-content:
-	11111111111111                                                                  
-	00000000000000                                                                  
-	00000000000000                                                                  
-	00000000000000                                                                  
-	00000000000100                                                                  
-	00000000001111                                                                  
-	00000000001111                                                                  
-	00000000001111                                                                  
-	00000000001111                                                                  
-	00000000001111                                                                  
-	00000000001111                                                                  
-	00000000001111                                                                  
-	00000000001111                                                                  
-	00000000001111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
+        11111111111111
          map:
            map-name: "LEVEL-8"
            map-debug: 0

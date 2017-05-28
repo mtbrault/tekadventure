@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Thu May  4 00:39:48 2017 LAABID Zakaria
-** Last update Sun May 28 18:00:50 2017 LAABID Zakaria
+** Last update Sun May 28 23:30:31 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -57,7 +57,8 @@ int	**map_content_fill(char **conf, int i, char *end, int x)
   return (content);
 }
 
-static t_level	**config_map_one(t_level **level, char **conf, int index, int i)
+static t_level	**config_map_one(t_level **level, char **conf,
+				 int index, int i)
 {
   char		*start;
   char		*end;
@@ -85,7 +86,8 @@ static t_level	**config_map_one(t_level **level, char **conf, int index, int i)
   return (level);
 }
 
-static t_level	**config_map_fill_two(t_level **level, char **conf, int index)
+static t_level	**config_map_fill_two(t_level **level, char **conf,
+				      int index)
 {
   char		*start;
   char		*end;

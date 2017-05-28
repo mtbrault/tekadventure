@@ -5,9 +5,9 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Sun May 28 19:28:51 2017 Matthieu BRAULT
+## Last update Sun May 28 23:27:22 2017 Capitaine CASSE
 
-CC	=	gcc -g3
+CC	=	gcc
 
 SRC	=	src/main.c				\
 		src/help.c				\
@@ -63,7 +63,7 @@ OBJ	=	$(SRC:.c=.o)
 
 NAME	=	tekadventure
 
-CFLAGS	+=	-Wextra -Wall -I./include -lm
+CFLAGS	+=	-Wextra -Wall -Werror -I./include -lm
 
 LDFLAGS	+=	-L./lib/ -lkaas
 
