@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon May  8 00:40:07 2017 LAABID Zakaria
-** Last update Sun May 28 16:20:43 2017 LAABID Zakaria
+** Last update Sun May 28 17:05:19 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -60,7 +60,7 @@ static void	config_telep_one(t_level **level, char **conf, int x, int y)
 		}
 	      if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
 		break;
-	      else if ((my_strncmp(MOBS, conf[i], L_MOB)) == 0 ||
+	      else if ((my_strncmp(EVENT, conf[i], L_EVENT)) == 0 ||
 		       (my_strncmp(CONF_LEVEL, conf[i], L_CONF) == 0)
 		       || conf[i] == NULL)
 		break;
@@ -96,9 +96,9 @@ static void	config_telep_two(t_level **level, char **conf, int x, int y)
 	    }
 	  if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
 	    break;
-	  else if ((my_strncmp(MOBS, conf[i], L_MOB)) == 0 ||
+	  else if ((my_strncmp(EVENT, conf[i], L_EVENT)) == 0 ||
 		   (my_strncmp(CONF_LEVEL, conf[i], L_CONF) == 0)
-		   || (my_strncmp(EVENT, conf[i], L_EVENT)) == 0 || conf[i] == NULL )
+		    || conf[i] == NULL )
 	    break;
 	  i++;
 	}
@@ -126,7 +126,7 @@ static void	config_telep_three(t_level **level, char **conf, int x, int y)
 		level[y]->tp[x - 1]->load = my_atoi(conf[i] + L_LOAD);
 	      if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
 		break;
-	      else if ((my_strncmp(MOBS, conf[i], L_MOB)) == 0 ||
+	      else if ((my_strncmp(EVENT, conf[i], L_EVENT)) == 0 ||
 		   (my_strncmp(CONF_LEVEL, conf[i], L_CONF) == 0)
 		   || conf[i] == NULL)
 		break;

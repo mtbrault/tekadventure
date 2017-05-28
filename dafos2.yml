@@ -102,10 +102,11 @@ CONF-LEVEL-3:
         111111111
         111111111
     map:
-      map-name: "LEVEL3"
+      map-name: "LEVEL-3"
       map-debug: 0
       map-bg: "ressources/backgrounds/map.png"
       map-player: 0,0
       map-decor: "ressources/decor/decor_map01.png"
       map-music: "tekadventure/ressources/music/dofas_debut.ogg"
     teleporter:
+    teleporter-nb: 0
