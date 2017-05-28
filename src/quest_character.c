@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat May 27 03:23:28 2017 LAABID Zakaria
-** Last update Sun May 28 10:33:35 2017 Capitaine CASSE
+** Last update Sun May 28 12:10:01 2017 Matthieu BRAULT
 */
 
 #include "config.h"
@@ -48,9 +48,7 @@ int	set_quest_disp(sfRenderWindow *window, t_event *event)
 int		quest_manager(t_game *game)
 {
   t_event	**event;
-  int		x;
 
-  x = 0;
   event = game->level->event;
   if (event == NULL)
     return (1);

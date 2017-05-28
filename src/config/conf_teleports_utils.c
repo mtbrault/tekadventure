@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon May  8 00:40:07 2017 LAABID Zakaria
-** Last update Sun May 28 12:39:56 2017 Capitaine CASSE
+** Last update Sun May 28 12:48:19 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -91,7 +91,6 @@ static void	config_telep_two(t_level **level, char **conf, int x, int y)
 	      j += 1;
 	      level[y]->tp[x - 1]->coords[0] = my_atoi(conf[i] + 8);
 	      level[y]->tp[x - 1]->coords[1] = my_atoi(conf[i] + j);
-	      dprintf(1, "%d", level[y]->tp[x - 1]->coords[1]);
 	    }
 	  if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
 	    break;

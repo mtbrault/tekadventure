@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Mon Apr 17 12:00:11 2017 Capitaine CASSE
-** Last update Sun May 28 11:42:26 2017 Capitaine CASSE
+** Last update Sun May 28 12:09:43 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -62,7 +62,6 @@ sfVector2i 	my_bfs(sfVector2i origin, sfVector2i dest,
 		       int **map)
 {
   int		**path;
-  int		i;
   sfVector2i	final;
   sfVector2i	size;
 

@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Thu May  4 00:39:48 2017 LAABID Zakaria
-** Last update Sun May 28 12:40:47 2017 Capitaine CASSE
+** Last update Sun May 28 12:48:29 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -154,7 +154,6 @@ t_level	**config_map_fill_four(t_level **level, char **conf, int index)
   char	*start;
   char	*end;
   int	i;
-  int	j;
   int	y;
 
   i = 0;
@@ -166,7 +165,6 @@ t_level	**config_map_fill_four(t_level **level, char **conf, int index)
       break;
   while (conf[i] != NULL)
     {
-      j = 0;
       if ((my_strncmp(MAP_DECOR, conf[i], my_strlen(MAP_DECOR)) == 0))
 	level[index]->map->decor = unquote(conf[i] + my_strlen(MAP_DECOR) + 2);
       if ((my_strncmp(end, conf[i], my_strlen(end)) == 0))
