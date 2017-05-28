@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu May 25 17:33:43 2017 Matthieu BRAULT
-** Last update Fri May 26 19:51:30 2017 Matthieu BRAULT
+** Last update Sun May 28 11:14:50 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -33,7 +33,7 @@ static void		my_modif_map(int **map,
     map[pos.y][pos.x] = 0;
 }
 
-static int		check_button(int s, int nb_map)
+static int		check_button(int s, int nb_map, t_game *game)
 {
   if (sfKeyboard_isKeyPressed(sfKeyLeft))
     s = s - 1;
@@ -43,7 +43,8 @@ static int		check_button(int s, int nb_map)
     s = nb_map - 1;
   else if (s >= nb_map)
     s = 0;
-  return (s);
+  game->level = (tp[s])->room;
+  return (0);
 }
 
 int		config_map(sfRenderWindow *window, t_game *game, int nb_map)
@@ -62,7 +63,7 @@ int		config_map(sfRenderWindow *window, t_game *game, int nb_map)
       sfRenderWindow_clear(window, sfWhite);
       if (x == 0)
 	{
-	  s = check_button(s, nb_map);
+	  check_button(s, nb_map);
 	  x = 1;
 	}
       if (sfMouse_isButtonPressed(sfMouseLeft) && i == 0)

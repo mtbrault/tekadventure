@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sun May 28 11:15:06 2017 Capitaine CASSE
+** Last update Sun May 28 11:23:16 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -39,44 +39,43 @@ int	load_screen(sfRenderWindow *window, t_menu **menu)
   return (1);
 }
 
-static void		draw_game(t_player *player, sfRenderWindow *window, t_game *game,
+static int		draw_game(t_player *player, sfRenderWindow *window, t_game *game,
 				  sfClock *clock)
 {
   sfRenderWindow_clear(window, sfWhite);
   sfClock_restart(clock);
-  /* if (i == 0) */
-  /*    i = load_screen(window, menu); */
-  /* sfMusic_stop(menu[0]->music); */
+  /* if (game->m == 0) */
+  /*    game->m = load_screen(window, game->menu); */
+  /* sfMusic_stop(game->menu[0]->music); */
   if (game->bg != NULL)
     sfRenderWindow_drawSprite(window, game->bg, NULL);
-  if (idx == 1)
+  if (game->idx == 1)
     show_grid(window, game);
   show_player(window, player, game);
   hud_placing(window, game);
-  idx = check_hud_click(window, idx);
-  if (idx == 2 || idx == 0)
-    return ;
+  game->idx = check_hud_click(window, game->idx);
+  if (game->idx == 2 || game->idx == 0)
+    return (1);
   decor_manager(window, game);
   show_events(window, game);
-  if (i == 0)
-    i = sound_manager(game);
+  if (game->m == 0)
+    game->m = sound_manager(game);
   sfRenderWindow_display(window);
+  return (0);
 }
 
 static void		loop2(t_player *player, sfRenderWindow *window,
-			      t_game *game, t_menu **menu)
+			      t_game *game)
 {
   sfEvent		event;
   sfClock		*clock;
-  int			i;
-  int			idx;
 
   quest_manager(game);
   player->pos = (sfVector2i) {game->level->map->map_player[0],
 			      game->level->map->map_player[1]};
   player->dest = (sfVector2i) {-1, -1};
-  i = 0;
-  idx = 1;
+  game->menu = 0;
+  game->idx = 1;
   clock = sfClock_create();
   while (sfRenderWindow_isOpen(window))
     {
@@ -87,31 +86,12 @@ static void		loop2(t_player *player, sfRenderWindow *window,
 	    sfRenderWindow_close(window);
 	}
       if (sfTime_asSeconds(sfClock_getElapsedTime(clock)) > 0.013f)
-	{
-	  sfRenderWindow_clear(window, sfWhite);
-	  sfClock_restart(clock);
-	  /* if (i == 0) */
-	  /* 	i = load_screen(window, menu); */
-	  /* sfMusic_stop(menu[0]->music); */
-	  if (game->bg != NULL)
-	    sfRenderWindow_drawSprite(window, game->bg, NULL);
-	  if (idx == 1)
-	    show_grid(window, game);
-	  show_player(window, player, game);
-	  hud_placing(window, game);
-	  idx = check_hud_click(window, idx);
-	  if (idx == 2 || idx == 0)
-	    break ;
-	  decor_manager(window, game);
-	  show_events(window, game);
-	  if (i == 0)
-	    i = sound_manager(game);
-	  sfRenderWindow_display(window);
-	}
+	if (draw_game(player, window, game, clock))
+	  break ;
     }
-  sfMusic_stop()
-  if (idx == 2)
-    display_window(window, menu, game->player, game);
+  //  sfMusic_stop()
+  if (game->idx == 2)
+    display_window(window, game->menu, game->player, game);
   sfClock_destroy(clock);
 }
 
@@ -123,6 +103,7 @@ void		display_window(sfRenderWindow *window, t_menu **menu,
 
   index = 0;
   music_change(index, menu);
+  game->menu = menu;
   while (sfRenderWindow_isOpen(window))
     {
       while (sfRenderWindow_pollEvent(window, &event))
@@ -140,7 +121,7 @@ void		display_window(sfRenderWindow *window, t_menu **menu,
       sprite_change(window, index, menu);
       sfRenderWindow_display(window);
     }
-  loop2(player, window, game, menu);
+  loop2(player, window, game);
 }
 
 int			start_menu(t_game *game, t_player *player)

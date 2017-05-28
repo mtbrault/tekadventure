@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun May 28 11:06:37 2017 Capitaine CASSE
+** Last update Sun May 28 11:22:45 2017 Capitaine CASSE
 */
 
 #ifndef TEKADV_H
@@ -189,30 +189,34 @@ typedef struct		s_player
   t_stat		*stat;
 }			t_player;
 
+typedef struct          s_menu
+{
+  sfTexture             *tex;
+  sfTexture             *tex_h;
+  sfSprite              *sprite;
+  sfSprite              *sprite_h;
+  int                   hover;
+  sfVector2f            pos;
+  sfVector2f            pos_h;
+  sfVector2u            size;
+  sfVector2u            size_h;
+  sfMusic               *music;
+}			t_menu;
+
 typedef struct          s_game
 {
   t_level		*level;
   int			map_status;
   sfVector2i            tile;
   int			actions;
-  int			stop[2];
+  char			stop[2];
+  int			m;
+  t_menu		**menu;
+  int			idx;
   sfFont		*font;
+  sfSprite		*bg;
   t_player		*player;
 }			t_game;
-
-typedef struct		s_menu
-{
-  sfTexture		*tex;
-  sfTexture		*tex_h;
-  sfSprite		*sprite;
-  sfSprite		*sprite_h;
-  int			hover;
-  sfVector2f		pos;
-  sfVector2f		pos_h;
-  sfVector2u		size;
-  sfVector2u		size_h;
-  sfMusic		*music;
-}			t_menu;
 
 typedef struct		s_tabmouse
 {
@@ -256,6 +260,7 @@ int			show_player(sfRenderWindow *, t_player *, t_game *);
 int			sound_manager(t_game *);
 int			show_events(sfRenderWindow *, t_game *);
 int			decor_manager(sfRenderWindow *, t_game *);
+int			check_hud_click(sfRenderWindow *, int);
 
 /*
 ** ***************************************************
@@ -301,6 +306,7 @@ sfVector2i		raw_click(t_game *, sfRenderWindow *);
 t_game			*config_fill(char **);
 int			check_pos(t_player *, t_game *);
 int			print_bg(t_game *);
+void			display_window(sfRenderWindow *, t_menu **, t_player *, t_game *);
 
 /*
 ** ***************************************************
