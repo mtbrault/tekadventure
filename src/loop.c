@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sun May 28 18:48:16 2017 Capitaine CASSE
+** Last update Sun May 28 19:36:21 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -94,7 +94,7 @@ static void		loop(t_player *player, sfRenderWindow *window,
       if (game->idx == 2)
 	break ;
     }
-  /* sfMusic_stop(); */
+  sfMusic_stop(game->level->map->music);
   sfClock_destroy(clock);
 }
 

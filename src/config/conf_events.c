@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun May 28 17:50:28 2017 LAABID Zakaria
-** Last update Sun May 28 18:29:37 2017 LAABID Zakaria
+** Last update Sun May 28 18:55:49 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -20,10 +20,9 @@ void	config_event_three(t_level **level, char **conf, int x, int y)
   while (x <= getconf_index(conf, EVENT_NB, y))
     {
       if ((start = my_strcat(EVENT_TYPE, my_str_nbr(x))) != NULL &&
-	  (end = my_strcat(EVENT_TYPE, my_str_nbr(x + 1))) != NULL)
+	  (end = my_strcat(EVENT_TYPE, my_str_nbr(x + 1))) != NULL &&
+	  (i = config_event_goto(start, conf, y)) != -1)
 	{
-	  if ((i = config_event_goto(start, conf, y)) == -1)
-	    return ;
 	  while (conf[i] != NULL)
 	    {
 	      if (my_strncmp(EVENT_DIALOG, conf[i], L_DIALOG) == 0)

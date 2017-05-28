@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat May 27 12:39:42 2017 Capitaine CASSE
-** Last update Sun May 28 19:01:24 2017 Capitaine CASSE
+** Last update Sun May 28 19:34:06 2017 Matthieu BRAULT
 */
 
 #include <stdlib.h>
@@ -103,7 +103,8 @@ static int	show_quest(t_event *event, t_game *game, sfRenderWindow *window)
      }
    else if (!sfMouse_isButtonPressed(sfMouseLeft))
      event->stop[0] = 0;
-   if (event->actions && sfKeyboard_isKeyPressed(sfKeySpace) && !(event->stop[1]))
+   if (event->actions && sfKeyboard_isKeyPressed(sfKeySpace)
+       && !(event->stop[1]))
      {
        event->stop[1] = 1;
        event->actions += 1;

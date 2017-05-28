@@ -5,18 +5,34 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun May 28 17:44:07 2017 LAABID Zakaria
-** Last update Sun May 28 17:48:25 2017 LAABID Zakaria
+** Last update Sun May 28 19:11:58 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
 #include "config.h"
+
+static void	map_fill_loop(t_level **level, char *conf, int index)
+{
+  int		j;
+
+  j = 0;
+  if ((my_strncmp(MAP_MUSIC, conf, my_strlen(MAP_MUSIC)) == 0))
+    level[index]->map->music = unquote(conf + my_strlen(MAP_MUSIC) + 1);
+  if ((my_strncmp(MAP_PLAYER, conf, my_strlen(MAP_PLAYER)) == 0))
+    {
+      level[index]->map->map_player[0] = my_atoi(conf + 12);
+      while (conf[12 + j] && conf[12 + j] != ',')
+	j += 1;
+      j += 1;
+      level[index]->map->map_player[1] = my_atoi(conf + 12 + j);
+    }
+}
 
 t_level	**config_map_fill_three(t_level **level, char **conf, int index)
 {
   char		*start;
   char		*end;
   int		i;
-  int		j;
   int		y;
 
   i = 0;
@@ -28,17 +44,7 @@ t_level	**config_map_fill_three(t_level **level, char **conf, int index)
     i = i + 1;
   while (conf[i] != NULL)
     {
-      j = 0;
-      if ((my_strncmp(MAP_MUSIC, conf[i], my_strlen(MAP_MUSIC)) == 0))
-	level[index]->map->music = unquote(conf[i] + my_strlen(MAP_MUSIC) + 1);
-      if ((my_strncmp(MAP_PLAYER, conf[i], my_strlen(MAP_PLAYER)) == 0))
-	{
-	  level[index]->map->map_player[0] = my_atoi(conf[i] + 12);
-	  while (conf[i][12 + j] != ',' && conf[i][12 + j])
-	    j += 1;
-	  j += 1;
-	  level[index]->map->map_player[1] = my_atoi(conf[i] + 12 + j);
-	}
+      map_fill_loop(level, conf[i], index);
       if ((my_strncmp(end, conf[i], my_strlen(end)) == 0))
 	break;
       i++;

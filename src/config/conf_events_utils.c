@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon May  8 00:39:58 2017 LAABID Zakaria
-** Last update Sun May 28 18:08:49 2017 LAABID Zakaria
+** Last update Sun May 28 19:00:02 2017 Matthieu BRAULT
 */
 
 #include <stdlib.h>
@@ -50,10 +50,9 @@ static void	config_event_one(t_level **level, char **conf, int x, int y)
   while (x <= getconf_index(conf, EVENT_NB, y))
     {
       if ((start = my_strcat(EVENT_TYPE, my_str_nbr(x))) != NULL &&
-	  (end = my_strcat(EVENT_TYPE, my_str_nbr(x + 1))) != NULL)
+	  (end = my_strcat(EVENT_TYPE, my_str_nbr(x + 1))) != NULL &&
+	  (i = config_event_goto(start, conf, y)) != -1)
 	{
-	  if ((i = config_event_goto(start, conf, y)) == -1)
-	    return ;
 	  while (conf[i] != NULL)
 	    {
 	      if (my_strncmp(EVENT_NAME, conf[i], L_NAME) == 0)
@@ -80,15 +79,15 @@ static void	config_event_two(t_level **level, char **conf, int x, int y)
   while (x <= getconf_index(conf, EVENT_NB, y))
     {
       if ((start = my_strcat(EVENT_TYPE, my_str_nbr(x))) != NULL &&
-	  (end = my_strcat(EVENT_TYPE, my_str_nbr(x + 1))) != NULL)
+	  (end = my_strcat(EVENT_TYPE, my_str_nbr(x++ + 1))) != NULL &&
+	  (i = config_event_goto(start, conf, y)) != -1)
 	{
-	  i = config_event_goto(start, conf, y);
 	  while (conf[i] != NULL)
 	    {
 	      if (my_strncmp(EVENT_COORD, conf[i], L_COORD) == 0)
 		{
-		  level[y]->event[x - 1]->coords[0] = my_atoi(conf[i] + 8);
-		  level[y]->event[x - 1]->coords[1] = my_atoi(conf[i] + 10);
+		  level[y]->event[x - 2]->coords[0] = my_atoi(conf[i] + 8);
+		  level[y]->event[x - 2]->coords[1] = my_atoi(conf[i] + 10);
 		}
 	      else if ((my_strncmp(CONF_LEVEL, conf[i], L_CONF)) == 0
 		       || my_strncmp(end, conf[i], my_strlen(end)) == 0)
@@ -97,7 +96,6 @@ static void	config_event_two(t_level **level, char **conf, int x, int y)
 	    }
 	  free_cat(start, end);
 	}
-      x++;
     }
 }
 

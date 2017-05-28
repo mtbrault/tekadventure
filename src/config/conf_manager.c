@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Fri May  5 14:44:37 2017 LAABID Zakaria
-** Last update Sun May 28 18:02:27 2017 LAABID Zakaria
+** Last update Sun May 28 19:02:18 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -43,11 +43,8 @@ char		**conf_init(char **argv, int j, int i)
     return (my_puterrnull(ERRCONF_NAME));
   if ((fd = open(argv[1], O_RDONLY)) == -1)
     return (my_puterrnull(ERRCONF_OPEN));
-  while ((tmp = get_next_line(fd)) != NULL)
-    {
-      free(tmp);
-      i += 1;
-    }
+  while ((tmp = get_next_line(fd)) != NULL && i++ >= 0)
+    free(tmp);
   close(fd);
   if ((fd = open(argv[1], O_RDONLY)) == -1)
     return (my_puterrnull(ERRCONF_OPEN));

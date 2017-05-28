@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun May 28 15:44:55 2017 LAABID Zakaria
-** Last update Sun May 28 18:41:14 2017 LAABID Zakaria
+** Last update Sun May 28 19:24:32 2017 Matthieu BRAULT
 */
 
 #include "config.h"
@@ -70,4 +70,19 @@ int	teleporter_verif(t_tp **tp, int nb, int y)
   if ((is_number_in(nb, tp[nb]->coords[1])) == FAIL)
     return (FAIL);
   return (0);
+}
+
+void	config_telep_loop(t_level **level, char *conf, int x, int y)
+{
+  int	j;
+
+  if (my_strncmp(TELEP_COORD, conf, my_strlen(TELEP_COORD)) == 0)
+    {
+      j = 8;
+      while (conf[j] != '\0' && conf[j] != ',')
+	j += 1;
+      j += 1;
+      level[y]->tp[x - 1]->coords[0] = my_atoi(conf + 8);
+      level[y]->tp[x - 1]->coords[1] = my_atoi(conf + j);
+    }
 }

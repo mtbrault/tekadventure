@@ -5,7 +5,7 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Sun May 28 18:47:39 2017 LAABID Zakaria
+## Last update Sun May 28 19:28:51 2017 Matthieu BRAULT
 
 CC	=	gcc -g3
 
@@ -51,7 +51,6 @@ SRC	=	src/main.c				\
 		src/quest_character.c			\
 		src/game_sound.c			\
 		src/decor_manager.c			\
-		src/config/conf_lexing.c		\
 		src/config/conf_isempty.c		\
 		src/config/conf_map_verif.c		\
 		src/config/conf_teleporter_verif.c	\
