@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon May  8 00:39:58 2017 LAABID Zakaria
-** Last update Sun May 28 16:53:42 2017 Matthieu BRAULT
+** Last update Sun May 28 17:39:37 2017 LAABID Zakaria
 */
 
 #include <stdlib.h>
@@ -131,6 +131,33 @@ static void	config_event_three(t_level **level, char **conf, int x, int y)
     }
 }
 
+static void	config_event_four(t_level **level, char **conf, int x, int y)
+{
+  char		*start;
+  char		*end;
+  int		i;
+
+  while (x <= getconf_index(conf, EVENT_NB, y))
+    {
+      if ((start = my_strcat(EVENT_TYPE, my_str_nbr(x))) != NULL &&
+	  (end = my_strcat(EVENT_TYPE, my_str_nbr(1 + x++))) != NULL)
+	{
+	  i = config_event_goto(start, conf, y);
+	  while (conf[i] != NULL)
+	    {
+	      level[y]->event[x - 2]->active = 0;
+	      if (my_strncmp(EVENT_PNJ, conf[i], L_PNJ) == 0)
+		level[y]->event[x - 2]->pnj = my_atoi((conf[i] + L_PNJ + 1));
+	      else if ((my_strncmp(CONF_LEVEL, conf[i], L_CONF)) == 0 ||
+		       my_strncmp(CONF_LEVEL, conf[i], L_CONF) == 0)
+		break ;
+	      i++;
+	    }
+	  free_cat(start, end);
+	}
+    }
+}
+
 int     config_event_fill(t_level **level, char **conf, int y)
 {
   int   x;
@@ -139,5 +166,6 @@ int     config_event_fill(t_level **level, char **conf, int y)
   config_event_one(level, conf, x, y);
   config_event_two(level, conf, x, y);
   config_event_three(level, conf, x, y);
+  config_event_four(level, conf, x, y);
   return (0);
 }

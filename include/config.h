@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Sun May 28 17:16:23 2017 Matthieu BRAULT
+** Last update Sun May 28 17:41:15 2017 LAABID Zakaria
 */
 
 #ifndef CONFIG_H_
@@ -63,7 +63,6 @@
 # define TELEP_COORD	"coords:"
 # define TELEP_NAME	"tp-name:"
 # define TELEP_LOAD	"tp-load:"
-# define TELEP_TILE	"tp-tile:"
 
 # define EVENT_TYPE	"items-"
 # define EVENT_NAME	"name:"
@@ -81,6 +80,7 @@
 # define MAP_MUSIC	"map-music:"
 # define MAP_PLAYER	"map-player:"
 # define MAP_DECOR	"map-decor:"
+# define MAP_TILE	"map-tile:"
 
 # define ERR_MAP_BG	"Error: no background defined for a map\n"
 # define ERR_MAP_DECOR	"Error: no decor defined for a map\n"
@@ -89,10 +89,12 @@
 # define ERR_MAP_MUSIC	"Error: no music defined for a map\n"
 # define ERR_MAP_NAME	"Error: no name defined for a map\n"
 # define ERR_MAP_CONT	"Error: no content mapc defined for a map\n"
+# define ERR_MAP_TILE	"Error: no tile defined for a map\n"
 
 # define ERR_DECOR_PATH "Error: decor bad path detected\n"
 # define ERR_BG_PATH	"Error: background bad path detected\n"
 # define ERR_MUSIC_PATH	"Error: music bad path detected\n"
+# define ERR_TILE_PATH	"Error: tile bad path detected\n"
 
 # define ERR_TELEP_LOAD	"\nError: no load defined for the teleportation\n"
 # define ERR_TELEP_NB	"Error: At the teleporter number : "
@@ -115,6 +117,7 @@ typedef struct	s_map
   int		debug;
   char		*bg;
   char		*decor;
+  char		*tile;
 }		t_map;
 
 typedef struct	s_level t_level;

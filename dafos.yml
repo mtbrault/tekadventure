@@ -24,7 +24,7 @@ CONF-LEVEL-1:
 	map-debug: 0
         map-bg: "ressources/backgrounds/mapstart2.png"
         map-music: "ressources/music/dofas_debut.ogg"
-	map-decor: "ressources/backgrounds/corridor.png"
+	map-decor: "ressources/decor/decor_map01.png"
 	map-player: 8,15
     teleporter:
      teleporter-nb: 1
@@ -62,7 +62,7 @@ CONF-LEVEL-2:
         map-bg: "ressources/backgrounds/corridor.png"
         map-music: "ressources/music/dofas_spawn.ogg"
 	map-player: 7,12
-	map-decor: "ressources/backgrounds/corridor.png"
+	map-decor: "ressources/decor/decor_map01.png"
     teleporter:
      teleporter-nb: 1
     	tp-1:

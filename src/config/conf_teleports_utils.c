@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon May  8 00:40:07 2017 LAABID Zakaria
-** Last update Sun May 28 17:21:42 2017 Matthieu BRAULT
+** Last update Sun May 28 17:34:24 2017 LAABID Zakaria
 */
 
 #include <stdlib.h>
@@ -124,10 +124,8 @@ static void	config_telep_three(t_level **level, char **conf, int x, int y)
 	{
 	  while (conf[i] != NULL)
 	    {
-	      if (my_strncmp(TELEP_TILE, conf[i], L_TILE) == 0)
-		level[y]->tp[x - 1]->path_tile = unquote(conf[i] + L_TILE + 2);
 	      if (my_strncmp(TELEP_LOAD, conf[i], L_LOAD) == 0)
-		level[y]->tp[x - 1]->load = my_atoi(conf[i] + L_LOAD);
+		level[y]->tp[x - 1]->load = my_atoi(conf[i] + L_LOAD + 1);
 	      if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
 		break;
 	      else if ((my_strncmp(EVENT, conf[i], L_EVENT)) == 0 ||

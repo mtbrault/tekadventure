@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun May 28 15:27:52 2017 LAABID Zakaria
-** Last update Sun May 28 17:17:13 2017 Matthieu BRAULT
+** Last update Sun May 28 17:40:41 2017 LAABID Zakaria
 */
 
 #include <fcntl.h>
@@ -50,6 +50,11 @@ int	map_verif_second(t_map *map)
   else
     if ((verif_conf_open(map->music, MUSIC_EXT)) == FAIL)
       return (my_puterr(ERR_MUSIC_PATH, FAIL));
+  if (map->tile == NULL)
+    return (my_puterr(ERR_MAP_TILE, FAIL));
+  else
+    if ((verif_conf_open(map->tile, PIC_EXT)) == FAIL)
+      return (my_puterr(ERR_TILE_PATH, FAIL));
   if (map->name == NULL)
     return (my_puterr(ERR_MAP_NAME, FAIL));
   if (map->debug != 0 && map->debug != 1)
