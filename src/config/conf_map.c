@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Thu May  4 00:39:48 2017 LAABID Zakaria
-** Last update Sun May 28 17:29:06 2017 LAABID Zakaria
+** Last update Sun May 28 18:00:50 2017 LAABID Zakaria
 */
 
 #include <stdlib.h>
@@ -57,7 +57,7 @@ int	**map_content_fill(char **conf, int i, char *end, int x)
   return (content);
 }
 
-static t_level	**config_map_fill_one(t_level **level, char **conf, int index, int i)
+static t_level	**config_map_one(t_level **level, char **conf, int index, int i)
 {
   char		*start;
   char		*end;
@@ -110,74 +110,9 @@ static t_level	**config_map_fill_two(t_level **level, char **conf, int index)
   return (level);
 }
 
-static t_level	**config_map_fill_three(t_level **level, char **conf, int index)
-{
-  char		*start;
-  char		*end;
-  int		i;
-  int		j;
-  int		y;
-
-  i = 0;
-  y = index + 1;
-  if ((start = my_strcat(CONF_LEVEL, my_str_nbr(y))) == NULL ||
-      (end = my_strcat(CONF_LEVEL, my_str_nbr(y + 1))) == NULL)
-    return (NULL);
-  while (conf[i] != NULL && my_strncmp(start, conf[i], my_strlen(start)) != 0)
-    i = i + 1;
-  while (conf[i] != NULL)
-    {
-      j = 0;
-      if ((my_strncmp(MAP_MUSIC, conf[i], my_strlen(MAP_MUSIC)) == 0))
-	level[index]->map->music = unquote(conf[i] + my_strlen(MAP_MUSIC) + 1);
-      if ((my_strncmp(MAP_PLAYER, conf[i], my_strlen(MAP_PLAYER)) == 0))
-	{
-	  level[index]->map->map_player[0] = my_atoi(conf[i] + 12);
-	  while (conf[i][12 + j] != ',' && conf[i][12 + j])
-	    j += 1;
-	  j += 1;
-	  level[index]->map->map_player[1] = my_atoi(conf[i] + 12 + j);
-	}
-      if ((my_strncmp(end, conf[i], my_strlen(end)) == 0))
-	break;
-      i++;
-    }
-  free_cat(start, end);
-  return (level);
-}
-
-static t_level	**config_map_fill_four(t_level **level, char **conf, int index)
-{
-  char		*start;
-  char		*end;
-  int		i;
-  int		y;
-
-  i = 0;
-  y = index + 1;
-  if ((start = my_strcat(CONF_LEVEL, my_str_nbr(y))) == NULL ||
-      (end = my_strcat(CONF_LEVEL, my_str_nbr(y + 1))) == NULL)
-    return (NULL);
-  while (conf[i] != NULL)
-    if (my_strncmp(start, conf[i++], my_strlen(start)) == 0)
-      break;
-  while (conf[i] != NULL)
-    {
-      if ((my_strncmp(MAP_DECOR, conf[i], my_strlen(MAP_DECOR)) == 0))
-	level[index]->map->decor = unquote(conf[i] + my_strlen(MAP_DECOR) + 2);
-      if ((my_strncmp(MAP_TILE, conf[i], my_strlen(MAP_TILE)) == 0))
-	level[index]->map->tile = unquote(conf[i] + my_strlen(MAP_TILE) + 2);
-      if ((my_strncmp(end, conf[i], my_strlen(end)) == 0))
-	break;
-      i++;
-    }
-  free_cat(start, end);
-  return (level);
-}
-
 t_level	**config_map_fill(t_level **level, char **conf, int index)
 {
-  if (config_map_fill_one(level, conf, index, 0) == NULL ||
+  if (config_map_one(level, conf, index, 0) == NULL ||
       config_map_fill_two(level, conf, index) == NULL)
     return (NULL);
   if (config_map_fill_three(level, conf, index) == NULL ||

@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Sun May 28 17:41:15 2017 LAABID Zakaria
+** Last update Sun May 28 17:55:12 2017 LAABID Zakaria
 */
 
 #ifndef CONFIG_H_
@@ -202,6 +202,11 @@ int		verif_conf_open(char *, char *);
 int		map_verif_second(t_map *);
 int		map_verif(t_map *);
 int		teleporter_verif(t_tp **, int, int);
+t_level		**config_map_fill_three(t_level **, char **, int);
+t_level		**config_map_fill_four(t_level **, char **, int);
+void		config_event_three(t_level **, char **, int, int);
+void	        config_event_four(t_level **, char **, int, int);
+int		config_event_goto(char *, char **, int);
 
 /*
 ** ***************************************************

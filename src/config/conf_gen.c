@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 19:09:27 2017 LAABID Zakaria
-** Last update Sun May 28 12:23:19 2017 Capitaine CASSE
+** Last update Sun May 28 18:02:08 2017 LAABID Zakaria
 */
 
 #include <stdlib.h>
@@ -48,25 +48,6 @@ t_level		**gen_telep_space(t_level **level, char **conf, int index)
       i += 1;
     }
   level[index]->tp[size_tp] = NULL;
-  return (level);
-}
-
-t_level		**gen_mob_space(t_level **level, char **conf, int index)
-{
-  int	size_mob;
-  int	i;
-
-  i = 0;
-  size_mob = getconf_index(conf, MOBS_NB, index);
-  if ((level[index]->mob = malloc(sizeof(t_mob) * (size_mob + 1))) == NULL)
-    return (NULL);
-  while (i < size_mob)
-    {
-      if ((level[index]->mob[i] = malloc(sizeof(t_mob))) == NULL)
-	return (NULL);
-      i += 1;
-    }
-  level[index]->mob[size_mob] = NULL;
   return (level);
 }
 

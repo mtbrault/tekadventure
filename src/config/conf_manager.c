@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Fri May  5 14:44:37 2017 LAABID Zakaria
-** Last update Sun May 28 14:15:57 2017 LAABID Zakaria
+** Last update Sun May 28 18:02:27 2017 LAABID Zakaria
 */
 
 #include <unistd.h>
@@ -77,8 +77,6 @@ t_level		**config_data(char **conf)
   max = conf_counter(conf, CONF_LEVEL);
   while (x < max)
     {
-      if ((is_here(conf, "mobs:", x + 1)) == 0)
-	gen_mob_space(level, conf, x);
       if ((is_here(conf, "event:", x + 1)) == 0)
 	gen_event_space(level, conf, x);
       if ((is_here(conf, "teleporter:", x + 1)) == 0)

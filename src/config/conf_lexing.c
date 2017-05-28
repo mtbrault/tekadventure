@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun May 28 13:33:12 2017 LAABID Zakaria
-** Last update Sun May 28 14:56:28 2017 LAABID Zakaria
+** Last update Sun May 28 18:06:48 2017 LAABID Zakaria
 */
 
 #include "tekadv.h"
@@ -69,7 +69,7 @@ int	conf_lexing(char **conf)
 	      while (conf[i] != NULL)
 		{
 		  if (my_strncmp(line[next].conf, conf[i], my_strlen(conf[i])) == 0)
-		    {		      
+		    {
 		      line[next].find = 1;
 		      break;
 		    }
