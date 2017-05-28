@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Fri May 26 22:51:43 2017 Capitaine CASSE
-** Last update Sun May 28 02:57:11 2017 Matthieu BRAULT
+** Last update Sun May 28 10:43:28 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -70,12 +70,12 @@ static int	check_click_in_map(sfRenderWindow *window, t_game *game)
   i = 0;
   while (map[0][i] != EOB)
     i = i + 1;
-  if (i < mouse_pos.x || map[mouse_pos.y][mouse_pos.x] == 0)
+  if (i <= mouse_pos.x || map[mouse_pos.y][mouse_pos.x] == 0)
     return (1);
   i = 0;
   while (map[i] != NULL)
     i = i + 1;
-  if (i < mouse_pos.y)
+  if (i <= mouse_pos.y)
     return (1);
   return (0);
 }

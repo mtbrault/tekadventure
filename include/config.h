@@ -5,13 +5,14 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Sat May 27 20:24:59 2017 LAABID Zakaria
+** Last update Sun May 28 10:15:34 2017 Capitaine CASSE
 */
 
 #ifndef CONFIG_H_
 #define CONFIG_H_
 
 #include <SFML/Graphics.h>
+#include <SFML/Graphics/Sprite.h>
 
 # define FILECONF	".yml"
 # define ERRCONF_NAME	"Config file must be an (.yml) file\n"

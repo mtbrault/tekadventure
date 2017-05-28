@@ -1,11 +1,11 @@
 /*
-1;4402;0c** loop.c for Tekadventure in /home/antoine.casse/Desktop/tekadv
+** loop.c for Tekadventure in /home/antoine.casse/Desktop/tekadventure
 ** 
 ** Made by Capitaine CASSE
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sun May 28 02:34:05 2017 Matthieu BRAULT
+** Last update Sun May 28 10:35:41 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -47,6 +47,7 @@ static void		loop2(t_player *player, sfRenderWindow *window,
   int			i;
   int			idx;
 
+  quest_manager(game);
   printf("%d %d\n", game->level->map->map_player[0], game->level->map->map_player[1]);
   player->pos = (sfVector2i) {game->level->map->map_player[0],
 			      game->level->map->map_player[1]};
@@ -78,9 +79,9 @@ static void		loop2(t_player *player, sfRenderWindow *window,
 	  idx = check_hud_click(window, idx);
 	  if (idx == 2 || idx == 0)
 	    break ;
-	  quest_manager(game);
-	  show_events(window, game);
+	  //  quest_manager(game);
 	  decor_manager(window, game);
+	  show_events(window, game);
 	  if (i == 0)
 	    i = sound_manager(game);
 	  sfRenderWindow_display(window);
@@ -147,8 +148,6 @@ int			start_menu(t_game *game, t_player *player)
   if ((window = create_window()) == NULL)
     return (-1);
   tmpdisp(game->level->tp, game);
-  game->pnj = NULL;
-  game->quest = NULL;
   game->stop[0] = 0;
   game->stop[1] = 0;
   game->actions = 0;
