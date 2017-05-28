@@ -292,6 +292,12 @@ CONF-LEVEL-8:
            map-music: "tekadventure/ressources/music/dofas_debut.ogg"
            map-tile: "ressources/misc/tile_tp.png"
            map-decor: "ressources/decor/decor_map08.png"
+         teleporter:
+         teleporter-nb: 1
+         tp-1:
+         coords: 12,13
+         tp-name: "tp1-LEVEL-1"
+         tp-load: 0
 	  event:
           event-nb: 1
             items-1:
@@ -299,5 +305,5 @@ CONF-LEVEL-8:
             texture: "ressources/quest/character/Avalon_quest_end.png"
             coords: 0,4
             pnj: 1
-            dialog: "kek"
+            dialog: "ressources/dialog/avalon2.txt"
             quest-pic: "ressources/quest/quest_pic/quest_avalon_end.png"

@@ -5,9 +5,9 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Sun May 28 23:27:22 2017 Capitaine CASSE
+## Last update Mon May 29 00:30:17 2017 Matthieu BRAULT
 
-CC	=	gcc
+CC	=	gcc -g3
 
 SRC	=	src/main.c				\
 		src/help.c				\
