@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Fri May 26 22:51:43 2017 Capitaine CASSE
-** Last update Sun May 28 18:33:31 2017 Capitaine CASSE
+** Last update Sun May 28 20:16:08 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -84,6 +84,8 @@ int		show_player(sfRenderWindow *window,
   if (sfMouse_isButtonPressed(sfMouseLeft) &&
       check_click_in_map(window, game) == 0)
     new_dest(window, player, game);
+  else if (sfKeyboard_isKeyPressed(sfKeyF7))
+    config_map(window, game, game->level->map->content);
   else if (player->dest.x == -1 && player->dest.y == -1)
     player_static(window, player, game);
   else if (!my_move(window, game, player))
