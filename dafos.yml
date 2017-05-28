@@ -299,5 +299,5 @@ CONF-LEVEL-8:
             texture: "ressources/quest/character/Avalon_quest_end.png"
             coords: 0,4
             pnj: 1
-            dialog: "ressources/dialog/avalon2.txt"
+            dialog: "kek"
             quest-pic: "ressources/quest/quest_pic/quest_avalon_end.png"
