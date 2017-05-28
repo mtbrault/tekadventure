@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun May 28 15:44:55 2017 LAABID Zakaria
-** Last update Sun May 28 16:54:02 2017 LAABID Zakaria
+** Last update Sun May 28 17:03:14 2017 LAABID Zakaria
 */
 
 #include "config.h"
@@ -60,11 +60,11 @@ int	teleporter_verif(t_tp **tp, int nb, int y)
       error_teleport(nb, y);
       return (my_puterr(ERR_TELEP_NAME, FAIL));
     }
-  if (tp[nb]->load != 0 && tp[nb]->load != 1)
-    {
-      error_teleport(nb, y);
-      return (my_puterr(ERR_TELEP_LOAD, FAIL));
-    }
+  /* if (tp[nb]->load != 0 && tp[nb]->load != 1) */
+  /*   { */
+  /*     error_teleport(nb, y); */
+  /*     return (my_puterr(ERR_TELEP_LOAD, FAIL)); */
+  /*   } */
   if ((is_number_in(nb, tp[nb]->coords[0])) == FAIL)
     return (FAIL);
   if ((is_number_in(nb, tp[nb]->coords[1])) == FAIL)
