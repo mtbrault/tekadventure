@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 17:51:14 2017 LAABID Zakaria
-** Last update Sun May 28 12:46:57 2017 Capitaine CASSE
+** Last update Sun May 28 14:55:53 2017 LAABID Zakaria
 */
 
 #include "config.h"
@@ -80,8 +80,12 @@ t_game		*config_fill(char **argv)
     return (my_puterrnull(ERRCONF_CONF));
   if ((level = config_data(conf)) == NULL)
     return (NULL);
+  if ((conf_lexing(conf)) == FAIL)
+    return (NULL);
   while (y < conf_counter(conf, CONF_LEVEL))
     set_conf(level, conf, y++);
+  if ((conf_isempty(level, conf)) == FAIL)
+    return (NULL);
   game->level = build_graph(level);
   free_conf(conf);
   return (game);

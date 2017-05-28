@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Sun May 28 13:03:23 2017 Matthieu BRAULT
+** Last update Sun May 28 15:30:23 2017 LAABID Zakaria
 */
 
 #ifndef CONFIG_H_
@@ -14,7 +14,10 @@
 #include <SFML/Graphics.h>
 #include <SFML/Graphics/Sprite.h>
 
+# define PIC_EXT	".png"
+# define MUSIC_EXT	".ogg"
 # define FILECONF	".yml"
+# define BAD_EXTENSION	"Bad extension for this path\n"
 # define ERRCONF_NAME	"Config file must be an (.yml) file\n"
 # define ERRCONF_CONF	"Config file invalid NO CONF-LEVEL- Find\n"
 # define ERRCONF_OPEN	"Failed to open config file\n"
@@ -78,6 +81,24 @@
 # define MAP_PLAYER	"map-player:"
 # define MAP_DECOR	"map-decor:"
 
+# define ERR_MAP_BG	"Error: no background defined for a map\n"
+# define ERR_MAP_DECOR	"Error: no decor defined for a map\n"
+# define ERR_MAP_START	"Error: no stat position defined for a map\n"
+# define ERR_MAP_DEBUG	"Error: no debug value defined for a map\n"
+# define ERR_MAP_MUSIC	"Error: no music defined for a map\n"
+# define ERR_MAP_NAME	"Error: no name defined for a map\n"
+# define ERR_MAP_CONT	"Error: no content mapc defined for a map\n"
+
+# define ERR_DECOR_PATH "Error: decor bad path detected\n"
+# define ERR_BG_PATH	"Error: background bad path detected\n"
+# define ERR_MUSIC_PATH	"Error: music bad path detected\n"
+
+typedef struct	s_line
+{
+  char	*conf;
+  int	find;
+}		t_line;
+
 typedef struct	s_map
 {
   int		**content;
@@ -137,6 +158,7 @@ typedef struct	s_level
 **                  - CONFIF FILE -
 ** ***************************************************
 */
+int		conf_isempty(t_level **, char **);
 int		config_goto(char *, char **, int);
 int		config_mob_one(t_level **, char **, int, int);
 int		config_mob_two(t_level **, char **, int, int);
@@ -166,6 +188,9 @@ char		*my_str_nbr(int);
 int		is_here(char **, char *, const int);
 int		getconf_index(char **, char *, int);
 char		**del_commentary(char **);
+int		verif_conf_open(char *, char *);
+int		map_verif_second(t_map *);
+int		map_verif(t_map *);
 
 /*
 ** ***************************************************
