@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Fri May 26 22:51:43 2017 Capitaine CASSE
-** Last update Sun May 28 22:52:50 2017 Matthieu BRAULT
+** Last update Sun May 28 23:20:21 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -78,22 +78,12 @@ static int	check_click_in_map(sfRenderWindow *window, t_game *game)
   return (0);
 }
 
-void	show_raw(sfRenderWindow *window, t_game *game)
-{
-  sfVector2i kek;
-
-  kek = raw_click(window, game);
-  printf("%d     %d\n", kek.x, kek.y);
-}
-
 int		show_player(sfRenderWindow *window,
 			    t_player *player, t_game *game)
 {
   if (sfMouse_isButtonPressed(sfMouseLeft) &&
       check_click_in_map(window, game) == 0)
     new_dest(window, player, game);
-  if (sfMouse_isButtonPressed(sfMouseRight))
-    show_raw(window, game);
   else if (sfKeyboard_isKeyPressed(sfKeyF7))
     config_map(window, game, game->level->map->content);
   else if (player->dest.x == -1 && player->dest.y == -1)
