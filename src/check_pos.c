@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Thu May 25 15:43:49 2017 Capitaine CASSE
-** Last update Sun May 28 02:28:22 2017 Matthieu BRAULT
+** Last update Sun May 28 11:11:52 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -74,10 +74,9 @@ static int	check_tp(sfVector2i pos, t_tp **tp, t_player *player, t_game *game)
 	      free_room(game);
 	      game->level = (tp[i])->room;
 	      player->pos = (sfVector2i) {(tp[i])->room->map->map_player[0],
-		(tp[i])->room->map->map_player[1] };
+		(tp[i])->room->map->map_player[1]};
 	      print_bg(game);
 	      quest_manager(game);
-	      printf("Changed to %s\n", (tp[i])->room->map->name);
 	    }
 	  return (0);
 	}

@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sat May 27 20:12:49 2017 LAABID Zakaria
+** Last update Sun May 28 11:06:37 2017 Capitaine CASSE
 */
 
 #ifndef TEKADV_H
@@ -196,12 +196,8 @@ typedef struct          s_game
   sfVector2i            tile;
   int			actions;
   int			stop[2];
-  sfSprite		*bg;
-  sfSprite		**pnj;
-  sfSprite		*quest;
   sfFont		*font;
   t_player		*player;
-  char			**conf;
 }			t_game;
 
 typedef struct		s_menu
@@ -231,7 +227,7 @@ typedef struct		s_tabmouse
 */
 int			show_help(int, char **);
 t_game			*get_file(char *);
-int			free_map(int ***);
+int			free_map(int **);
 
 /*
 ** ***************************************************

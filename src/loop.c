@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sun May 28 10:35:41 2017 Capitaine CASSE
+** Last update Sun May 28 11:15:06 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -39,6 +39,30 @@ int	load_screen(sfRenderWindow *window, t_menu **menu)
   return (1);
 }
 
+static void		draw_game(t_player *player, sfRenderWindow *window, t_game *game,
+				  sfClock *clock)
+{
+  sfRenderWindow_clear(window, sfWhite);
+  sfClock_restart(clock);
+  /* if (i == 0) */
+  /*    i = load_screen(window, menu); */
+  /* sfMusic_stop(menu[0]->music); */
+  if (game->bg != NULL)
+    sfRenderWindow_drawSprite(window, game->bg, NULL);
+  if (idx == 1)
+    show_grid(window, game);
+  show_player(window, player, game);
+  hud_placing(window, game);
+  idx = check_hud_click(window, idx);
+  if (idx == 2 || idx == 0)
+    return ;
+  decor_manager(window, game);
+  show_events(window, game);
+  if (i == 0)
+    i = sound_manager(game);
+  sfRenderWindow_display(window);
+}
+
 static void		loop2(t_player *player, sfRenderWindow *window,
 			      t_game *game, t_menu **menu)
 {
@@ -48,7 +72,6 @@ static void		loop2(t_player *player, sfRenderWindow *window,
   int			idx;
 
   quest_manager(game);
-  printf("%d %d\n", game->level->map->map_player[0], game->level->map->map_player[1]);
   player->pos = (sfVector2i) {game->level->map->map_player[0],
 			      game->level->map->map_player[1]};
   player->dest = (sfVector2i) {-1, -1};
@@ -79,7 +102,6 @@ static void		loop2(t_player *player, sfRenderWindow *window,
 	  idx = check_hud_click(window, idx);
 	  if (idx == 2 || idx == 0)
 	    break ;
-	  //  quest_manager(game);
 	  decor_manager(window, game);
 	  show_events(window, game);
 	  if (i == 0)
@@ -87,7 +109,7 @@ static void		loop2(t_player *player, sfRenderWindow *window,
 	  sfRenderWindow_display(window);
 	}
     }
-  //sfMusic_stop()
+  sfMusic_stop()
   if (idx == 2)
     display_window(window, menu, game->player, game);
   sfClock_destroy(clock);
@@ -121,23 +143,6 @@ void		display_window(sfRenderWindow *window, t_menu **menu,
   loop2(player, window, game, menu);
 }
 
-int			tmpdisp(t_tp **tp, t_game *game)
-{
-  int			i;
-
-  i = 0;
-  if (tp != NULL)
-    {
-      while (tp[i] != NULL)
-	{
-	  printf("%d %d %s\n", (tp[i])->coords[0], (tp[i])->coords[1], (tp[i])->next_map);
-	  i += 1;
-	}
-      printf("%s\n", game->level->map->bg);
-    }
-  return (0);
-}
-
 int			start_menu(t_game *game, t_player *player)
 {
   t_menu		**menu;
@@ -147,7 +152,6 @@ int			start_menu(t_game *game, t_player *player)
     return (-1);
   if ((window = create_window()) == NULL)
     return (-1);
-  tmpdisp(game->level->tp, game);
   game->stop[0] = 0;
   game->stop[1] = 0;
   game->actions = 0;

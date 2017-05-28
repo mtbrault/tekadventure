@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Wed May  3 16:03:43 2017 Matthieu BRAULT
-** Last update Sun May 28 10:16:59 2017 Capitaine CASSE
+** Last update Sun May 28 10:59:15 2017 Capitaine CASSE
 */
 
 #include <math.h>
@@ -33,6 +33,7 @@ int	my_move(sfRenderWindow *window, t_game *game, t_player *player)
 	player->dir}, game, ((sfVector2i) {6, 8}));
   sfSprite_setPosition(sprite, pos);
   sfRenderWindow_drawSprite(window, sprite, NULL);
+  sfSprite_destroy(sprite);
   if (player->s == 20)
     return (0);
   return (1);

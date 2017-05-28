@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Mon Apr 17 12:00:11 2017 Capitaine CASSE
-** Last update Thu May 25 19:36:57 2017 Matthieu BRAULT
+** Last update Sun May 28 11:00:05 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -64,6 +64,7 @@ sfVector2i 	my_bfs(sfVector2i origin, sfVector2i dest,
 		       int **map)
 {
   int		**path;
+  int		i;
   sfVector2i	final;
   sfVector2i	size;
 
@@ -82,5 +83,6 @@ sfVector2i 	my_bfs(sfVector2i origin, sfVector2i dest,
   origin = (sfVector2i) {origin.x + 1, origin.y + 1};
   dest = (sfVector2i) {dest.x + 1, dest.y + 1};
   final = bfs_find(path, dest, origin);
+  //  free_map(path);
   return (final);
 }
