@@ -141,12 +141,12 @@ CONF-LEVEL-4:
         map-player: 0,0
         map-music: "tekadventure/ressources/music/dofas_debut.ogg"
         map-tile: "ressources/misc/tile_tp.png"
-        map-decor: "ressources/misc/decor_map04.png"
+        map-decor: "ressources/misc/blank.png"
       teleporter:
       teleporter-nb: 1
       tp-1:
-      coords: 6,3
-      tp-name: "LEVEL-1"
+      coords: 6,6
+      tp-name: "tp1-LEVEL-5"
       tp-load: 0
        event:
         event-nb: 1
@@ -157,3 +157,65 @@ CONF-LEVEL-4:
          pnj: 1
          dialog: "ressources/dialog/eythan.txt"
          quest-pic: "ressources/quest/quest_pic/quest_eythan_debut.png"
+CONF-LEVEL-5:
+      map-content:
+      11111111111111
+      11111111111111
+      11111111111111
+      11111111111111
+      11111111111111
+      11111111111111
+      11111111111111
+      11111111111111
+      11111111111111
+      11111111111111
+      11111111111111
+      11111111111111
+      11111111111111
+      11111111111111
+       map:
+         map-name: "LEVEL-5"
+         map-debug: 0
+         map-bg: "ressources/backgrounds/map_05.png"
+         map-player: 0,0
+         map-music: "tekadventure/ressources/music/dofas_debut.ogg"
+         map-tile: "ressources/misc/tile_tp.png"
+         map-decor: "ressources/misc/decor_map05.png"
+       teleporter:
+       teleporter-nb: 1
+       tp-1:
+       coords: 6,3
+       tp-name: "tp1-LEVEL-6"
+       tp-load: 0
+        event:
+         event-nb: 0
+CONF-LEVEL-6:
+       map-content:
+       11111111111111
+       11111111111111
+       11111111111111
+       11111111111111
+       11111111111111
+       11111111111111
+       11111111111111
+       11111111111111
+       11111111111111
+       11111111111111
+       11111111111111
+       11111111111111
+       11111111111111
+       11111111111111
+        map:
+          map-name: "LEVEL-6"
+          map-debug: 0
+          map-bg: "ressources/backgrounds/map_06.png"
+          map-player: 0,0
+          map-music: "tekadventure/ressources/music/dofas_debut.ogg"
+          map-tile: "ressources/misc/tile_tp.png"
+          map-decor: "ressources/misc/decor_map06.png"
+        teleporter:
+        teleporter-nb: 1
+        tp-1:
+        coords: 6,3
+        tp-name: "tp1-LEVEL-6"
+        tp-load: 0

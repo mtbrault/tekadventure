@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun May 28 18:32:30 2017 LAABID Zakaria
-** Last update Sun May 28 21:53:06 2017 Capitaine CASSE
+** Last update Sun May 28 22:26:48 2017 Capitaine CASSE
 */
 
 #include <fcntl.h>
@@ -53,42 +53,42 @@ static void	error_event(int nb, int y)
 
 int	event_verif(t_event **event, int nb, int y)
 {
-  if (event == NULL && event[0] == NULL)
-    return (0);
-  if ((event[nb]->name) == NULL)
-    {
-      error_event(nb, y);
-      return (my_puterr(ERR_EVENT_NAME, FAIL));
-    }
-  if ((event[nb]->texture) == NULL)
-    return (my_puterr(ERR_EVENT_TEX, FAIL));
-  else
-    if ((verif_event(event[nb]->texture, PIC_EXT)) == FAIL)
-      {
-	my_putstr(event[nb]->texture);
-	error_event(nb, y);
-	return (my_puterr(ERR_EVENT_TEX, FAIL));
-      }
-  if ((event[nb]->quest_pic) == NULL)
-    return (my_puterr(ERR_EVENT_QPIC, FAIL));
-  else
-    if ((verif_event(event[nb]->quest_pic, PIC_EXT)) == FAIL)
-      {
-	error_event(nb, y);
-	return (my_puterr(ERR_EVENT_QPIC, FAIL));
-      }
+  /* if (event == NULL && event[nb] == NULL) */
+  /*   return (0); */
+  /* if ((event[nb]->name) == NULL) */
+  /*   { */
+  /*     error_event(nb, y); */
+  /*     return (my_puterr(ERR_EVENT_NAME, FAIL)); */
+  /*   } */
+  /* if ((event[nb]->texture) == NULL) */
+  /*   return (my_puterr(ERR_EVENT_TEX, FAIL)); */
+  /* else */
+  /*   if ((verif_event(event[nb]->texture, PIC_EXT)) == FAIL) */
+  /*     { */
+  /* 	my_putstr(event[nb]->texture); */
+  /* 	error_event(nb, y); */
+  /* 	return (my_puterr(ERR_EVENT_TEX, FAIL)); */
+  /*     } */
+  /* if ((event[nb]->quest_pic) == NULL) */
+  /*   return (my_puterr(ERR_EVENT_QPIC, FAIL)); */
+  /* else */
+  /*   if ((verif_event(event[nb]->quest_pic, PIC_EXT)) == FAIL) */
+  /*     { */
+  /* 	error_event(nb, y); */
+  /* 	return (my_puterr(ERR_EVENT_QPIC, FAIL)); */
+  /*     } */
   return (0);
 }
 
 int	event_verif_second(t_event **event, int nb, int y)
 {
-  if ((event[nb]->dialog) == NULL)
-    return (my_puterr(ERR_EVENT_DIAL, FAIL));
-  else
-    if ((verif_event(event[nb]->dialog, TXT_EXT)) == FAIL)
-      {
-	error_event(nb, y);
-	return (my_puterr(ERR_EVENT_DIAL, FAIL));
-      }
+  /* if ((event[nb]->dialog) == NULL) */
+  /*   return (my_puterr(ERR_EVENT_DIAL, FAIL)); */
+  /* else */
+  /*   if ((verif_event(event[nb]->dialog, TXT_EXT)) == FAIL) */
+  /*     { */
+  /* 	error_event(nb, y); */
+  /* 	return (my_puterr(ERR_EVENT_DIAL, FAIL)); */
+  /*     } */
   return (0);
 }
