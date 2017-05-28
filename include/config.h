@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Sun May 28 19:03:34 2017 LAABID Zakaria
+** Last update Sun May 28 20:18:24 2017 Matthieu BRAULT
 */
 
 #ifndef CONFIG_H_
@@ -216,6 +216,7 @@ void	        config_event_four(t_level **, char **, int, int);
 int		config_event_goto(char *, char **, int);
 int		event_verif(t_event **, int, int);
 int		event_verif_second(t_event **, int, int);
+void		config_telep_loop(t_level **, char *, int, int);
 
 /*
 ** ***************************************************
