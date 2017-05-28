@@ -19,7 +19,7 @@ CONF-LEVEL-1:
 	00000001111111111
 	00000001111111110
 	00000001111111100
-     map:
+     map:d
 	map-name: "LEVEL-1"
 	map-debug: 0
 	map-bg: "ressources/backgrounds/mapstart2.png"

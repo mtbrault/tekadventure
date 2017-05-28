@@ -5,14 +5,14 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun May 28 14:53:41 2017 LAABID Zakaria
-** Last update Sun May 28 16:29:36 2017 LAABID Zakaria
+** Last update Sun May 28 18:07:01 2017 LAABID Zakaria
 */
 
 #include <fcntl.h>
 #include "config.h"
 #include "tekadv.h"
 
-int     conf_isempty(t_level **level, char **conf)
+int	conf_isempty(t_level **level, char **conf)
 {
   int	y;
   int	x;

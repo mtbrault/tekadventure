@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 17:51:14 2017 LAABID Zakaria
-** Last update Sun May 28 16:55:43 2017 Matthieu BRAULT
+** Last update Sun May 28 18:07:44 2017 LAABID Zakaria
 */
 
 #include "config.h"
@@ -57,8 +57,6 @@ static void	set_conf(t_level **level, char **conf, int y)
   config_map_fill(level, conf, y);
   if (is_here(conf, TELEPORTER, y + 1) == 0)
     config_telep_fill(level, conf, y);
-  if (is_here(conf, MOBS, y + 1) == 0)
-    config_mob_fill(level, conf, y);
   if (is_here(conf, EVENT, y + 1) == 0)
     config_event_fill(level, conf, y);
 }
@@ -79,8 +77,6 @@ t_game		*config_fill(char **argv)
   if ((conf_counter(conf, CONF_LEVEL)) == 0)
     return (my_puterrnull(ERRCONF_CONF));
   if ((level = config_data(conf)) == NULL)
-    return (NULL);
-  if ((conf_lexing(conf)) == FAIL)
     return (NULL);
   while (y < conf_counter(conf, CONF_LEVEL))
     set_conf(level, conf, y++);
