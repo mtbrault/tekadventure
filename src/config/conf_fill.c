@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 17:51:14 2017 LAABID Zakaria
-** Last update Sun May 28 20:30:27 2017 Capitaine CASSE
+** Last update Sun May 28 22:35:14 2017 LAABID Zakaria
 */
 
 #include "config.h"
@@ -56,11 +56,21 @@ static void	set_conf(t_level **level, char **conf, int y)
 {
   config_map_fill(level, conf, y);
   if (is_here(conf, TELEPORTER, y + 1) == 0)
-    config_telep_fill(level, conf, y);
+    {
+      if ((getconf_index(conf, TELEP_NB, y)) == 0)
+	level[y]->event = NULL;
+      else
+	config_telep_fill(level, conf, y);
+    }
   else
     level[y]->tp = NULL;
   if (is_here(conf, EVENT, y + 1) == 0)
-    config_event_fill(level, conf, y);
+    {
+      if ((getconf_index(conf, EVENT_NB, y)) == 0)
+	level[y]->event = NULL;
+      else
+	config_event_fill(level, conf, y);
+    }
   else
     level[y]->event = NULL;
 }
