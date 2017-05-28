@@ -36,7 +36,7 @@ CONF-LEVEL-1:
 	   tp-load: 0
 	event:
 	   event-nb: 3
-	   items-1:
+       items-1:
 		name: "Avalon"
 	   	texture: "ressources/quest/character/avalon.png"
 	   	coords: 4,9
@@ -141,6 +141,19 @@ CONF-LEVEL-4:
         map-player: 0,0
         map-music: "tekadventure/ressources/music/dofas_debut.ogg"
         map-tile: "ressources/misc/tile_tp.png"
-        map-decor: "ressources/misc/blank.png"
+        map-decor: "ressources/misc/decor_map04.png"
       teleporter:
-      teleporter-nb: 0
+      teleporter-nb: 1
+      tp-1:
+      coords: 6,3
+      tp-name: "LEVEL-1"
+      tp-load: 0
+       event:
+        event-nb: 1
+	items-1:
+         name: "Eythan Fellousi"
+	 texture: "ressources/quest/character/eythan_lavare.png"
+         coords: 5,5
+         pnj: 1
+         dialog: "ressources/dialog/eythan.txt"
+         quest-pic: "ressources/quest/quest_pic/quest_eythan_debut.png"

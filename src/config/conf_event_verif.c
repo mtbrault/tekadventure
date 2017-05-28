@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun May 28 18:32:30 2017 LAABID Zakaria
-** Last update Sun May 28 20:19:26 2017 Capitaine CASSE
+** Last update Sun May 28 21:53:06 2017 Capitaine CASSE
 */
 
 #include <fcntl.h>
@@ -65,6 +65,7 @@ int	event_verif(t_event **event, int nb, int y)
   else
     if ((verif_event(event[nb]->texture, PIC_EXT)) == FAIL)
       {
+	my_putstr(event[nb]->texture);
 	error_event(nb, y);
 	return (my_puterr(ERR_EVENT_TEX, FAIL));
       }
