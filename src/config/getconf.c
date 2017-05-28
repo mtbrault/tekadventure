@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 22:16:37 2017 LAABID Zakaria
-** Last update Sun May 28 12:27:03 2017 Capitaine CASSE
+** Last update Sun May 28 17:04:40 2017 Matthieu BRAULT
 */
 
 #include <stdlib.h>
@@ -54,18 +54,18 @@ char	*my_str_nbr(int nb)
   return (nbr);
 }
 
-int	getconf_second(char *start, char *end, char **conf, char *str)
+static int	getconf_second(char *start, char *end, char **conf, char *str)
 {
-  int	conf_second;
-  int	size_str;
-  int	index;
+  int		conf_second;
+  int		size_str;
+  int		index;
 
   index = 0;
   size_str = my_strlen(str);
   while (conf[index] != NULL)
     {
       if (my_strncmp(start, conf[index], my_strlen(start)) == 0)
-	break;
+	break ;
       index++;
     }
   while (conf[index] != NULL)
@@ -93,7 +93,5 @@ int	getconf_index(char **conf, char *str, int i)
   end = my_strcat(CONF_LEVEL, my_str_nbr(i + 1));
   if (conf_counter(conf, CONF_LEVEL) == 1)
     return (my_atoi(epur_str(getconf(conf, str))));
-  else
-    return (getconf_second(start, end, conf, str));
   return (getconf_second(start, end, conf, str));
 }

@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Sun May 28 17:00:39 2017 Capitaine CASSE
+** Last update Sun May 28 17:07:08 2017 Matthieu BRAULT
 */
 
 #ifndef CONFIG_H_
@@ -46,6 +46,7 @@
 # define L_DIALOG	(6)
 
 # define MOBS		"mobs:"
+# define TELEPORTER	"teleporter:"
 # define EVENT		"event:"
 
 # define MOBS_LIST	"8"
@@ -172,7 +173,7 @@ int		config_mob_three(t_level **, char **, int, int);
 int		config_mob_four(t_level **, char **, int, int);
 int		nbrepur(char *);
 int		map_content_index(char **, int);
-int		**map_content_fill(char **, int, char *);
+int		**map_content_fill(char **, int, char *, int);
 t_level		**config_map_fill(t_level **, char **, int);
 int		config_mob_fill(t_level **, char **, int);
 int		config_event_fill(t_level **, char **, int);

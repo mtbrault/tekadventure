@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu May 25 17:33:43 2017 Matthieu BRAULT
-** Last update Sun May 28 13:14:53 2017 Matthieu BRAULT
+** Last update Sun May 28 14:07:24 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -48,7 +48,7 @@ static int		check_button(int s, int nb_map, t_game *game)
   return (s);
 }
 
-void	config_map2(sfRenderWindow *window, t_game *game, int **map)
+static void	config_map2(sfRenderWindow *window, t_game *game, int **map)
 {
   if (game->bg != NULL)
     sfRenderWindow_drawSprite(window, game->bg, NULL);

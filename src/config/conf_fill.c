@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 17:51:14 2017 LAABID Zakaria
-** Last update Sun May 28 14:55:53 2017 LAABID Zakaria
+** Last update Sun May 28 16:55:43 2017 Matthieu BRAULT
 */
 
 #include "config.h"
@@ -55,11 +55,11 @@ int	is_here(char **conf, char *str, const int y)
 static void	set_conf(t_level **level, char **conf, int y)
 {
   config_map_fill(level, conf, y);
-  if (is_here(conf, "teleporter:", y + 1) == 0)
+  if (is_here(conf, TELEPORTER, y + 1) == 0)
     config_telep_fill(level, conf, y);
-  if (is_here(conf, "mobs:", y + 1) == 0)
+  if (is_here(conf, MOBS, y + 1) == 0)
     config_mob_fill(level, conf, y);
-  if (is_here(conf, "event:", y + 1) == 0)
+  if (is_here(conf, EVENT, y + 1) == 0)
     config_event_fill(level, conf, y);
 }
 

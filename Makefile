@@ -5,7 +5,7 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Sun May 28 16:02:46 2017 LAABID Zakaria
+## Last update Sun May 28 17:07:29 2017 Matthieu BRAULT
 
 CC	=	gcc -g3
 
@@ -55,7 +55,8 @@ SRC	=	src/main.c				\
 		src/config/conf_lexing.c		\
 		src/config/conf_isempty.c		\
 		src/config/conf_map_verif.c		\
-		src/config/conf_teleporter_verif.c
+		src/config/conf_teleporter_verif.c	\
+		src/config/conf_free.c
 
 OBJ	=	$(SRC:.c=.o)
 
