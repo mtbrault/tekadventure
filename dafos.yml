@@ -24,14 +24,31 @@ CONF-LEVEL-1:
 	map-debug: 0
         map-bg: "ressources/backgrounds/mapstart2.png"
         map-music: "ressources/music/dofas_debut.ogg"
-	map-decor: "ressources/decor/map/decor_map01.png"
 	map-player: 8,15
 	coords: 9,9
     teleporter:
      teleporter-nb: 1
     	tp-1:
-      	coords: 7,5
-      	tp-name: "tp1-LEVEL-1"
+      	coords: 7,0
+      	tp-name: "tp1-LEVEL-3"
+    mobs:
+      mobs-nb: 2
+      monster-1:
+      	name: "Eythan Fellousi"
+      	texture: "src/texture/mobs"
+        life: 100
+        damage: 5.0
+        pm: 10
+        pa: 6
+        coords: 52,90
+      monster-2:
+      	name: "Youssef le bg"
+      	texture: "src/texture/mobs"
+        life: 113
+        damage: 11.0
+        pm: 43
+        pa: 55
+        coords: 1,9
     event:
       event-nb: 1
       items-1:
@@ -43,41 +60,51 @@ CONF-LEVEL-1:
         quest-pic: "ressources/quest/quest_pic/quest_debut.png"
 CONF-LEVEL-2:
     map-content:
-    00000011111111100
-    00000011111111100
-    00000011111111100
-    00000001111111000
-    00000001111111000
-    00000001111111000
-    00000001111111000
-    00001111111111111
-    00001111111111111
-    00001111111111111
-    00001111111111111
-    00001111111111111
-    00000011111111111
-    00000001111111111
-    00000001111111110
-    00000001111111100
+    00000111111111
+    00000111111111
+    00000111111111
+    00000111111111
+    00000111111111
+    00000111111111
+    00000111111111
+    00000111111111
+    00000111111111
+    00000111111111
+    00000111111111
+    00000111111111
+    00000111111111
+    00000111111111
     map:
 	map-name: "LEVEL-2"
 	map-debug: 0
         map-bg: "ressources/backgrounds/corridor.png"
-        map-music: "ressources/music/dofas_debut.ogg"
-	map-decor: "ressources/decor/map/decor_map01.png"
-	map-player: 8,15
-	coords: 9,9
+        map-music: "ressources/music/dofas_spawn.ogg"
+	map-player: 7,12
     teleporter:
      teleporter-nb: 1
     	tp-1:
-      	coords: 7,5
-      	tp-name: "tp1-LEVEL-2"
+      	coords:  6,13
+      	tp-name: "tp1-LEVEL-1"
     event:
-      event-nb: 1
-      items-1:
-      	name: "Avalon"
-        texture: "ressources/quest/character/avalon.png"
-        coords: 4,9
-        pnj: 1
-        dialog: "ressources/dialog/avalon.txt"
-        quest-pic: "ressources/quest/quest_pic/quest_debut.png"
+     event-nb: 1
+     items-1
+       name "Eythan"
+       texture: "ressources/quest/character/eythan_lavare.png"
+       coords: 6,3
+       pnj: 1
+       dialog: "ressources/dialog/eythan.txt"
+       quest-pic: "ressources/quest/quest_pic/quest_eythan_debut.png"
+CONF-LEVEL-3:
+    map-content:
+    111111111
+    111111111
+    111111111
+    111111111
+    111111111
+    111111111
+    map:
+      map-name: "LEVEL3"
+      map-debug: 0
+      map-bg: "ressources/backgrounds/map.png"
+      map-player: 0,0
+   teleporter:
