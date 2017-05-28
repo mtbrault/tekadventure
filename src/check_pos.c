@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Thu May 25 15:43:49 2017 Capitaine CASSE
-** Last update Sun May 28 11:25:09 2017 Capitaine CASSE
+** Last update Sun May 28 11:51:06 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -37,7 +37,8 @@ int	check_hud_click(sfRenderWindow *window, int i)
   return (i);
 }
 
-static int	check_tp(sfVector2i pos, t_tp **tp, t_player *player, t_game *game)
+static int	check_tp(sfVector2i pos, t_tp **tp,
+			 t_player *player, t_game *game)
 {
   int		i;
 

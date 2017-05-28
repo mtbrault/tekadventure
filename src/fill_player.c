@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Fri Apr 21 23:32:41 2017 Matthieu BRAULT
-** Last update Sun May 28 11:22:38 2017 Matthieu BRAULT
+** Last update Sun May 28 11:47:45 2017 Capitaine CASSE
 */
 
 #include <SFML/Graphics/Rect.h>
@@ -21,7 +21,8 @@ int	get_iop(t_player *player)
   player->stat->class = 1;
   player->stat->strengh = 150;
   player->stat->luck = 0.1;
-  if ((player->spriteboard = sfTexture_createFromFile(IOP_BOARD, NULL)) == NULL)
+  if ((player->spriteboard = sfTexture_createFromFile(IOP_BOARD, NULL))
+      == NULL)
     return (1);
   return (0);
 }
@@ -52,7 +53,8 @@ int	get_ecaflip(t_player *player)
   player->stat->class = 3;
   player->stat->strengh = 150;
   player->stat->luck = 0.1;
-  if ((player->spriteboard = sfTexture_createFromFile(ECA_BOARD, NULL)) == NULL)
+  if ((player->spriteboard = sfTexture_createFromFile(ECA_BOARD, NULL))
+      == NULL)
     return (1);
   return (0);
 }
@@ -67,7 +69,8 @@ int	get_osa(t_player *player)
   player->stat->class = 4;
   player->stat->strengh = 150;
   player->stat->luck = 0.1;
-  if ((player->spriteboard = sfTexture_createFromFile(OSA_BOARD, NULL)) == NULL)
+  if ((player->spriteboard = sfTexture_createFromFile(OSA_BOARD, NULL))
+      == NULL)
     return (1);
   return (0);
 }

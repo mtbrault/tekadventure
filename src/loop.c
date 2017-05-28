@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sun May 28 11:39:42 2017 Capitaine CASSE
+** Last update Sun May 28 11:43:14 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -50,14 +50,14 @@ static int		draw_game(t_player *player, sfRenderWindow *window,
   if (game->bg != NULL)
     sfRenderWindow_drawSprite(window, game->bg, NULL);
   if (game->idx == 1)
-    show_grid(window, game, game ->level->content);
+    show_grid(window, game, game->level->map->content);
   show_player(window, player, game);
   hud_placing(window, game);
   game->idx = check_hud_click(window, game->idx);
   if (game->idx == 2 || game->idx == 0)
     return (1);
   decor_manager(window, game);
-  show_events(window, game, game->event, 0);
+  show_events(window, game, game->level->event, 0);
   if (game->m == 0)
     game->m = sound_manager(game);
   sfRenderWindow_display(window);

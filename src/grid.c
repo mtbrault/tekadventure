@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Fri Apr 21 19:45:30 2017 Capitaine CASSE
-** Last update Sun May 28 10:45:51 2017 Capitaine CASSE
+** Last update Sun May 28 11:42:01 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -53,8 +53,7 @@ int		draw_grid(int **map, sfVector2i *dim,
   sfVector2f	pos;
 
   cur.y = 0;
-  pos.y = 0.0;
-  pos.x = (float)SCR_W / 2 - dim[1].x / 2;
+  pos = ((sfVector2f) {0.0, (float)SCR_W / 2 - dim[1].x / 2});
   while (map[cur.y] != NULL)
     {
       cur.x = 0;
@@ -77,9 +76,8 @@ int		draw_grid(int **map, sfVector2i *dim,
   return (0);
 }
 
-int		show_grid(sfRenderWindow *window, t_game *game)
+int		show_grid(sfRenderWindow *window, t_game *game, int **map)
 {
-  int		**map;
   sfTexture	**tex;
   sfSprite	**sprite;
   sfVector2i	dims[2];
@@ -87,7 +85,6 @@ int		show_grid(sfRenderWindow *window, t_game *game)
   if ((tex = malloc(sizeof(sfTexture *) * 2)) == NULL ||
       (sprite = malloc(sizeof(sfSprite *) * 2)) == NULL)
     return (1);
-  map = game->level->map->content;
   if ((tex[0] = sfTexture_createFromFile(GRID_PATH, NULL)) == NULL ||
       (tex[1] = sfTexture_createFromFile(GRID_PATH_TP, NULL)) == NULL)
     return (1);
@@ -100,7 +97,6 @@ int		show_grid(sfRenderWindow *window, t_game *game)
   dims[1] = resize_tile(dims[0], sprite[0]);
   resize_tile(dims[0], sprite[1]);
   game->tile = dims[1];
-  raw_click(game, window);
   draw_grid(map, dims, window, sprite);
   sfSprite_destroy(sprite[0]);
   sfSprite_destroy(sprite[1]);

@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun May 28 11:29:03 2017 Capitaine CASSE
+** Last update Sun May 28 11:44:15 2017 Capitaine CASSE
 */
 
 #ifndef TEKADV_H
@@ -258,7 +258,7 @@ int			hud_placing(sfRenderWindow *, t_game *);
 int			quest_manager(t_game *);
 int			show_player(sfRenderWindow *, t_player *, t_game *);
 int			sound_manager(t_game *);
-int			show_events(sfRenderWindow *, t_game *);
+int			show_events(sfRenderWindow *, t_game *, t_event **, int);
 int			decor_manager(sfRenderWindow *, t_game *);
 int			check_hud_click(sfRenderWindow *, int);
 
@@ -301,7 +301,7 @@ int			my_config(sfRenderWindow *, int, t_menu **, t_game *);
 */
 void			debug(t_game *);
 sfVector2i		get_mouse_pos(sfRenderWindow *);
-int			show_grid(sfRenderWindow *, t_game *);
+int			show_grid(sfRenderWindow *, t_game *, int **);
 sfVector2i		raw_click(t_game *, sfRenderWindow *);
 t_game			*config_fill(char **);
 int			check_pos(t_player *, t_game *);

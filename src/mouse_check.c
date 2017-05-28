@@ -5,13 +5,12 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon Apr 24 04:06:54 2017 LAABID Zakaria
-** Last update Fri May 26 19:51:53 2017 Matthieu BRAULT
+** Last update Sun May 28 11:47:08 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
 
-t_tabmouse	tabmouse[TABMOUSE_S] =
-{
+t_tabmouse	tabmouse[TABMOUSE_S] = {
   {(sfVector2i) {289, 313}, BT_ON_V},
   {(sfVector2i) {353, 372}, BT_ON_B},
   {(sfVector2i) {411, 438}, BT_ON_D},
@@ -25,7 +24,8 @@ int	my_check_exit(sfVector2i mouse_pos)
   return (NORMAL);
 }
 
-int	my_config(sfRenderWindow *window, int index, t_menu **menu, t_game *game)
+int	my_config(sfRenderWindow *window, int index,
+		  t_menu **menu, t_game *game)
 {
   sfVector2i	x_b;
   int		i;

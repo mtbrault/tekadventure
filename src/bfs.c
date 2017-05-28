@@ -5,8 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat May  6 21:18:46 2017 Capitaine CASSE
-** Last update Sun May 28 11:40:13 2017 Capitaine CASSE
-** Last update Sun May 28 11:20:59 2017 Matthieu BRAULT
+** Last update Sun May 28 11:54:55 2017 Capitaine CASSE
 */
 
 #include <SFML/Graphics.h>
@@ -60,7 +59,8 @@ static t_list	*add2list(int x, int y, t_list *old, t_list *past)
   return (list);
 }
 
-static char	find_next(t_list **list, int **map, sfVector2i dest, t_list *pos)
+static char	find_next(t_list **list, int **map,
+			  sfVector2i dest, t_list *pos)
 {
   int		i;
 
@@ -68,9 +68,11 @@ static char	find_next(t_list **list, int **map, sfVector2i dest, t_list *pos)
   while (i < 4)
     {
       if (map[pos->y + tablist[i].y][pos->x + tablist[i].x] > 0 &&
-	  map[pos->y + tablist[i].y][pos->x + tablist[i].x] > map[pos->y][pos->x] + 1)
+	  map[pos->y + tablist[i].y][pos->x + tablist[i].x] >
+	  map[pos->y][pos->x] + 1)
 	{
-	  *list = add2list(pos->x + tablist[i].x, pos->y + tablist[i].y, *list, pos);
+	  *list = add2list(pos->x + tablist[i].x,
+			   pos->y + tablist[i].y, *list, pos);
 	  map[pos->y + tablist[i].y][pos->x + tablist[i].x] =
 	    map[pos->y][pos->x] + 1;
 	  if ((*list)->x == dest.x && (*list)->y == dest.y)
@@ -79,6 +81,19 @@ static char	find_next(t_list **list, int **map, sfVector2i dest, t_list *pos)
       i += 1;
     }
   remove_list(list, pos);
+  return (0);
+}
+
+static int	free_list(t_list *list)
+{
+  t_list	*pars;
+
+  while (list != NULL)
+    {
+      pars = list;
+      list = list->next;
+      free(pars);
+    }
   return (0);
 }
 
@@ -105,11 +120,6 @@ sfVector2i	bfs_find(int **map, sfVector2i pos, sfVector2i dest)
   if (list == NULL)
     return ((sfVector2i) {-1, -1});
   final = (sfVector2i) {list->links->x - 1, list->links->y - 1};
-  /* while (list != NULL) */
-  /*   { */
-  /*     pars = list; */
-  /*     list = list->next; */
-  /*     free(pars); */
-  /*   } */
+  free_list(list);
   return (final);
 }
