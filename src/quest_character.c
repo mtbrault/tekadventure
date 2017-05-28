@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat May 27 03:23:28 2017 LAABID Zakaria
-** Last update Sun May 28 12:10:01 2017 Matthieu BRAULT
+** Last update Sun May 28 16:26:05 2017 Capitaine CASSE
 */
 
 #include "config.h"
@@ -30,7 +30,6 @@ int	set_quest_disp(sfRenderWindow *window, t_event *event)
   sfSprite	*sprite;
   sfVector2u	size;
 
-  event->quest_sprite = NULL;
   if ((tex = sfTexture_createFromFile(event->quest_pic, NULL)) == NULL)
     return (1);
   if ((sprite = sfSprite_create()) == NULL)
@@ -48,10 +47,19 @@ int	set_quest_disp(sfRenderWindow *window, t_event *event)
 int		quest_manager(t_game *game)
 {
   t_event	**event;
+  int		i;
 
+  i = 0;
   event = game->level->event;
   if (event == NULL)
     return (1);
   set_font(game);
+  while (event[i] != NULL)
+    {
+      event[i]->actions = 0;
+      event[i]->stop[0] = 0;
+      event[i]->stop[1] = 0;
+      i += 1;
+    }
   return (0);
 }

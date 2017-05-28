@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Wed May  3 16:03:43 2017 Matthieu BRAULT
-** Last update Sun May 28 11:40:03 2017 Capitaine CASSE
+** Last update Sun May 28 13:28:59 2017 Capitaine CASSE
 */
 
 #include <math.h>
@@ -25,7 +25,7 @@ int	my_move(sfRenderWindow *window, t_game *game, t_player *player)
   pos.x += (float)(player->s * vector.x);
   pos.y += (float)(player->s * vector.y);
   player->s += 1;
-  if (!(player->s % 15))
+  if (!(player->s % 10))
     player->sprt += 1;
   if (player->sprt > 5)
     player->sprt = 0;

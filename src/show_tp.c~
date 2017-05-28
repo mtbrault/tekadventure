@@ -1,0 +1,11 @@
+/*
+** show_tp.c for tekadventure in /home/antoine.casse/Desktop/tekadventure
+** 
+** Made by Capitaine CASSE
+** Login   <antoine.casse@epitech.net>
+** 
+** Started on  Sun May 28 16:52:44 2017 Capitaine CASSE
+** Last update Sun May 28 16:52:48 2017 Capitaine CASSE
+*/
+
+#include "tekadv.h"

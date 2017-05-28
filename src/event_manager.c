@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat May 27 12:39:42 2017 Capitaine CASSE
-** Last update Sun May 28 12:08:50 2017 Matthieu BRAULT
+** Last update Sun May 28 16:25:44 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -13,16 +13,14 @@
 #include <fcntl.h>
 #include "tekadv.h"
 
-static char	*get_dialog(char *file, int *status)
+static char	*get_dialog(char *file, int i)
 {
-  int		i;
   int		fd;
   char		*tmp;
   char		*str;
 
   if ((fd = open(file, O_RDONLY)) < 0)
     return (NULL);
-  i = *status;
   while ((str = get_next_line(fd)) != NULL && --i > 0)
     free(str);
   if (str != NULL)
@@ -34,15 +32,15 @@ static char	*get_dialog(char *file, int *status)
   return (str);
 }
 
-static int	show_dialog(sfRenderWindow *window,
+static int	show_dialog(sfRenderWindow *window, t_event *event,
 			    char *dialogfile, t_game *game)
 {
-  sfText        *text;
+  sfText	*text;
   char		*dialog;
 
-  if ((dialog = get_dialog(dialogfile, &(game->actions))) == NULL)
+  if ((dialog = get_dialog(dialogfile, event->actions)) == NULL)
     {
-      game->actions = 0;
+      event->actions = 0;
       return (0);
     }
   if ((text = sfText_create()) == NULL)
@@ -86,47 +84,44 @@ static int	set_character(t_game *game, t_event *event,
   return (0);
 }
 
-static int	show_sprite(sfRenderWindow *window, t_game *game)
-{
-  int		i;
-  t_event	**event;
-
-  i = 0;
-  event = game->level->event;
-  while (event[i] != NULL)
-    {
-      set_character(game, event[i], window);
-      i += 1;
-    }
-  return (0);
-}
-
-int		show_events(sfRenderWindow *window, t_game *game,
-			    t_event **event)
+static int	show_quest(t_event *event, t_game *game, sfRenderWindow *window)
 {
   sfVector2i	pos;
 
-  show_sprite(window, game);
-  if (!(game->stop[0]) && sfMouse_isButtonPressed(sfMouseRight))
+  if (!(event->stop[0]) && sfMouse_isButtonPressed(sfMouseLeft))
+     {
+       pos = raw_click(game, window);
+       event->stop[0] = 1;
+       if (pos.x == event->coords[0] && pos.y == event->coords[1])
+         event->actions += 1;
+     }
+   else if (!sfMouse_isButtonPressed(sfMouseLeft))
+     event->stop[0] = 0;
+   if (event->actions && sfKeyboard_isKeyPressed(sfKeySpace) && !(event->stop[1]))
+     {
+       event->stop[1] = 1;
+       event->actions += 1;
+     }
+   else if (!sfKeyboard_isKeyPressed(sfKeySpace))
+     event->stop[1] = 0;
+   if (event->actions)
+     {
+       set_quest_disp(window, event);
+       show_dialog(window, event, event->dialog, game);
+     }
+   return (0);
+}
+
+int		show_events(sfRenderWindow *window, t_game *game, t_event **event)
+{
+  int		i;
+
+  i = 0;
+  while (event[i] != NULL)
     {
-      pos = raw_click(game, window);
-      game->stop[0] = 1;
-      if (pos.x == (event[0])->coords[0] && pos.y == (event[0])->coords[1])
-	game->actions += 1;
-    }
-  else if (!sfMouse_isButtonPressed(sfMouseRight))
-    game->stop[0] = 0;
-  if (game->actions && sfKeyboard_isKeyPressed(sfKeySpace) && !(game->stop[1]))
-    {
-      game->stop[1] = 1;
-      game->actions += 1;
-    }
-  else if (!sfKeyboard_isKeyPressed(sfKeySpace))
-    game->stop[1] = 0;
-  if (game->actions)
-    {
-      set_quest_disp(window, event[0]);
-      show_dialog(window, event[0]->dialog, game);
+      set_character(game, event[i], window);
+      show_quest(event[i], game, window);
+      i += 1;
     }
   return (0);
 }

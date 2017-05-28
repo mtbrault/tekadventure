@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun May 28 13:32:45 2017 Matthieu BRAULT
+** Last update Sun May 28 16:50:08 2017 Capitaine CASSE
 */
 
 #ifndef TEKADV_H
@@ -271,7 +271,7 @@ int			set_quest_disp(sfRenderWindow *, t_event *);
 */
 sfVector2i		resize_tile(sfVector2i, sfSprite *);
 sfVector2i		get_dim(int **);
-int			draw_grid(int **, sfVector2i *, sfRenderWindow *, sfSprite **);
+int			draw_grid(int **, sfVector2i *, sfRenderWindow *, sfSprite *);
 int			config_map(sfRenderWindow *, t_game *, int);
 /*
 ** ***************************************************

@@ -1,11 +1,11 @@
 /*
-1;4402;0c** config.h for  in /home/BlackBIrdz/config
+** config.h for  in /home/BlackBIrdz/config
 ** 
 ** Made by LAABID Zakaria
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Sun May 28 16:52:52 2017 LAABID Zakaria
+** Last update Sun May 28 17:00:39 2017 Capitaine CASSE
 */
 
 #ifndef CONFIG_H_
@@ -142,13 +142,13 @@ typedef struct	s_event
 {
   char		*name;
   char		*texture;
-  sfSprite	*sprite;
   int		pnj;
+  char		active;
   char		*dialog;
   char		*quest_pic;
-  sfSprite	*quest_sprite;
+  int		stop[2];
   int		coords[2];
-  int		active;
+  int		actions;
 }		t_event;
 
 typedef struct	s_level

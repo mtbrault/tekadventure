@@ -1,17 +1,17 @@
 /*
-** astar.c for Dante in /home/antoine.casse/Desktop/dante/astar
+** bfs.c for Dante in /home/antoine.casse/Desktop/dante/bfs
 ** 
 ** Made by Capitaine CASSE
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Mon Apr 17 12:00:11 2017 Capitaine CASSE
-** Last update Sun May 28 12:09:43 2017 Matthieu BRAULT
+** Last update Sun May 28 14:00:54 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include <SFML/Graphics.h>
-#include <tekadv.h>
+#include "tekadv.h"
 
 static int	*fill_line(int c, int max)
 {
@@ -80,6 +80,5 @@ sfVector2i 	my_bfs(sfVector2i origin, sfVector2i dest,
   origin = (sfVector2i) {origin.x + 1, origin.y + 1};
   dest = (sfVector2i) {dest.x + 1, dest.y + 1};
   final = bfs_find(path, dest, origin);
-  //  free_map(path);
   return (final);
 }

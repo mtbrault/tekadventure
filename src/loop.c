@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sun May 28 13:13:53 2017 Matthieu BRAULT
+** Last update Sun May 28 13:30:34 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -87,13 +87,13 @@ static void		loop(t_player *player, sfRenderWindow *window,
 	      (sfKeyboard_isKeyPressed(sfKeyEscape)))
 	    sfRenderWindow_close(window);
 	}
-      if (sfTime_asSeconds(sfClock_getElapsedTime(clock)) > 0.013f)
+      if (sfTime_asSeconds(sfClock_getElapsedTime(clock)) > 0.016f)
 	if (draw_game(player, window, game, clock))
 	  break ;
       if (game->idx == 2)
 	break ;
     }
-  //  sfMusic_stop()
+  /* sfMusic_stop(); */
   sfClock_destroy(clock);
 }
 
@@ -113,16 +113,14 @@ static char	display_window(sfRenderWindow *window, t_menu **menu,
 	  if ((event.type == sfEvtClosed) ||
 	      (sfKeyboard_isKeyPressed(sfKeyEscape)))
 	    sfRenderWindow_close(window);
-	  index = mouse_func(window, index, game, menu);
-	  if (index == -1)
-	    return (1);
 	}
+      index = mouse_func(window, index, game, menu);
+      if (index == -1)
+	return (1);
       if (index == 2)
 	{
 	  loop(player, window, game);
 	  index = 0;
-	  if ((game->menu = disp_startmenu()) == NULL)
-	    return (1);
 	}
       sfRenderWindow_clear(window, sfWhite);
       sprite_change(window, index, menu);
