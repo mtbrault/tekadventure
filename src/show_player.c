@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Fri May 26 22:51:43 2017 Capitaine CASSE
-** Last update Sat May 27 13:31:47 2017 Capitaine CASSE
+** Last update Sun May 28 02:57:11 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -57,11 +57,38 @@ static int	new_next(t_game *game, t_player *player)
   return (0);
 }
 
+static int	check_click_in_map(sfRenderWindow *window, t_game *game)
+{
+  sfVector2i	mouse_pos;
+  int		**map;
+  int		i;
+
+  mouse_pos = raw_click(game, window);
+  map = game->level->map->content;
+  if (mouse_pos.x < 0 || mouse_pos.y < 0)
+    return (1);
+  i = 0;
+  while (map[0][i] != EOB)
+    i = i + 1;
+  if (i < mouse_pos.x || map[mouse_pos.y][mouse_pos.x] == 0)
+    return (1);
+  i = 0;
+  while (map[i] != NULL)
+    i = i + 1;
+  if (i < mouse_pos.y)
+    return (1);
+  return (0);
+}
+
 int		show_player(sfRenderWindow *window,
 			    t_player *player, t_game *game)
 {
-  if (sfMouse_isButtonPressed(sfMouseLeft))
-    new_dest(window, player, game);
+  if (sfMouse_isButtonPressed(sfMouseLeft) &&
+      check_click_in_map(window, game) == 0)
+    {
+      my_putstr("coucou");
+      new_dest(window, player, game);
+    }
   else if (player->dest.x == -1 && player->dest.y == -1)
     player_static(window, player, game);
   else if (!my_move(window, game, player))
