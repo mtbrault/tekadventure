@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun May 28 11:22:45 2017 Capitaine CASSE
+** Last update Sun May 28 11:29:03 2017 Capitaine CASSE
 */
 
 #ifndef TEKADV_H
@@ -306,7 +306,7 @@ sfVector2i		raw_click(t_game *, sfRenderWindow *);
 t_game			*config_fill(char **);
 int			check_pos(t_player *, t_game *);
 int			print_bg(t_game *);
-void			display_window(sfRenderWindow *, t_menu **, t_player *, t_game *);
+//void			display_window(sfRenderWindow *, t_menu **, t_player *, t_game *);
 
 /*
 ** ***************************************************

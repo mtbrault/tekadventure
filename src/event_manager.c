@@ -1,11 +1,12 @@
 /*
-1;4402;0c** event_manager.c for tekadventure in /home/antoine.casse/Desktop/tekadventure
+** event_manager.c for tekadventure in /home/antoine.casse/Desktop/tekadventure
 ** 
 ** Made by Capitaine CASSE
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat May 27 12:39:42 2017 Capitaine CASSE
-** Last update Sun May 28 11:09:22 2017 Capitaine CASSE
+** Last update Sun May 28 11:40:38 2017 Capitaine CASSE
+** Last update Sun May 28 11:22:16 2017 Matthieu BRAULT
 */
 
 #include <stdlib.h>
@@ -34,7 +35,8 @@ static char	*get_dialog(char *file, int *status)
   return (str);
 }
 
-static int      show_dialog(sfRenderWindow *window, char *dialogfile, t_game *game)
+static int	show_dialog(sfRenderWindow *window,
+			    char *dialogfile, t_game *game)
 {
   sfText        *text;
   sfFont        *font;
@@ -58,7 +60,8 @@ static int      show_dialog(sfRenderWindow *window, char *dialogfile, t_game *ga
   return (0);
 }
 
-static int      set_character(t_game *game, t_event *event, sfRenderWindow *window)
+static int	set_character(t_game *game, t_event *event,
+			      sfRenderWindow *window)
 {
   sfTexture     *tex;
   sfVector2f    mult_size;

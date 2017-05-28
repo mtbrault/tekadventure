@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon Apr 24 03:33:03 2017 LAABID Zakaria
-** Last update Sun May 28 10:51:05 2017 Matthieu BRAULT
+** Last update Sun May 28 11:23:35 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -49,7 +49,7 @@ static void	hover_config3(sfRenderWindow *window, sfVector2i mouse,
   hover_config4(window, mouse, menu, x_b);
 }
 
-static void	hover_config_second(sfRenderWindow *window, sfVector2i mouse,
+void		hover_config_second(sfRenderWindow *window, sfVector2i mouse,
 					    t_menu **menu)
 {
   sfVector2i	x_b;
@@ -70,22 +70,6 @@ static void	hover_config_second(sfRenderWindow *window, sfVector2i mouse,
 	sfRenderWindow_drawSprite(window, menu[BT_OF_V]->sprite, NULL);
     }
   hover_config3(window, mouse, menu, x_b);
-}
-
-void		hover_config(sfRenderWindow *window, sfVector2i mouse,
-			     t_menu **menu)
-{
-  hover_config_second(window, mouse, menu);
-  if (check_class_pos(((sfVector2i) {597, 700})
-		      , ((sfVector2i) {536, 560}), mouse) == 1)
-    sfRenderWindow_drawSprite(window, menu[BT_SAVE]->sprite_h, NULL);
-  else
-    sfRenderWindow_drawSprite(window, menu[BT_SAVE]->sprite, NULL);
-  if (check_class_pos(((sfVector2i) {270, 475}),
-		      ((sfVector2i) {180, 210}), mouse) == 1)
-    sfRenderWindow_drawSprite(window, menu[BT_BACK]->sprite_h, NULL);
-  else
-    sfRenderWindow_drawSprite(window, menu[BT_BACK]->sprite, NULL);
 }
 
 static void		hover_play_second(sfRenderWindow *window,

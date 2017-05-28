@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sun May 28 11:23:16 2017 Capitaine CASSE
+** Last update Sun May 28 11:39:42 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -39,32 +39,32 @@ int	load_screen(sfRenderWindow *window, t_menu **menu)
   return (1);
 }
 
-static int		draw_game(t_player *player, sfRenderWindow *window, t_game *game,
-				  sfClock *clock)
+static int		draw_game(t_player *player, sfRenderWindow *window,
+				  t_game *game, sfClock *clock)
 {
   sfRenderWindow_clear(window, sfWhite);
   sfClock_restart(clock);
-  /* if (game->m == 0) */
-  /*    game->m = load_screen(window, game->menu); */
-  /* sfMusic_stop(game->menu[0]->music); */
+  if (game->m == 0)
+     game->m = load_screen(window, game->menu);
+  sfMusic_stop(game->menu[0]->music);
   if (game->bg != NULL)
     sfRenderWindow_drawSprite(window, game->bg, NULL);
   if (game->idx == 1)
-    show_grid(window, game);
+    show_grid(window, game, game ->level->content);
   show_player(window, player, game);
   hud_placing(window, game);
   game->idx = check_hud_click(window, game->idx);
   if (game->idx == 2 || game->idx == 0)
     return (1);
   decor_manager(window, game);
-  show_events(window, game);
+  show_events(window, game, game->event, 0);
   if (game->m == 0)
     game->m = sound_manager(game);
   sfRenderWindow_display(window);
   return (0);
 }
 
-static void		loop2(t_player *player, sfRenderWindow *window,
+static void		loop(t_player *player, sfRenderWindow *window,
 			      t_game *game)
 {
   sfEvent		event;
@@ -74,8 +74,6 @@ static void		loop2(t_player *player, sfRenderWindow *window,
   player->pos = (sfVector2i) {game->level->map->map_player[0],
 			      game->level->map->map_player[1]};
   player->dest = (sfVector2i) {-1, -1};
-  game->menu = 0;
-  game->idx = 1;
   clock = sfClock_create();
   while (sfRenderWindow_isOpen(window))
     {
@@ -88,14 +86,14 @@ static void		loop2(t_player *player, sfRenderWindow *window,
       if (sfTime_asSeconds(sfClock_getElapsedTime(clock)) > 0.013f)
 	if (draw_game(player, window, game, clock))
 	  break ;
+      if (game->idx == 2)
+	break ;
     }
   //  sfMusic_stop()
-  if (game->idx == 2)
-    display_window(window, game->menu, game->player, game);
   sfClock_destroy(clock);
 }
 
-void		display_window(sfRenderWindow *window, t_menu **menu,
+static char	display_window(sfRenderWindow *window, t_menu **menu,
 		       t_player *player, t_game *game)
 {
   int		index;
@@ -113,15 +111,20 @@ void		display_window(sfRenderWindow *window, t_menu **menu,
 	    sfRenderWindow_close(window);
 	  index = mouse_func(window, index, game, menu);
 	  if (index == -1)
-	    return ;
+	    return (1);
 	}
       if (index == 2)
-        break ;
+	{
+	  loop(player, window, game);
+	  index = 0;
+	  if ((game->menu = disp_startmenu()) == NULL)
+	    return (1);
+	}
       sfRenderWindow_clear(window, sfWhite);
       sprite_change(window, index, menu);
       sfRenderWindow_display(window);
     }
-  loop2(player, window, game);
+  return (0);
 }
 
 int			start_menu(t_game *game, t_player *player)
@@ -136,6 +139,8 @@ int			start_menu(t_game *game, t_player *player)
   game->stop[0] = 0;
   game->stop[1] = 0;
   game->actions = 0;
+  game->idx = 1;
+  game->m = 0;
   print_bg(game);
   quest_manager(game);
   if ((menu = disp_startmenu()) == NULL)
