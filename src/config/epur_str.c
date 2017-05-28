@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon May 22 17:08:11 2017 LAABID Zakaria
-** Last update Sun May 28 12:33:49 2017 Capitaine CASSE
+** Last update Sun May 28 13:18:23 2017 Matthieu BRAULT
 */
 
 #include <stdio.h>
@@ -70,7 +70,6 @@ char		*epur_str(char *str)
 {
   char		*res;
   int		nb;
-  char		stop;
 
   if (str == NULL)
     return (NULL);

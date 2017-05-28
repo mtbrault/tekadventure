@@ -5,23 +5,22 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Thu May 25 15:43:49 2017 Capitaine CASSE
-** Last update Sun May 28 11:51:06 2017 Capitaine CASSE
+** Last update Sun May 28 13:07:34 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
 #include "tekadv.h"
 
-int	check_hud_click(sfRenderWindow *window, int i)
+int	check_hud_click(sfRenderWindow *window, int i, t_game *game)
 {
   sfVector2i	mouse;
   sfVector2i	y;
-  static int	s;
 
-  if (s == 0)
+  if (game->s == 0)
     {
       if (sfMouse_isButtonPressed(sfMouseLeft))
 	{
-	  s = 1;
+	  game->s = 1;
 	  mouse = get_mouse_pos(window);
 	  y = ((sfVector2i) {590, 654});
 	  if (check_class_pos(((sfVector2i) {1184, 1260}), y, mouse) == 1)
@@ -33,7 +32,7 @@ int	check_hud_click(sfRenderWindow *window, int i)
 	}
     }
   else if (!sfMouse_isButtonPressed(sfMouseLeft))
-    s = 0;
+    game->s = 0;
   return (i);
 }
 

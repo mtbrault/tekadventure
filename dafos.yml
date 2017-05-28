@@ -41,3 +41,43 @@ CONF-LEVEL-1:
         pnj: 1
         dialog: "ressources/dialog/avalon.txt"
         quest-pic: "ressources/quest/quest_pic/quest_debut.png"
+CONF-LEVEL-2:
+    map-content:
+    00000011111111100
+    00000011111111100
+    00000011111111100
+    00000001111111000
+    00000001111111000
+    00000001111111000
+    00000001111111000
+    00001111111111111
+    00001111111111111
+    00001111111111111
+    00001111111111111
+    00001111111111111
+    00000011111111111
+    00000001111111111
+    00000001111111110
+    00000001111111100
+    map:
+	map-name: "LEVEL-2"
+	map-debug: 0
+        map-bg: "ressources/backgrounds/corridor.png"
+        map-music: "ressources/music/dofas_debut.ogg"
+	map-decor: "ressources/decor/map/decor_map01.png"
+	map-player: 8,15
+	coords: 9,9
+    teleporter:
+     teleporter-nb: 1
+    	tp-1:
+      	coords: 7,5
+      	tp-name: "tp1-LEVEL-2"
+    event:
+      event-nb: 1
+      items-1:
+      	name: "Avalon"
+        texture: "ressources/quest/character/avalon.png"
+        coords: 4,9
+        pnj: 1
+        dialog: "ressources/dialog/avalon.txt"
+        quest-pic: "ressources/quest/quest_pic/quest_debut.png"

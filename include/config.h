@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Sun May 28 12:44:58 2017 Capitaine CASSE
+** Last update Sun May 28 13:03:23 2017 Matthieu BRAULT
 */
 
 #ifndef CONFIG_H_

@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun May 28 12:09:11 2017 Matthieu BRAULT
+** Last update Sun May 28 13:13:40 2017 Matthieu BRAULT
 */
 
 #ifndef TEKADV_H
@@ -211,6 +211,7 @@ typedef struct          s_game
   int			actions;
   char			stop[2];
   int			m;
+  int			s;
   t_menu		**menu;
   int			idx;
   sfFont		*font;
@@ -260,7 +261,7 @@ int			show_player(sfRenderWindow *, t_player *, t_game *);
 int			sound_manager(t_game *);
 int			show_events(sfRenderWindow *, t_game *, t_event **);
 int			decor_manager(sfRenderWindow *, t_game *);
-int			check_hud_click(sfRenderWindow *, int);
+int			check_hud_click(sfRenderWindow *, int, t_game *);
 int			set_quest_disp(sfRenderWindow *, t_event *);
 
 /*

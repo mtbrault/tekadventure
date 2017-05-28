@@ -5,12 +5,12 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu May 25 17:33:43 2017 Matthieu BRAULT
-** Last update Sun May 28 11:56:25 2017 Matthieu BRAULT
+** Last update Sun May 28 13:14:53 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
 
-static void		my_modif_map(int **map,
+static int		my_modif_map(int **map,
 			     sfRenderWindow *window, t_game *game)
 {
   sfVector2i		pos;
@@ -21,16 +21,17 @@ static void		my_modif_map(int **map,
   while (map[0][i] != EOB)
     i = i + 1;
   if (i <= pos.x || pos.x < 0)
-    return ;
+    return (1);
   i = 0;
   while (map[i] != NULL)
     i = i + 1;
   if (i <= pos.y || pos.y < 0)
-    return ;
+    return (1);
   if (map[pos.y][pos.x] == 0)
     map[pos.y][pos.x] = 1;
   else
     map[pos.y][pos.x] = 0;
+  return (1);
 }
 
 static int		check_button(int s, int nb_map, t_game *game)
@@ -47,41 +48,38 @@ static int		check_button(int s, int nb_map, t_game *game)
   return (s);
 }
 
-int		config_map(sfRenderWindow *window, t_game *game, int nb_map)
+void	config_map2(sfRenderWindow *window, t_game *game, int **map)
 {
-  int		**map;
-  int		i;
-  int		s;
-  int		x;
+  if (game->bg != NULL)
+    sfRenderWindow_drawSprite(window, game->bg, NULL);
+  show_grid(window, game, map);
+  sfRenderWindow_display(window);
+}
+
+int	config_map(sfRenderWindow *window, t_game *game, int nb_map)
+{
+  int	**map;
+  int	i;
+  int	s;
 
   s = 0;
   i = 0;
-  x = 0;
   while (!sfKeyboard_isKeyPressed(sfKeyReturn))
     {
       map = game->level->map->content;
       sfRenderWindow_clear(window, sfWhite);
-      if (x == 0)
+      if (i == 0)
 	{
 	  s = check_button(s, nb_map, game);
-	  x = 1;
-	}
-      if (sfMouse_isButtonPressed(sfMouseLeft) && i == 0)
-	{
-	  my_modif_map(map, window, game);
 	  i = 1;
 	}
-      if (!sfMouse_isButtonPressed(sfMouseLeft)
-	  && !sfKeyboard_isKeyPressed(sfKeyLeft)
-	  && !sfKeyboard_isKeyPressed(sfKeyRight))
-	{
-	  i = 0;
-	  x = 0;
-	}
-      if (game->bg != NULL)
-	sfRenderWindow_drawSprite(window, game->bg, NULL);
-      show_grid(window, game, map);
-      sfRenderWindow_display(window);
+      if (sfMouse_isButtonPressed(sfMouseLeft) && i == 0)
+	i = my_modif_map(map, window, game);
+      if (!(sfMouse_isButtonPressed(sfMouseLeft) &&
+	    sfKeyboard_isKeyPressed(sfKeyLeft)
+	    && sfKeyboard_isKeyPressed(sfKeyRight)))
+	i = 0;
+      config_map2(window, game, map);
     }
   return (0);
 }
