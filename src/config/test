@@ -1,8 +1,0 @@
-START: items-1, I: 43
------ DEBUG - EVENT CONFIG -----
-name: COnfLevel1 de pd
-texture: src/texture/items
-coords-x: 9
-coords-y: 2
------ END - EVENT CONFIG -----
------ DEBUG - EVENT CONFIG -----

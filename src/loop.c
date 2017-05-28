@@ -1,11 +1,11 @@
 /*
-1;4402;0c** loop.c for Tekadventure in /home/antoine.casse/Desktop/tekadventure
+** loop.c for Tekadventure in /home/antoine.casse/Desktop/tekadventure
 ** 
 ** Made by Capitaine CASSE
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sun May 28 20:01:13 2017 Capitaine CASSE
+** Last update Sun May 28 23:25:36 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -72,7 +72,7 @@ static int		draw_game(t_player *player, sfRenderWindow *window,
   return (0);
 }
 
-static void		loop(t_player *player, sfRenderWindow *window,
+static int		loop(t_player *player, sfRenderWindow *window,
 			      t_game *game)
 {
   sfEvent		event;
@@ -99,6 +99,7 @@ static void		loop(t_player *player, sfRenderWindow *window,
 	break ;
     }
   sfClock_destroy(clock);
+  return (0);
 }
 
 static char	display_window(sfRenderWindow *window, t_menu **menu,
@@ -122,10 +123,7 @@ static char	display_window(sfRenderWindow *window, t_menu **menu,
       if (index == -1)
 	return (1);
       if (index == 2)
-	{
-	  loop(player, window, game);
-	  index = 0;
-	}
+	index = loop(player, window, game);
       sfRenderWindow_clear(window, sfWhite);
       sprite_change(window, index, menu);
       sfRenderWindow_display(window);

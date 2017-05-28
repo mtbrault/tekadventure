@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Wed May  3 16:03:43 2017 Matthieu BRAULT
-** Last update Sun May 28 13:28:59 2017 Capitaine CASSE
+** Last update Sun May 28 23:26:15 2017 Matthieu BRAULT
 */
 
 #include <math.h>
