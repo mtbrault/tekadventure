@@ -5,7 +5,7 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Sun May 28 15:30:36 2017 LAABID Zakaria
+## Last update Sun May 28 16:02:46 2017 LAABID Zakaria
 
 CC	=	gcc -g3
 
@@ -54,7 +54,8 @@ SRC	=	src/main.c				\
 		src/decor_manager.c			\
 		src/config/conf_lexing.c		\
 		src/config/conf_isempty.c		\
-		src/config/conf_map_verif.c
+		src/config/conf_map_verif.c		\
+		src/config/conf_teleporter_verif.c
 
 OBJ	=	$(SRC:.c=.o)
 

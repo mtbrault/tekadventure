@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Sun May 28 15:30:23 2017 LAABID Zakaria
+** Last update Sun May 28 16:52:52 2017 LAABID Zakaria
 */
 
 #ifndef CONFIG_H_
@@ -92,6 +92,12 @@
 # define ERR_DECOR_PATH "Error: decor bad path detected\n"
 # define ERR_BG_PATH	"Error: background bad path detected\n"
 # define ERR_MUSIC_PATH	"Error: music bad path detected\n"
+
+# define ERR_TELEP_LOAD	"\nError: no load defined for the teleportation\n"
+# define ERR_TELEP_NB	"Error: At the teleporter number : "
+# define ERR_TELEP_NEG	"\nError: coords to a teleporter can't be negative\n"
+# define ERR_TELEP_NAME	"\nError: bad name for this teleporter\n"
+# define ERR_TELEP_MAP	"\nMAP NUMBER : "
 
 typedef struct	s_line
 {

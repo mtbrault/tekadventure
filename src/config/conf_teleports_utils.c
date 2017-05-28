@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon May  8 00:40:07 2017 LAABID Zakaria
-** Last update Sun May 28 14:56:51 2017 LAABID Zakaria
+** Last update Sun May 28 16:20:43 2017 LAABID Zakaria
 */
 
 #include <stdlib.h>
@@ -55,7 +55,9 @@ static void	config_telep_one(t_level **level, char **conf, int x, int y)
 	  while (conf[i] != NULL)
 	    {
 	      if (my_strncmp(TELEP_NAME, conf[i], L_TPNAME) == 0)
-		level[y]->tp[x - 1]->next_map = unquote(conf[i] + L_TPNAME + 2);
+		{
+		  level[y]->tp[x - 1]->next_map = unquote(conf[i] + L_TPNAME + 2);
+		}
 	      if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
 		break;
 	      else if ((my_strncmp(MOBS, conf[i], L_MOB)) == 0 ||

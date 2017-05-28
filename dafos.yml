@@ -24,14 +24,13 @@ CONF-LEVEL-1:
 	map-debug: 0
         map-bg: "ressources/backgrounds/mapstart2.png"
         map-music: "ressources/music/dofas_debut.ogg"
-	map-decor: "src/"
+	map-decor: "ressources/backgrounds/corridor.png"
 	map-player: 8,15
-	coords: 9,9
     teleporter:
      teleporter-nb: 1
     	tp-1:
       	coords: 7,5
-      	tp-name: "tp1-LEVEL-2"
+      	tp-name: "tp1-level-4"
     event:
       event-nb: 1
       items-1:
@@ -63,12 +62,13 @@ CONF-LEVEL-2:
         map-bg: "ressources/backgrounds/corridor.png"
         map-music: "ressources/music/dofas_spawn.ogg"
 	map-player: 7,12
-	map-decor: "src/"
+	map-decor: "ressources/backgrounds/corridor.png"
     teleporter:
      teleporter-nb: 1
     	tp-1:
       	coords:  5,5
-      	tp-name: "tp1-LEVEL-1"
+      	tp-name: "tp1-level-4"
+        tp-load: 1
     event:
      event-nb: 1
      items-1:
@@ -91,6 +91,6 @@ CONF-LEVEL-3:
       map-debug: 0
       map-bg: "ressources/backgrounds/map.png"
       map-player: 0,0
-      map-decor: "src/d"
-      map-music: "src/"
+      map-decor: "ressources/backgrounds/corridor.png"
+    map-music: "ressources/music/dofas_spawn.ogg"
    teleporter:
