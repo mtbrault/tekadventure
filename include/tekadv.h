@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sat May 27 20:12:49 2017 LAABID Zakaria
+** Last update Sun May 28 10:53:27 2017 Matthieu BRAULT
 */
 
 #ifndef TEKADV_H
@@ -260,6 +260,7 @@ int			show_player(sfRenderWindow *, t_player *, t_game *);
 int			sound_manager(t_game *);
 int			show_events(sfRenderWindow *, t_game *);
 int			decor_manager(sfRenderWindow *, t_game *);
+int			check_hud_click(sfRenderWindow *, int);
 
 /*
 ** ***************************************************
@@ -305,6 +306,7 @@ sfVector2i		raw_click(t_game *, sfRenderWindow *);
 t_game			*config_fill(char **);
 int			check_pos(t_player *, t_game *);
 int			print_bg(t_game *);
+void			display_window(sfRenderWindow *, t_menu **, t_player *, t_game *);
 
 /*
 ** ***************************************************
