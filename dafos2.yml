@@ -90,8 +90,8 @@ CONF-LEVEL-2:
 	tp-load: 0
       event:
 	event-nb: 1
-	items-1
-	name "Eythan"
+	items-1:
+	name: "Eythan"
 	texture: "ressources/quest/character/eythan_lavare.png"
 	coords: 6,3
 	pnj: 1
