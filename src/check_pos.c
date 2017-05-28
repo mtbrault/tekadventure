@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Thu May 25 15:43:49 2017 Capitaine CASSE
-** Last update Sat May 27 18:38:05 2017 Matthieu BRAULT
+** Last update Sun May 28 02:28:22 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -37,18 +37,25 @@ int	check_hud_click(sfRenderWindow *window, int i)
 {
   sfVector2i	mouse;
   sfVector2i	y;
+  static int	s;
 
-  if (sfMouse_isButtonPressed(sfMouseLeft))
+  if (s == 0)
     {
-      mouse = get_mouse_pos(window);
-      y = ((sfVector2i) {590, 654});
-      if (check_class_pos(((sfVector2i) {1184, 1260}), y, mouse) == 1)
-	return (0);
-      else if (check_class_pos(((sfVector2i) {1092, 1162}), y, mouse) == 1)
-	return (-i);
-      else if (check_class_pos(((sfVector2i) {997, 1070}), y, mouse) == 1)
-	return (2);
+      if (sfMouse_isButtonPressed(sfMouseLeft))
+	{
+	  s = 1;
+	  mouse = get_mouse_pos(window);
+	  y = ((sfVector2i) {590, 654});
+	  if (check_class_pos(((sfVector2i) {1184, 1260}), y, mouse) == 1)
+	    return (0);
+	  else if (check_class_pos(((sfVector2i) {1092, 1162}), y, mouse) == 1)
+	    return (-i);
+	  else if (check_class_pos(((sfVector2i) {997, 1070}), y, mouse) == 1)
+	    return (2);
+	}
     }
+  else if (!sfMouse_isButtonPressed(sfMouseLeft))
+    s = 0;
   return (i);
 }
 
