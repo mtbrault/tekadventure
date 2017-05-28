@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu May 25 17:33:43 2017 Matthieu BRAULT
-** Last update Sun May 28 20:10:07 2017 Matthieu BRAULT
+** Last update Sun May 28 21:43:02 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -37,6 +37,7 @@ static int		my_modif_map(int **map,
 int	config_map(sfRenderWindow *window, t_game *game, int **map)
 {
   int	i;
+  int	j;
 
   i = 0;
   while (!sfKeyboard_isKeyPressed(sfKeyReturn))
@@ -51,6 +52,18 @@ int	config_map(sfRenderWindow *window, t_game *game, int **map)
 	sfRenderWindow_drawSprite(window, game->bg, NULL);
       show_grid(window, game, map);
       sfRenderWindow_display(window);
+    }
+  i = 0;
+  while (map[i] != NULL)
+    {
+      j = 0;
+      while (map[i][j] != EOB)
+	{
+	  printf("%d", map[i][j]);
+	  j = j + 1;
+	}
+      printf("\n");
+      i = i + 1;
     }
   return (0);
 }
