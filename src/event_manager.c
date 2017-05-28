@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat May 27 12:39:42 2017 Capitaine CASSE
-** Last update Sun May 28 11:48:04 2017 Capitaine CASSE
+** Last update Sun May 28 12:08:50 2017 Matthieu BRAULT
 */
 
 #include <stdlib.h>
@@ -38,7 +38,6 @@ static int	show_dialog(sfRenderWindow *window,
 			    char *dialogfile, t_game *game)
 {
   sfText        *text;
-  sfFont        *font;
   char		*dialog;
 
   if ((dialog = get_dialog(dialogfile, &(game->actions))) == NULL)
@@ -103,7 +102,7 @@ static int	show_sprite(sfRenderWindow *window, t_game *game)
 }
 
 int		show_events(sfRenderWindow *window, t_game *game,
-			    t_event **event, int i)
+			    t_event **event)
 {
   sfVector2i	pos;
 

@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu May 25 17:33:43 2017 Matthieu BRAULT
-** Last update Sun May 28 11:44:44 2017 Capitaine CASSE
+** Last update Sun May 28 11:56:25 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -80,7 +80,7 @@ int		config_map(sfRenderWindow *window, t_game *game, int nb_map)
 	}
       if (game->bg != NULL)
 	sfRenderWindow_drawSprite(window, game->bg, NULL);
-      show_grid(window, game, game->level->map->content);
+      show_grid(window, game, map);
       sfRenderWindow_display(window);
     }
   return (0);

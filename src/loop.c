@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sun May 28 11:43:14 2017 Capitaine CASSE
+** Last update Sun May 28 12:09:03 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -57,7 +57,7 @@ static int		draw_game(t_player *player, sfRenderWindow *window,
   if (game->idx == 2 || game->idx == 0)
     return (1);
   decor_manager(window, game);
-  show_events(window, game, game->level->event, 0);
+  show_events(window, game, game->level->event);
   if (game->m == 0)
     game->m = sound_manager(game);
   sfRenderWindow_display(window);

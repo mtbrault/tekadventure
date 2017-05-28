@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun May 28 12:09:11 2017 Matthieu BRAULT
+** Last update Sun May 28 12:06:17 2017 Matthieu BRAULT
 */
 
 #ifndef TEKADV_H
@@ -258,10 +258,10 @@ int			hud_placing(sfRenderWindow *, t_game *);
 int			quest_manager(t_game *);
 int			show_player(sfRenderWindow *, t_player *, t_game *);
 int			sound_manager(t_game *);
-int			show_events(sfRenderWindow *, t_game *, t_event **);
+int			show_events(sfRenderWindow *, t_game *, t_event **, int);
 int			decor_manager(sfRenderWindow *, t_game *);
 int			check_hud_click(sfRenderWindow *, int);
-int			set_quest_disp(sfRenderWindow *, t_event *);
+
 
 /*
 ** ***************************************************
