@@ -1,11 +1,11 @@
 /*
-** loop.c for Tekadventure in /home/antoine.casse/Desktop/tekadventure
+1;4402;0c** loop.c for Tekadventure in /home/antoine.casse/Desktop/tekadventure
 ** 
 ** Made by Capitaine CASSE
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sun May 28 19:36:21 2017 Matthieu BRAULT
+** Last update Sun May 28 19:53:14 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -38,8 +38,8 @@ static int	load_screen(sfRenderWindow *window, t_menu **menu, int s)
 	  s = s + 1;
 	}
     }
+  sfClock_destroy(clock);
   sfMusic_stop(menu[LOAD_ONE]->music);
-  music_change(0, menu);
   return (1);
 }
 
@@ -49,8 +49,12 @@ static int		draw_game(t_player *player, sfRenderWindow *window,
   sfRenderWindow_clear(window, sfWhite);
   sfClock_restart(clock);
   if (game->m == 0)
-    game->m = load_screen(window, game->menu, 0);
-  sfMusic_stop(game->menu[0]->music);
+    {
+      sfMusic_stop(game->music);
+      sfMusic_destroy(game->music);
+      game->m = load_screen(window, game->menu, 0);
+      sound_manager(game);
+    }
   if (game->bg != NULL)
     sfRenderWindow_drawSprite(window, game->bg, NULL);
   if (game->idx == 1)
@@ -80,6 +84,7 @@ static void		loop(t_player *player, sfRenderWindow *window,
 			      game->level->map->map_player[1]};
   player->dest = (sfVector2i) {-1, -1};
   clock = sfClock_create();
+  sound_manager(game);
   while (sfRenderWindow_isOpen(window))
     {
       while (sfRenderWindow_pollEvent(window, &event))
@@ -94,7 +99,6 @@ static void		loop(t_player *player, sfRenderWindow *window,
       if (game->idx == 2)
 	break ;
     }
-  sfMusic_stop(game->level->map->music);
   sfClock_destroy(clock);
 }
 

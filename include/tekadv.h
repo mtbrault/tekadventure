@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun May 28 19:35:11 2017 Matthieu BRAULT
+** Last update Sun May 28 19:41:23 2017 Capitaine CASSE
 */
 
 #ifndef TEKADV_H
@@ -220,6 +220,7 @@ typedef struct          s_game
   sfSprite		*bg;
   t_player		*player;
   char			end;
+  sfMusic		*music;
 }			t_game;
 
 typedef struct		s_tabmouse
