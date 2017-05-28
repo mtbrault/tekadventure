@@ -90,36 +90,6 @@ CONF-LEVEL-2:
 	tp-load: 0
 CONF-LEVEL-3:
     map-content:
-        11111111111111
-        11111111111111
-        11111111111111
-        11111111111111
-        11111111111111
-        11111111111111
-	11111111111111
-	11111111111111
-	11111111111111
-	11111111111111
-	11111111111111
-	11111111111111
-	11111111111111
-	11111111111111
-    map:
-      map-name: "LEVEL-3"
-      map-debug: 0
-      map-bg: "ressources/backgrounds/map_03.png"
-      map-player: 0,0
-      map-music: "tekadventure/ressources/music/dofas_debut.ogg"
-      map-tile: "ressources/misc/tile_map03.png"
-      map-decor: "ressources/misc/blank.png"
-    teleporter:
-    teleporter-nb: 1
-    tp-1:
-    coords: 3,3:
-    tp-name: "tp1-LEVEL-4"
-    tp-load: 0
-CONF-LEVEL-4:
-    map-content:
          11111111111111
          11111111111111
          11111111111111
@@ -135,12 +105,42 @@ CONF-LEVEL-4:
          11111111111111
          11111111111111
      map:
-       map-name: "LEVEL-4"
+       map-name: "LEVEL-3"
        map-debug: 0
-       map-bg: "ressources/backgrounds/map_04.png"
+       map-bg: "ressources/backgrounds/map_03.png"
        map-player: 0,0
        map-music: "tekadventure/ressources/music/dofas_debut.ogg"
        map-tile: "ressources/misc/tile_tp.png"
-       map-decor: "ressources/decor/decor_map04.png"
+       map-decor: "ressources/decor/decor_map03.png"
      teleporter:
-     teleporter-nb: 0
+       teleporter-nb: 1
+       tp-1:
+       coords:  0,5
+       tp-name: "tp1-LEVEL-4"
+       tp-load: 0
+CONF-LEVEL-4:
+      map-content:
+          11111111111111
+          11111111111111
+          11111111111111
+          11111111111111
+          11111111111111
+          11111111111111
+          11111111111111
+          11111111111111
+          11111111111111
+          11111111111111
+          11111111111111
+          11111111111111
+          11111111111111
+          11111111111111
+      map:
+        map-name: "LEVEL-4"
+        map-debug: 0
+        map-bg: "ressources/backgrounds/map_04.png"
+        map-player: 0,0
+        map-music: "tekadventure/ressources/music/dofas_debut.ogg"
+        map-tile: "ressources/misc/tile_tp.png"
+        map-decor: "ressources/misc/blank.png"
+      teleporter:
+      teleporter-nb: 0
