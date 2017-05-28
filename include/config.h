@@ -5,14 +5,14 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Sun May 28 20:38:51 2017 Capitaine CASSE
+** Last update Sun May 28 23:25:44 2017 LAABID Zakaria
 */
 
 #ifndef CONFIG_H_
-#define CONFIG_H_
+# define CONFIG_H_
 
-#include <SFML/Graphics.h>
-#include <SFML/Graphics/Sprite.h>
+# include <SFML/Graphics.h>
+# include <SFML/Graphics/Sprite.h>
 
 # define TXT_EXT	".txt"
 # define PIC_EXT	".png"
@@ -187,7 +187,7 @@ int		**map_content_fill(char **, int, char *, int);
 t_level		**config_map_fill(t_level **, char **, int);
 int		config_mob_fill(t_level **, char **, int);
 int		config_event_fill(t_level **, char **, int);
-int		config_telep_fill(t_level **, char **, int); 
+int		config_telep_fill(t_level **, char **, int);
 int		getconf_nbr(char **, char *);
 char		*getconf(char **, char *);
 char		*unquote(char *);

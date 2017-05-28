@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun May 28 18:32:30 2017 LAABID Zakaria
-** Last update Sun May 28 22:28:27 2017 LAABID Zakaria
+** Last update Sun May 28 23:27:06 2017 LAABID Zakaria
 */
 
 #include <fcntl.h>
@@ -46,9 +46,9 @@ static int	verif_event(char *path, char *type)
 static void	error_event(int nb, int y)
 {
   my_puterr(ERR_EVENT_NB, FAIL);
-  my_put_nbr(nb+1);
+  my_put_nbr(nb + 1);
   my_puterr(ERR_TELEP_MAP, FAIL);
-  my_put_nbr(y+1);
+  my_put_nbr(y + 1);
 }
 
 int	event_verif(t_event **event, int nb, int y)

@@ -1,13 +1,13 @@
 /*
-** tekadv.h for  in /home/BlackBIrdz/tekadventure
+** tekadv.h for  in /home/BlackBIrdz/tekadventure/include
 ** 
 ** Made by LAABID Zakaria
 ** Login   <BlackBIrdz@epitech.net>
 ** 
-** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun May 28 21:05:37 2017 Capitaine CASSE
-** Last update Sun May 28 20:09:11 2017 Matthieu BRAULT
+** Started on  Sun May 28 23:25:52 2017 LAABID Zakaria
+** Last update Sun May 28 23:26:04 2017 LAABID Zakaria
 */
+
 
 #ifndef TEKADV_H
 # define TEKADV_H
@@ -317,7 +317,6 @@ sfVector2i		raw_click(t_game *, sfRenderWindow *);
 t_game			*config_fill(char **);
 int			check_pos(t_player *, t_game *);
 int			print_bg(t_game *);
-//void			display_window(sfRenderWindow *, t_menu **, t_player *, t_game *);
 
 /*
 ** ***************************************************
