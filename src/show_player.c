@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Fri May 26 22:51:43 2017 Capitaine CASSE
-** Last update Sun May 28 17:53:51 2017 Capitaine CASSE
+** Last update Sun May 28 18:33:31 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -45,7 +45,6 @@ static int	new_next(t_game *game, t_player *player)
   player->pos = player->next;
   if (player->pos.x == player->dest.x && player->pos.y == player->dest.y)
     {
-      check_pos(player, game);
       player->dest.x = -1;
       player->dest.y = -1;
       return (1);

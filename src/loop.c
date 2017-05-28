@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sun May 28 17:54:15 2017 Capitaine CASSE
+** Last update Sun May 28 18:48:16 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -142,6 +142,7 @@ int			start_menu(t_game *game, t_player *player)
   game->stop[0] = 0;
   game->stop[1] = 0;
   game->actions = 0;
+  game->end = 0;
   game->idx = 1;
   game->m = 0;
   game->s = 0;

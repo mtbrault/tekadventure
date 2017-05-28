@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun May 28 16:50:08 2017 Capitaine CASSE
+** Last update Sun May 28 18:49:07 2017 Capitaine CASSE
 */
 
 #ifndef TEKADV_H
@@ -71,7 +71,7 @@
 
 # define ERR_ARGS	"Invalid use.\nTry ./tekadventure -h.\n"
 # define INV_SPECS	"Error : Invalid specifications.\n"
-# define INV_MAP		"Error : Invalid map.\n"
+# define INV_MAP	"Error : Invalid map.\n"
 
 # define HELP		"USAGE:\t./tekadventure [file]\n\tfile : map config file.\n"
 
@@ -130,6 +130,8 @@
 # define IOP_BOARD	"./ressources/spriteboard/iop.png"
 # define CLASSE_BOARD	"./ressources/spriteboard/classe.png"
 # define HEAD_BOARD	"./ressources/spriteboard/head.png"
+
+# define STR_END	"[END]"
 
 /*
 ** ***************************************************
@@ -217,6 +219,7 @@ typedef struct          s_game
   sfFont		*font;
   sfSprite		*bg;
   t_player		*player;
+  char			end;
 }			t_game;
 
 typedef struct		s_tabmouse

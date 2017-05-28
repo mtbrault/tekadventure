@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat May 27 12:39:42 2017 Capitaine CASSE
-** Last update Sun May 28 17:48:42 2017 Capitaine CASSE
+** Last update Sun May 28 19:01:24 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -41,6 +41,12 @@ static int	show_dialog(sfRenderWindow *window, t_event *event,
   if ((dialog = get_dialog(dialogfile, event->actions)) == NULL)
     {
       event->actions = 0;
+      event->active = 1;
+      return (0);
+    }
+  if (!my_strcmp(dialog, STR_END) && (game->end = 1))
+    {
+      free(dialog);
       return (0);
     }
   if ((text = sfText_create()) == NULL)
@@ -106,7 +112,6 @@ static int	show_quest(t_event *event, t_game *game, sfRenderWindow *window)
      event->stop[1] = 0;
    if (event->actions)
      {
-       event->active = 1;
        set_quest_disp(window, event);
        show_dialog(window, event, event->dialog, game);
      }
