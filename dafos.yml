@@ -25,6 +25,7 @@ CONF-LEVEL-1:
         map-bg: "ressources/backgrounds/mapstart2.png"
         map-music: "ressources/music/dofas_debut.ogg"
 	map-decor: "ressources/decor/decor_map01.png"
+	map-tile: "ressources/elements/til.png"
 	map-player: 8,15
     teleporter:
      teleporter-nb: 1
@@ -63,6 +64,7 @@ CONF-LEVEL-2:
         map-music: "ressources/music/dofas_spawn.ogg"
 	map-player: 7,12
 	map-decor: "ressources/decor/decor_map01.png"
+	map-tile: "ressources/elements/til.png"
     teleporter:
      teleporter-nb: 1
     	tp-1:
@@ -78,19 +80,3 @@ CONF-LEVEL-2:
        pnj: 1
        dialog: "ressources/dialog/eythan.txt"
        quest-pic: "ressources/quest/quest_pic/quest_eythan_debut.png"
-CONF-LEVEL-3:
-    map-content:
-    111111111
-    111111111
-    111111111
-    111111111
-    111111111
-    111111111
-    map:
-	map-name: "LEVEL3"
-      map-debug: 0
-      map-bg: "ressources/backgrounds/map.png"
-      map-player: 0,0
-      map-decor: "ressources/backgrounds/corridor.png"
-    map-music: "ressources/music/dofas_spawn.ogg"
-   teleporter:
