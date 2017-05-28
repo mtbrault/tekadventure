@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun May 28 18:32:30 2017 LAABID Zakaria
-** Last update Sun May 28 19:06:05 2017 LAABID Zakaria
+** Last update Sun May 28 20:19:26 2017 Capitaine CASSE
 */
 
 #include <fcntl.h>
@@ -53,6 +53,8 @@ static void	error_event(int nb, int y)
 
 int	event_verif(t_event **event, int nb, int y)
 {
+  if (event == NULL && event[0] == NULL)
+    return (0);
   if ((event[nb]->name) == NULL)
     {
       error_event(nb, y);

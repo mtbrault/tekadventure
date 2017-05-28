@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun May 28 14:53:41 2017 LAABID Zakaria
-** Last update Sun May 28 19:02:58 2017 LAABID Zakaria
+** Last update Sun May 28 20:35:32 2017 Capitaine CASSE
 */
 
 #include <fcntl.h>
@@ -28,9 +28,12 @@ int	conf_isempty(t_level **level, char **conf)
 	{
 	  if ((teleporter_verif(level[y]->tp, x, y)) == FAIL)
 	    return (FAIL);
-	  if ((event_verif(level[y]->event, x, y)) == FAIL ||
-	      (event_verif_second(level[y]->event, x, y)) == FAIL)
-	    return (FAIL);
+	  if (level[y]->event != NULL)
+	    {
+	      if ((event_verif(level[y]->event, x, y)) == FAIL ||
+		  (event_verif_second(level[y]->event, x, y)) == FAIL)
+		return (FAIL);
+	    }
 	  x++;
 	}
       y++;

@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sun May 28 19:53:14 2017 Capitaine CASSE
+** Last update Sun May 28 20:01:13 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -50,8 +50,7 @@ static int		draw_game(t_player *player, sfRenderWindow *window,
   sfClock_restart(clock);
   if (game->m == 0)
     {
-      sfMusic_stop(game->music);
-      sfMusic_destroy(game->music);
+      clean_music(game->music);
       game->m = load_screen(window, game->menu, 0);
       sound_manager(game);
     }

@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Thu May 25 15:43:49 2017 Capitaine CASSE
-** Last update Sun May 28 19:41:11 2017 Capitaine CASSE
+** Last update Sun May 28 20:01:51 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -54,7 +54,7 @@ static int	check_tp(sfVector2i pos, t_tp **tp,
 		(tp[i])->room->map->map_player[1]};
 	      print_bg(game);
 	      quest_manager(game);
-	      sfMusic_destroy(game->music);
+	      clean_music(game->music);
 	      sound_manager(game);
 	    }
 	  return (0);

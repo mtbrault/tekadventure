@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun May 28 16:52:44 2017 Capitaine CASSE
-** Last update Sun May 28 19:39:43 2017 Capitaine CASSE
+** Last update Sun May 28 20:25:55 2017 Capitaine CASSE
 */
 
 #include "tekadv.h"
@@ -45,6 +45,7 @@ int		show_tp(t_game *game, t_player *player, sfRenderWindow *window)
   t_event	**event;
 
   event = game->level->event;
+  i = 0;
   if (event != NULL)
     {
       while (event[i] != NULL)
@@ -54,7 +55,8 @@ int		show_tp(t_game *game, t_player *player, sfRenderWindow *window)
 	  i += 1;
 	}
     }
-  draw_tp(game, game->level->tp, window, 0);
+  if (game->level->tp != NULL)
+    draw_tp(game, game->level->tp, window, 0);
   check_pos(player, game);
   return (0);
 }

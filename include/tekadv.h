@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sat Apr 22 00:10:23 2017 LAABID Zakaria
-** Last update Sun May 28 19:41:23 2017 Capitaine CASSE
+** Last update Sun May 28 20:04:55 2017 Capitaine CASSE
 */
 
 #ifndef TEKADV_H
@@ -267,6 +267,7 @@ int			show_events(sfRenderWindow *, t_game *, t_event **);
 int			decor_manager(sfRenderWindow *, t_game *);
 int			check_hud_click(sfRenderWindow *, int, t_game *);
 int			set_quest_disp(sfRenderWindow *, t_event *);
+int			clean_music(sfMusic *);
 
 /*
 ** ***************************************************
