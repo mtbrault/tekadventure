@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Sun May 28 17:07:08 2017 Matthieu BRAULT
+** Last update Sun May 28 17:16:23 2017 Matthieu BRAULT
 */
 
 #ifndef CONFIG_H_
@@ -198,6 +198,7 @@ char		**del_commentary(char **);
 int		verif_conf_open(char *, char *);
 int		map_verif_second(t_map *);
 int		map_verif(t_map *);
+int		teleporter_verif(t_tp **, int, int);
 
 /*
 ** ***************************************************
@@ -205,6 +206,7 @@ int		map_verif(t_map *);
 ** ***************************************************
 */
 char		**wordtab(char *, char);
+void		free_cat(char *, char *);
 char		*my_strdup(char *str);
 int		my_strlen(char *str);
 int		my_printf(char *str,...);

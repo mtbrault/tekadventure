@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun May 28 15:27:52 2017 LAABID Zakaria
-** Last update Sun May 28 15:31:23 2017 LAABID Zakaria
+** Last update Sun May 28 17:17:13 2017 Matthieu BRAULT
 */
 
 #include <fcntl.h>
@@ -53,7 +53,8 @@ int	map_verif_second(t_map *map)
   if (map->name == NULL)
     return (my_puterr(ERR_MAP_NAME, FAIL));
   if (map->debug != 0 && map->debug != 1)
-    return (my_puterr(ERR_MAP_DEBUG, FAIL));  
+    return (my_puterr(ERR_MAP_DEBUG, FAIL));
+  return (0);
 }
 
 int	map_verif(t_map *map)
