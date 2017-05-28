@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Mon Apr 17 12:00:11 2017 Capitaine CASSE
-** Last update Thu May 25 19:36:57 2017 Matthieu BRAULT
+** Last update Sun May 28 11:30:14 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -29,13 +29,11 @@ static int	*fill_line(int c, int max)
   return (line);
 }
 
-static int	**build_path(int **map, const sfVector2i size)
+static int	**build_path(int **map, const sfVector2i size, int i)
 {
   int		**path;
-  int		i;
   int		j;
 
-  i = 1;
   if ((path = malloc(sizeof(int *) * (size.y + 2))) == NULL)
     return (NULL);
   path[0] = fill_line(-1, size.x + 2);
@@ -77,7 +75,7 @@ sfVector2i 	my_bfs(sfVector2i origin, sfVector2i dest,
     return ((sfVector2i) {-1, -1});
   else if (!map[dest.y][dest.x])
     return ((sfVector2i) {-1, -1});
-  if ((path = build_path(map, size)) == NULL)
+  if ((path = build_path(map, size, 1)) == NULL)
     return ((sfVector2i) {-1, -1});
   origin = (sfVector2i) {origin.x + 1, origin.y + 1};
   dest = (sfVector2i) {dest.x + 1, dest.y + 1};

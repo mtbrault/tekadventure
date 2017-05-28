@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Fri May 26 22:51:43 2017 Capitaine CASSE
-** Last update Sun May 28 10:43:28 2017 Capitaine CASSE
+** Last update Sun May 28 11:28:48 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -32,7 +32,6 @@ static int	player_static(sfRenderWindow *window,
 {
   sfSprite	*sprite;
 
-  //printf("Hello\n");
   sprite = get_static_char(player->classe_texture, ((sfVector2i) {player->dir,
 	  player->class}), game, ((sfVector2i) {8, 4}));
   sfSprite_setPosition(sprite, convert_pos(player->pos, game->tile));

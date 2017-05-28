@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat May 27 12:39:42 2017 Capitaine CASSE
-** Last update Sun May 28 11:22:16 2017 Matthieu BRAULT
+** Last update Sun May 28 11:35:57 2017 Matthieu BRAULT
 */
 
 #include <stdlib.h>
@@ -85,7 +85,7 @@ static int	set_character(t_game *game, t_event *event,
   sfTexture_destroy(tex);
   sfSprite_destroy(sprite);
   return (0);
- }
+}
 
 static int	show_sprite(sfRenderWindow *window, t_game *game)
 {
@@ -102,14 +102,10 @@ static int	show_sprite(sfRenderWindow *window, t_game *game)
   return (0);
 }
 
-int		show_events(sfRenderWindow *window, t_game *game)
+int		show_events(sfRenderWindow *window, t_game *game, t_event **event, int i)
 {
-  int		i;
-  t_event	**event;
   sfVector2i	pos;
 
-  i = 0;
-  event = game->level->event;
   show_sprite(window, game);
   if (!(game->stop[0]) && sfMouse_isButtonPressed(sfMouseRight))
     {

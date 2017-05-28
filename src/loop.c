@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sun May 28 10:35:41 2017 Capitaine CASSE
+** Last update Sun May 28 11:24:37 2017 Matthieu BRAULT
 */
 
 #include <unistd.h>
@@ -48,7 +48,6 @@ static void		loop2(t_player *player, sfRenderWindow *window,
   int			idx;
 
   quest_manager(game);
-  printf("%d %d\n", game->level->map->map_player[0], game->level->map->map_player[1]);
   player->pos = (sfVector2i) {game->level->map->map_player[0],
 			      game->level->map->map_player[1]};
   player->dest = (sfVector2i) {-1, -1};
