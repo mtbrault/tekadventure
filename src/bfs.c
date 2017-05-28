@@ -1,11 +1,11 @@
 /*
-1;4402;0c1;4402;0c** bfs.c for tekadventure in /home/antoine.casse/Desktop/tmp/astar
+** bfs.c for tekadventure in /home/antoine.casse/Desktop/tmp/astar
 ** 
 ** Made by Capitaine CASSE
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sat May  6 21:18:46 2017 Capitaine CASSE
-** Last update Sat May 27 18:27:19 2017 Matthieu BRAULT
+** Last update Sun May 28 11:20:59 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>

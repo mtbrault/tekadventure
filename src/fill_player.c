@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Fri Apr 21 23:32:41 2017 Matthieu BRAULT
-** Last update Thu May  4 19:07:54 2017 LAABID Zakaria
+** Last update Sun May 28 11:22:38 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics/Rect.h>
@@ -36,7 +36,8 @@ int	get_feca(t_player *player)
   player->stat->class = 2;
   player->stat->strengh = 150;
   player->stat->luck = 0.1;
-  if ((player->spriteboard = sfTexture_createFromFile(FECA_BOARD, NULL)) == NULL)
+  if ((player->spriteboard =
+       sfTexture_createFromFile(FECA_BOARD, NULL)) == NULL)
     return (1);
   return (0);
 }

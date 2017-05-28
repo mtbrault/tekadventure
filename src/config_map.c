@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu May 25 17:33:43 2017 Matthieu BRAULT
-** Last update Sun May 28 11:14:50 2017 Matthieu BRAULT
+** Last update Sun May 28 11:17:45 2017 Matthieu BRAULT
 */
 
 #include "tekadv.h"
@@ -43,8 +43,8 @@ static int		check_button(int s, int nb_map, t_game *game)
     s = nb_map - 1;
   else if (s >= nb_map)
     s = 0;
-  game->level = (tp[s])->room;
-  return (0);
+  game->level = (game->level->tp[0])->room;
+  return (s);
 }
 
 int		config_map(sfRenderWindow *window, t_game *game, int nb_map)
@@ -63,7 +63,7 @@ int		config_map(sfRenderWindow *window, t_game *game, int nb_map)
       sfRenderWindow_clear(window, sfWhite);
       if (x == 0)
 	{
-	  check_button(s, nb_map);
+	  s = check_button(s, nb_map, game);
 	  x = 1;
 	}
       if (sfMouse_isButtonPressed(sfMouseLeft) && i == 0)
