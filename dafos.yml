@@ -187,8 +187,6 @@ CONF-LEVEL-5:
        coords: 6,3
        tp-name: "tp1-LEVEL-6"
        tp-load: 0
-        event:
-         event-nb: 0
 CONF-LEVEL-6:
        map-content:
        11111111111111
@@ -219,3 +217,5 @@ CONF-LEVEL-6:
         coords: 6,3
         tp-name: "tp1-LEVEL-6"
         tp-load: 0
+        event:
+         event-nb: 0
