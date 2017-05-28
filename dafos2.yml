@@ -26,7 +26,8 @@ CONF-LEVEL-1:
 	map-music: "ressources/music/dofas_debut.ogg"
 	map-player: 8,15
 	map-decor: "ressources/decor/decor_map01.png"
-	map-music: "tekadventure/ressources/music/dofas_debut.ogg"
+	map-music: "ressources/music/dofas_debut.ogg"
+	map-tile: "ressources/misc/tile_tp.png"
 	teleporter:
 	   teleporter-nb: 1
 	   tp-1:
@@ -41,20 +42,20 @@ CONF-LEVEL-1:
 	   	pnj: 1
 	   	dialog: "ressources/dialog/avalon.txt"
 	   	quest-pic: "ressources/quest/quest_pic/quest_debut.png"
-	    items-2:
-		name: "Guard1"
-		texture: "ressources/quest/character/oto_mustam_charac.png"
-		coords: 4,10
-		pnj: 0
-		dialog: "ressources/dialog/oto_mustam.txt"
-		quest-pic "ressources/quest/quest_pic/oto_mustam.png"
-	    items-3:
-		name: "Guard2"
-                texture: "ressources/quest/character/oto_mustam_charac.png"
-                coords: 4,8
-                pnj: 0
-                dialog: "ressources/dialog/oto_mustam.txt"
-                quest-pic "ressources/quest/quest_pic/oto_mustam.png"
+	items-2:
+                 name: "Guard 1"
+                 texture: "ressources/quest/character/oto_mustam.png"
+                 coords: 4,10
+                 pnj: 0
+                 dialog: "ressources/dialog/oso_mustam.txt"
+                 quest-pic: "ressources/quest/quest_pic/oto_mustam.png"
+	items-3:
+                 name: "Guard 2"
+                 texture: "ressources/quest/character/oto_mustam.png"
+                 coords: 4,8
+                 pnj: 0
+                 dialog: "ressources/dialog/oto_mustam.txt"
+                 quest-pic: "ressources/quest/quest_pic/oto_mustam.png"
 CONF-LEVEL-2:
       map-content:
         00000111111111
@@ -79,6 +80,7 @@ CONF-LEVEL-2:
         map-player: 7,12
 	map-decor: "ressources/decor/decor_map01.png"
 	map-music: "tekadventure/ressources/music/dofas_debut.ogg"
+	map-tile: "ressources/misc/tile2.png"
       teleporter:
         teleporter-nb: 1
         tp-1:
@@ -108,5 +110,6 @@ CONF-LEVEL-3:
       map-player: 0,0
       map-decor: "ressources/decor/decor_map01.png"
       map-music: "tekadventure/ressources/music/dofas_debut.ogg"
+      map-tile: "ressources/misc/tile2.png"
     teleporter:
     teleporter-nb: 0

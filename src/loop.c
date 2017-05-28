@@ -5,7 +5,7 @@
 ** Login   <antoine.casse@epitech.net>
 ** 
 ** Started on  Sun Apr 16 14:20:28 2017 Capitaine CASSE
-** Last update Sun May 28 13:30:34 2017 Capitaine CASSE
+** Last update Sun May 28 17:54:15 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -55,6 +55,7 @@ static int		draw_game(t_player *player, sfRenderWindow *window,
     sfRenderWindow_drawSprite(window, game->bg, NULL);
   if (game->idx == 1)
     show_grid(window, game, game->level->map->content);
+  show_tp(game, player, window);
   show_player(window, player, game);
   hud_placing(window, game);
   game->idx = check_hud_click(window, game->idx, game);
