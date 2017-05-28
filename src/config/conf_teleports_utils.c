@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon May  8 00:40:07 2017 LAABID Zakaria
-** Last update Sun May 28 17:20:43 2017 Matthieu BRAULT
+** Last update Sun May 28 17:21:42 2017 Matthieu BRAULT
 */
 
 #include <stdlib.h>
@@ -102,9 +102,9 @@ static void	config_telep_two(t_level **level, char **conf, int x, int y)
 		       (my_strncmp(CONF_LEVEL, conf[i], L_CONF) == 0)
 		       || conf[i] == NULL )
 		break;
+	      i++;
 	    }
 	  free_cat(start, end);
-	  i++;
 	}
       x++;
     }
