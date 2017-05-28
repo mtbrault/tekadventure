@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Sun May 28 17:55:12 2017 LAABID Zakaria
+** Last update Sun May 28 19:03:34 2017 LAABID Zakaria
 */
 
 #ifndef CONFIG_H_
@@ -14,6 +14,7 @@
 #include <SFML/Graphics.h>
 #include <SFML/Graphics/Sprite.h>
 
+# define TXT_EXT	".txt"
 # define PIC_EXT	".png"
 # define MUSIC_EXT	".ogg"
 # define FILECONF	".yml"
@@ -101,6 +102,12 @@
 # define ERR_TELEP_NEG	"\nError: coords to a teleporter can't be negative\n"
 # define ERR_TELEP_NAME	"\nError: bad name for this teleporter\n"
 # define ERR_TELEP_MAP	"\nMAP NUMBER : "
+
+# define ERR_EVENT_NB	"Error: At the event number :"
+# define ERR_EVENT_NAME	"\nError: name not defined for this event\n"
+# define ERR_EVENT_DIAL	"\nError: dialog not defined for this event\n"
+# define ERR_EVENT_QPIC	"\nError: quest picture not defined for this event\n"
+# define ERR_EVENT_TEX	"\nError: texture not defined for this event\n"
 
 typedef struct	s_line
 {
@@ -207,6 +214,8 @@ t_level		**config_map_fill_four(t_level **, char **, int);
 void		config_event_three(t_level **, char **, int, int);
 void	        config_event_four(t_level **, char **, int, int);
 int		config_event_goto(char *, char **, int);
+int		event_verif(t_event **, int, int);
+int		event_verif_second(t_event **, int, int);
 
 /*
 ** ***************************************************

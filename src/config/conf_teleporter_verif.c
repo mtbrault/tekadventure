@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Sun May 28 15:44:55 2017 LAABID Zakaria
-** Last update Sun May 28 18:03:40 2017 LAABID Zakaria
+** Last update Sun May 28 18:41:14 2017 LAABID Zakaria
 */
 
 #include "config.h"
@@ -14,9 +14,9 @@
 static void	error_teleport(int nb, int y)
 {
   my_puterr(ERR_TELEP_NB, FAIL);
-  my_put_nbr(nb);
+  my_put_nbr(nb+1);
   my_puterr(ERR_TELEP_MAP, FAIL);
-  my_put_nbr(y);
+  my_put_nbr(y+1);
 }
 
 static int	verif_character(char *str, int nb, int y)
@@ -45,7 +45,7 @@ static int	is_number_in(int x, int nb)
   if (nb < 0)
     {
       my_puterr(ERR_TELEP_NB, FAIL);
-      my_put_nbr(x);
+      my_put_nbr(x+1);
       return (my_puterr(ERR_TELEP_NEG, FAIL));
     }
   return (0);

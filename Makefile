@@ -5,7 +5,7 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Sun May 28 18:17:45 2017 Capitaine CASSE
+## Last update Sun May 28 18:47:39 2017 LAABID Zakaria
 
 CC	=	gcc -g3
 
@@ -57,7 +57,8 @@ SRC	=	src/main.c				\
 		src/config/conf_teleporter_verif.c	\
 		src/config/conf_free.c			\
 		src/config/conf_map_second.c		\
-		src/config/conf_events.c
+		src/config/conf_events.c		\
+		src/config/conf_event_verif.c
 
 OBJ	=	$(SRC:.c=.o)
 
