@@ -249,14 +249,14 @@ CONF-LEVEL-6:
            map-name: "LEVEL-7"
            map-debug: 0
            map-bg: "ressources/backgrounds/map_07.png"
-           map-player: 0,0
+           map-player: 6,1
            map-music: "tekadventure/ressources/music/dofas_debut.ogg"
            map-tile: "ressources/misc/tile_tp.png"
            map-decor: "ressources/decor/decor_map07.png"
          teleporter:
          teleporter-nb: 1
          tp-1:
-         coords: 6,3
+         coords: 12,13
          tp-name: "tp1-LEVEL-8"
          tp-load: 0
 	 event:
@@ -264,9 +264,9 @@ CONF-LEVEL-6:
            items-1:
            name: "Kerbel"
            texture: "ressources/quest/character/kerbel.png"
-           coords: 6,5
+           coords: 8,5
            pnj: 1
-           dialog: "ressources/dialog/al_colique.txt"
+           dialog: "ressources/dialog/kerbel.txt"
            quest-pic: "ressources/quest/quest_pic/youssef_character.png"
 CONF-LEVEL-8:
         map-content:
@@ -288,16 +288,10 @@ CONF-LEVEL-8:
            map-name: "LEVEL-8"
            map-debug: 0
            map-bg: "ressources/backgrounds/map_08.png"
-           map-player: 0,0
+           map-player: 13,7
            map-music: "tekadventure/ressources/music/dofas_debut.ogg"
            map-tile: "ressources/misc/tile_tp.png"
            map-decor: "ressources/decor/decor_map08.png"
-         teleporter:
-         teleporter-nb: 1
-         tp-1:
-         coords: 6,3
-         tp-name: "tp1-LEVEL-6"
-         tp-load: 0
 	  event:
           event-nb: 1
             items-1:
