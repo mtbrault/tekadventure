@@ -1,11 +1,11 @@
 /*
-1;4402;0c** conf_map.c for  in /home/BlackBIrdz/config
+** conf_map.c for  in /home/BlackBIrdz/config
 ** 
 ** Made by LAABID Zakaria
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Thu May  4 00:39:48 2017 LAABID Zakaria
-** Last update Sat May 27 20:26:35 2017 LAABID Zakaria
+** Last update Sun May 28 12:40:47 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>

@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Fri May  5 14:44:37 2017 LAABID Zakaria
-** Last update Fri May 26 17:02:11 2017 Capitaine CASSE
+** Last update Sun May 28 12:46:06 2017 Capitaine CASSE
 */
 
 #include <unistd.h>
@@ -33,25 +33,16 @@ int		conf_counter(char **conf, char *str)
   return (count);
 }
 
-char		**conf_init(char **argv)
+char		**conf_init(char **argv, int j, int i)
 {
   char		**conf;
   int		fd;
   char		*tmp;
-  int		i;
-  int		j;
 
-  i = 0;
   if (check_file(argv[1]) == -1)
-    {
-      my_puterr(ERRCONF_NAME, 0);
-      return (NULL);
-    }
+    return (my_puterrnull(ERRCONF_NAME));
   if ((fd = open(argv[1], O_RDONLY)) == -1)
-    {
-      my_puterr(ERRCONF_OPEN, 0);
-      return (NULL);
-    }
+    return (my_puterrnull(ERRCONF_OPEN));
   while ((tmp = get_next_line(fd)) != NULL)
     {
       free(tmp);
@@ -59,23 +50,16 @@ char		**conf_init(char **argv)
     }
   close(fd);
   if ((fd = open(argv[1], O_RDONLY)) == -1)
-    {
-      my_puterr(ERRCONF_OPEN, 0);
-      return (NULL);
-    }
+    return (my_puterrnull(ERRCONF_OPEN));
   if ((conf = malloc(sizeof(char *) * (i + 1))) == NULL)
     return (NULL);
   conf[i] = NULL;
-  j = 0;
   while (j < i)
     {
       tmp = get_next_line(fd);
-      conf[j] = epur_str(tmp);
+      conf[j++] = epur_str(tmp);
       free(tmp);
-      j++;
     }
-  /* if ((conf = del_commentary(conf)) == NULL) */
-  /*   return (NULL); */
   return (conf);
 }
 
@@ -94,17 +78,11 @@ t_level		**config_data(char **conf)
   while (x < max)
     {
       if ((is_here(conf, "mobs:", x + 1)) == 0)
-	{
-	  gen_mob_space(level, conf, x);
-	}
+	gen_mob_space(level, conf, x);
       if ((is_here(conf, "event:", x + 1)) == 0)
-	{
-	  gen_event_space(level, conf, x);
-	}
+	gen_event_space(level, conf, x);
       if ((is_here(conf, "teleporter:", x + 1)) == 0)
-	{
-	  gen_telep_space(level, conf, x);
-	}
+	gen_telep_space(level, conf, x);
       x++;
     }
   gen_config_space(level, conf);

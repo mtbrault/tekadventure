@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 16:53:19 2017 LAABID Zakaria
-** Last update Sun May 28 10:15:34 2017 Capitaine CASSE
+** Last update Sun May 28 12:44:58 2017 Capitaine CASSE
 */
 
 #ifndef CONFIG_H_
@@ -137,11 +137,6 @@ typedef struct	s_level
 **                  - CONFIF FILE -
 ** ***************************************************
 */
-int		config_event_one(t_level **, char **, int, int);
-int		config_event_two(t_level **, char **, int, int);
-int		config_telep_one(t_level **, char **, int, int);
-int		config_telep_two(t_level **, char **, int, int);
-int		config_telep_three(t_level **, char **, int, int);
 int		config_goto(char *, char **, int);
 int		config_mob_one(t_level **, char **, int, int);
 int		config_mob_two(t_level **, char **, int, int);
@@ -157,7 +152,7 @@ int		config_telep_fill(t_level **, char **, int);
 int		getconf_nbr(char **, char *);
 char		*getconf(char **, char *);
 char		*unquote(char *);
-char		**conf_init(char **);
+char		**conf_init(char **, int, int);
 void		conf_disp(char **);
 t_level		**config_data(char **);
 t_level		**gen_config_space(t_level **, char **);
@@ -171,7 +166,6 @@ char		*my_str_nbr(int);
 int		is_here(char **, char *, const int);
 int		getconf_index(char **, char *, int);
 char		**del_commentary(char **);
-int		config_event_three(t_level **, char **, int, int);
 
 /*
 ** ***************************************************
@@ -198,5 +192,6 @@ int		my_puterr(char *, int);
 char		*get_next_line(const int);
 char		*my_strcat(char *, char *);
 t_level		*build_graph(t_level **);
+void		*my_puterrnull(const char *);
 
 #endif /* CONFIG_H_ */

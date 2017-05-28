@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Mon May  8 00:39:58 2017 LAABID Zakaria
-** Last update Sat May 27 04:19:35 2017 LAABID Zakaria
+** Last update Sun May 28 12:13:33 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -21,7 +21,7 @@ int	config_event_goto(char *start, char **conf, int y)
   i = 0;
   y++;
   start2 = my_strcat(CONF_LEVEL, my_str_nbr(y));
-  end = my_strcat(CONF_LEVEL, my_str_nbr(y+1));
+  end = my_strcat(CONF_LEVEL, my_str_nbr(y + 1));
   while (conf[i] != NULL)
     {
       if (my_strncmp(start2, conf[i], my_strlen(start2)) == 0)
@@ -39,7 +39,7 @@ int	config_event_goto(char *start, char **conf, int y)
   return (i);
 }
 
-int	config_event_one(t_level **level, char **conf, int x, int y)
+static void	config_event_one(t_level **level, char **conf, int x, int y)
 {
   char	*start;
   char	*end;
@@ -65,14 +65,13 @@ int	config_event_one(t_level **level, char **conf, int x, int y)
 	}
       x++;
     }
-  return (0);
 }
 
-int	config_event_two(t_level **level, char **conf, int x, int y)
+static void	config_event_two(t_level **level, char **conf, int x, int y)
 {
-  char	*start;
-  char	*end;
-  int	i;
+  char		*start;
+  char		*end;
+  int		i;
 
   while (x <= getconf_index(conf, EVENT_NB, y))
     {
@@ -95,10 +94,9 @@ int	config_event_two(t_level **level, char **conf, int x, int y)
 	}
       x++;
     }
-  return (0);
 }
 
-int	config_event_three(t_level **level, char **conf, int x, int y)
+static void	config_event_three(t_level **level, char **conf, int x, int y)
 {
   char	*start;
   char	*end;
@@ -107,24 +105,33 @@ int	config_event_three(t_level **level, char **conf, int x, int y)
   while (x <= getconf_index(conf, EVENT_NB, y))
     {
       start = my_strcat(EVENT_TYPE, my_str_nbr(x));
-      end = my_strcat(EVENT_TYPE, my_str_nbr(x + 1));
+      end = my_strcat(EVENT_TYPE, my_str_nbr(1 + x++));
       i = config_event_goto(start, conf, y);
       while (conf[i] != NULL)
 	{
 	  if (my_strncmp(EVENT_PNJ, conf[i], L_PNJ) == 0)
-	    level[y]->event[x - 1]->pnj = my_atoi((conf[i] + L_PNJ + 1));
+	    level[y]->event[x - 2]->pnj = my_atoi((conf[i] + L_PNJ + 1));
 	  if (my_strncmp(EVENT_DIALOG, conf[i], L_DIALOG) == 0)
-	    level[y]->event[x - 1]->dialog = unquote((conf[i] + L_DIALOG + 2));
+	    level[y]->event[x - 2]->dialog = unquote((conf[i] + L_DIALOG + 2));
 	  if (my_strncmp(EVENT_QUEST, conf[i], L_QUEST) == 0)
-	    level[y]->event[x - 1]->quest_pic = unquote((conf[i] + L_QUEST + 2));
+	    level[y]->event[x - 2]->quest_pic = unquote((conf[i] + L_QUEST + 2));
 	  if ((my_strncmp(end, conf[i], my_strlen(end))) == 0)
-	    break;
+	    break ;
 	  else if ((my_strncmp(CONF_LEVEL, conf[i], L_CONF)) == 0 ||
 		   conf[i] == NULL)
 	    break;
 	  i++;
 	}
-      x++;
     }
+}
+
+int     config_event_fill(t_level **level, char **conf, int y)
+{
+  int   x;
+
+  x = 1;
+  config_event_one(level, conf, x, y);
+  config_event_two(level, conf, x, y);
+  config_event_three(level, conf, x, y);
   return (0);
 }

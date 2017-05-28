@@ -5,7 +5,7 @@
 ## Login   <antoine.casse@epitech.net>
 ## 
 ## Started on  Sun Jan  1 19:43:23 2017 Antoine Casse
-## Last update Sat May 27 20:13:09 2017 LAABID Zakaria
+## Last update Sun May 28 12:34:02 2017 Capitaine CASSE
 
 CC	=	gcc -g3
 
@@ -41,9 +41,7 @@ SRC	=	src/main.c				\
 		src/config/conf_map.c			\
 		src/config/conf_mobs.c			\
 		src/config/conf_mobs_utils.c		\
-		src/config/conf_teleports.c		\
 		src/config/conf_teleports_utils.c	\
-		src/config/conf_events.c		\
 		src/config/conf_events_utils.c		\
 		src/config/getconf.c			\
 		src/config/check_file.c			\

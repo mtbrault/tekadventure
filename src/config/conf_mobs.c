@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Thu May  4 00:42:07 2017 LAABID Zakaria
-** Last update Thu May 25 18:07:33 2017 LAABID Zakaria
+** Last update Sun May 28 12:40:22 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -21,7 +21,7 @@ int	config_goto(char *start, char **conf, int y)
   i = 0;
   y++;
   start2 = my_strcat(CONF_LEVEL, my_str_nbr(y));
-  end = my_strcat(CONF_LEVEL, my_str_nbr(y+1));
+  end = my_strcat(CONF_LEVEL, my_str_nbr(y + 1));
   while (conf[i] != NULL)
     {
       if (my_strncmp(start2, conf[i], my_strlen(start2)) == 0)

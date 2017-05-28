@@ -5,7 +5,7 @@
 ** Login   <BlackBIrdz@epitech.net>
 ** 
 ** Started on  Wed May  3 22:16:37 2017 LAABID Zakaria
-** Last update Thu May 25 19:54:23 2017 LAABID Zakaria
+** Last update Sun May 28 12:27:03 2017 Capitaine CASSE
 */
 
 #include <stdlib.h>
@@ -90,7 +90,7 @@ int	getconf_index(char **conf, char *str, int i)
 
   i++;
   start = my_strcat(CONF_LEVEL, my_str_nbr(i));
-  end = my_strcat(CONF_LEVEL, my_str_nbr(i+1));
+  end = my_strcat(CONF_LEVEL, my_str_nbr(i + 1));
   if (conf_counter(conf, CONF_LEVEL) == 1)
     return (my_atoi(epur_str(getconf(conf, str))));
   else
